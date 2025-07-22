@@ -32,7 +32,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -50,9 +50,9 @@ FACEBOOK: https://www.facebook.com/themefisher
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
 
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
+<!-- <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+    <a class="navbar-brand" href="index.html"><img src="images/cashly-logo-nav.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="ti-menu"></span>
@@ -63,7 +63,7 @@ FACEBOOK: https://www.facebook.com/themefisher
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
             <span><i class="ti-angle-down"></i></span>
           </a>
-          <!-- Dropdown list -->
+       
           <ul class="dropdown-menu">
             <li><a class="dropdown-item @@home1" href="index.html">Homepage</a></li>
             <li><a class="dropdown-item" href="homepage-2.html">Homepage 2</a></li>
@@ -84,7 +84,7 @@ FACEBOOK: https://www.facebook.com/themefisher
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pages
             <span><i class="ti-angle-down"></i></span>
           </a>
-          <!-- Dropdown list -->
+    
           <ul class="dropdown-menu">
             <li><a class="dropdown-item @@team" href="team.html">Team</a></li>
             <li><a class="dropdown-item @@career" href="career.html">Career</a></li>
@@ -117,20 +117,86 @@ FACEBOOK: https://www.facebook.com/themefisher
       </ul>
     </div>
   </div>
+</nav> -->
+
+<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
+  <div class="container">
+    <a class="navbar-brand logo" href="index.html">
+      <img src="images/cashly-logo-nav.png" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="ti-menu"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        
+        <!-- Home Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
+            <span><i class="ti-angle-down"></i></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.html">Features</a></li>
+            <li><a class="dropdown-item" href="homepage-2.html">Watch Demo</a></li>
+            <li><a class="dropdown-item" href="homepage-3.html">Testimonials</a></li>
+          </ul>
+        </li>
+
+        <!-- Team -->
+        <li class="nav-item">
+          <a class="nav-link" href="team.html">Team</a>
+        </li>
+
+        <!-- About -->
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <!-- Contact -->
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+        <!-- Blogs -->
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blogs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
+<!-- JavaScript to Set Active Tab Based on URL -->
+<script>
+  const currentPage = location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.parentElement.classList.add("active");
+    }
+  });
+</script>
 
 <!--================================
 =            Page Title            =
 =================================-->
 
-<section class="section page-title">
+
+<section class="section page-title mt-4">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8 m-auto">
+			<div class="rounded shadow p-5 bg-white">
 				<!-- Page Title -->
-				<h1>About Small Apps</h1>
+        <h1 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">About Cashly</h1>
 				<!-- Page Description -->
-				<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.</p>
+				<p>We started off as a brokerage, trying to figure out the best workflow to close more deals while spending less time on mundane and tedious tasks. That’s why we built Cashly, an advanced CRM designed specifically for mortgage brokers.
+
+Our platform harnesses the power of AI to automate the entire mortgage process, from application to approval, allowing agents to focus on building relationships and closing more deals.
+
+ Created by Mortgage Brokers, for Mortgage Brokers—transforming the way the industry operates.</p>
 			</div>
 		</div>
 	</div>
@@ -148,10 +214,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 align-self-center">
 				<div class="content text-center text-lg-left">
 					<!-- Headline -->
-					<h2>This is our story.</h2>
+			
+				 <h1 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">This is our story.</h1>
 					<!-- Story -->
-					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
-					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
+					<!-- <p>Our platform harnesses the power of AI to automate the entire mortgage process, from application to approval, allowing agents to focus on building relationships and closing more deals.</p> -->
+					 <p style="color: #1E56B0;">
+  Our platform harnesses the power of <strong>AI</strong> to automate the entire mortgage process, from <strong>application to approval</strong>, allowing agents to focus on building relationships and <strong>closing more deals</strong>.
+</p>
 				</div>
 			</div>
 			<div class="col-lg-6 mt-4 mt-lg-0">
@@ -159,15 +228,15 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<div class="about-slider">
 					<!-- Story Image -->
 					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+						<img class="w-100" src="images/about/image.png" alt="slider-image">
 					</div>
 					<!-- Story Image -->
 					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+						<img class="w-100" src="images/about/image.png" alt="slider-image">
 					</div>
 					<!-- Story Image -->
 					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+						<img class="w-100" src="images/about/image.png" alt="slider-image">
 					</div>
 				</div>
 			</div>
@@ -179,7 +248,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!--================================
 =            Behind Story          =
 =================================-->
-<section class="section">
+<!-- <section class="section">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -190,106 +259,107 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--====  End of Behind Story  ====-->
 
 <!--==================================
 =            Create Story            =
 ===================================-->
-<section class="section create-stories pt-0">
+<!-- <section class="section create-stories pt-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="block">
-					<!-- Image -->
+			
 					<img class="img-fluid" src="images/blog/post-01.jpg" alt="Story-Image">
-					<!-- Heading -->
+				
 					<h3>Our Story</h3>
-					<!-- Story -->
+				
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 				</div>
 			</div>
 			<div class="col-lg-6 mt-5 mt-lg-0">
 				<div class="block">
-					<!-- Image -->
+					
 					<img class="img-fluid" src="images/blog/post-03.jpg" alt="Story-Image">
-					<!-- Heading -->
+					
 					<h3>What we do</h3>
-					<!-- Story -->
+				
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--====  End of Create Story  ====-->
 
 
 <!--=====================================
 =            Quotes Slider              =
 ======================================-->
-<section class="section quotes pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-10 m-auto text-center">
-				<div class="quote-slider">
-					<div class="item mb-4">
-						<!-- Quote -->
-						<h2>Behind every great product, there is a great mind.</h2>
-						<!-- Company -->
-						<cite class="ml-0">-TechCrunch</cite>
-					</div>
-					<div class="item mb-4">
-						<!-- Quote -->
-						<h2>Behind every great product, there is a great mind.</h2>
-						<!-- Company -->
-						<cite class="ml-0">-TechCrunch</cite>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="section quotes pt-9" style="background-color: #F4F7FA;"> <!-- Light grey background -->
+  <div class="container">
+    <div class="row">
+      <div class="col-10 m-auto text-center">
+        <div class="quote-slider">
+          <div class="item mb-4">
+            <!-- Quote -->
+            <h2 style="color: #1E56B0; font-weight: bold;">Behind every great product, there is a great mind.</h2>
+            <!-- Company -->
+            <cite class="ml-0" style="color: #555555;">-TechCrunch</cite>
+          </div>
+          <div class="item mb-4">
+            <!-- Quote -->
+            <h2 style="color: #1E56B0; font-weight: bold;">Behind every great product, there is a great mind.</h2>
+            <!-- Company -->
+            <cite class="ml-0" style="color: #555555;">-TechCrunch</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!--====  End of Quotes Slider  ====-->
 
 <!--=====================================
 =            Client Slider              =
 ======================================-->
-<section class="section clients bg-gray">
-	<div class="container">
-		<div class="row">
-			<div class="col-10 m-auto text-center">
-				<h3>Featured In</h3>
-				<div class="client-slider">
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/business-finder.png" alt="business-finder">
-					</div>
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/forbes.png" alt="forbes">
-					</div>
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
-					</div>
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/tech-crunch-new.png" alt="TechCrunch">
-					</div>
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/forbes.png" alt="forbes">
-					</div>
-					<div class="item mb-4">
-						<img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="section clients" style="background-color: #F4F7FA;"> <!-- Light background -->
+  <div class="container">
+    <div class="row">
+      <div class="col-10 m-auto text-center">
+        <h3 style="color: #1E56B0; font-weight: bold; font-weight: 600">Our Partners</h3> <!-- Styled heading -->
+        <div class="client-slider">
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/business-finder.png" alt="business-finder">
+          </div>
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/forbes.png" alt="forbes">
+          </div>
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
+          </div>
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/tech-crunch-new.png" alt="TechCrunch">
+          </div>
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/forbes.png" alt="forbes">
+          </div>
+          <div class="item mb-4" style="padding: 10px;">
+            <img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <!--====  End of Client Slider  ====-->
 
 <!--==============================
 =            Investors           =
 ===============================-->
-<section class="section investors">
+<!-- <section class="section investors">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -301,131 +371,131 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+				
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/marketing-team-01.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+		
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+		
 					<h3>Spider Web</h3>
-					<!--  -->
+	
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+				
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/marketing-team-03.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+				
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+				
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+					
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+					
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/design-team-02.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+					
 					<h3>Spider Web</h3>
-					<!--  -->
+			
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+					
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/design-team-03.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+				
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+			
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+	
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 			<div class="col-xl-3 col-lg-4 col-sm-6">
 				<div class="block text-center">
-					<!-- Investor Image -->
+	
 					<div class="image shadow hover-zoom">
 						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
 					</div>
-					<!-- Company -->
+				
 					<h3>Spider Web</h3>
-					<!--  -->
+				
 					<p>Investor</p>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <!--===============================
 =            Our Story            =
 ================================-->
-<section class="section about pt-0">
+<!-- <section class="section about pt-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 align-self-center">
 				<div class="content text-center text-lg-left">
-					<!-- Headline -->
+		=
 					<h2>This is our story.</h2>
-					<!-- Story -->
+					
 					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
 					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
 				</div>
 			</div>
 			<div class="col-lg-6 mt-5 mt-lg-0">
-				<!-- Story Image Slider -->
+		
 				<div class="about-slider">
-					<!-- Story Image -->
+					
 					<div class="item">
 						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
 					</div>
-					<!-- Story Image -->
+				
 					<div class="item">
 						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
 					</div>
-					<!-- Story Image -->
+				
 					<div class="item">
 						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
 					</div>
@@ -433,7 +503,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--====  End of Our Story  ====-->
 
 <!--=====================================
@@ -466,20 +536,20 @@ FACEBOOK: https://www.facebook.com/themefisher
   <div class="footer-main">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
-          <div class="block">
-            <a href="index.html"><img src="images/logo-alt.png" alt="footer-logo"></a>
+        <div class="col-lg-4 col-md-12 m-md-auto align-center">
+          <div class="block text-center">
+            <a href="index.html"><img src="images/cashly-logo-nav.png" alt="footer-logo"></a>
             <!-- Social Site Icons -->
             <ul class="social-icon list-inline">
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
+           
+       <li class="list-inline-item">
+                <a href="mailto:operations@gocashly.io"><i class="ti-email"></i></a>
+            
               </li>
-              <li class="list-inline-item">
-                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
-              </li>
+            <li class="list-inline-item">
+               <a href="https://www.linkedin.com/company/gocashly/"><i class="ti-linkedin"></i></a>
+            </li>
+      
             </ul>
           </div>
         </div>
@@ -507,19 +577,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
-            <h6>Company</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="career.html">Career</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="team.html">Investor</a></li>
-              <li><a href="privacy.html">Terms</a></li>
-            </ul>
-          </div>
-        </div>
+
         <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
           <div class="block-2">
             <!-- heading -->
@@ -536,15 +594,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       </div>
     </div>
   </div>
-  <div class="text-center bg-dark py-4">
-    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></small class="text-secondary">
-  </div>
-
-	<div class="text-center bg-dark py-1">
-		<small> <p>Distributed By <a href="https://themewagon.com/">Themewagon</a></p></small class="text-secondary">
-	 </div>
 </footer>
-
 
   <!-- To Top -->
   <div class="scroll-top-to">
@@ -563,6 +613,14 @@ FACEBOOK: https://www.facebook.com/themefisher
   <script src="plugins/google-map/gmap.js"></script>
   
   <script src="js/script.js"></script>
+  <script>
+  const currentPath = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
+  });
+</script>
 </body>
 
 </html>
