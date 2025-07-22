@@ -959,6 +959,68 @@ button:focus,
     margin: 0 auto;
   }
 }
+.founder {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.founder-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  border: 3px solid #000;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.founder-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1E56B0;
+  margin-bottom: 5px;
+}
+
+.founder-position {
+  display: block;
+  font-size: 16px;
+  color: #1E56B0;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+.founder-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+.social-links {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.social-links i {
+  font-size: 20px;
+  color: #1E56B0;
+  transition: color 0.3s ease;
+}
+
+.social-links i:hover {
+  color: #333;
+}
+.rounded-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
 .service .service-box {
   padding: 20px;
