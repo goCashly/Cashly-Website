@@ -52,51 +52,165 @@ FACEBOOK: https://www.facebook.com/themefisher
 <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
     <a class="navbar-brand logo" href="index.html">
-      <img src="images/cashly-logo-nav.png" alt="logo">
+      <img src="images/cashly-logo-nav.png" alt="logo" />
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="ti-menu"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        
-        <!-- Home Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
-            <span><i class="ti-angle-down"></i></span>
-          </a>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            >Home <span><i class="ti-angle-down"></i></span></a
+          >
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.html">Features</a></li>
             <li><a class="dropdown-item" href="homepage-2.html">Watch Demo</a></li>
             <li><a class="dropdown-item" href="homepage-3.html">Testimonials</a></li>
           </ul>
         </li>
-
-        <!-- Team -->
-        <li class="nav-item">
-          <a class="nav-link" href="team.html">Team</a>
-        </li>
-
-        <!-- About -->
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-
-        <!-- Contact -->
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-
-        <!-- Blogs -->
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blogs</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Basic nav link style */
+  .navbar-nav .nav-link {
+    position: relative;
+    color: #333;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Animated underline container */
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #1e56b0;
+    width: 0;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* Dropdown menu base style */
+  .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    display: block; /* keep block for animation, but will toggle visibility */
+    transform-origin: top center;
+    transform: scaleY(0);
+  }
+
+  /* Show dropdown */
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+  }
+
+  /* Dropdown items hover */
+  .dropdown-menu .dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #1e56b0;
+    color: #fff;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Add underline element to each nav link
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link:not(.dropdown-toggle)");
+
+    navLinks.forEach((link) => {
+      // Create underline span and append
+      const underline = document.createElement("span");
+      underline.classList.add("underline");
+      link.appendChild(underline);
+
+      // Mouse enter - expand underline
+      link.addEventListener("mouseenter", () => {
+        underline.style.width = "100%";
+        link.style.color = "#1E56B0";
+      });
+
+      // Mouse leave - collapse underline
+      link.addEventListener("mouseleave", () => {
+        underline.style.width = "0";
+        link.style.color = "#333";
+      });
+    });
+
+    // Dropdown hover animations
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      const menu = dropdown.querySelector(".dropdown-menu");
+
+      // Show dropdown on mouse enter
+      dropdown.addEventListener("mouseenter", () => {
+        menu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      // Hide dropdown on mouse leave
+      dropdown.addEventListener("mouseleave", () => {
+        menu.classList.remove("show");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>
+
+<!-- Page Title Section -->
+<style>
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 1s ease-out forwards;
+  }
+
+  .fade-slide-up.delay-1 {
+    animation-delay: 0.3s;
+  }
+
+  .fade-slide-up.delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
 
 <!-- JavaScript to Set Active Tab Based on URL -->
 <script>

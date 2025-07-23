@@ -21,7 +21,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Small Apps | Bootstrap App Landing Template</title>
+  <title>Cashly</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -32,7 +32,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -41,6 +41,9 @@ FACEBOOK: https://www.facebook.com/themefisher
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+<script src="plugins/aos/aos.js"></script>
+
 
   <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
@@ -52,51 +55,141 @@ FACEBOOK: https://www.facebook.com/themefisher
 <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
     <a class="navbar-brand logo" href="index.html">
-      <img src="images/cashly-logo-nav.png" alt="logo">
+      <img src="images/cashly-logo-nav.png" alt="logo" />
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="ti-menu"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        
-        <!-- Home Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
-            <span><i class="ti-angle-down"></i></span>
-          </a>
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            >Home <span><i class="ti-angle-down"></i></span></a
+          >
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.html">Features</a></li>
             <li><a class="dropdown-item" href="homepage-2.html">Watch Demo</a></li>
             <li><a class="dropdown-item" href="homepage-3.html">Testimonials</a></li>
           </ul>
         </li>
-
-        <!-- Team -->
-        <li class="nav-item">
-          <a class="nav-link" href="team.html">Team</a>
-        </li>
-
-        <!-- About -->
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-
-        <!-- Contact -->
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-
-        <!-- Blogs -->
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blogs</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Basic nav link style */
+  .navbar-nav .nav-link {
+    position: relative;
+    color: #333;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Animated underline container */
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #1e56b0;
+    width: 0;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* Dropdown menu base style */
+  .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    display: block; /* keep block for animation, but will toggle visibility */
+    transform-origin: top center;
+    transform: scaleY(0);
+  }
+
+  /* Show dropdown */
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+  }
+
+  /* Dropdown items hover */
+  .dropdown-menu .dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #1e56b0;
+    color: #fff;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Add underline element to each nav link
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link:not(.dropdown-toggle)");
+
+    navLinks.forEach((link) => {
+      // Create underline span and append
+      const underline = document.createElement("span");
+      underline.classList.add("underline");
+      link.appendChild(underline);
+
+      // Mouse enter - expand underline
+      link.addEventListener("mouseenter", () => {
+        underline.style.width = "100%";
+        link.style.color = "#1E56B0";
+      });
+
+      // Mouse leave - collapse underline
+      link.addEventListener("mouseleave", () => {
+        underline.style.width = "0";
+        link.style.color = "#333";
+      });
+    });
+
+    // Dropdown hover animations
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      const menu = dropdown.querySelector(".dropdown-menu");
+
+      // Show dropdown on mouse enter
+      dropdown.addEventListener("mouseenter", () => {
+        menu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      // Hide dropdown on mouse leave
+      dropdown.addEventListener("mouseleave", () => {
+        menu.classList.remove("show");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>
+
 
 <!-- JavaScript to Set Active Tab Based on URL -->
 <script>
@@ -134,68 +227,68 @@ FACEBOOK: https://www.facebook.com/themefisher
 =            Feature Team            =
 ===================================-->
 <section class="founders section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<!-- Featured Member -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Featured Member -->
 
-<div class="founder text-center">
-  <!-- Member Image -->
-  <div class="image">
-    <img src="images/team/pavit.png" alt="image" class="founder-img">
+        <div class="founder text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <!-- Member Image -->
+          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+            <img src="images/team/pavit.png" alt="image" class="founder-img">
+          </div>
+
+          <!-- Name -->
+          <h2 class="founder-name" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">Pavit Paul</h2>
+
+          <!-- Position -->
+          <cite class="founder-position" data-aos="fade-right" data-aos-duration="800" data-aos-delay="700">Founder & CEO</cite>
+
+          <!-- Description -->
+          <p class="founder-description" data-aos="fade-right" data-aos-duration="800" data-aos-delay="800">
+            Pavit is the Founder and CEO of Cashly, an alternative lending platform helping freelancers and self-employed individuals get easy access to capital. Born and raised in India, Pavit, since his early childhood had the entrepreneurial spirit. Hailing from a business family, he learned the ways of business from a very young age. After completing high school, Pavit moved to Toronto to pursue his undergrad. He then started working, doing direct face-to-face sales for Fortune 500 companies. This gave him hands-on experience in sales strategy, marketing, and team building.
+          </p>
+
+          <!-- Social Sites -->
+          <ul class="list-inline social-links" data-aos="fade-right" data-aos-duration="800" data-aos-delay="900">
+            <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+          </ul>
+        </div>
+        <!-- end of the ceo section -->
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <!-- Featured Member -->
+        <div class="founder" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+          <!-- Member Image -->
+          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700">
+            <img src="images/team/vlad.png" alt="image" class="founder-img">
+          </div>
+          <!-- Name -->
+          <h2 class="founder-name" data-aos="fade-left" data-aos-duration="800" data-aos-delay="900">Vladimir Belsch</h2>
+          <!-- position -->
+          <cite class="founder-position" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1000">CTO & Operations Manager</cite>
+          <!-- Description -->
+          <p class="founder-description" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1100">
+            Strategic operations leader with 10+ years in sales, business development, and executive roles across SaaS, fintech, and tech-enabled services. Currently COO at Cashly Inc., driving execution, operational excellence, and scalable growth for a CRM platform serving mortgage professionals.
+
+            Proven success in enterprise sales, recruitment, AR/VR education, and SaaS growth, with experience supporting tech acquisitions (Poka, Seequent, Contractor Compliance). Skilled in building high-performing teams and scalable startup operations. Passionate about tech, automation, and customer-focused growth.
+          </p>
+          <!-- Social Sites -->
+          <ul class="list-inline social-links" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1200">
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Name -->
-  <h2 class="founder-name">Pavit Paul</h2>
-
-  <!-- Position -->
-  <cite class="founder-position">Founder & CEO</cite>
-
-  <!-- Description -->
-  <p class="founder-description">
-   Pavit is the Founder and CEO of Cashly, an alternative lending platform helping freelancers and self-employed individuals get easy access to capital. Born and raised in India, Pavit, since his early childhood had the entrepreneurial spirit. Hailing from a business family, he learned the ways of business from a very young age. After completing high school, Pavit moved to Toronto to pursue his undergrad. He then started working, doing direct face-to-face sales for Fortune 500 companies. This gave him hands-on experience in sales strategy, marketing, and team building.
-  </p>
-
-  <!-- Social Sites -->
-  <ul class="list-inline social-links">
-    <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-    <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-    <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
-    <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
-  </ul>
-</div>
-
-<!-- 
-end of the ceo section 
--->
-</div>
-			<div class="col-lg-6">
-				<!-- Featured Member -->
-<div class="founder">
-	<!-- Member Image -->
-	 <div class="image">
-    <img src="images/team/vlad.png" alt="image" class="founder-img">
-  </div>
-	<!-- Name -->
-	<h2  class="founder-name"> Vladimir Belsch</h2>
-	<!-- position -->
-	<cite class="founder-position">CTO & Operations Manager</cite>
-	<!-- Description -->
-	<p class="founder-description">Strategic operations leader with 10+ years in sales, business development, and executive roles across SaaS, fintech, and tech-enabled services. Currently COO at Cashly Inc., driving execution, operational excellence, and scalable growth for a CRM platform serving mortgage professionals.
-
-Proven success in enterprise sales, recruitment, AR/VR education, and SaaS growth, with experience supporting tech acquisitions (Poka, Seequent, Contractor Compliance). Skilled in building high-performing teams and scalable startup operations. Passionate about tech, automation, and customer-focused growth.</p>
-	<!-- Social Sites -->
-	<ul class="list-inline social-links">
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-	</ul>
-</div>
-			</div>
-		</div>
-	</div>
 </section>
+
 <!--====  End of Feature Team  ====-->
 
 <!--=================================
@@ -538,6 +631,14 @@ Let’s build the future — together.</p>
   </div>
   
   <!-- JAVASCRIPTS -->
+   <script>
+  AOS.init({
+    once: true, // animation happens only once while scrolling down
+    duration: 800,
+    easing: 'ease-in-out',
+  });
+</script>
+
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
   <script src="plugins/slick/slick.min.js"></script>
