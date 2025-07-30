@@ -18,7 +18,7 @@
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -51,9 +51,9 @@
           </a>
           <!-- Dropdown list -->
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@home1" href="index.html">Features</a></li>
-            <li><a class="dropdown-item" href="homepage-2.html">Watch Demo </a></li>
-            <li><a class="dropdown-item @@home3" href="homepage-3.html">Testemonials</a></li>
+            <li><a class="dropdown-item @@home1" href="#feature">Features</a></li>
+             <li><a class="dropdown-item" href="#watch-demo">Watch Demo</a></li>
+            <li><a class="dropdown-item @@home3" href="#testimonial">Testemonials</a></li>
           </ul>
         </li>
         <!-- <li class="nav-item dropdown @@pages">
@@ -93,9 +93,9 @@
         <li class="nav-item @@contact">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
-		<li class="nav-item @@about">
+		<!-- <li class="nav-item @@about">
           <a class="nav-link" href="blog.html">Blogs</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -104,38 +104,113 @@
 <!--====================================
 =            Hero Section            =
 =====================================-->
-<section class="section gradient-banner">
-	<div class="shapes-container">
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
-		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
-		<div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
-	</div>
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
-				<h1 class="text-white font-weight-bold mb-4">Optemize Operations, Close more Deals</h1>
-				<p class="text-white mb-5">Empowering Mortgage Brokers & Lenders with AI-Powered Automation and Performance Insights.</p>
-				<a href="FAQ.html" class="btn btn-main-md">View More</a>
-			</div>
-			<div class="col-md-6 text-center order-1 order-md-2">
-				<img class="img-fluid" src="images/mobile.png" alt="screenshot">
-			</div>
-		</div>
-	</div>
+<!--==== Gradient Banner Section ====-->
+<!--==== Gradient Banner Section ====-->
+<!-- Gradient Banner Section with Graph, Shapes, and Foreground -->
+<section class="section gradient-banner position-relative" style="overflow: hidden; background: linear-gradient(135deg, #0a1d3c, #1E56B0);">
+  
+  <!-- Graph Canvas -->
+  <div id="graph-canvas" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    z-index: 1;
+    pointer-events: none;
+  "></div>
+
+  <!-- Shapes Animation Layer -->
+  <div class="shapes-container position-absolute w-100 h-100" style="z-index: 2;">
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"
+         style="width: 100px; height: 100px; background: rgba(255,255,255,0.1); position: absolute; top: 10%; left: 5%; border-radius: 50%;"></div>
+    <div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"
+         style="width: 80px; height: 80px; background: rgba(255,255,255,0.15); position: absolute; top: 30%; left: 50%; border-radius: 50%;"></div>
+    <div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"
+         style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); position: absolute; bottom: 20%; right: 10%; border-radius: 50%;"></div>
+  </div>
+
+  <!-- Foreground Content -->
+  <div class="container position-relative" style="z-index: 3;">
+    <div class="row align-items-center">
+      <div class="col-md-6 order-2 order-md-1 text-center text-md-left">
+      <style>
+  .animate-text {
+    opacity: 0;
+    display: inline-block;
+    animation-fill-mode: forwards;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+
+  .animate-text.first {
+    animation-delay: 0s;
+  }
+
+  .animate-text.second {
+    animation-delay: 1s;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<h1 class="text-white font-weight-bold mb-4">
+  <span class="animate-text first">Optemize Operations,</span><br />
+  <span class="animate-text second">Close more Deals</span>
+</h1>
+        <p class="text-white mb-5">Empowering Mortgage Brokers & Lenders with AI-Powered Automation and Performance Insights.</p>
+  <!-- <style>
+  .btn-main-md {
+    border-radius: 50px; /* pill shape */
+    background-color: #f58a43; /* orange */
+    color: #fff;
+    padding: 0.6rem 2rem; /* equal padding */
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 1rem; /* margin between buttons */
+  }
+  .btn-main-md:last-child {
+    margin-right: 0; /* remove margin on last button */
+  }
+  .btn-main-md:hover {
+    background-color: #ee7213; /* blue */
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(30, 86, 176, 0.5);
+  }
+</style> -->
+
+<a href="#feature" class="btn-main-md">
+  View More
+</a>
+<a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT" class="btn-main-md" target="_blank" rel="noopener noreferrer">
+  Get a Demo 
+</a>
+
+      </div>
+<div class="col-md-6 text-center order-1 order-md-2">
+  <img class="img-fluid zoom-hover" src="images/index.png" alt="screenshot" style="max-width: 140%; height: 150%;">
+</div>
+    </div>
+  </div>
 </section>
+
+
+
 <!--====  End of Hero Section  ====-->
 
 <section class="section pt-0 position-relative pull-top">
@@ -213,7 +288,7 @@
 </section>
 
 
-<section class="feature section pt-0">
+<section class="feature section pt-0" id="feature">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 ml-auto align-self-center">
@@ -248,7 +323,7 @@
 	</div>
 </section>
 
-<section class="feature section pt-0">
+<section class="feature section pt-0"  >
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 ml-auto justify-content-center">
@@ -366,30 +441,32 @@
 <!--=================================
 =            Video Promo            =
 ==================================-->
-<section class="video-promo section bg-1">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="content-block">
-					<!-- Heading -->
-					<h2>Watch Our Demo Video</h2>
-					<!-- Promotional Speech -->
-					<p> Discover how Cashly simplifies your mortgage and lending process with powerful AI automation and intuitive tools. See the platform in action and learn how it can save you time, reduce manual work, and boost your productivity.</p>
-					<!-- Popup Video -->
-					<a data-fancybox href="https://www.youtube.com/watch?v=jrkvirglgaQ">
-						<i class="ti-control-play video"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<section id="watch-demo" class="video-promo section bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="content-block">
+          <!-- Heading -->
+          <h2>Watch Our Demo Video</h2>
+          <!-- Promotional Speech -->
+          <p>
+            Discover how Cashly simplifies your mortgage and lending process with powerful AI automation and intuitive tools. See the platform in action and learn how it can save you time, reduce manual work, and boost your productivity.
+          </p>
+          <!-- Popup Video -->
+          <a data-fancybox href="https://www.youtube.com/watch?v=jrkvirglgaQ">
+            <i class="ti-control-play video"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!--====  End of Video Promo  ====-->
 
 <!--=================================
 =            Testimonial            =
 ==================================-->
-<section class="section testimonial" id="testimonial">
+<section  class="section testimonial" id="testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -477,7 +554,7 @@
 					Experience the power of Cashly — a smarter CRM and lender matching platform designed to streamline your workflow, save you time, and close more deals.
 					<br>Contact us today to schedule your personalized demo and see how Cashly can work for you.
 				</p>
-				<a href="mailto:sales@cashly.com" class="btn btn-primary btn-lg mt-3">
+				<a href="mailto:sales@cashly.com" class="btn-main-md">
 					Contact Us Now
 				</a>
 			</div>
@@ -486,72 +563,45 @@
 </section>
 
 
-<!--============================
-=            Footer            =
-=============================-->
-<footer>
+<!-- Footer Section -->
+<!-- Footer -->
+<footer data-aos="fade-up" style="background:#f8f9fa; padding: 0px 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.1);">
   <div class="footer-main">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
+      <div class="row align-items-start">
+        <!-- Logo and Social Icons -->
+        <div class="col-lg-4 col-md-12 m-md-auto text-center mb-2 mb-lg-0" data-aos="fade-right" style="padding-top: 10px;">
           <div class="block">
-            <a href="index.html"><img src="images/cashly-logo-nav.png" alt="footer-logo"></a>
-            <!-- Social Site Icons -->
-            <ul class="social-icon list-inline">
+            <a href="index.html">
+              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+            </a>
+            <ul class="social-icon list-inline mt-2">
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
+                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+
+        <!-- Product Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="200" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
             <h6>Product</h6>
-            <!-- links -->
             <ul>
               <li><a href="team.html">Teams</a></li>
-              <li><a href="blog.html">Blogs</a></li>
+              <!-- <li><a href="blog.html">Blogs</a></li> -->
               <li><a href="FAQ.html">FAQs</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+
+        <!-- Company Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="400" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
-            <h6>Resources</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="sign-up.html">Singup</a></li>
-              <li><a href="sign-in.html">Login</a></li>
-              <li><a href="blog.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
             <h6>Company</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="career.html">Career</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="team.html">Investor</a></li>
-              <li><a href="privacy.html">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
-            <h6>Company</h6>
-            <!-- links -->
             <ul>
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -562,16 +612,84 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom text-center" data-aos="fade-in" data-aos-delay="600" style="font-size: 14px; color: #555;">
+      <small>© 2025 GoCashly. All rights reserved.</small>
+    </div>
   </div>
 </footer>
+<!-- Scroll To Top Button -->
+<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+  <i class="fas fa-angle-up"></i>
+</div>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Script for AOS & Scroll-to-top -->
+<script>
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,    // Animate only once when scrolled into view
+  });
+
+  // Scroll to Top Button
+  const scrollBtn = document.querySelector(".scroll-top-to");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add("active");
+    } else {
+      scrollBtn.classList.remove("active");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<!-- Scroll To Top Button Styles -->
+<style>
+  .scroll-top-to {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f58a43;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+  .scroll-top-to.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Optional: hover effect */
+  .scroll-top-to:hover {
+    background-color: #1e56b0;
+  }
+</style>
 
 
-  <!-- To Top -->
-  <div class="scroll-top-to">
-    <i class="ti-angle-up"></i>
-  </div>
-  
-  <!-- JAVASCRIPTS -->
+<!-- footer ends  -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
   <script src="plugins/slick/slick.min.js"></script>
@@ -583,6 +701,62 @@
   <script src="plugins/google-map/gmap.js"></script>
   
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("graph-canvas", {
+  particles: {
+    number: {
+      value: 60,
+      density: { enable: true, value_area: 350 }
+    },
+    color: {
+      value: ["#ffffff", "#f58a43"] // white and yellow dots
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.9,
+      random: true
+    },
+    size: {
+      value: 3,
+      random: true
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#f58a43", // yellow lines for visual harmony
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1.6,
+      direction: "none",
+      random: false,
+      straight: false,
+      bounce: false
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      repulse: { distance: 100, duration: 0.4 },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+</script>
+
+
 </body>
 
 </html>
