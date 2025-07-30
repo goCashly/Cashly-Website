@@ -203,8 +203,24 @@
 
       </div>
 <div class="col-md-6 text-center order-1 order-md-2">
-  <img class="img-fluid zoom-hover" src="images/index.png" alt="screenshot" style="max-width: 140%; height: 150%;">
+  <img class="img-fluid zoom-hover responsive-img" src="images/index.png" alt="screenshot">
 </div>
+
+<style>
+  .responsive-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Optional zoom-hover effect */
+  .zoom-hover {
+    transition: transform 0.3s ease;
+  }
+
+  .zoom-hover:hover {
+    transform: scale(1.05);
+  }
+</style>
     </div>
   </div>
 </section>
@@ -258,7 +274,7 @@
 			<div class="col-lg-6 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="images/feature/feature-new-01.jpg" alt="iphone">
+					<img class="img-fluid" src="images/dashboard.png" alt="iphone">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
@@ -307,7 +323,7 @@
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="">
+							<img src="images/dummy1.png" alt="">
 						</li>
 						<li class="list-inline-item">Michael Tran, Private Lender</li>
 					</ul>
@@ -316,7 +332,7 @@
 			<div class="col-lg-6 mr-auto justify-content-center">
 				<!-- Feature mockup -->
 				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="images/feature/feature-new-02.jpg" alt="ipad">
+					<img class="img-fluid" src="images/lenderMatching.png" alt="ipad">
 				</div>
 			</div>
 		</div>
@@ -329,26 +345,26 @@
 			<div class="col-lg-6 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="images/feature/feature-new-01.jpg" alt="iphone">
+					<img class="img-fluid" src="images/autoDialer.png" alt="iphone">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>Let <strong>Cashly Autopilot</strong> Handle the Busywork</h2>
+					<h2>Let <strong>Cashly Auto Dialer</strong> Handle the Busywork</h2>
 					<!-- Feature Description -->
 					<p class="desc">
-						Cashly Autopilot uses intelligent automation to handle repetitive, time-consuming tasks. It scans contact documents to extract key data, updates records automatically, sets follow-up reminders, and even books appointments—giving you more time to build relationships and close deals.
+						 The Auto Dialer feature streamlines your outbound calling process by allowing you to add a list of contacts to a campaign and initiate calls with a single click..
 					</p>
 				</div>
 				<!-- Testimonial Quote -->
 				<div class="testimonial">
 					<p>
-						“Cashly Autopilot completely changed how I manage my deals. I no longer worry about missed follow-ups or manual data entry—it’s like having a full-time assistant built into the platform.”
+						“ Once activated, the system automatically dials each contact one by one—eliminating the need to manually enter phone numbers. If a contact doesn’t answer, the dialer seamlessly moves to the next contact in the list, maximizing efficiency and saving time. Ideal for sales outreach, follow-ups, or marketing campaigns, the Auto Dialer ensures smooth, uninterrupted calling sessions with minimal effort.”
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="">
+							<img src="images/dummy1.png" alt="">
 						</li>
 						<li class="list-inline-item">Sarah Bell, Mortgage Agent</li>
 					</ul>
@@ -378,7 +394,7 @@
 			<div class="col-lg-6 align-self-center">
 				<!-- Feature Image -->
 				<div class="service-thumb left" data-aos="fade-right">
-					<img class="img-fluid" src="images/feature/iphone-ipad.jpg" alt="iphone-ipad">
+					<img class="img-fluid" src="images/dashboard.png" alt="iphone-ipad">
 				</div>
 			</div>
 			<div class="col-lg-5 mr-auto align-self-center">
@@ -453,7 +469,7 @@
             Discover how Cashly simplifies your mortgage and lending process with powerful AI automation and intuitive tools. See the platform in action and learn how it can save you time, reduce manual work, and boost your productivity.
           </p>
           <!-- Popup Video -->
-          <a data-fancybox href="https://www.youtube.com/watch?v=jrkvirglgaQ">
+          <a data-fancybox href="comming-soon.html">
             <i class="ti-control-play video"></i>
           </a>
         </div>
@@ -466,83 +482,74 @@
 <!--=================================
 =            Testimonial            =
 ==================================-->
-<section  class="section testimonial" id="testimonial">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<!-- Testimonial Slider -->
-				<div class="testimonial-slider owl-carousel owl-theme">
-					<!-- Testimonial 01 -->
-					<div class="item">
-						<div class="block shadow">
-							<!-- Speech -->
-							<p>
-								"The dashboards I work out of organizes my workflow better than any other system I have used before. It helps me get my work done faster which leaves me more time for me to give to my clients."
-							</p>
-							<!-- Person Thumb -->
-							<div class="image">
-								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
-							</div>
-							<!-- Name and Company -->
-							<cite>Julian Kwong , Mortgage Agent L1</cite>
-						</div>
-					</div>
-					<!-- Testimonial 01 -->
-					<div class="item">
-						<div class="block shadow">
-							<!-- Speech -->
-							<p>
-								"Cashly’s AI Autopilot books consistent appointments and keeps my calendar full. It does the qualification from start to finish, making my job 10X easier."
-							</p>
-							<!-- Person Thumb -->
-							<div class="image">
-								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
-							</div>
-							<!-- Name and Company -->
-							<cite>Yuvraj Arora, Mortgage Agent L1</cite>
-						</div>
-					</div>
-					<!-- Testimonial 01 -->
-					<!-- <div class="item">
-						<div class="block shadow"> -->
-							<!-- Speech -->
-							<!-- <p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p> -->
-							<!-- Person Thumb -->
-							<!-- <div class="image">
-								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
-							</div> -->
-							<!-- Name and Company -->
-							<!-- <cite>Abraham Linkon , Themefisher.com</cite>
-						</div>
-					</div> -->
-					<!-- Testimonial 01 -->
-					<!-- <div class="item">
-						<div class="block shadow"> -->
-							<!-- Speech -->
-							<!-- <p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p> -->
-							<!-- Person Thumb -->
-							<!-- <div class="image">
-								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
-							</div> -->
-							<!-- Name and Company -->
-							<!-- <cite>Abraham Linkon , Themefisher.com</cite>
-						</div> -->
-					<!-- </div> -->
-				</div>
-			</div>
-		</div>
-	</div>
+
+<!-- Testimonial Section -->
+<section class="section testimonial" id="testimonial">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- Testimonial Slider -->
+        <div class="testimonial-slider owl-carousel owl-theme">
+          
+          <!-- Testimonial 01 -->
+          <div class="item" data-aos="fade-up" data-aos-duration="1000">
+            <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
+                 style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
+              
+              <!-- Speech -->
+              <p style="font-size: 18px; color: #000; line-height: 1.6; text-align: center;">
+                <strong>
+                  "The dashboards I work out of organize my workflow better than any other system I have used before. It helps me get my work done faster which leaves me more time for me to give to my clients."
+                </strong>
+              </p>
+              
+              <!-- Person Info -->
+              <div class="text-center mt-3">
+                <img src="images/dummy1.png" alt="User Image"
+                     style="width: 100px; height: auto; border-radius: 50%;">
+                <div class="content mt-2">
+                  <h5 class="mb-0" style="color: #000;">John Doe</h5>
+                  <p style="color: #000;">Product Manager</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Testimonial 02 -->
+          <div class="item" data-aos="fade-up" data-aos-duration="1000">
+            <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
+                 style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
+              
+              <!-- Speech -->
+              <p style="font-size: 18px; color: #000; line-height: 1.6; text-align: center;">
+                <strong>
+                  "Cashly’s AI Autopilot books consistent appointments and keeps my calendar full. It does the qualification from start to finish, making my job 10X easier."
+                </strong>
+              </p>
+              
+              <!-- Person Info -->
+              <div class="text-center mt-3">
+                <img src="images/dummy1.png" alt="User Image"
+                     style="width: 100px; height: auto; border-radius: 50%;">
+                <div class="content mt-2">
+                  <h5 class="mb-0" style="color: #000;">Yuvraj Arora</h5>
+                  <p style="color: #000;">Mortgage Agent</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Add more testimonial items here -->
+
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+
 <!--====  End of Testimonial  ====-->
 
 <section class="call-to-action-app section bg-blue">
@@ -554,7 +561,7 @@
 					Experience the power of Cashly — a smarter CRM and lender matching platform designed to streamline your workflow, save you time, and close more deals.
 					<br>Contact us today to schedule your personalized demo and see how Cashly can work for you.
 				</p>
-				<a href="mailto:sales@cashly.com" class="btn-main-md">
+				<a href="contact.html" class="btn-main-md">
 					Contact Us Now
 				</a>
 			</div>
@@ -614,9 +621,7 @@
     </div>
 
     <!-- Footer Bottom -->
-    <div class="footer-bottom text-center" data-aos="fade-in" data-aos-delay="600" style="font-size: 14px; color: #555;">
-      <small>© 2025 GoCashly. All rights reserved.</small>
-    </div>
+
   </div>
 </footer>
 <!-- Scroll To Top Button -->
