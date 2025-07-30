@@ -21,7 +21,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Small Apps | Bootstrap App Landing Template</title>
+  <title>Cashly</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -32,7 +32,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -85,7 +85,7 @@ FACEBOOK: https://www.facebook.com/themefisher
         <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li> -->
       </ul>
     </div>
   </div>
@@ -282,7 +282,7 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
 			<div class="col-lg-7 mt-5 mt-lg-0">
 				<div class="google-map">
 					<!-- Google Map -->
-					<div id="map_canvas" data-latitude="51.507351" data-longitude="-0.127758"></div>
+					<div id="map_canvas" data-latitude="43.40313" data-longitude="-79.72418"></div>
 				</div>
 			</div>
 		</div>
@@ -327,6 +327,7 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
 </section> -->
 
 <!--====  Contact Form Section  ====-->
+<!--====  Contact Form Section  ====-->
 <section class="contact-form section">
   <div class="container">
     <div class="row justify-content-center">
@@ -335,7 +336,6 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
           <div class="card-body">
             <h2 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">Drop Us an Email</h2>
             
-            <!-- ✅ Add id to form -->
             <form id="contactForm" method="POST" novalidate>
               <div class="row g-3">
                 <!-- Name -->
@@ -350,6 +350,29 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
                   <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
                 </div>
 
+                <!-- Reason for Contact Dropdown -->
+            <div class="col-12 mb-4">
+  <label for="reason" class="form-label fw-semibold text-primary mb-2">
+    <i class="fas fa-question-circle me-1"></i> Reason for Contact
+  </label>
+  <div class="input-group shadow-sm rounded">
+    <span class="input-group-text bg-white border-end-0">
+      <i class="fas fa-comment-alt text-muted"></i>
+    </span>
+    <select id="reason" name="reason" class="form-select border-start-0" required>
+      <option value="" disabled selected>Select a reason</option>
+      <option value="General Inquiry">General Inquiry</option>
+      <option value="Support Request">Support Request</option>
+      <option value="Business Inquiry">Business Inquiry</option>
+      <option value="Feedback">Feedback</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+</div>
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
                 <!-- Subject -->
                 <div class="col-12">
                   <label for="subject" class="form-label fw-bold text-dark mb-2">Subject</label>
@@ -363,13 +386,13 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
                 </div>
 
                 <!-- Submit Button -->
-                <div class="col-12 text-center mt-3">
-                  <button type="submit" class="btn btn-primary px-5 py-3 shadow rounded-pill fs-8">Send</button>
-                </div>
+            <div class="col-12 text-center mt-3 mb-4">
+  <button type="submit" class="btn btn-main-md">Send</button>
+</div>
               </div>
             </form>
 
-            <!-- ✅ Message output -->
+            <!-- Message output -->
             <p id="formMessage" class="text-center mt-3" style="display: none;"></p>
             <p class="text-muted text-center mt-2 mb-0"></p>
 
@@ -381,60 +404,48 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
 </section>
 
 
+
 <!--============================
 =            Footer            =
 =============================-->
-<footer>
+<!-- Footer -->
+<footer data-aos="fade-up" style="background:#f8f9fa; padding: 0px 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.1);">
   <div class="footer-main">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 m-md-auto align-center">
-          <div class="block text-center">
-            <a href="index.html"><img src="images/cashly-logo-nav.png" alt="footer-logo"></a>
-            <!-- Social Site Icons -->
-            <ul class="social-icon list-inline">
-           
-       <li class="list-inline-item">
-                <a href="mailto:operations@gocashly.io"><i class="ti-email"></i></a>
-            
+      <div class="row align-items-start">
+        <!-- Logo and Social Icons -->
+        <div class="col-lg-4 col-md-12 m-md-auto text-center mb-2 mb-lg-0" data-aos="fade-right" style="padding-top: 10px;">
+          <div class="block">
+            <a href="index.html">
+              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+            </a>
+            <ul class="social-icon list-inline mt-2">
+              <li class="list-inline-item">
+                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
               </li>
-            <li class="list-inline-item">
-               <a href="https://www.linkedin.com/company/gocashly/"><i class="ti-linkedin"></i></a>
-            </li>
-      
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
-            <h6>Product</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="team.html">Teams</a></li>
-              <li><a href="blog.html">Blogs</a></li>
-              <li><a href="FAQ.html">FAQs</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
-            <h6>Resources</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="sign-up.html">Singup</a></li>
-              <li><a href="sign-in.html">Login</a></li>
-              <li><a href="blog.html">Blog</a></li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+        <!-- Product Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="200" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
+            <h6>Product</h6>
+            <ul>
+              <li><a href="team.html">Teams</a></li>
+              <!-- <li><a href="blog.html">Blogs</a></li> -->
+              <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Company Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="400" style="padding-top: 5px;">
+          <div class="block-2">
             <h6>Company</h6>
-            <!-- links -->
             <ul>
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -445,14 +456,81 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
         </div>
       </div>
     </div>
-  </div>
-</footer>
 
-  <!-- To Top -->
-  <div class="scroll-top-to">
-    <i class="ti-angle-up"></i>
-  </div>
-  
+    <!-- Footer Bottom -->
+
+</footer>
+<!-- Scroll To Top Button -->
+<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+  <i class="fas fa-angle-up"></i>
+</div>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Script for AOS & Scroll-to-top -->
+<script>
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,    // Animate only once when scrolled into view
+  });
+
+  // Scroll to Top Button
+  const scrollBtn = document.querySelector(".scroll-top-to");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add("active");
+    } else {
+      scrollBtn.classList.remove("active");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<!-- Scroll To Top Button Styles -->
+<style>
+  .scroll-top-to {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f58a43;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+  .scroll-top-to.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Optional: hover effect */
+  .scroll-top-to:hover {
+    background-color: #1e56b0;
+  }
+</style>
+
+
+<!-- footer ends  -->
   <!-- JAVASCRIPTS -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>

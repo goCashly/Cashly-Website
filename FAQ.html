@@ -32,7 +32,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -87,7 +87,7 @@ FACEBOOK: https://www.facebook.com/themefisher
         <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li> -->
       </ul>
     </div>
   </div>
@@ -222,7 +222,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="row">
 			<div class="col-sm-8 m-auto">
 				<!-- Page Title -->
-				<h1>Frequently Asked Questions</h1>
+				
+				 <h1 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">Frequently Asked Questions</h1>
 				<!-- Page Description -->
 				<!-- <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.</p> -->
 			</div>
@@ -236,6 +237,37 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!--=================================
 =            FAQ Section            =
 ==================================-->
+<style>
+  /* Update primary color */
+  .text-primary {
+    color: #1E56B0 !important;
+  }
+  .text-primary.text-decoration-underline:hover {
+    color: #163f7a !important; /* slightly darker on hover */
+  }
+  /* Icons in primary color */
+  .text-primary i {
+    color: #1E56B0 !important;
+  }
+  /* Accordion toggle links */
+  .item-link a {
+    color: #333;
+    font-weight: 600;
+  }
+  .item-link a:hover {
+    color: #1E56B0;
+    text-decoration: underline;
+  }
+  /* FAQ section background */
+  .bg-light {
+    background-color: #f8f9fa !important;
+  }
+  /* FAQ block background and shadow */
+  .block.shadow {
+    box-shadow: 0 4px 15px rgba(30, 86, 176, 0.2);
+  }
+</style>
+
 <section class="faq section pt-5 pb-5 bg-light">
   <div class="container">
     <div class="row">
@@ -323,7 +355,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </div>
                 <div id="gstAccordion6" class="collapse accordion-block">
                   <p class="px-3 pb-2">
-                    Visit our <a href="#contact" class="text-primary text-decoration-underline">Contact</a> section or click the “Get Started” button on the homepage to sign up. A Cashly onboarding specialist will help set up your account within minutes.
+                    Visit our <a href="contact.html" class="text-primary text-decoration-underline">Contact</a> section or click the “Get Started” button on the homepage to sign up. A Cashly onboarding specialist will help set up your account within minutes.
                   </p>
                 </div>
               </div>
@@ -344,57 +376,43 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!--============================
 =            Footer            =
 =============================-->
-<footer>
+<footer data-aos="fade-up" style="background:#f8f9fa; padding: 0px 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.1);">
   <div class="footer-main">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 m-md-auto align-center">
-          <div class="block text-center">
-            <a href="index.html"><img src="images/cashly-logo-nav.png" alt="footer-logo"></a>
-            <!-- Social Site Icons -->
-            <ul class="social-icon list-inline">
-           
-       <li class="list-inline-item">
-                <a href="mailto:operations@gocashly.io"><i class="ti-email"></i></a>
-            
+      <div class="row align-items-start">
+        <!-- Logo and Social Icons -->
+        <div class="col-lg-4 col-md-12 m-md-auto text-center mb-2 mb-lg-0" data-aos="fade-right" style="padding-top: 10px;">
+          <div class="block">
+            <a href="index.html">
+              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+            </a>
+            <ul class="social-icon list-inline mt-2">
+              <li class="list-inline-item">
+                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
               </li>
-            <li class="list-inline-item">
-               <a href="https://www.linkedin.com/company/gocashly/"><i class="ti-linkedin"></i></a>
-            </li>
-      
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+
+        <!-- Product Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="200" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
             <h6>Product</h6>
-            <!-- links -->
             <ul>
               <li><a href="team.html">Teams</a></li>
-              <li><a href="blog.html">Blogs</a></li>
+              <!-- <li><a href="blog.html">Blogs</a></li> -->
               <li><a href="FAQ.html">FAQs</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <!-- <div class="block-2"> -->
-            <!-- heading -->
-            <!-- <h6>Resources</h6> -->
-            <!-- links -->
-            <!-- <ul>
-              <li><a href="sign-up.html">Singup</a></li>
-              <li><a href="sign-in.html">Login</a></li>
-              <li><a href="blog.html">Blog</a></li>
-            </ul> -->
-          <!-- </div> -->
-        </div>
 
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+        <!-- Company Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="400" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
             <h6>Company</h6>
-            <!-- links -->
             <ul>
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -405,9 +423,81 @@ FACEBOOK: https://www.facebook.com/themefisher
         </div>
       </div>
     </div>
-  </div>
-</footer>
 
+    <!-- Footer Bottom -->
+
+</footer>
+<!-- Scroll To Top Button -->
+<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+  <i class="fas fa-angle-up"></i>
+</div>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Script for AOS & Scroll-to-top -->
+<script>
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,    // Animate only once when scrolled into view
+  });
+
+  // Scroll to Top Button
+  const scrollBtn = document.querySelector(".scroll-top-to");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add("active");
+    } else {
+      scrollBtn.classList.remove("active");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<!-- Scroll To Top Button Styles -->
+<style>
+  .scroll-top-to {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f58a43;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+  .scroll-top-to.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Optional: hover effect */
+  .scroll-top-to:hover {
+    background-color: #1e56b0;
+  }
+</style>
+
+
+<!-- footer ends  -->
 
 
   <!-- To Top -->
