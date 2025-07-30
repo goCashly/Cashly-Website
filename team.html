@@ -21,7 +21,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Small Apps | Bootstrap App Landing Template</title>
+  <title>Cashly</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -32,7 +32,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
   
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -41,6 +41,9 @@ FACEBOOK: https://www.facebook.com/themefisher
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
   <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+<script src="plugins/aos/aos.js"></script>
+
 
   <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
@@ -49,92 +52,228 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
-
 <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand logo" href="index.html">
+      <img src="images/cashly-logo-nav.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="ti-menu"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown @@home">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-          <!-- Dropdown list -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            >Home <span><i class="ti-angle-down"></i></span></a
+          >
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@home1" href="index.html">Homepage</a></li>
-            <li><a class="dropdown-item" href="homepage-2.html">Homepage 2</a></li>
-            <li><a class="dropdown-item @@home3" href="homepage-3.html">Homepage 3</a></li>
-
-            <li class="dropdown dropdown-submenu dropright">
-              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                <li><a class="dropdown-item" href="index.html">Submenu 11</a></li>
-                <li><a class="dropdown-item" href="index.html">Submenu 12</a></li>
-              </ul>
-            </li>
+            <li><a class="dropdown-item" href="index.html">Features</a></li>
+            <li><a class="dropdown-item" href="homepage-2.html">Watch Demo</a></li>
+            <li><a class="dropdown-item" href="homepage-3.html">Testimonials</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pages
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="team.html">Team</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">Career</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Blog</a></li>
-            <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
-            <li><a class="dropdown-item @@privacy" href="privacy-policy.html">Privacy</a></li>
-            <li><a class="dropdown-item @@faq" href="FAQ.html">FAQ</a></li>
-            <li><a class="dropdown-item" href="sign-in.html">Sign In</a></li>
-            <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-            <li><a class="dropdown-item" href="404.html">404</a></li>
-            <li><a class="dropdown-item" href="comming-soon.html">Coming Soon</a></li>
-
-            <li class="dropdown dropdown-submenu dropleft">
-              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                <li><a class="dropdown-item" href="index.html">Submenu 21</a></li>
-                <li><a class="dropdown-item" href="index.html">Submenu 22</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item @@about">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li> -->
       </ul>
     </div>
   </div>
 </nav>
 
+<style>
+  /* Basic nav link style */
+  .navbar-nav .nav-link {
+    position: relative;
+    color: #333;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Animated underline container */
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #1e56b0;
+    width: 0;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* Dropdown menu base style */
+  .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    display: block; /* keep block for animation, but will toggle visibility */
+    transform-origin: top center;
+    transform: scaleY(0);
+  }
+
+  /* Show dropdown */
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+  }
+
+  /* Dropdown items hover */
+  .dropdown-menu .dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #1e56b0;
+    color: #fff;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Add underline element to each nav link
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link:not(.dropdown-toggle)");
+
+    navLinks.forEach((link) => {
+      // Create underline span and append
+      const underline = document.createElement("span");
+      underline.classList.add("underline");
+      link.appendChild(underline);
+
+      // Mouse enter - expand underline
+      link.addEventListener("mouseenter", () => {
+        underline.style.width = "100%";
+        link.style.color = "#1E56B0";
+      });
+
+      // Mouse leave - collapse underline
+      link.addEventListener("mouseleave", () => {
+        underline.style.width = "0";
+        link.style.color = "#333";
+      });
+    });
+
+    // Dropdown hover animations
+    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      const menu = dropdown.querySelector(".dropdown-menu");
+
+      // Show dropdown on mouse enter
+      dropdown.addEventListener("mouseenter", () => {
+        menu.classList.add("show");
+        toggle.setAttribute("aria-expanded", "true");
+      });
+
+      // Hide dropdown on mouse leave
+      dropdown.addEventListener("mouseleave", () => {
+        menu.classList.remove("show");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>
+
+
+<!-- JavaScript to Set Active Tab Based on URL -->
+<script>
+  const currentPage = location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.parentElement.classList.add("active");
+    }
+  });
+</script>
+
 <!--================================
 =            Page Title            =
 =================================-->
 
-<section class="section page-title">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8 m-auto">
-				<!-- Page Title -->
-				<h1>Our Team</h1>
-				<!-- Page Description -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, beatae atque dolorum impedit provident veritatis inventore similique deserunt suscipit quae.</p>
-			</div>
-		</div>
-	</div>
+<section class="section gradient-banner">
+  <div class="shapes-container">
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
+    <div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+    <div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+    <div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+    <div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+    <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
+    <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
+    <div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
+    <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
+    <div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
+    <div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
+    <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
+    <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
+  </div>
+   <div class="container">
+    <div class="row">
+      <div class="col-sm-8 m-auto text-center">
+
+        <!-- Animated Heading -->
+        <h1 
+          class="mb-4 fw-bold" 
+          style="font-weight: 600; color: white;" 
+          data-aos="fade-slide-up" 
+          data-aos-duration="1000"
+        >
+          Our Team
+        </h1>
+
+        <!-- Animated Lottie -->
+        <div 
+          class="text-center mb-4" 
+          data-aos="fade-slide-up" 
+          data-aos-delay="200" 
+          data-aos-duration="1000"
+        >
+          <lottie-player 
+            src="https://assets2.lottiefiles.com/packages/lf20_2glqweqs.json" 
+            background="transparent"  
+            speed="1"  
+            style="max-width: 300px; margin: 0 auto;"  
+            loop  
+            autoplay>
+          </lottie-player>
+        </div>
+
+        <!-- Animated Paragraph -->
+        <p 
+          class="mb-4 fw-bold" 
+          style="color: white;" 
+          data-aos="fade-slide-up" 
+          data-aos-delay="400" 
+          data-aos-duration="1000"
+        >
+          Behind Every Great Product Is a Greater Team
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
+
+
+
 
 <!--====  End of Page Title  ====-->
 
@@ -143,148 +282,173 @@ FACEBOOK: https://www.facebook.com/themefisher
 =            Feature Team            =
 ===================================-->
 <section class="founders section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<!-- Featured Member -->
-<div class="founder">
-	<!-- Member Image -->
-	<img class="w-100" src="images/team/featured-person-01.jpg" alt="featured-member">
-	<!-- Name -->
-	<h2>Elon Musk</h2>
-	<!-- position -->
-	<cite>Founder & CEO</cite>
-	<!-- Description -->
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-	<!-- Social Sites -->
-	<ul class="list-inline social-links">
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-	</ul>
-</div>
-			</div>
-			<div class="col-lg-6">
-				<!-- Featured Member -->
-<div class="founder">
-	<!-- Member Image -->
-	<img class="w-100" src="images/team/featured-person-02.jpg" alt="featured-member">
-	<!-- Name -->
-	<h2>Sergey Brin</h2>
-	<!-- position -->
-	<cite>Founder & CEO</cite>
-	<!-- Description -->
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-	<!-- Social Sites -->
-	<ul class="list-inline social-links">
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-	</ul>
-</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Featured Member -->
+
+        <div class="founder text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <!-- Member Image -->
+          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+            <img src="images/team/pavit.png" alt="image" class="founder-img">
+          </div>
+
+          <!-- Name -->
+          <h2 class="founder-name" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">Pavit Paul</h2>
+
+          <!-- Position -->
+          <cite class="founder-position" data-aos="fade-right" data-aos-duration="800" data-aos-delay="700">Founder & CEO</cite>
+
+          <!-- Description -->
+          <p class="founder-description" data-aos="fade-right" data-aos-duration="800" data-aos-delay="800">
+            Pavit is the Founder and CEO of Cashly, an alternative lending platform helping freelancers and self-employed individuals get easy access to capital. Born and raised in India, Pavit, since his early childhood had the entrepreneurial spirit. Hailing from a business family, he learned the ways of business from a very young age. After completing high school, Pavit moved to Toronto to pursue his undergrad. He then started working, doing direct face-to-face sales for Fortune 500 companies. This gave him hands-on experience in sales strategy, marketing, and team building.
+          </p>
+
+          <!-- Social Sites -->
+          <ul class="list-inline social-links" data-aos="fade-right" data-aos-duration="800" data-aos-delay="900">
+            <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+          </ul>
+        </div>
+        <!-- end of the ceo section -->
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <!-- Featured Member -->
+        <div class="founder" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+          <!-- Member Image -->
+          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700">
+            <img src="images/team/vlad.png" alt="image" class="founder-img">
+          </div>
+          <!-- Name -->
+          <h2 class="founder-name" data-aos="fade-left" data-aos-duration="800" data-aos-delay="900">Vladimir Belsch</h2>
+          <!-- position -->
+          <cite class="founder-position" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1000">CTO & Operations Manager</cite>
+          <!-- Description -->
+          <p class="founder-description" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1100">
+            Strategic operations leader with 10+ years in sales, business development, and executive roles across SaaS, fintech, and tech-enabled services. Currently COO at Cashly Inc., driving execution, operational excellence, and scalable growth for a CRM platform serving mortgage professionals.
+
+            Proven success in enterprise sales, recruitment, AR/VR education, and SaaS growth, with experience supporting tech acquisitions (Poka, Seequent, Contractor Compliance). Skilled in building high-performing teams and scalable startup operations. Passionate about tech, automation, and customer-focused growth.
+          </p>
+          <!-- Social Sites -->
+          <ul class="list-inline social-links" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1200">
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <!--====  End of Feature Team  ====-->
 
 <!--=================================
-=            Design Team            =
+=            Engneering Team            =
 ==================================-->
 <section class="design-team section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section-title">
-					<h2>Design Team</h2>
-					<p><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a> makes it easy to stay on top of your Life Style. No late tasks. No gimmicks.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
-<div class="team-sm">
-	<!-- Team Member Image -->
-	<div class="image">
-		<img class="w-100" src="images/team/design-team-01.jpg" alt="member-image">
-		<!-- Social Contacts -->
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Name -->
-	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
-	<cite>Head Of Marketing</cite>
-	<!-- Description -->
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
-<div class="team-sm">
-	<!-- Team Member Image -->
-	<div class="image">
-		<img class="w-100" src="images/team/design-team-02.jpg" alt="member-image">
-		<!-- Social Contacts -->
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Name -->
-	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
-	<cite>Head Of Marketing</cite>
-	<!-- Description -->
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
-<div class="team-sm">
-	<!-- Team Member Image -->
-	<div class="image">
-		<img class="w-100" src="images/team/design-team-03.jpg" alt="member-image">
-		<!-- Social Contacts -->
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- Name -->
-	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
-	<cite>Head Of Marketing</cite>
-	<!-- Description -->
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title text-center">
+          <h2>Engineering Team</h2>
+          <p><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Cashly</a> Empowering Mortgage Brokers & Lenders with AI-Powered Automation and Performance Insights.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Member 1 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="team-sm text-center">
+          <div class="image">
+            <img src="images/team/pooja.png" alt="Puja Patel" class="founder-img w-60 rounded-circle shadow">
+          </div>
+          <div class="social-links mt-2">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+            </ul>
+          </div>
+          <h3>Puja Patel</h3>
+          <cite>Product Manager & Software Engineer</cite>
+          <p>Software Engineering grad from Western University, currently working at Cashly and MedSpekto on AI-integrated SaaS platforms with a focus on UI/UX.</p>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="team-sm text-center">
+          <div class="image">
+            <img src="images/team/manav1.png" alt="Manav Patel" class="founder-img w-60 rounded-circle shadow">
+          </div>
+          <div class="social-links mt-2">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+            </ul>
+          </div>
+          <h3>Manav Patel</h3>
+          <cite>Software Engineer</cite>
+          <p>Software Engineering graduate and currently pursuing an MEng in Artificial Intelligence at Toronto Metropolitan University.</p>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="team-sm text-center">
+          <div class="image">
+            <img src="images/team/shrey.png" alt="Jonathon Andrew" class="founder-img w-60 rounded-circle shadow">
+          </div>
+          <div class="social-links mt-2">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+            </ul>
+          </div>
+          <h3>Shrey Patel</h3>
+          <cite>Software Engineer |</cite>
+          <p>Software Engineering graduate and currently pursuing an MEng in Artificial Intelligence.</p>
+        </div>
+      </div>
+
+      <!-- Optional Member 4 Placeholder -->
+      <!-- <div class="col-lg-3 col-md-6 mb-4">
+        <div class="team-sm text-center">
+          <div class="image">
+            <img src="images/team/default.png" alt="New Member" class="founder-img w-60 rounded-circle shadow">
+          </div>
+          <div class="social-links mt-2">
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+            </ul>
+          </div>
+          <h3>New Member</h3>
+          <cite>Role / Title</cite>
+          <p>Short intro for the next engineering team member at Cashly Inc.</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
 </section>
+
 <!--====  End of Design Team  ====-->
 
 <!--=================================
 =            Marketing Team         =
 ==================================-->
-<section class="design-team section pt-0">
+<!-- <section class="design-team section pt-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -296,12 +460,12 @@ FACEBOOK: https://www.facebook.com/themefisher
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
+		
 <div class="team-sm">
-	<!-- Team Member Image -->
+
 	<div class="image">
 		<img class="w-100" src="images/team/marketing-team-01.jpg" alt="member-image">
-		<!-- Social Contacts -->
+		
 		<div class="social-links">
 			<ul class="list-inline">
 				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
@@ -311,21 +475,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</ul>
 		</div>
 	</div>
-	<!-- Name -->
+
 	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
+
 	<cite>Head Of Marketing</cite>
-	<!-- Description -->
+	
 	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
 </div>
 			</div>
 			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
+		
 <div class="team-sm">
-	<!-- Team Member Image -->
+	
 	<div class="image">
 		<img class="w-100" src="images/team/marketing-team-02.jpg" alt="member-image">
-		<!-- Social Contacts -->
+	
 		<div class="social-links">
 			<ul class="list-inline">
 				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
@@ -335,21 +499,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</ul>
 		</div>
 	</div>
-	<!-- Name -->
+
 	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
+
 	<cite>Head Of Marketing</cite>
-	<!-- Description -->
+
 	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
 </div>
 			</div>
 			<div class="col-lg-4 col-md-6">
-				<!-- Team -->
+	
 <div class="team-sm">
-	<!-- Team Member Image -->
+
 	<div class="image">
 		<img class="w-100" src="images/team/marketing-team-03.jpg" alt="member-image">
-		<!-- Social Contacts -->
+
 		<div class="social-links">
 			<ul class="list-inline">
 				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
@@ -359,38 +523,38 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</ul>
 		</div>
 	</div>
-	<!-- Name -->
+
 	<h3>Jonathon Andrew</h3>
-	<!-- Position -->
+
 	<cite>Head Of Marketing</cite>
-	<!-- Description -->
+
 	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
 </div>
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--====  End of Marketing Team  ====-->
 
 
 <!--==================================
 =            Feature Team            =
 ===================================-->
-<section class="founders section pt-0">
+<!-- <section class="founders section pt-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-				<!-- Featured Member -->
+				
 <div class="founder">
-	<!-- Member Image -->
+	
 	<img class="w-100" src="images/team/featured-person-01.jpg" alt="featured-member">
-	<!-- Name -->
+
 	<h2>Elon Musk</h2>
-	<!-- position -->
+	
 	<cite>Founder & CEO</cite>
-	<!-- Description -->
+
 	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-	<!-- Social Sites -->
+
 	<ul class="list-inline social-links">
 		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
 		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
@@ -400,17 +564,17 @@ FACEBOOK: https://www.facebook.com/themefisher
 </div>
 			</div>
 			<div class="col-lg-6">
-				<!-- Featured Member -->
+		
 <div class="founder">
-	<!-- Member Image -->
+
 	<img class="w-100" src="images/team/featured-person-02.jpg" alt="featured-member">
-	<!-- Name -->
+	
 	<h2>Sergey Brin</h2>
-	<!-- position -->
+	
 	<cite>Founder & CEO</cite>
-	<!-- Description -->
+
 	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-	<!-- Social Sites -->
+
 	<ul class="list-inline social-links">
 		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
 		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
@@ -420,7 +584,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 </div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </section>
 <!--====  End of Feature Team  ====-->
 
@@ -435,8 +599,9 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<!-- Hire Title -->
 				<h2>We are hunting Genius Developers</h2>
 				<!-- Job Description -->
-				<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque
-					in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+				<p>At Cashly, we believe that great people build great companies. We're actively searching for fresh talent to bring new ideas, energy, and passion to our team. Whether you're just starting out or bringing years of experience, we offer a place where you can grow, make an impact, and be part of something meaningful.
+Explore our current openings and discover how you can contribute to our mission. We can’t wait to see what you bring to the table.
+Let’s build the future — together.</p>
 				<!-- Action Button -->
 				<a href="contact.html" class="mt-3 btn btn-main-md">Join the team</a>
 			</div>
@@ -450,69 +615,44 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!--============================
 =            Footer            =
 =============================-->
-<footer>
+<!-- Footer -->
+<footer data-aos="fade-up" style="background:#f8f9fa; padding: 0px 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.1);">
   <div class="footer-main">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
+      <div class="row align-items-start">
+        <!-- Logo and Social Icons -->
+        <div class="col-lg-4 col-md-12 m-md-auto text-center mb-2 mb-lg-0" data-aos="fade-right" style="padding-top: 10px;">
           <div class="block">
-            <a href="index.html"><img src="images/logo-alt.png" alt="footer-logo"></a>
-            <!-- Social Site Icons -->
-            <ul class="social-icon list-inline">
+            <a href="index.html">
+              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+            </a>
+            <ul class="social-icon list-inline mt-2">
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
+                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+
+        <!-- Product Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="200" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
             <h6>Product</h6>
-            <!-- links -->
             <ul>
               <li><a href="team.html">Teams</a></li>
-              <li><a href="blog.html">Blogs</a></li>
+              <!-- <li><a href="blog.html">Blogs</a></li> -->
               <li><a href="FAQ.html">FAQs</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+
+        <!-- Company Links -->
+        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="400" style="padding-top: 5px;">
           <div class="block-2">
-            <!-- heading -->
-            <h6>Resources</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="sign-up.html">Singup</a></li>
-              <li><a href="sign-in.html">Login</a></li>
-              <li><a href="blog.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
             <h6>Company</h6>
-            <!-- links -->
-            <ul>
-              <li><a href="career.html">Career</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="team.html">Investor</a></li>
-              <li><a href="privacy.html">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
-          <div class="block-2">
-            <!-- heading -->
-            <h6>Company</h6>
-            <!-- links -->
             <ul>
               <li><a href="about.html">About</a></li>
               <li><a href="contact.html">Contact</a></li>
@@ -523,23 +663,91 @@ FACEBOOK: https://www.facebook.com/themefisher
         </div>
       </div>
     </div>
-  </div>
-  <div class="text-center bg-dark py-4">
-    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></small class="text-secondary">
-  </div>
 
-	<div class="text-center bg-dark py-1">
-		<small> <p>Distributed By <a href="https://themewagon.com/">Themewagon</a></p></small class="text-secondary">
-	 </div>
+    <!-- Footer Bottom -->
+
 </footer>
+<!-- Scroll To Top Button -->
+<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+  <i class="fas fa-angle-up"></i>
+</div>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Script for AOS & Scroll-to-top -->
+<script>
+  // Initialize AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,    // Animate only once when scrolled into view
+  });
+
+  // Scroll to Top Button
+  const scrollBtn = document.querySelector(".scroll-top-to");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add("active");
+    } else {
+      scrollBtn.classList.remove("active");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<!-- Scroll To Top Button Styles -->
+<style>
+  .scroll-top-to {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f58a43;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+  .scroll-top-to.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* Optional: hover effect */
+  .scroll-top-to:hover {
+    background-color: #1e56b0;
+  }
+</style>
 
 
-  <!-- To Top -->
-  <div class="scroll-top-to">
-    <i class="ti-angle-up"></i>
-  </div>
+<!-- footer ends  -->
   
   <!-- JAVASCRIPTS -->
+   <script>
+  AOS.init({
+    once: true, // animation happens only once while scrolling down
+    duration: 800,
+    easing: 'ease-in-out',
+  });
+</script>
+
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
   <script src="plugins/slick/slick.min.js"></script>
