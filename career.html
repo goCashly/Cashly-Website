@@ -537,6 +537,89 @@ FACEBOOK: https://www.facebook.com/themefisher
     <!-- Footer Bottom -->
 
 </footer>
+
+
+
+  <!-- loader  -->
+<div id="page-loader">
+  <div class="loader-content">
+    <img src="images/cashly-logo.png" alt="Cashly Logo" class="logo" />
+    <div class="loader-ring"></div>
+  </div>
+  
+  <style>
+    #page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #page-loader.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .loader-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      width: 100px;
+      z-index: 2;
+    }
+
+    .loader-ring {
+      margin-top: 20px;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 255, 0.1);
+      border-top: 4px solid #1e56b0;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</div>
+
+<script>
+  const loader = document.getElementById('page-loader');
+  const links = document.querySelectorAll('a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (link.target === '_blank' || link.href.includes('#')) return;
+
+      e.preventDefault();
+      loader.classList.add('active');
+      const href = this.href;
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // Adjust delay as needed
+    });
+  });
+
+  window.addEventListener('load', () => {
+    loader.classList.remove('active');
+  });
+</script>
 <!-- Scroll To Top Button -->
 <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
   <i class="fas fa-angle-up"></i>
