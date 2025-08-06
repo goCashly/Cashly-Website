@@ -429,12 +429,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 </footer>
 
   <!-- loader  -->
-<div id="page-loader">
+ <!-- loader -->
+<!-- <div id="page-loader">
   <div class="loader-content">
-    <img src="images/cashly-logo.png" alt="Cashly Logo" class="logo" />
-    <div class="loader-ring"></div>
+    <img src="images/cashly-logo-nav.png" alt="Cashly Logo" class="logo white-tint spin-logo" />
+    <p class="loader-text">Please wait...</p>
   </div>
-  
+
   <style>
     #page-loader {
       position: fixed;
@@ -458,7 +459,6 @@ FACEBOOK: https://www.facebook.com/themefisher
     }
 
     .loader-content {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -466,17 +466,20 @@ FACEBOOK: https://www.facebook.com/themefisher
 
     .logo {
       width: 100px;
-      z-index: 2;
+      z-index: 1;
     }
 
-    .loader-ring {
-      margin-top: 20px;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 0, 255, 0.1);
-      border-top: 4px solid #1e56b0;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+ 
+    .spin-logo {
+      animation: spin 4s linear 2; /* slow rotation, 2 times */
+    }
+
+    .loader-text {
+      margin-top: 15px;
+      font-size: 16px;
+      color: rgb(25, 102, 202);
+      font-family: Arial, sans-serif;
+      letter-spacing: 1px;
     }
 
     @keyframes spin {
@@ -492,22 +495,29 @@ FACEBOOK: https://www.facebook.com/themefisher
 
   links.forEach(link => {
     link.addEventListener('click', function (e) {
-      if (link.target === '_blank' || link.href.includes('#')) return;
+      const href = this.href;
+
+      // Skip if opens in new tab, anchor, or mailto
+      if (
+        link.target === '_blank' ||
+        href.includes('#') ||
+        href.startsWith('mailto:')
+      ) return;
 
       e.preventDefault();
       loader.classList.add('active');
-      const href = this.href;
 
       setTimeout(() => {
         window.location.href = href;
-      }, 500); // Adjust delay as needed
+      }, 500);
     });
   });
 
   window.addEventListener('load', () => {
     loader.classList.remove('active');
   });
-</script>
+</script> -->
+
 <!-- Scroll To Top Button -->
 <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
   <i class="fas fa-angle-up"></i>
