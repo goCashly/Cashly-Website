@@ -2359,7 +2359,7 @@ hr {
   padding-bottom: 0;
 }
 .text-orange {
-  color: orange !important;
+  color: #f58a43 !important;
 }
 footer {
     background: #f9f9f9;
@@ -2369,7 +2369,7 @@ footer {
   }
 
   .footer-main h6 {
-    color: #ff6f00; /* orange */
+    color: #f58a43; /* orange */
     font-weight: 600;
     margin-bottom: 10px;
   }
@@ -2381,7 +2381,7 @@ footer {
   }
 
   .footer-main a:hover {
-    color: #ff6f00; /* orange */
+    color: #f58a43; /* orange */
   }
 
   .social-icon a {
@@ -2394,7 +2394,7 @@ footer {
 
   .social-icon a:hover {
     transform: rotate(360deg);
-    color: #ff6f00;
+    color: #f58a43;
   }
   footer {
     background-color: #f8f9fa; /* Light background (optional) */
@@ -2491,7 +2491,7 @@ footer {
 }
 
 footer a:hover {
-  color: orange !important;
+  color: #f58a43 !important;
   transition: color 0.3s ease;
 }
 
