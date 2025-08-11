@@ -486,17 +486,19 @@ FACEBOOK: https://www.facebook.com/themefisher
 =            Footer            =
 =============================-->
 <!-- Footer -->
-<footer data-aos="fade-up" style="background:#f8f9fa; padding: 0px 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.1);">
+<!-- Footer -->
+<footer data-aos="fade-up" style="background:#1f1f1f; padding-top:0; padding-bottom: 0; box-shadow: 0 -2px 8px rgba(31, 31, 31, 0.6);">
   <div class="footer-main">
     <div class="container">
       <div class="row align-items-start">
-        <!-- Logo and Social Icons -->
-        <div class="col-lg-4 col-md-12 m-md-auto text-center mb-2 mb-lg-0" data-aos="fade-right" style="padding-top: 10px;">
-          <div class="block">
+        
+        <!-- Logo & Social Icons -->
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" data-aos="fade-right">
+          <div class="block text-lg-start text-md-start text-sm-start">
             <a href="index.html">
               <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
             </a>
-            <ul class="social-icon list-inline mt-2">
+            <ul class="social-icon list-inline mt-3 mb-0">
               <li class="list-inline-item">
                 <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
               </li>
@@ -507,37 +509,77 @@ FACEBOOK: https://www.facebook.com/themefisher
           </div>
         </div>
 
-        <!-- Product Links -->
-        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="200" style="padding-top: 5px;">
-          <div class="block-2">
-            <h6>Product</h6>
-            <ul>
-              <li><a href="team.html">Teams</a></li>
-              <!-- <li><a href="blog.html">Blogs</a></li> -->
-              <li><a href="FAQ.html">FAQs</a></li>
-            </ul>
-          </div>
-        </div>
+        <!-- Product & Company on Right -->
+<style>
+  /* Custom large right margin */
+  .custom-me-20 {
+    margin-right: 5rem; /* Adjust as needed */
+  }
+</style>
 
-        <!-- Company Links -->
-        <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="400" style="padding-top: 5px;">
-          <div class="block-2">
-            <h6>Company</h6>
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="team.html">Team</a></li>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
-          </div>
-        </div>
+<style>
+  /* Make all footer links white and add hover effect */
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #f58a43; /* Hover color */
+  
+  }
+</style>
+
+<div class="col-lg-8 col-md-12 d-flex justify-content-lg-end justify-content-md-start" 
+     data-aos="fade-up" data-aos-delay="200" style="padding-top: 10px; padding-bottom: 10px;">
+
+  <!-- Product -->
+  <div class="custom-me-20 pe-lg-3">
+
+     <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Product</h6>
+    <ul class="list-unstyled mb-0 footer-links">
+   <style>
+  .footer-links li a {
+    font-size: 0.85rem; /* smaller size */
+  }
+</style>
+
+<ul class="list-unstyled mb-0 footer-links">
+  <li class="mb-2"><a href="team.html">Teams</a></li>
+  <li class="mb-2"><a href="FAQ.html">FAQs</a></li>
+</ul>
+    </ul>
+  </div>
+
+  <!-- Company -->
+  <div class="ps-lg-4">
+  <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Company</h6>
+    <ul class="list-unstyled mb-0 footer-links">
+      <li class="mb-2"><a href="about.html">About</a></li>
+      <li class="mb-2"><a href="contact.html">Contact</a></li>
+      <li class="mb-2"><a href="team.html">Team</a></li>
+      <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+</div>
+
       </div>
     </div>
-
-    <!-- Footer Bottom -->
-
+  </div>
 </footer>
 
+<style>
+  footer ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+
+</style>
+
+  </div>
+</footer>
 
 
   <!-- loader  -->
