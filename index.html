@@ -161,7 +161,7 @@
   }
 </style>
 
-<h1 class="text-white font-weight-bold mb-4">
+<h1 class="text-white font-weight-bold mb-4" style="text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);">
   <span class="animate-text first">Optimize Operations,</span><br />
   <span class="animate-text second">Close more Deals</span>
 </h1>
@@ -437,34 +437,50 @@
     <!-- Carousel Items -->
 <div class="carousel-inner text-center custom-carousel-height">
   <div class="carousel-item active d-flex justify-content-center align-items-center">
-    <img src="images/new.jpg" alt="imageone" class="img-fluid carousel-img">
+    <img src="images/new.jpg" alt="imageone" class="carousel-img">
   </div>
   <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/auto_last.png" alt="imageone" class="img-fluid carousel-img">
+    <img src="images/auto_last.png" alt="imageone" class="carousel-img">
   </div>
   <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/lender_matching.png" alt="imageone" class="img-fluid carousel-img">
+    <img src="images/lender_matching.png" alt="imageone" class="carousel-img">
   </div>
   <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/borrower.png" alt="imageone" class="img-fluid carousel-img">
+    <img src="images/borrower.png" alt="imageone" class="carousel-img">
   </div>
   <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/products.png" alt="imageone" class="img-fluid carousel-img">
+    <img src="images/products.png" alt="imageone" class="carousel-img">
   </div>
 </div>
 
 <style>
-  .carousel-img {
-    max-width: 100%;
-    height: auto; /* Keeps aspect ratio */
-    max-height: 80vh; /* Prevents image from being taller than viewport */
-    object-fit: contain; /* Ensures full image is visible without cropping */
+  /* Set carousel height for large screens */
+  .custom-carousel-height {
+    height: 80vh; /* consistent height across slides */
   }
 
-  /* Optional: make it even smaller on small screens */
+  /* Ensure images scale properly */
+  .carousel-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Prevent stretching */
+    display: block;
+    margin: auto;
+  }
+
+  /* Adjust for tablets */
+  @media (max-width: 992px) {
+    .custom-carousel-height {
+      height: 60vh;
+    }
+  }
+
+  /* Adjust for mobile */
   @media (max-width: 576px) {
-    .carousel-img {
-      max-height: 60vh;
+    .custom-carousel-height {
+      height: 50vh;
     }
   }
 </style>
