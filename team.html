@@ -442,16 +442,23 @@ FACEBOOK: https://www.facebook.com/themefisher
       <!-- Member 2 -->
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="team-sm text-center">
-          <div class="image">
-            <img src="images/team/manav1.png" alt="Manav Patel" class="founder-img w-60 rounded-circle shadow">
-          </div>
+         <div class="image">
+  <img src="images/manav.png" alt="Manav Patel" class="founder-img w-60 rounded-circle shadow">
+</div>
+
+<style>
+.image {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+}
+
+.founder-img {
+  max-width: 60%;  /* Keep size responsive */
+  height: 175px;    /* Preserve aspect ratio */
+}
+</style>
           <div class="social-links mt-2">
             <ul class="list-inline">
-              <!-- <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li> -->
-              <!-- <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li> -->
-            <!-- </ul> -->
           </div>
           <h3>Manav Patel</h3>
           <cite>Software Engineer</cite>
@@ -462,9 +469,32 @@ FACEBOOK: https://www.facebook.com/themefisher
       <!-- Member 3 -->
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="team-sm text-center">
-          <div class="image">
-            <img src="images/team/shrey.png" alt="Jonathon Andrew" class="founder-img w-60 rounded-circle shadow">
-          </div>
+       <div class="image">
+  <img src="images/team/shrey.png" alt="Jonathon Andrew" class="founder-img rounded-circle shadow">
+</div>
+
+<style>
+.image {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically if parent has height */
+  overflow: hidden;        /* Ensures zoom doesn’t overflow */
+}
+
+.founder-img {
+  width: 200px;            /* Adjust size as needed */
+  height: 185px;           /* Keep it square for circle */
+  object-fit: cover;       /* Focus on center of image */
+  border-radius: 100%;      /* Circle shape */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: transform 0.5s ease;
+}
+
+/* Optional: subtle zoom effect */
+.founder-img:hover {
+  transform: scale(1.1);
+}
+</style>
           <div class="social-links mt-2">
             <ul class="list-inline">
               <!-- <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
