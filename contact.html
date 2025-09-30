@@ -313,12 +313,33 @@ Our platform harnesses the power of AI to automate the entire mortgage process, 
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-7 mt-5 mt-lg-0">
-				<div class="google-map">
-					<!-- Google Map -->
-					<div id="map_canvas" data-latitude="51.507351" data-longitude="-0.127758"></div>
-				</div>
-			</div>
+<div class="col-lg-7 mt-5 mt-lg-0">
+    <div class="google-map">
+        <!-- Google Map -->
+       <div id="map_canvas" data-latitude="43.4973" data-longitude="-79.6901"></div>
+    </div>
+</div>
+
+<!-- Google Maps API with callback -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJJkf9F79djRHSbSoZpWTQq9_cWaXFLiY&callback=initMap" async defer></script>
+
+<script>
+  function initMap() {
+    const mapElement = document.getElementById('map_canvas');
+    const latitude = parseFloat(mapElement.getAttribute('data-latitude'));
+    const longitude = parseFloat(mapElement.getAttribute('data-longitude'));
+
+    const map = new google.maps.Map(mapElement, {
+      center: { lat: latitude, lng: longitude },
+      zoom: 14
+    });
+
+    const marker = new google.maps.Marker({
+      position: { lat: latitude, lng: longitude },
+      map: map
+    });
+  }
+</script>
 		</div>
 	</div>
 </section>
