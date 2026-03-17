@@ -1,422 +1,117 @@
-<!-- 
-THEME: Small Apps | Bootstrap App Landing Template
-VERSION: 1.0.0
-AUTHOR: Themefisher
-
-HOMEPAGE: https://themefisher.com/products/small-apps-free-app-landing-page-template/
-DEMO: https://demo.themefisher.com/small-apps/
-GITHUB: https://github.com/themefisher/Small-Apps-Bootstrap-App-Landing-Template
-
-Get HUGO Version : https://themefisher.com/products/small-apps-hugo-app-landing-theme/
-
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  ================================================== -->
   <meta charset="utf-8">
-  <title>Cashly</title>
+  <title>Cashly | Team</title>
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Bootstrap App Landing Template">
+  <meta
+    name="description"
+    content="Meet the team building Cashly's AI-powered mortgage workflow platform for brokers, lenders, and modern operating teams."
+  >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Small Apps Template v1.0">
+  <meta name="author" content="Cashly">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
-  
-  <!-- PLUGINS CSS STYLE -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/aos/aos.css">
-  <link rel="stylesheet" href="plugins/aos/aos.css">
-<script src="plugins/aos/aos.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  AOS.init(); // initialize AOS after the DOM loads
-</script>
-
-  <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
-
+  <link href="css/cashly-modern.css" rel="stylesheet">
 </head>
 
-<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
+<body class="body-wrapper cashly-modern team-page">
+  <nav class="navbar main-nav navbar-expand-lg px-3 px-lg-0">
+    <div class="container">
+      <a class="navbar-brand logo" href="index.html" aria-label="Cashly home">
+        <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+      </a>
 
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
-  <div class="container">
-    <a class="navbar-brand logo" href="index.html">
-      <img src="images/cashly-logo-nav.png" alt="logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="ti-menu"></span>
-    </button>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="ti-menu"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            data-toggle="dropdown"
-            aria-expanded="false"
-            >Home <span><i class="ti-angle-down"></i></span></a
-          >
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.html">Features</a></li>
-            <li><a class="dropdown-item" href="index.html">Watch Demo</a></li>
-            <li><a class="dropdown-item" href="index.html">Testimonials</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li> -->
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<style>
-  /* Basic nav link style */
-  .navbar-nav .nav-link {
-    position: relative;
-    color: #333;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
-
-  /* Animated underline container */
-  .underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background-color: #1e56b0;
-    width: 0;
-    transition: width 0.3s ease;
-    border-radius: 2px;
-  }
-
-  /* Dropdown menu base style */
-  .dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    display: block; /* keep block for animation, but will toggle visibility */
-    transform-origin: top center;
-    transform: scaleY(0);
-  }
-
-  /* Show dropdown */
-  .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleY(1);
-  }
-
-  /* Dropdown items hover */
-  .dropdown-menu .dropdown-item {
-    transition: background-color 0.3s ease, color 0.3s ease;
-    color: #333;
-  }
-
-  .dropdown-menu .dropdown-item:hover {
-    background-color: #1e56b0;
-    color: #fff;
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Add underline element to each nav link
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link:not(.dropdown-toggle)");
-
-    navLinks.forEach((link) => {
-      // Create underline span and append
-      const underline = document.createElement("span");
-      underline.classList.add("underline");
-      link.appendChild(underline);
-
-      // Mouse enter - expand underline
-      link.addEventListener("mouseenter", () => {
-        underline.style.width = "100%";
-        link.style.color = "#1E56B0";
-      });
-
-      // Mouse leave - collapse underline
-      link.addEventListener("mouseleave", () => {
-        underline.style.width = "0";
-        link.style.color = "#333";
-      });
-    });
-
-    // Dropdown hover animations
-    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
-
-    dropdowns.forEach((dropdown) => {
-      const toggle = dropdown.querySelector(".dropdown-toggle");
-      const menu = dropdown.querySelector(".dropdown-menu");
-
-      // Show dropdown on mouse enter
-      dropdown.addEventListener("mouseenter", () => {
-        menu.classList.add("show");
-        toggle.setAttribute("aria-expanded", "true");
-      });
-
-      // Hide dropdown on mouse leave
-      dropdown.addEventListener("mouseleave", () => {
-        menu.classList.remove("show");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  });
-</script>
-
-
-<!-- JavaScript to Set Active Tab Based on URL -->
-<script>
-  const currentPage = location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.parentElement.classList.add("active");
-    }
-  });
-</script>
-
-<!--================================
-=            Page Title            =
-=================================-->
-
-<section class="section gradient-banner" style="position: relative; display: flex; align-items: center;">
-  <div class="animation-wrapper" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;">
-    
-    <!-- Background Graph Canvas -->
-    <div id="graph-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 90%; z-index: 1; pointer-events: none;"></div>
-
-    <!-- AOS Shapes -->
-    <div class="shapes-container" style="position: relative; z-index: 2;">
-      <div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
-      <div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
-      <div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
-      <div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
-      <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-      <div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-      <div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
-      <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
-      <div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
-      <div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
-      <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
-      <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
-      <div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
-      <div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
-      <div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
-      <div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
-    </div>
-  </div>
-
-  <!-- Particle JS Config -->
-  <script>
-  particlesJS("graph-canvas", {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 350 }},
-      color: { value: ["#ffffff", "#f58a43"] },
-      shape: { type: "circle" },
-      opacity: { value: 0.9, random: true },
-      size: { value: 3, random: true },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#f58a43",
-        opacity: 0.4,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 1.6,
-        direction: "none",
-        random: false,
-        straight: false,
-        bounce: false
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" },
-        resize: true
-      },
-      modes: {
-        repulse: { distance: 100, duration: 0.4 },
-        push: { particles_nb: 4 }
-      }
-    },
-    retina_detect: true
-  });
-  </script>
-
-  <!-- Centered Content -->
-  <div class="container" style="position: relative; z-index: 3;">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-sm-8 text-center">
-        <!-- Animated Heading -->
-        <h1 
-          class="mb-4 fw-bold" 
-          style="font-weight: 600; color: white;" 
-          data-aos="fade-slide-up" 
-          data-aos-duration="1000"
-        >
-          Our Team
-        </h1>
-
-        <!-- Animated Lottie -->
-        <div 
-          class="text-center mb-4" 
-          data-aos="fade-slide-up" 
-          data-aos-delay="200" 
-          data-aos-duration="1000"
-        >
-          <lottie-player 
-            src="https://assets2.lottiefiles.com/packages/lf20_2glqweqs.json" 
-            background="transparent"  
-            speed="1"  
-            style="max-width: 300px; margin: 0 auto;"  
-            loop  
-            autoplay>
-          </lottie-player>
-        </div>
-
-        <!-- Animated Paragraph -->
-    <p class="mb-4 fw-bold" style="color: white;">
-  <span 
-    data-aos="fade-slide-up" 
-    data-aos-delay="400" 
-    data-aos-duration="1000"
-    style="display: inline-block;"
-  >
-    Behind Every Great Product, is a Greater Team
-  </span>
-  <!-- <span 
-    data-aos="fade-slide-up" 
-    data-aos-delay="900" 
-    data-aos-duration="1000"
-    style="display: inline-block; margin-left: 8px;"
-  >.
-  </span> -->
-</p>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="broker.html">Broker</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="team.html">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item nav-cta">
+            <a class="btn btn-main-md" href="career.html">Join the Team</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
+  <main class="page-shell">
+    <section class="hero-dark-section secondary-hero">
+      <div class="hero-orb hero-orb--one"></div>
+      <div class="hero-orb hero-orb--two"></div>
 
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="section-title-modern" data-aos="fade-up">
+              <span class="section-kicker section-kicker--dark">Our Team</span>
+              <h1>Behind Cashly is a team focused on building smarter mortgage operations.</h1>
+              <p>
+                We combine mortgage industry context, product thinking, engineering, and operational
+                execution to build a platform that helps high-performing teams work with more clarity.
+              </p>
+            </div>
 
-
-
-<!--====  End of Page Title  ====-->
-
-
-<!--==================================
-=            Feature Team            =
-===================================-->
-<section class="founders section pt-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000">
-        <!-- Featured Member -->
-
-        <div class="founder text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <!-- Member Image -->
-          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
-            <img src="images/team/pavit.png" alt="image" class="founder-img">
+            <div class="secondary-hero__meta" data-aos="fade-up" data-aos-delay="100">
+              <div>
+                <span>Leadership</span>
+                <strong>Product, operations, and growth</strong>
+              </div>
+              <div>
+                <span>Engineering</span>
+                <strong>AI-aware product builders</strong>
+              </div>
+              <div>
+                <span>Mission</span>
+                <strong>Modernize mortgage workflows</strong>
+              </div>
+            </div>
           </div>
-
-          <!-- Name -->
-          <h2 class="founder-name" data-aos="fade-right" data-aos-duration="800" data-aos-delay="600">Pavit Paul</h2>
-
-          <!-- Position -->
-          <cite class="founder-position" data-aos="fade-right" data-aos-duration="800" data-aos-delay="700">Founder & CEO</cite>
-
-          <!-- Description -->
-          <p class="founder-description" data-aos="fade-right" data-aos-duration="800" data-aos-delay="800">
-            Pavit is the Founder and CEO of Cashly, an alternative lending platform helping freelancers and self-employed individuals get easy access to capital. Born and raised in India, Pavit, since his early childhood had the entrepreneurial spirit. Hailing from a business family, he learned the ways of business from a very young age. After completing high school, Pavit moved to Toronto to pursue his undergrad. He then started working, doing direct face-to-face sales for Fortune 500 companies. This gave him hands-on experience in sales strategy, marketing, and team building.
-          </p>
-
-          <!-- Social Sites -->
-          <ul class="list-inline social-links" data-aos="fade-right" data-aos-duration="800" data-aos-delay="900">
-            <!-- <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li> -->
-            <li class="list-inline-item"><a href="https://www.linkedin.com/in/pavit-paul/"><i class="fab fa-linkedin"></i></a></li>
-            <!-- <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li> -->
-            <!-- <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li> -->
-          </ul>
-        </div>
-        <!-- end of the ceo section -->
-      </div>
-      <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <!-- Featured Member -->
-        <div class="founder" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-          <!-- Member Image -->
-          <div class="image" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700">
-            <img src="images/team/vlad.png" alt="image" class="founder-img">
-          </div>
-          <!-- Name -->
-          <h2 class="founder-name" data-aos="fade-left" data-aos-duration="800" data-aos-delay="900">Vladimir Belsch</h2>
-          <!-- position -->
-          <cite class="founder-position" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1000">CTO & COO</cite>
-          <!-- Description -->
-          <p class="founder-description" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1100">
-            Strategic operations leader with 10+ years in sales, business development, and executive roles across SaaS, fintech, and tech-enabled services. Currently COO at Cashly Inc., driving execution, operational excellence, and scalable growth for a CRM platform serving mortgage professionals. Proven success in enterprise sales, recruitment, AR/VR education, and SaaS growth, with experience supporting tech acquisitions. Skilled in building high-performing teams and scalable startup operations. Passionate about tech, automation, and customer-focused growth.
-          </p>
-          <!-- Social Sites -->
-          <ul class="list-inline social-links" data-aos="fade-left" data-aos-duration="800" data-aos-delay="1200">
-            <!-- <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li> -->
-            <li class="list-inline-item"><a href="https://www.linkedin.com/in/vladimirbelsch/"><i class="fab fa-linkedin"></i></a></li>
-            <!-- <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li> -->
-            <!-- <li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li> -->
-          </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!--====  End of Feature Team  ====-->
-
-<!--=================================
-=            Engneering Team            =
-==================================-->
-<section class="design-team section pt-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-title text-center">
-          <h2>Engineering Team</h2>
-          <p><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Cashly</a> Empowering Mortgage Brokers & Lenders with AI-Powered Automation and Performance Insights.</p>
+    <section class="page-section page-section--tight">
+      <div class="container">
+        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
+          <span class="section-kicker">Leadership</span>
+          <h2>The people shaping Cashly’s product, operations, and direction.</h2>
         </div>
       </div>
     </div>
@@ -434,552 +129,194 @@ FACEBOOK: https://www.facebook.com/themefisher
             <!-- </ul> -->
           </div>
       <h3 style="margin-top: 30px;">Puja Patel</h3>
-          <cite>Lead Engineer & Technical Product Manager</cite>
-          <p>Bachelors in Software Engineering from Western University. Focused on building scalable technology and driving product innovation.</p>
+          <cite>Product Manager & Software Engineer</cite>
+          <p>Software Engineering grad from Western University, currently working at Cashly AI-integrated SaaS platforms with a focus on UI/UX.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Member 2 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="team-sm text-center">
-         <div class="image">
-  <img src="images/manav.png" alt="Manav Patel" class="founder-img w-60 rounded-circle shadow">
-</div>
+    <section class="page-section">
+      <div class="container">
+        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
+          <span class="section-kicker">Engineering team</span>
+          <h2>Building the product experience, automation layer, and technical foundation.</h2>
+        </div>
 
-<style>
-.image {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-}
+        <div class="team-member-grid">
+          <article class="team-member-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="team-member-card__photo">
+              <img src="images/team/pooja.png" alt="Puja Patel">
+            </div>
+            <div class="team-member-card__body">
+              <h3>Puja Patel</h3>
+              <span>Product Manager &amp; Software Engineer</span>
+              <p>
+                Puja helps connect product decisions with the actual user experience, shaping how
+                Cashly feels in daily use while supporting the underlying engineering work.
+              </p>
+            </div>
+          </article>
 
-.founder-img {
-  max-width: 60%;  /* Keep size responsive */
-  height: 175px;    /* Preserve aspect ratio */
-}
-</style>
-          <div class="social-links mt-2">
-            <ul class="list-inline">
-          </div>
-          <h3>Manav Patel</h3>
-          <cite>Software Engineer</cite>
-          <p>Software Engineering graduate and currently pursuing an MEng in Artificial Intelligence at Toronto Metropolitan University.</p>
+          <article class="team-member-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member-card__photo">
+              <img src="images/manav.png" alt="Manav Patel">
+            </div>
+            <div class="team-member-card__body">
+              <h3>Manav Patel</h3>
+              <span>Software Engineer</span>
+              <p>
+                Manav focuses on building the systems and product flows that keep Cashly fast,
+                reliable, and ready for more advanced AI-enabled workflow support.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-member-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="team-member-card__photo">
+              <img src="images/team/shrey.png" alt="Shrey Patel">
+            </div>
+            <div class="team-member-card__body">
+              <h3>Shrey Patel</h3>
+              <span>Software Engineer</span>
+              <p>
+                Shrey contributes across product development and AI-focused engineering work,
+                helping transform complex workflow needs into practical features teams can trust.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- Member 3 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="team-sm text-center">
-       <div class="image">
-  <img src="images/team/shrey.png" alt="Jonathon Andrew" class="founder-img rounded-circle shadow">
-</div>
-
-<style>
-.image {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically if parent has height */
-  overflow: hidden;        /* Ensures zoom doesn’t overflow */
-}
-
-.founder-img {
-  width: 200px;            /* Adjust size as needed */
-  height: 185px;           /* Keep it square for circle */
-  object-fit: cover;       /* Focus on center of image */
-  border-radius: 100%;      /* Circle shape */
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.5s ease;
-}
-
-/* Optional: subtle zoom effect */
-.founder-img:hover {
-  transform: scale(1.1);
-}
-</style>
-          <div class="social-links mt-2">
-            <ul class="list-inline">
-              <!-- <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li> -->
-              <!-- <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li> -->
-            <!-- </ul> -->
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="journey-panel" data-aos="fade-up">
+          <div class="section-title-modern">
+            <span class="section-kicker section-kicker--dark">How we work</span>
+            <h2>We care about products that feel sharp, useful, and grounded in real operations.</h2>
+            <p>
+              Cashly is built by a team that values practical innovation. That means good design,
+              strong engineering, and product decisions that stay close to what users actually need.
+            </p>
           </div>
-          <h3>Shrey Patel</h3>
-          <cite>Software Engineer |</cite>
-          <p>Software Engineering graduate and currently pursuing an MEng in Artificial Intelligence.</p>
+
+          <div class="journey-grid">
+            <article class="journey-step">
+              <span>01</span>
+              <strong>Operator empathy</strong>
+              <p>We design around the pace and pressure of mortgage teams, not around generic software patterns.</p>
+            </article>
+
+            <article class="journey-step">
+              <span>02</span>
+              <strong>Modern product craft</strong>
+              <p>We want the platform to feel polished, fast, and intentional from first click to daily use.</p>
+            </article>
+
+            <article class="journey-step">
+              <span>03</span>
+              <strong>Shared ownership</strong>
+              <p>Product, design, and engineering work best when everyone cares about the actual user outcome.</p>
+            </article>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Optional Member 4 Placeholder -->
-      <!-- <div class="col-lg-3 col-md-6 mb-4">
-        <div class="team-sm text-center">
-          <div class="image">
-            <img src="images/team/default.png" alt="New Member" class="founder-img w-60 rounded-circle shadow">
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="cta-banner" data-aos="fade-up">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h2>We’re always looking for thoughtful builders who want to make real workflows better.</h2>
+              <p>
+                If you care about product quality, AI-enabled tools, and solving operational problems
+                with intention, we’d love to hear from you.
+              </p>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="cta-banner__actions justify-content-lg-end">
+                <a href="career.html" class="btn btn-main-md">Join the Team</a>
+                <a href="contact.html" class="btn-secondary-modern">Get in Touch</a>
+              </div>
+            </div>
           </div>
-          <div class="social-links mt-2">
-            <ul class="list-inline">
-              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
-            </ul>
-          </div>
-          <h3>New Member</h3>
-          <cite>Role / Title</cite>
-          <p>Short intro for the next engineering team member at Cashly Inc.</p>
         </div>
-      </div> -->
-    </div>
-  </div>
-</section>
+      </div>
+    </section>
+  </main>
 
-<!--====  End of Design Team  ====-->
-
-<!--=================================
-=            Marketing Team         =
-==================================-->
-<!-- <section class="design-team section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section-title">
-					<h2>Marketing Team</h2>
-					<p><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a> makes it easy to stay on top of your Life Style. No late tasks. No gimmicks.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-		
-<div class="team-sm">
-
-	<div class="image">
-		<img class="w-100" src="images/team/marketing-team-01.jpg" alt="member-image">
-		
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-
-	<h3>Jonathon Andrew</h3>
-
-	<cite>Head Of Marketing</cite>
-	
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-		
-<div class="team-sm">
-	
-	<div class="image">
-		<img class="w-100" src="images/team/marketing-team-02.jpg" alt="member-image">
-	
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-
-	<h3>Jonathon Andrew</h3>
-
-	<cite>Head Of Marketing</cite>
-
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-	
-<div class="team-sm">
-
-	<div class="image">
-		<img class="w-100" src="images/team/marketing-team-03.jpg" alt="member-image">
-
-		<div class="social-links">
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-				<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-			</ul>
-		</div>
-	</div>
-
-	<h3>Jonathon Andrew</h3>
-
-	<cite>Head Of Marketing</cite>
-
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
-</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!--====  End of Marketing Team  ====-->
-
-
-<!--==================================
-=            Feature Team            =
-===================================-->
-<!-- <section class="founders section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				
-<div class="founder">
-	
-	<img class="w-100" src="images/team/featured-person-01.jpg" alt="featured-member">
-
-	<h2>Elon Musk</h2>
-	
-	<cite>Founder & CEO</cite>
-
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-
-	<ul class="list-inline social-links">
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-	</ul>
-</div>
-			</div>
-			<div class="col-lg-6">
-		
-<div class="founder">
-
-	<img class="w-100" src="images/team/featured-person-02.jpg" alt="featured-member">
-	
-	<h2>Sergey Brin</h2>
-	
-	<cite>Founder & CEO</cite>
-
-	<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Nulla porttitor accumsan tincidunt.</p>
-
-	<ul class="list-inline social-links">
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-facebook"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="https://themefisher.com/"><i class="ti-dribbble"></i></a></li>
-	</ul>
-</div>
-			</div>
-		</div>
-	</div> -->
-</section>
-<!--====  End of Feature Team  ====-->
-
-<!--=====================================
-=            Section comment            =
-======================================-->
-
-<section class="section cta-hire bg-gary">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<!-- Hire Title -->
-				<h2>We are hunting Genius Developers</h2>
-				<!-- Job Description -->
-				<p>At Cashly, we believe that great people build great companies. We're actively searching for fresh talent to bring new ideas, energy, and passion to our team. Whether you're just starting out or bringing years of experience, we offer a place where you can grow, make an impact, and be part of something meaningful.
-Explore our current openings and discover how you can contribute to our mission. We can’t wait to see what you bring to the table.
-Let’s build the future together.</p>
-				<!-- Action Button -->
-				<a href="contact.html" class="mt-3 btn btn-main-md">Join the team</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!--====  End of Section comment  ====-->
-
-
-<!--============================
-=            Footer            =
-=============================-->
-<!-- Footer -->
-<!-- Footer -->
-<footer data-aos="fade-up" style="background:#1f1f1f; padding-top:0; padding-bottom: 0; box-shadow: 0 -2px 8px rgba(31, 31, 31, 0.6);">
-  <div class="footer-main">
+  <footer class="site-footer">
     <div class="container">
-      <div class="row align-items-start">
-        
-        <!-- Logo & Social Icons -->
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" data-aos="fade-right">
-          <div class="block text-lg-start text-md-start text-sm-start">
-            <a href="index.html">
-              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
+      <div class="row">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <a class="site-footer__brand" href="index.html" aria-label="Cashly home">
+            <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+          </a>
+          <p class="site-footer__copy">
+            Cashly is built by a team that wants mortgage software to feel cleaner,
+            faster, and more useful for the people doing the work every day.
+          </p>
+          <div class="site-footer__socials">
+            <a href="mailto:operations@gocashly.io" aria-label="Email Cashly">
+              <i class="ti-email"></i>
             </a>
-            <ul class="social-icon list-inline mt-3 mb-0">
-              <li class="list-inline-item">
-                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
-              </li>
-            </ul>
+            <a
+              href="https://www.linkedin.com/company/gocashly/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Cashly on LinkedIn"
+            >
+              <i class="ti-linkedin"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Product & Company on Right -->
-<style>
-  /* Custom large right margin */
-  .custom-me-20 {
-    margin-right: 5rem; /* Adjust as needed */
-  }
-</style>
+        <div class="col-6 col-lg-3 mb-4 mb-lg-0">
+          <h6>Explore</h6>
+          <ul class="site-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="broker.html">Broker</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
+          </ul>
+        </div>
 
-<style>
-  /* Make all footer links white and add hover effect */
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+        <div class="col-6 col-lg-4">
+          <h6>Contact</h6>
+          <ul class="site-footer__links">
+            <li><a href="tel:+12184133596">+1 218-413-3596</a></li>
+            <li><a href="mailto:operations@gocashly.io">operations@gocashly.io</a></li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=2896+South+Sheridan+Way+Oakville+ON+L6J+7T4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                2896 South Sheridan Way, Oakville
+              </a>
+            </li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
 
-  .footer-links a:hover {
-    color: #f58a43; /* Hover color */
-  
-  }
-</style>
-
-<div class="col-lg-8 col-md-12 d-flex justify-content-lg-end justify-content-md-start" 
-     data-aos="fade-up" data-aos-delay="200" style="padding-top: 10px; padding-bottom: 10px;">
-
-  <!-- Product -->
-  <div class="custom-me-20 pe-lg-3">
-
-     <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Product</h6>
-    <ul class="list-unstyled mb-0 footer-links">
-   <style>
-  .footer-links li a {
-    font-size: 0.85rem; /* smaller size */
-  }
-</style>
-
-<ul class="list-unstyled mb-0 footer-links">
-  <li class="mb-2"><a href="team.html">Teams</a></li>
-  <li class="mb-2"><a href="FAQ.html">FAQs</a></li>
-</ul>
-    </ul>
-  </div>
-
-  <!-- Company -->
-  <div class="ps-lg-4">
-  <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Company</h6>
-    <ul class="list-unstyled mb-0 footer-links">
-      <li class="mb-2"><a href="about.html">About</a></li>
-      <li class="mb-2"><a href="contact.html">Contact</a></li>
-      <li class="mb-2"><a href="team.html">Team</a></li>
-      <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
-    </ul>
-  </div>
-
-</div>
-
+      <div class="site-footer__bottom">
+        <p>Built by people who care about better mortgage operations.</p>
+        <a href="career.html">Join Cashly</a>
       </div>
     </div>
+  </footer>
+
+  <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+    <i class="ti-angle-up"></i>
   </div>
-</footer>
-
-<style>
-  footer ul li a {
-    color: #000;
-    text-decoration: none;
-  }
-
-</style>
-
-  </div>
-</footer>
-<!-- Scroll To Top Button -->
-<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
-  <i class="fas fa-angle-up"></i>
-</div>
-
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-<!-- Script for AOS & Scroll-to-top -->
-<script>
-  // Initialize AOS (Animate On Scroll)
-  AOS.init({
-    duration: 1000,
-    once: true,    // Animate only once when scrolled into view
-  });
-
-  // Scroll to Top Button
-  const scrollBtn = document.querySelector(".scroll-top-to");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.add("active");
-    } else {
-      scrollBtn.classList.remove("active");
-    }
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
-<!-- Scroll To Top Button Styles -->
-<style>
-  .scroll-top-to {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #f58a43;
-    color: white;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    line-height: 45px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 999;
-  }
-  .scroll-top-to.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  /* Optional: hover effect */
-  .scroll-top-to:hover {
-    background-color: #1e56b0;
-  }
-</style>
-
-
-<!-- footer ends  -->
- <!-- loader -->
-<!-- <div id="page-loader">
-  <div class="loader-content">
-    <img src="images/cashly-logo-nav.png" alt="Cashly Logo" class="logo white-tint spin-logo" />
-    <p class="loader-text">Please wait...</p>
-  </div>
-
-  <style>
-    #page-loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #page-loader.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .loader-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .logo {
-      width: 100px;
-      z-index: 1;
-    }
-
- 
-    .spin-logo {
-      animation: spin 4s linear 2; /* slow rotation, 2 times */
-    }
-
-    .loader-text {
-      margin-top: 15px;
-      font-size: 16px;
-      color: rgb(25, 102, 202);
-      font-family: Arial, sans-serif;
-      letter-spacing: 1px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</div>
-
-<script>
-  const loader = document.getElementById('page-loader');
-  const links = document.querySelectorAll('a');
-
-  links.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const href = this.href;
-
-      // Skip if opens in new tab, anchor, or mailto
-      if (
-        link.target === '_blank' ||
-        href.includes('#') ||
-        href.startsWith('mailto:')
-      ) return;
-
-      e.preventDefault();
-      loader.classList.add('active');
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
-    });
-  });
-
-  window.addEventListener('load', () => {
-    loader.classList.remove('active');
-  });
-</script> -->
-
-<!-- loader ends  -->
-  <!-- JAVASCRIPTS -->
-   <script>
-  AOS.init({
-    once: true, // animation happens only once while scrolling down
-    duration: 800,
-    easing: 'ease-in-out',
-  });
-</script>
 
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-  <script src="plugins/syotimer/jquery.syotimer.min.js"></script>
   <script src="plugins/aos/aos.js"></script>
-  <!-- google map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=REMOVED"></script>
-  <script src="plugins/google-map/gmap.js"></script>
-  
-  <script src="js/script.js"></script>
+  <script src="js/cashly-modern.js"></script>
 </body>
-
 </html>

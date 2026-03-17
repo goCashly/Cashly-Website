@@ -1,1106 +1,667 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  ================================================== -->
   <meta charset="utf-8">
-  <title>Cashly Inc.</title>
+  <title>Cashly | Private Mortgage Clarity</title>
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Bootstrap App Landing Template">
+  <meta
+    name="description"
+    content="Cashly helps homeowners understand private mortgage options with clear guidance, simple next steps, and full transparency."
+  >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Small Apps Template v1.0">
+  <meta name="author" content="Cashly">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
-  
-  <!-- PLUGINS CSS STYLE -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/aos/aos.css">
-
-  <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
-    <style>
-    a {
-      text-decoration: none !important;
-      color: inherit; /* Optional: keeps link color as normal text */
-    }
-  </style>
-
+  <link href="css/cashly-modern.css" rel="stylesheet">
 </head>
 
-<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
-
-
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
-  <div class="container">
-    <a class="navbar-brand logo" href="index.html"><img src="images/cashly-logo-nav.png" alt="logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="ti-menu"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
-            <!-- <span><i class="ti-angle-down"></i></span> -->
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@home1" href="#feature">Features</a></li>
-             <li><a class="dropdown-item" href="#watch-demo">Watch Demo</a></li>
-            <li><a class="dropdown-item @@home3" href="#testimonial">Testemonials</a></li>
-          </ul>
-        </li>
-        <!-- <li class="nav-item dropdown @@pages">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pages
-            <span><i class="ti-angle-down"></i></span>
-          </a> -->
-          <!-- Dropdown list -->
-          <!-- <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@team" href="team.html">Team</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">Career</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Blog</a></li>
-            <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
-            <li><a class="dropdown-item @@privacy" href="privacy-policy.html">Privacy</a></li>
-            <li><a class="dropdown-item @@faq" href="FAQ.html">FAQ</a></li>
-            <li><a class="dropdown-item" href="sign-in.html">Sign In</a></li>
-            <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-            <li><a class="dropdown-item" href="404.html">404</a></li>
-            <li><a class="dropdown-item" href="comming-soon.html">Coming Soon</a></li>
-
-            <li class="dropdown dropdown-submenu dropleft">
-              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                <li><a class="dropdown-item" href="index.html">Submenu 21</a></li>
-                <li><a class="dropdown-item" href="index.html">Submenu 22</a></li>
-              </ul>
-            </li>
-          </ul> -->
-        <!-- </li> -->
-		<li class="nav-item @@about">
-          <a class="nav-link" href="team.html">Team</a>
-        </li>
-        <li class="nav-item @@about">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-		<!-- <li class="nav-item @@about">
-          <a class="nav-link" href="blog.html">Blogs</a>
-        </li> -->
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!--====================================
-=            Hero Section            =
-=====================================-->
-<!--==== Gradient Banner Section ====-->
-<!--==== Gradient Banner Section ====-->
-<!-- Gradient Banner Section with Graph, Shapes, and Foreground -->
-<!-- <section class="section gradient-banner position-relative" style="overflow: hidden; background: linear-gradient(135deg, #0a1d3c, #1E56B0);"> -->
-<section class="section gradient-banner" style="position: relative; display: flex; align-items: center;">
-  <!-- Graph Canvas -->
-  <div id="graph-canvas" style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 81%;
-    z-index: 1;
-    pointer-events: none;
-  "></div>
-
-
-  <!-- Foreground Content -->
-  <div class="container position-relative" style="z-index: 3;">
-    <div class="row align-items-center">
-      <div class="col-md-6 order-2 order-md-1 text-center text-md-left">
-      <style>
-  .animate-text {
-    opacity: 0;
-    display: inline-block;
-    animation-fill-mode: forwards;
-    animation-name: fadeInUp;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-  }
-
-  .animate-text.first {
-    animation-delay: 0s;
-  }
-
-  .animate-text.second {
-    animation-delay: 1s;
-  }
-
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<h1 class="text-white font-weight-bold mb-4" style="text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);">
-  <span class="animate-text first">Optimize Operations,</span><br />
-  <span class="animate-text second">Close more Deals</span>
-</h1>
-        <p class="text-white mb-5">Empowering Mortgage Brokers & Lenders with AI Powered Automation and Performance Insights.</p>
-  <!-- <style>
-  .btn-main-md {
-    border-radius: 50px; /* pill shape */
-    background-color: #f58a43; /* orange */
-    color: #fff;
-    padding: 0.6rem 2rem; /* equal padding */
-    font-weight: 600;
-    border: none;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    margin-right: 1rem; /* margin between buttons */
-  }
-  .btn-main-md:last-child {
-    margin-right: 0; /* remove margin on last button */
-  }
-  .btn-main-md:hover {
-    background-color: #ee7213; /* blue */
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(30, 86, 176, 0.5);
-  }
-</style> -->
-
-<a href="#feature" class="btn-main-md">
-  View More
-</a>
-<a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT" class="btn-main-md" target="_blank" rel="noopener noreferrer">
-  Get a Demo 
-</a>
-
-      </div>
-<div class="col-md-6 text-center order-1 order-md-2">
-  <img class="img-fluid zoom-hover responsive-img" src="images/cashly_new.png" alt="screenshot">
-</div>
-
-<style>
-  .responsive-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Optional zoom-hover effect */
-  .zoom-hover {
-    transition: transform 0.3s ease;
-  }
-
-  .zoom-hover:hover {
-    transform: scale(1.05);
-  }
-</style>
-    </div>
-  </div>
-  
-</section>
-
-
-
-<!--====  End of Hero Section  ====-->
-
-<section class="section pt-0 position-relative pull-top">
-  <div class="container">
-  <div class="rounded shadow p-5 bg-white" style="height: 390px;">
-      <div class="row justify-content-center">
-        <!-- Card 1: Cashly CRM -->
-        <div class="col-lg-4  text-center flip-card" onclick="this.classList.toggle('flipped')">
-   <div class="flip-card-inner">
-  <div class="flip-card-front">
-    <!-- Top Content -->
-    <div>
-      <i class="ti-paint-bucket text-primary h1"></i>
-      <h3 class="mt-4 text-capitalize h5">Automated CRM for Brokers & Agents</h3>
-      <p class="regular text-muted">From the first lead to the final closing,Cashly CRM handles the repetitive work so you can focus on building relationships.
-      </p>
-    </div>
-    
-    <!-- Fixed Bottom "Read More" -->
-    <p class="regular mt-4" style="color: #f58a43; font-weight: bold; font-size: 0.9rem;">
-      Read More
-    </p>
-  </div>
-
-<div class="flip-card-back d-flex flex-column justify-content-center text-start p-4">
-  <p class="regular text-muted">
-    Auto fill contact details, scan and store documents,book meetings,and set reminders without lifting a finger.Stay ahead with real time analytics, instant notifications, and automated follow ups that keep your pipeline moving.
-  </p>
-</div>
-</div>
-        </div>
-
-        <!-- Card 2: Lender Matching AI -->
-        <div class="col-lg-4 text-center flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <i class="ti-shine text-primary h1"></i>
-              <h3 class="mt-4 text-capitalize h5">Lender Matching<br>AI</h3>
-              <p class="regular text-muted">Lenders upload key details about their financial products loan types, credit score, income requirements, and terms to define accepted borrower profiles.</p>
-             <p class="regular text-center mt-4" style="color: #f58a43; font-weight: bold; font-size: 0.9rem;">Read More</p>
-
-            </div>
-            <div class="flip-card-back">
-              <p class="regular text-muted">No more sifting through endless applications. Simply set your lending criteria, and our AI will match you with the most promising leads in seconds. Get clear, data driven recommendations so you can spend less time searching and more time closing deals.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Tailored for the Mortgage Industry -->
-        <div class="col-lg-4  text-center flip-card" onclick="this.classList.toggle('flipped')">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <i class="ti-thought text-primary h1"></i>
-              <h3 class="mt-4 text-capitalize h5">Tailored for the Mortgage Industry</h3>
-              <p class="regular text-muted">Cashly’s platform combines lead management, document processing, and lender matching for the mortgage industry in one seamless system.</p>
-              <p class="regular text-center mt-4" style="color: #f58a43; font-weight: bold; font-size: 0.9rem;">Read More</p>
-            </div>
-            <div class="flip-card-back">
-              <p class="regular text-muted">From compliance to communication, every feature is designed to save time, reduce errors, and give brokers, agents, and lenders the edge they need.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!--==================================
-=            Feature Grid            =
-===================================-->
-<section class="feature section pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 ml-auto justify-content-center">
-				<!-- Feature Mockup -->
-				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="images/new.jpg" alt="iphone">
-				</div>
-			</div>
-			<div class="col-lg-6 mr-auto align-self-center">
-				<div class="feature-content">
-					<!-- Feature Title -->
-					<h2>Increase your productivity with <strong>Automated CRM</strong></h2>
-					<!-- Feature Description -->
-					<p class="desc">
-						Cashly takes the manual grunt work out of the mortgage process. From scanning and extracting details from documents to booking appointments and managing leads, our AI powered CRM works like your personal assistant so you can focus on closing deals faster.
-					</p>
-				</div>
-				<!-- Testimonial Quote -->
-				<div class="testimonial">
-					<p>
-						“This platform ensures that I meet my daily tasks and keeps me on track. It’s dynamic, holistic, and innovative. I love how Cashly handles all aspects of our operations, from CRM to deal management. It’s an all in one solution that has made us more efficient.”
-					</p>
-					<ul class="list-inline meta">
-						<li class="list-inline-item">
-							<img src="images/julian.png" alt="">
-						</li>
-						<li class="list-inline-item">Julian Kwong, Mortgage Agent</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section class="feature section pt-0" id="feature">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 ml-auto align-self-center">
-				<div class="feature-content">
-					<!-- Feature Title -->
-					<h2>Instantly Connect with Qualified Borrowers Using <strong>Lender Matching AI</strong></h2>
-					<!-- Feature Description -->
-					<p>
-						Our Lender Matching AI empowers private lenders and institutions to upload their product criteria and instantly discover matching leads within the Cashly ecosystem. Say goodbye to cold leads Cashly surfaces warm opportunities that meet your exact lending profile, all in real time.
-					</p>
-				</div>
-				<!-- Testimonial Quote -->
-				<div class="testimonial">
-					<p>
-						“Cashly has transformed how we operate. The AI features, like summarizing notes and suggesting lenders, are game changers for us.”
-					</p>
-					<ul class="list-inline meta">
-						<li class="list-inline-item">
-							<img src="images/dummy1.png" alt="">
-						</li>
-						<li class="list-inline-item">Ehsan Sardar, Mortgage Agent</li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-6 mr-auto justify-content-center">
-				<!-- Feature mockup -->
-				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="images/lender_matching.png" alt="ipad">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="feature section pt-0"  >
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 ml-auto justify-content-center">
-				<!-- Feature Mockup -->
-				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="images/auto_updated.png" alt="iphone">
-				</div>
-			</div>
-			<div class="col-lg-6 mr-auto align-self-center">
-				<div class="feature-content">
-					<!-- Feature Title -->
-					<h2>Let <strong>Cashly Auto Dialer</strong> Handle the Busywork</h2>
-					<!-- Feature Description -->
-					<p class="desc">
-						 The Auto Dialer feature streamlines your outbound calling process by allowing you to add a list of contacts to a campaign and initiate calls with a single click.
-					</p>
-				</div>
-				<!-- Testimonial Quote -->
-				<div class="testimonial">
-					<p>
-						“ Once activated, the system automatically dials each contact one by one eliminating the need to manually enter phone numbers. If a contact doesn’t answer, the dialer seamlessly moves to the next contact in the list, maximizing efficiency and saving time. Ideal for sales outreach, follow ups, or marketing campaigns, the Auto Dialer ensures smooth, uninterrupted calling sessions with minimal effort.”
-					</p>
-					<ul class="list-inline meta">
-						<li class="list-inline-item">
-							<img src="images/dummy1.png" alt="">
-						</li>
-						<li class="list-inline-item">Hammad Attique, Mortgage Agent</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!--====  End of Feature Grid  ====-->
-
-<!--==============================
-=            Services            =
-===============================-->
-<!-- START: Cashly Features Section with Image Slider -->
-<section class="service section bg-light py-5">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-title text-center mb-5">
-          <h2>Beautifully Simple. Surprisingly Powerful.</h2>
-          <p>Cashly’s intuitive interface is designed to keep you focused on closing deals not figuring out how to use the software. Whether you're managing contacts, deals, or documents, everything is just a click away.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row d-flex align-items-center">
-      <!-- Left Column: Image Slider -->
-<div class="col-lg-6 mb-4 mb-lg-0">
-  <div id="clientCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000" data-pause="false">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#clientCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#clientCarousel" data-slide-to="1"></li>
-      <li data-target="#clientCarousel" data-slide-to="2"></li>
-      <li data-target="#clientCarousel" data-slide-to="3"></li>
-      <li data-target="#clientCarousel" data-slide-to="4"></li>
-      <li data-target="#clientCarousel" data-slide-to="5"></li>
-    </ol>
-
-    <!-- Carousel Items -->
-<div class="carousel-inner text-center custom-carousel-height">
-  <div class="carousel-item active d-flex justify-content-center align-items-center">
-    <img src="images/new.jpg" alt="imageone" class="carousel-img">
-  </div>
-  <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/auto_last.png" alt="imageone" class="carousel-img">
-  </div>
-  <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/lender_matching.png" alt="imageone" class="carousel-img">
-  </div>
-  <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/borrower.png" alt="imageone" class="carousel-img">
-  </div>
-  <div class="carousel-item d-flex justify-content-center align-items-center">
-    <img src="images/products.png" alt="imageone" class="carousel-img">
-  </div>
-</div>
-
-<style>
-  /* Set carousel height for large screens */
-  .custom-carousel-height {
-    height: 80vh; /* consistent height across slides */
-  }
-
-  /* Ensure images scale properly */
-  .carousel-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Prevent stretching */
-    display: block;
-    margin: auto;
-  }
-
-  /* Adjust for tablets */
-  @media (max-width: 992px) {
-    .custom-carousel-height {
-      height: 60vh;
-    }
-  }
-
-  /* Adjust for mobile */
-  @media (max-width: 576px) {
-    .custom-carousel-height {
-      height: 50vh;
-    }
-  }
-</style>
-
-    <!-- Controls -->
-    <a class="carousel-control-prev" href="#clientCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#clientCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-<style>
-  /* Set the carousel height once */
-  .custom-carousel-height {
-    height: 500px;
-  }
-</style>
-
-
-
-
-      <!-- Right Column: Feature Boxes -->
-      <div class="col-lg-6">
-        <div class="service-box">
-          <div class="row">
-            <div class="col-md-6 col-sm-12 mb-4">
-              <div class="service-item text-center">
-                <i class="ti-bookmark mb-2" style="font-size: 28px;"></i>
-                <h5>Smart Navigation</h5>
-                <p>Quickly jump between contacts, deals, tasks, and documents without losing context.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-4">
-              <div class="service-item text-center">
-                <i class="ti-pulse mb-2" style="font-size: 28px;"></i>
-                <h5>Clean & Fast</h5>
-                <p>Minimalist design meets lightning speed for high performance and efficiency.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-4">
-              <div class="service-item text-center">
-                <i class="ti-bar-chart mb-2" style="font-size: 28px;"></i>
-                <h5>Insightful Dashboards</h5>
-                <p>Track pipeline health, progress, and contacts with beautiful dashboards.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-4">
-              <div class="service-item text-center">
-                <i class="ti-panel mb-2" style="font-size: 28px;"></i>
-                <h5>Customizable Workspaces</h5>
-                <p>Modular widgets, filters, and role based views for brokers, lenders, and agents.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- End Right Column -->
-    </div>
-  </div>
-</section>
-<!-- END: Cashly Features Section -->
-
-
-
-<!--====  End of Services  ====-->
-
-
-<!--=================================
-=            Video Promo            =
-==================================-->
-<section id="watch-demo" class="video-promo section bg-1">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="content-block">
-          <!-- Heading -->
-          <h2>Watch Our Demo Video</h2>
-          <!-- Promotional Speech -->
-          <p>
-            Discover how Cashly simplifies your mortgage and lending process with powerful AI automation and intuitive tools. See the platform in action and learn how it can save you time, reduce manual work, and boost your productivity.
-          </p>
-          <!-- Popup Video -->
-          <a data-fancybox href="comming-soon.html">
-            <i class="ti-control-play video"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--====  End of Video Promo  ====-->
-
-<!--=================================
-=            Testimonial            =
-==================================-->
-
-<!-- Testimonial Section -->
-<section class="section testimonial" id="testimonial">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- Testimonial Slider -->
-        <div class="testimonial-slider owl-carousel owl-theme">
-          
-          <!-- Testimonial 01 -->
-        <div class="item" data-aos="fade-up" data-aos-duration="1000">
-  <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
-       style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
-    
-    <!-- Speech -->
-    <p style="color: #000; line-height: 1.6; text-align: center;">
-      “Cashly’s co pilot AI is fantastic. It summarizes my meeting notes and helps structure deals, suggesting the best way to proceed. Helps free up my time to spend more time helping my customers."
-    </p>
-    
-    <!-- Person Info -->
-    <div class="text-center mt-3">
-      <img src="images/matt.png" alt="User Image"
-           class="mx-auto d-block"
-           style="width: 100px; height: auto; border-radius: 50%;">
-      <div class="content mt-2">
-        <h5 class="mb-0" style="color: #000;">Matt Chalmers</h5>
-        <p style="color: #000;">Mortgage Agent</p>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-          <!-- Testimonial 02 -->
-          <div class="item" data-aos="fade-up" data-aos-duration="1000">
-            <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
-                 style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
-              
-              <!-- Speech -->
-              <p style=" color: #000; line-height: 1.6; text-align: center;">
-            “The insights and reports from Cashly are invaluable. It helps us understand our business better and make informed decisions"
-                  </p>
-              
-              <!-- Person Info -->
-          
-              <!--  -->
-   <div class="text-center mt-3">
-      <img src="images/yuvraj.png" alt="User Image"
-           class="mx-auto d-block"
-           style="width: 100px; height: auto; border-radius: 50%;">
-      <div class="content mt-2">
-        <h5 class="mb-0" style="color: #000;">Yuvraj Arora</h5>
-        <p style="color: #000;">Mortgage Agent</p>
-      </div>
-    </div>
-              <!--  -->
-              
-            </div>
-          </div>
-
-          <!-- Add more testimonial items here -->
-              <!-- Testimonial 02 -->
-          <div class="item" data-aos="fade-up" data-aos-duration="1000">
-            <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
-                 style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
-              
-              <!-- Speech -->
-              <p style=" color: #000; line-height: 1.6; text-align: center;">
-           “The Cashly team is amazing. They customize the entire platform around our business needs, making it a perfect fit for our operations“.
-                  </p>
-              
-              <!-- Person Info -->
-       
-              <!--  -->
-  <div class="text-center mt-3">
-      <img src="images/anahat.png" alt="User Image"
-           class="mx-auto d-block"
-           style="width: 100px; height: auto; border-radius: 50%;">
-      <div class="content mt-2">
-        <h5 class="mb-0" style="color: #000;">Anahat Virk</h5>
-        <p style="color: #000;">Mortgage Agent</p>
-      </div>
-    </div>
-              <!--  -->
-            </div>
-          </div>
-
-          <!-- one more  -->
-<div class="item" data-aos="fade-up" data-aos-duration="1000">
-  <div class="block shadow p-4 d-flex flex-column align-items-center justify-content-between"
-       style="background: #fff; border-radius: 10px; color: #000; min-height: 400px;">
-    
-    <!-- Speech -->
-    <p style="color: #000; line-height: 1.6; text-align: center;">
-      “Cashly is an all-in-one system that has streamlined our entire workflow. It connects lenders and borrowers seamlessly and handles everything from deal management to contact management.”
-    </p>
-    
-    <!-- Person Info -->
-    <div class="text-center mt-3">
-      <img src="images/dummy1.png" alt="User Image"
-           class="mx-auto d-block"
-           style="width: 100px; height: auto; border-radius: 50%;">
-      <div class="content mt-2">
-        <h5 class="mb-0" style="color: #000;">Brian Houghton</h5>
-        <p style="color: #000;">Mortgage Agent</p>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section clients" style="background-color: #F4F7FA;"> <!-- Light background -->
-  <div class="container">
-    <div class="row">
-      <div class="col-10 m-auto text-center">
-        <h3 style="color: #1E56B0; font-weight: bold; font-weight: 600">Our Partners & Collaborators</h3> <!-- Styled heading -->
-  <style>
-  .client-slider img {
-    max-height: 60px; /* same height for all logos */
-    width: auto;       /* keep aspect ratio */
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
-</style>
-
-<div class="client-slider">
-  <div class="item mb-4" style="padding: 10px;">
-    <img src="images/clients/nvi.png" alt="business-finder"
-     >
-  </div>
-<div class="item mb-4" style="padding: 15px;">
-  <img src="images/clients/neo.png" alt="neo" style="max-height: 50px; width: auto;">
-</div>
-  <div class="item mb-4" style="padding: 1px;">
-    <img src="images/clients/aws.png" alt="aws"
-      style="filter: brightness(0) saturate(70%) sepia(70%) hue-rotate(190deg) brightness(1.2);">
-  </div>
-<div class="item mb-4" style="padding: 10px;">
-  <img src="images/clients/imageone.png" alt="business-finder" style="filter: grayscale(100%) brightness(0);">
-</div>
-
-<div class="item mb-4" style="padding: 15px;">
-  <img src="images/clients/imagetwo.png" alt="neo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0);">
-</div>
-  <div class="item mb-4" style="padding: 1px;">
-    <img src="images/clients/imagethree.png" alt="venture-beat"
-      style="filter: brightness(0) saturate(70%) sepia(70%) hue-rotate(190deg) brightness(1.2);">
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--====  End of Testimonial  ====-->
-
-<section class="call-to-action-app section" style="background-color: #1E56B0;">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center text-white">
-				<h2>Ready to transform your mortgage business?</h2>
-				<p><br>
-					Experience the power of Cashly a smarter CRM and lender matching platform designed to streamline your workflow, save you time, and close more deals.
-					<br>Contact us today to schedule your personalized demo and see how Cashly can work for you.
-				</p>
-				<a href="contact.html" class="btn-main-md">
-					Contact Us Now
-				</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!-- Footer Section -->
-<!-- Footer -->
-<!-- Footer -->
-<footer data-aos="fade-up" style="background:#1f1f1f; padding-top:0; padding-bottom: 0; box-shadow: 0 -2px 8px rgba(31, 31, 31, 0.6);">
-  <div class="footer-main">
+<body class="body-wrapper cashly-modern home-page">
+  <nav class="navbar main-nav navbar-expand-lg px-3 px-lg-0">
     <div class="container">
-      <div class="row align-items-start">
-        
-        <!-- Logo & Social Icons -->
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" data-aos="fade-right">
-          <div class="block text-lg-start text-md-start text-sm-start">
-            <a href="index.html">
-              <img src="images/cashly-logo-nav.png" alt="footer-logo" style="max-height: 60px; filter: brightness(0) invert(1);">
-            </a>
-            <ul class="social-icon list-inline mt-3 mb-0">
-              <li class="list-inline-item">
-                <a href="mailto:operations@gocashly.io"><i class="fas fa-envelope"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/company/gocashly/"><i class="fab fa-linkedin"></i></a>
-              </li>
-            </ul>
+      <a class="navbar-brand logo" href="index.html" aria-label="Cashly home">
+        <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="ti-menu"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="broker.html">Broker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item nav-cta">
+            <a
+              class="btn btn-main-md"
+              href="#borrowerCalculatorModal"
+              role="button"
+              data-toggle="modal"
+              data-target="#borrowerCalculatorModal"
+            >Get Your Rate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-shell" id="main-content">
+    <section class="hero-dark-section home-hero">
+      <div class="hero-orb hero-orb--one"></div>
+      <div class="hero-orb hero-orb--two"></div>
+
+      <div class="container position-relative">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="section-title-modern" data-aos="fade-up">
+              <span class="section-kicker section-kicker--dark">Private Mortgage Clarity</span>
+              <h1>When banks say no, you still deserve clear answers.</h1>
+              <p>
+                Cashly helps homeowners understand private mortgage options in a simple, transparent way.
+              </p>
+              <p>
+                No pressure. No hidden fees. No confusing lender games.
+              </p>
+            </div>
+
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="100">
+              <a
+                href="#borrowerCalculatorModal"
+                class="btn btn-main-md"
+                role="button"
+                data-toggle="modal"
+                data-target="#borrowerCalculatorModal"
+              >Get Your Rate</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-5 mt-lg-0">
+            <div class="home-hero__visual home-hero__visual--simple" data-aos="fade-left">
+              <div class="visual-frame">
+                <img src="images/home-hero-consultation.jpg" alt="Homeowners reviewing mortgage options with a specialist">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--tight" id="borrower-problem">
+      <div class="container">
+        <div class="row align-items-center showcase-row">
+          <div class="col-lg-6">
+            <div class="showcase-copy" data-aos="fade-right">
+              <span class="section-kicker">The problem</span>
+              <h2>Getting a private mortgage should not feel risky or confusing.</h2>
+              <p>
+                When traditional lenders say no, many homeowners are pushed into private mortgage decisions
+                without a clear understanding of the costs, risks, or alternatives.
+              </p>
+
+              <ul class="benefit-list">
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Rates and fees are explained clearly.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>You can see whether the deal is fair.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>You can make a decision without being rushed.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="showcase-image" data-aos="fade-left">
+              <img src="images/home-mortgage-documents.jpg" alt="Mortgage documents and planning materials">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="journey-panel" data-aos="fade-up">
+          <div class="section-title-modern text-center">
+            <span class="section-kicker">The Cashly Method</span>
+            <h2>Simple. Structured. Predictable.</h2>
+            <p>
+              We explain your options in plain language, show you the real costs up front, and help you move forward with confidence.
+            </p>
+          </div>
+
+          <div class="journey-grid journey-grid--four">
+            <article class="journey-step">
+              <span>Step 1</span>
+              <strong>Tell us your situation</strong>
+              <p>Answer a few questions about your property and goals.</p>
+            </article>
+            <article class="journey-step">
+              <span>Step 2</span>
+              <strong>Get clear options</strong>
+              <p>We explain private mortgage solutions in plain English.</p>
+            </article>
+            <article class="journey-step">
+              <span>Step 3</span>
+              <strong>Choose with confidence</strong>
+              <p>See rates, fees, and exit strategy before you decide.</p>
+            </article>
+            <article class="journey-step">
+              <span>Step 4</span>
+              <strong>Move forward</strong>
+              <p>Once you are comfortable, the paperwork and lender coordination are handled clearly.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
+          <span class="section-kicker">Why Cashly</span>
+          <h2>Clear support when the decision matters most.</h2>
+          <p>
+            The right private mortgage should buy you time, protect your property, and give you a clear path forward.
+          </p>
+        </div>
+
+        <div class="stat-highlight-grid" data-aos="fade-up">
+          <div class="stat-highlight-card">
+            <strong>200+</strong>
+            <p>Canadian homeowners supported with clearer private mortgage guidance.</p>
+          </div>
+          <div class="stat-highlight-card">
+            <strong>$350M+</strong>
+            <p>Funded across real borrower situations where clarity and structure mattered.</p>
           </div>
         </div>
 
-        <!-- Product & Company on Right -->
-<style>
-  /* Custom large right margin */
-  .custom-me-20 {
-    margin-right: 5rem; /* Adjust as needed */
-  }
-</style>
+        <div class="advantage-grid advantage-grid--simple" data-aos="fade-up" data-aos-delay="100">
+          <article class="advantage-card">
+            <i class="ti-timer"></i>
+            <h3>Faster approvals</h3>
+            <p>Move through the process with less confusion and fewer delays.</p>
+          </article>
+          <article class="advantage-card">
+            <i class="ti-comments-smiley"></i>
+            <h3>Transparent terms</h3>
+            <p>Understand rates, fees, and tradeoffs before committing.</p>
+          </article>
+          <article class="advantage-card">
+            <i class="ti-shield"></i>
+            <h3>Professional process</h3>
+            <p>Clear communication and a more trustworthy borrower experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<style>
-  /* Make all footer links white and add hover effect */
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="faq-shell" data-aos="fade-up">
+          <div class="faq-shell__inner">
+            <div class="section-title-modern mb-4">
+              <span class="section-kicker">Frequently Asked Questions</span>
+              <h2>Short answers to common borrower questions.</h2>
+            </div>
 
-  .footer-links a:hover {
-    color: #f58a43; /* Hover color */
-  
-  }
-</style>
+            <div class="faq-list-modern">
+              <details class="faq-item-modern" open>
+                <summary>
+                  What is private lending?
+                  <i class="ti-angle-down"></i>
+                </summary>
+                <p>
+                  Private lending is a way to borrow against your property through private lenders instead of a traditional bank.
+                </p>
+              </details>
 
-<div class="col-lg-8 col-md-12 d-flex justify-content-lg-end justify-content-md-start" 
-     data-aos="fade-up" data-aos-delay="200" style="padding-top: 10px; padding-bottom: 10px;">
+              <details class="faq-item-modern">
+                <summary>
+                  What if I was rejected by a bank?
+                  <i class="ti-angle-down"></i>
+                </summary>
+                <p>
+                  That is one of the most common reasons borrowers explore private mortgages. Cashly helps you understand whether it is the right fit.
+                </p>
+              </details>
 
-  <!-- Product -->
-  <div class="custom-me-20 pe-lg-3">
+              <details class="faq-item-modern">
+                <summary>
+                  Are there hidden fees?
+                  <i class="ti-angle-down"></i>
+                </summary>
+                <p>
+                  The goal is the opposite: clear visibility into rates, fees, and tradeoffs before you move forward.
+                </p>
+              </details>
 
-     <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Product</h6>
-    <ul class="list-unstyled mb-0 footer-links">
-   <style>
-  .footer-links li a {
-    font-size: 0.85rem; /* smaller size */
-  }
-</style>
+              <details class="faq-item-modern">
+                <summary>
+                  How quickly can I receive funds?
+                  <i class="ti-angle-down"></i>
+                </summary>
+                <p>
+                  Timelines depend on the file, but private lending can often move faster than traditional bank approvals.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<ul class="list-unstyled mb-0 footer-links">
-  <li class="mb-2"><a href="team.html">Teams</a></li>
-  <li class="mb-2"><a href="FAQ.html">FAQs</a></li>
-</ul>
-    </ul>
-  </div>
+    <section class="page-section pt-0" id="appointment">
+      <div class="container">
+        <div class="cta-banner" data-aos="fade-up">
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <span class="section-kicker">Book an appointment</span>
+              <h2>Talk through your mortgage options with a real person.</h2>
+              <p>
+                Choose a time that works for you and get clear guidance on your situation, next steps, and possible private mortgage path.
+              </p>
+            </div>
 
-  <!-- Company -->
-  <div class="ps-lg-4">
-  <h6 class="mb-3" style="color: #f58a43; font-weight: bold;">Company</h6>
-    <ul class="list-unstyled mb-0 footer-links">
-      <li class="mb-2"><a href="about.html">About</a></li>
-      <li class="mb-2"><a href="contact.html">Contact</a></li>
-      <li class="mb-2"><a href="team.html">Team</a></li>
-      <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
-    </ul>
-  </div>
+            <div class="col-lg-5 mt-4 mt-lg-0">
+              <div class="cta-banner__actions justify-content-lg-end">
+                <a
+                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT"
+                  class="btn btn-main-md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Book an Appointment</a>
+                <a
+                  href="#borrowerCalculatorModal"
+                  class="btn btn-secondary-modern home-calculator-trigger"
+                  role="button"
+                  data-toggle="modal"
+                  data-target="#borrowerCalculatorModal"
+                >Check Your Mortgage Eligibility</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="page-section pt-0" id="home-callback">
+      <div class="container">
+        <div class="callback-shell" data-aos="fade-up">
+          <div class="row align-items-stretch">
+            <div class="col-xl-7">
+              <div class="callback-form-shell">
+                <span class="section-kicker">Business Info</span>
+                <h2>Request A Call Back</h2>
 
+                <form
+                  id="homeCallbackForm"
+                  action="https://formspree.io/f/mqapaoqp"
+                  method="POST"
+                  novalidate
+                >
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="home-first-name">First name</label>
+                      <input
+                        type="text"
+                        id="home-first-name"
+                        name="first_name"
+                        class="form-control"
+                        placeholder="First name"
+                        autocomplete="given-name"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="home-last-name">Last name</label>
+                      <input
+                        type="text"
+                        id="home-last-name"
+                        name="last_name"
+                        class="form-control"
+                        placeholder="Last name"
+                        autocomplete="family-name"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="home-email">Email*</label>
+                      <input
+                        type="email"
+                        id="home-email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Email"
+                        autocomplete="email"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="home-phone">Phone</label>
+                      <input
+                        type="tel"
+                        id="home-phone"
+                        name="phone"
+                        class="form-control"
+                        placeholder="Phone"
+                        autocomplete="tel"
+                      >
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <label for="home-message">Message*</label>
+                      <textarea
+                        id="home-message"
+                        name="message"
+                        class="form-control"
+                        rows="5"
+                        placeholder="Message"
+                        required
+                      ></textarea>
+                    </div>
+
+                    <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                      <p class="callback-form-note">
+                        Prefer to email us directly? Reach out anytime at
+                        <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>.
+                      </p>
+
+                      <button type="submit" class="btn btn-main-md callback-submit" id="homeCallbackSubmitButton">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <p id="homeCallbackMessage" class="callback-message" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="col-xl-5 mt-4 mt-xl-0">
+              <div class="callback-info-shell">
+                <span class="section-kicker">Business Info</span>
+                <h3>Location</h3>
+                <p>
+                  2896 S Sheridan Way,<br>
+                  Oakville, ON L6J 7T4
+                </p>
+
+                <div class="business-card-grid">
+                  <article class="business-card">
+                    <span>Reach Out</span>
+                    <strong>Email:</strong>
+                    <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Phone</span>
+                    <a href="tel:+12184133596">+1 218-413-3596</a>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Address</span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&amp;query=2896+South+Sheridan+Way+Oakville+ON+L6J+7T4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >View Oakville location</a>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <a class="site-footer__brand" href="index.html" aria-label="Cashly home">
+            <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+          </a>
+          <p class="site-footer__copy">
+            Cashly helps homeowners understand private mortgage options with clear guidance and simple next steps.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-3 mb-4 mb-lg-0">
+          <h6>Explore</h6>
+          <ul class="site-footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <h6>More</h6>
+          <ul class="site-footer__links">
+            <li><a href="broker.html">Broker</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li>
+              <a
+                href="#borrowerCalculatorModal"
+                data-toggle="modal"
+                data-target="#borrowerCalculatorModal"
+              >Get Your Rate</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>Clear private mortgage guidance for homeowners.</p>
+        <a
+          href="#borrowerCalculatorModal"
+          data-toggle="modal"
+          data-target="#borrowerCalculatorModal"
+        >Start here</a>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    class="modal fade borrower-calculator-modal"
+    id="borrowerCalculatorModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="borrowerCalculatorModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content borrower-calculator-modal__content">
+        <div class="modal-body borrower-calculator-modal__body">
+          <div class="callback-shell">
+            <div class="row align-items-stretch">
+              <div class="col-xl-7">
+                <div class="callback-form-shell">
+                  <span class="section-kicker">Check Your Mortgage Eligibility</span>
+                  <h2 id="borrowerCalculatorModalLabel">Estimate your monthly payment in a simple way.</h2>
+                  <p>
+                    Use this quick estimate to understand the size of the payment before speaking with someone.
+                  </p>
+
+                  <form id="mortgageCalculatorForm" novalidate>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="calculator-property">Property value</label>
+                        <input
+                          type="number"
+                          id="calculator-property"
+                          name="property_value"
+                          class="form-control"
+                          placeholder="750000"
+                          min="0"
+                          inputmode="numeric"
+                          step="1000"
+                          value="750000"
+                          required
+                        >
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <label for="calculator-down-payment">Down payment</label>
+                        <input
+                          type="number"
+                          id="calculator-down-payment"
+                          name="down_payment"
+                          class="form-control"
+                          placeholder="150000"
+                          min="0"
+                          inputmode="numeric"
+                          step="1000"
+                          value="150000"
+                          required
+                        >
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <label for="calculator-rate">Interest rate %</label>
+                        <input
+                          type="number"
+                          id="calculator-rate"
+                          name="interest_rate"
+                          class="form-control"
+                          placeholder="8.99"
+                          min="0"
+                          inputmode="decimal"
+                          step="0.01"
+                          value="8.99"
+                          required
+                        >
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <label for="calculator-years">Amortization (years)</label>
+                        <input
+                          type="number"
+                          id="calculator-years"
+                          name="amortization_years"
+                          class="form-control"
+                          placeholder="25"
+                          min="1"
+                          max="35"
+                          inputmode="numeric"
+                          step="1"
+                          value="25"
+                          required
+                        >
+                      </div>
+
+                      <div class="col-12 mb-3">
+                        <p class="callback-form-note">
+                          This is an estimate only. It does not include taxes, insurance, lender fees, or legal costs.
+                        </p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-xl-5 mt-4 mt-xl-0">
+                <div class="callback-info-shell">
+                  <span class="section-kicker">Your estimate</span>
+                  <h3>Check Your Mortgage Eligibility</h3>
+                  <p>
+                    A simple estimate to help you understand your possible payment before moving forward.
+                  </p>
+
+                  <div class="calculator-result-card" aria-live="polite">
+                    <span>Estimated monthly payment</span>
+                    <strong id="calculator-monthly">$0</strong>
+                    <p>Based on the property value, down payment, rate, and amortization entered.</p>
+                  </div>
+
+                  <div class="business-card-grid">
+                    <article class="business-card">
+                      <span>Estimated loan amount</span>
+                      <strong id="calculator-loan">$0</strong>
+                    </article>
+
+                    <article class="business-card">
+                      <span>Estimated total interest</span>
+                      <strong id="calculator-interest">$0</strong>
+                    </article>
+
+                    <article class="business-card">
+                      <span>Amortization period</span>
+                      <strong id="calculator-summary-years">25 years</strong>
+                    </article>
+                  </div>
+
+                  <p class="calculator-note">
+                    Need a real quote? Reach us at
+                    <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>
+                    or call
+                    <a href="tel:+12184133596">+1 218-413-3596</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="borrower-calculator-modal__footer">
+              <button
+                type="button"
+                class="borrower-calculator-modal__close"
+                data-dismiss="modal"
+                aria-label="Close calculator"
+              >Close</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
 
-<!-- <style>
-  footer ul li a {
-    color: #000;
-    text-decoration: none;
-  }
-
-</style>
-
+  <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+    <i class="ti-angle-up"></i>
   </div>
-</footer> -->
-
-
-
-
-
-<!-- Scroll To Top Button -->
-<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
-  <i class="fas fa-angle-up"></i>
-</div>
-
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-<!-- Script for AOS & Scroll-to-top -->
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Initialize AOS (Animate On Scroll)
-  AOS.init({
-    duration: 1000,
-    once: true,    // Animate only once when scrolled into view
-  });
-
-  // Scroll to Top Button
-  const scrollBtn = document.querySelector(".scroll-top-to");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.add("active");
-    } else {
-      scrollBtn.classList.remove("active");
-    }
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
-<!-- Scroll To Top Button Styles -->
-<style>
-  .scroll-top-to {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #f58a43;
-    color: white;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    line-height: 45px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 999;
-  }
-  .scroll-top-to.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  /* Optional: hover effect */
-  .scroll-top-to:hover {
-    background-color: #1e56b0;
-  }
-</style>
-
-
-<!-- footer ends  -->
-
-<!-- <div id="page-loader">
-  <div class="loader-content">
-    <img src="images/cashly-logo-nav.png" alt="Cashly Logo" class="logo white-tint spin-logo" />
-    <p class="loader-text">Please wait...</p>
-  </div>
-
-  <style>
-    #page-loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    #page-loader.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .loader-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .logo {
-      width: 100px;
-      z-index: 1;
-    }
-
-    .white-tint {
-      filter: brightness(0) invert(1);
-    }
-
-    .spin-logo {
-      animation: spin 4s linear 2; /* slow rotation, 2 times */
-    }
-
-    .loader-text {
-      margin-top: 15px;
-      font-size: 16px;
-      color: white;
-      font-family: Arial, sans-serif;
-      letter-spacing: 1px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</div>
-
-<script>
-  const loader = document.getElementById('page-loader');
-  const links = document.querySelectorAll('a');
-
-  links.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const href = this.href;
-
-      // Skip if opens in new tab, anchor, or mailto
-      if (
-        link.target === '_blank' ||
-        href.includes('#') ||
-        href.startsWith('mailto:')
-      ) return;
-
-      e.preventDefault();
-      loader.classList.add('active');
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
-    });
-  });
-
-  window.addEventListener('load', () => {
-    loader.classList.remove('active');
-  });
-</script> -->
-
 
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-  <script src="plugins/syotimer/jquery.syotimer.min.js"></script>
   <script src="plugins/aos/aos.js"></script>
-  <!-- google map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=REMOVED"></script>
-  <script src="plugins/google-map/gmap.js"></script>
-  
-  <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-<script>
-particlesJS("graph-canvas", {
-  particles: {
-    number: {
-      value: 60,
-      density: { enable: true, value_area: 350 }
-    },
-    color: {
-      value: ["#ffffff", "#f58a43"] // white and yellow dots
-    },
-    shape: {
-      type: "circle"
-    },
-    opacity: {
-      value: 0.9,
-      random: true
-    },
-    size: {
-      value: 3,
-      random: true
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#f58a43", // yellow lines for visual harmony
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 1.6,
-      direction: "none",
-      random: false,
-      straight: false,
-      bounce: false
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: true, mode: "repulse" },
-      onclick: { enable: true, mode: "push" },
-      resize: true
-    },
-    modes: {
-      repulse: { distance: 100, duration: 0.4 },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
-});
-</script>
-
-
+  <script src="js/cashly-modern.js"></script>
 </body>
-
 </html>
-<!-- #f58a43 --> 

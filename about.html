@@ -1,698 +1,329 @@
-<!-- 
-THEME: Small Apps | Bootstrap App Landing Template
-VERSION: 1.0.0
-AUTHOR: Themefisher
-
-HOMEPAGE: https://themefisher.com/products/small-apps-free-app-landing-page-template/
-DEMO: https://demo.themefisher.com/small-apps/
-GITHUB: https://github.com/themefisher/Small-Apps-Bootstrap-App-Landing-Template
-
-Get HUGO Version : https://themefisher.com/products/small-apps-hugo-app-landing-theme/
-
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  ================================================== -->
   <meta charset="utf-8">
-  <title>Cashly</title>
+  <title>Cashly | About</title>
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Bootstrap App Landing Template">
+  <meta
+    name="description"
+    content="Learn how Cashly was built by mortgage operators to create clearer private mortgage experiences for borrowers and better workflows for broker teams."
+  >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Small Apps Template v1.0">
+  <meta name="author" content="Cashly">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png" />
-  
-  <!-- PLUGINS CSS STYLE -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  <link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.min.css">
   <link rel="stylesheet" href="plugins/aos/aos.css">
-
-  <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
-
+  <link href="css/cashly-modern.css" rel="stylesheet">
 </head>
 
-<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
+<body class="body-wrapper cashly-modern about-page">
+  <nav class="navbar main-nav navbar-expand-lg px-3 px-lg-0">
+    <div class="container">
+      <a class="navbar-brand logo" href="index.html" aria-label="Cashly home">
+        <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+      </a>
 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="ti-menu"></span>
+      </button>
 
-
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
-  <div class="container">
-    <a class="navbar-brand logo" href="index.html">
-      <img src="images/cashly-logo-nav.png" alt="logo" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="ti-menu"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            data-toggle="dropdown"
-            aria-expanded="false"
-            >Home <span><i class="ti-angle-down"></i></span></a
-          >
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.html">Features</a></li>
-            <li><a class="dropdown-item" href="homepage-2.html">Watch Demo</a></li>
-            <li><a class="dropdown-item" href="homepage-3.html">Testimonials</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li> -->
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="broker.html">Broker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">Team</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item nav-cta">
+            <a class="btn btn-main-md" href="contact.html">Talk to Cashly</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<style>
-  /* Basic nav link style */
-  .navbar-nav .nav-link {
-    position: relative;
-    color: #333;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
+  <main class="page-shell">
+    <section class="hero-dark-section secondary-hero">
+      <div class="hero-orb hero-orb--one"></div>
+      <div class="hero-orb hero-orb--two"></div>
 
-  /* Animated underline container */
-  .underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background-color: #1e56b0;
-    width: 0;
-    transition: width 0.3s ease;
-    border-radius: 2px;
-  }
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="section-title-modern" data-aos="fade-up">
+              <span class="section-kicker section-kicker--dark">About Cashly</span>
+              <h1>Built from the inside of the mortgage workflow, not from the outside looking in.</h1>
+              <p>
+                Cashly started as a response to a real operating problem: mortgage teams were
+                spending too much time on fragmented admin work, while borrowers were still
+                being left without enough clarity when traditional lending options fell short.
+              </p>
+            </div>
 
-  /* Dropdown menu base style */
-  .dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    display: block; /* keep block for animation, but will toggle visibility */
-    transform-origin: top center;
-    transform: scaleY(0);
-  }
+            <div class="secondary-hero__meta" data-aos="fade-up" data-aos-delay="100">
+              <div>
+                <span>Origin</span>
+                <strong>Created by mortgage operators</strong>
+              </div>
+              <div>
+                <span>Focus</span>
+                <strong>Borrower clarity and broker workflows</strong>
+              </div>
+              <div>
+                <span>Base</span>
+                <strong>Oakville, Ontario</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  /* Show dropdown */
-  .dropdown-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleY(1);
-  }
+    <section class="story-intro">
+      <div class="container">
+        <div class="story-intro__shell">
+          <div class="row align-items-stretch">
+            <div class="col-xl-7">
+              <div class="story-intro__content" data-aos="fade-right">
+                <span class="section-kicker">Our story</span>
+                <h2>We were trying to close more deals without getting buried in tedious work.</h2>
+                <p>
+                  We started off as a brokerage, trying to figure out the best workflow to close
+                  more deals while spending less time on repetitive tasks. That search led to Cashly:
+                  a platform designed specifically for mortgage brokers, lenders, and the borrowers
+                  trying to understand what their real options actually are.
+                </p>
+                <p>
+                  Today, our platform uses AI to support the mortgage process from application to
+                  approval, helping agents stay organized, helping lenders evaluate fit faster,
+                  and helping borrowers move forward with more transparency and confidence.
+                </p>
+              </div>
+            </div>
 
-  /* Dropdown items hover */
-  .dropdown-menu .dropdown-item {
-    transition: background-color 0.3s ease, color 0.3s ease;
-    color: #333;
-  }
+            <div class="col-xl-5 mt-4 mt-xl-0">
+              <div class="story-intro__visual" data-aos="fade-left">
+                <img src="images/about/image.png" alt="Cashly story visual">
+                <p>
+                  Cashly exists to bring more clarity, speed, and consistency to an industry that still
+                  loses too much time to disconnected systems and manual process gaps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  .dropdown-menu .dropdown-item:hover {
-    background-color: #1e56b0;
-    color: #fff;
-  }
-</style>
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="partner-band__shell" data-aos="fade-up">
+          <span class="partner-band__eyebrow">Partners and collaborators</span>
+          <div class="logo-grid logo-grid--three">
+            <div class="logo-grid__item"><img src="images/clients/nvi.png" alt="NVI partner logo"></div>
+            <div class="logo-grid__item"><img src="images/clients/neo.png" alt="Neo partner logo"></div>
+            <div class="logo-grid__item"><img src="images/clients/aws.png" alt="AWS partner logo"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Add underline element to each nav link
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link:not(.dropdown-toggle)");
+    <section class="page-section">
+      <div class="container">
+        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
+          <span class="section-kicker">Why we built it</span>
+          <h2>Everything starts with making the daily workflow easier to trust.</h2>
+        </div>
 
-    navLinks.forEach((link) => {
-      // Create underline span and append
-      const underline = document.createElement("span");
-      underline.classList.add("underline");
-      link.appendChild(underline);
+        <div class="value-grid">
+          <article class="value-card" data-aos="fade-up" data-aos-delay="50">
+            <i class="ti-user"></i>
+            <h3>Built by mortgage people</h3>
+            <p>
+              The product comes from real workflow pain, not generic CRM assumptions. That means
+              the tools are shaped around how brokerages actually operate.
+            </p>
+          </article>
 
-      // Mouse enter - expand underline
-      link.addEventListener("mouseenter", () => {
-        underline.style.width = "100%";
-        link.style.color = "#1E56B0";
-      });
+          <article class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="ti-settings"></i>
+            <h3>Automation with practical value</h3>
+            <p>
+              We use AI to reduce repetitive steps, surface better information faster, and create
+              cleaner handoffs, not just to add buzzwords to the interface.
+            </p>
+          </article>
 
-      // Mouse leave - collapse underline
-      link.addEventListener("mouseleave", () => {
-        underline.style.width = "0";
-        link.style.color = "#333";
-      });
-    });
+          <article class="value-card" data-aos="fade-up" data-aos-delay="150">
+            <i class="ti-comments-smiley"></i>
+            <h3>Transparency for borrowers</h3>
+            <p>
+              Mortgage decisions carry real pressure. We believe borrowers should get clearer
+              explanations, better visibility on tradeoffs, and a more confident path forward.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    // Dropdown hover animations
-    const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="journey-panel" data-aos="fade-up">
+          <div class="section-title-modern">
+            <span class="section-kicker section-kicker--dark">How we think</span>
+            <h2>Cashly is designed around three operating principles.</h2>
+            <p>
+              The platform keeps evolving, but the direction stays steady: make the workflow more
+              usable, make decisions easier, and remove the drag that slows good teams down.
+            </p>
+          </div>
 
-    dropdowns.forEach((dropdown) => {
-      const toggle = dropdown.querySelector(".dropdown-toggle");
-      const menu = dropdown.querySelector(".dropdown-menu");
+          <div class="journey-grid">
+            <article class="journey-step">
+              <span>01</span>
+              <strong>Clarity over clutter</strong>
+              <p>One clean view of contacts, deals, lender options, and activity always beats scattered tools.</p>
+            </article>
 
-      // Show dropdown on mouse enter
-      dropdown.addEventListener("mouseenter", () => {
-        menu.classList.add("show");
-        toggle.setAttribute("aria-expanded", "true");
-      });
+            <article class="journey-step">
+              <span>02</span>
+              <strong>Speed with structure</strong>
+              <p>Automation matters most when it improves consistency and keeps the process moving reliably.</p>
+            </article>
 
-      // Hide dropdown on mouse leave
-      dropdown.addEventListener("mouseleave", () => {
-        menu.classList.remove("show");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  });
-</script>
+            <article class="journey-step">
+              <span>03</span>
+              <strong>Human-first execution</strong>
+              <p>Technology should give brokers more time to advise, connect, and close, not box them in.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Page Title Section -->
-<style>
-  .fade-slide-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeSlideUp 1s ease-out forwards;
-  }
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="cta-banner" data-aos="fade-up">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h2>We’re building for mortgage teams that want to operate at a higher standard.</h2>
+              <p>
+                If your team is ready to replace fragmented process with something clearer, faster,
+                and more intentional, we’d love to show you how Cashly fits.
+              </p>
+            </div>
 
-  .fade-slide-up.delay-1 {
-    animation-delay: 0.3s;
-  }
+            <div class="col-lg-4">
+              <div class="cta-banner__actions justify-content-lg-end">
+                <a href="team.html" class="btn btn-main-md">Meet the Team</a>
+                <a href="career.html" class="btn-secondary-modern">Join Cashly</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  .fade-slide-up.delay-2 {
-    animation-delay: 0.6s;
-  }
-
-  @keyframes fadeSlideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<!-- JavaScript to Set Active Tab Based on URL -->
-<script>
-  const currentPage = location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.parentElement.classList.add("active");
-    }
-  });
-</script>
-
-<!--================================
-=            Page Title            =
-=================================-->
-
-
-<section class="section page-title mt-4">
-	<div class="container">
-		<div class="row">
-			<div class="rounded shadow p-5 bg-white">
-				<!-- Page Title -->
-        <h1 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">About Cashly</h1>
-		
-				<!-- Page Description -->
-				<p>We started off as a brokerage, trying to figure out the best workflow to close more deals while spending less time on mundane and tedious tasks. That’s why we built Cashly, an advanced CRM designed specifically for mortgage brokers.
-
-Our platform harnesses the power of AI to automate the entire mortgage process, from application to approval, allowing agents to focus on building relationships and closing more deals.
-
- Created by Mortgage Brokers, for Mortgage Brokers transforming the way the industry operates.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!--====  End of Page Title  ====-->
-
-
-<!--===============================
-=            Our Story            =
-================================-->
-<!-- Add this CSS inside your <style> tag or CSS file -->
-<style>
-  /* Animation keyframes */
-  @keyframes fadeSlideInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes fadeSlideInRight {
-    0% {
-      opacity: 0;
-      transform: translateX(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* Initial state */
-  .animate-left,
-  .animate-right {
-    opacity: 0;
-  }
-
-  /* Animate left */
-  .animate-left.active {
-    animation: fadeSlideInLeft 0.8s forwards;
-  }
-
-  /* Animate right */
-  .animate-right.active {
-    animation: fadeSlideInRight 0.8s forwards;
-  }
-</style>
-
-<section class="section about p-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 align-self-center animate-left">
-        <div class="content text-center text-lg-left">
-          <h1 class="mb-4 text-center fw-bold" style="font-weight: 600; color: #1E56B0;">
-            This is our story.
-          </h1>
-          <p style="color: #1E56B0;">
-            Our platform harnesses the power of <strong>AI</strong> to automate the entire mortgage process, from
-            <strong>application to approval</strong>, allowing agents to focus on building relationships and
-            <strong>closing more deals</strong>.
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <a class="site-footer__brand" href="index.html" aria-label="Cashly home">
+            <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+          </a>
+          <p class="site-footer__copy">
+            Cashly was built to help mortgage teams operate with more speed, consistency,
+            and confidence from first contact to final approval.
           </p>
-        </div>
-      </div>
-      <div class="col-lg-6 mt-4 mt-lg-0 animate-right">
-        <div class="about-slider">
-          <div class="item">
-            <img class="w-100" src="images/about/image.png" alt="slider-image" />
-          </div>
-          <!-- <div class="item">
-            <img class="w-100" src="images/about/image.png" alt="slider-image" />
-          </div> -->
-          <!-- <div class="item">
-            <img class="w-100" src="images/about/image.png" alt="slider-image" />
-          </div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.animate-left, .animate-right');
-
-    function checkAnimation() {
-      const triggerBottom = window.innerHeight * 0.85;
-
-      animatedElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < triggerBottom) {
-          el.classList.add('active');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', checkAnimation);
-    checkAnimation(); // initial check on load
-  });
-</script>
-
-<!-- 
-<section class="section quotes pt-9" style="background-color: #F4F7FA;"> 
-  <div class="container">
-    <div class="row">
-      <div class="col-10 m-auto text-center">
-        <div class="quote-slider">
-          <div class="item mb-4">
-    
-        <h2 style="color: #1E56B0; font-size: 1.5rem;">
-  Crafted by bold minds, designed to grow yours—with cash flow that follows.
-</h2>
-     
-            <cite class="ml-0" style="color: #555555;">Cashly</cite>
-          </div>
-          <div class="item mb-4">
-
-                   <h2 style="color: #1E56B0; font-size: 1.5rem;">
- Discover your Opportunities.
-</h2>
-           
-
-            <cite class="ml-0" style="color: #555555;">Cashly</cite>
+          <div class="site-footer__socials">
+            <a href="mailto:operations@gocashly.io" aria-label="Email Cashly">
+              <i class="ti-email"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/gocashly/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Cashly on LinkedIn"
+            >
+              <i class="ti-linkedin"></i>
+            </a>
           </div>
         </div>
+
+        <div class="col-6 col-lg-3 mb-4 mb-lg-0">
+          <h6>Explore</h6>
+          <ul class="site-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="broker.html">Broker</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <h6>Contact</h6>
+          <ul class="site-footer__links">
+            <li><a href="tel:+12184133596">+1 218-413-3596</a></li>
+            <li><a href="mailto:operations@gocashly.io">operations@gocashly.io</a></li>
+            <li>
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=2896+South+Sheridan+Way+Oakville+ON+L6J+7T4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                2896 South Sheridan Way, Oakville
+              </a>
+            </li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>Built by operators who wanted a better mortgage workflow.</p>
+        <a href="contact.html">Start a conversation</a>
       </div>
     </div>
+  </footer>
+
+  <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
+    <i class="ti-angle-up"></i>
   </div>
-</section> -->
-<!--====  End of Quotes Slider  ====-->
 
-<!--=====================================
-=            Client Slider              =
-======================================-->
-<section class="section clients" style="background-color: #F4F7FA;"> <!-- Light background -->
-  <div class="container">
-    <div class="row">
-      <div class="col-10 m-auto text-center">
-        <h3 style="color: #1E56B0; font-weight: bold; font-weight: 600">Our Partners & Collaborators</h3> <!-- Styled heading -->
-  <style>
-  .client-slider img {
-    max-height: 60px; /* same height for all logos */
-    width: auto;       /* keep aspect ratio */
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-  }
-</style>
-
-<div class="client-slider">
-  <div class="item mb-4" style="padding: 10px;">
-    <img src="images/clients/nvi.png" alt="business-finder"
-     >
-  </div>
-<div class="item mb-4" style="padding: 15px;">
-  <img src="images/clients/neo.png" alt="neo" style="max-height: 50px; width: auto;">
-</div>
-  <div class="item mb-4" style="padding: 1px;">
-    <img src="images/clients/aws.png" alt="aws"
-      style="filter: brightness(0) saturate(70%) sepia(70%) hue-rotate(190deg) brightness(1.2);">
-  </div>
-<div class="item mb-4" style="padding: 10px;">
-  <img src="images/clients/imageone.png" alt="business-finder" style="filter: grayscale(100%) brightness(0);">
-</div>
-
-<div class="item mb-4" style="padding: 15px;">
-  <img src="images/clients/imagetwo.png" alt="neo" style="max-height: 50px; width: auto; filter: grayscale(100%) brightness(0);">
-</div>
-  <div class="item mb-4" style="padding: 1px;">
-    <img src="images/clients/imagethree.png" alt="venture-beat"
-      style="filter: brightness(0) saturate(70%) sepia(70%) hue-rotate(190deg) brightness(1.2);">
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--====  End of Client Slider  ====-->
-
-<!--==============================
-=            Investors           =
-===============================-->
-<!-- <section class="section investors">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>Our Angel Investors</h2>
-					<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia
-					eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-				
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/marketing-team-01.jpg" alt="investor">
-					</div>
-		
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
-					</div>
-		
-					<h3>Spider Web</h3>
-	
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-				
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/marketing-team-03.jpg" alt="investor">
-					</div>
-				
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-				
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
-					</div>
-					
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-					
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/design-team-02.jpg" alt="investor">
-					</div>
-					
-					<h3>Spider Web</h3>
-			
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-					
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/design-team-03.jpg" alt="investor">
-					</div>
-				
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-			
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
-					</div>
-	
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-			<div class="col-xl-3 col-lg-4 col-sm-6">
-				<div class="block text-center">
-	
-					<div class="image shadow hover-zoom">
-						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
-					</div>
-				
-					<h3>Spider Web</h3>
-				
-					<p>Investor</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!--===============================
-=            Our Story            =
-================================-->
-<!-- <section class="section about pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 align-self-center">
-				<div class="content text-center text-lg-left">
-		=
-					<h2>This is our story.</h2>
-					
-					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
-					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
-				</div>
-			</div>
-			<div class="col-lg-6 mt-5 mt-lg-0">
-		
-				<div class="about-slider">
-					
-					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
-					</div>
-				
-					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
-					</div>
-				
-					<div class="item">
-						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!--====  End of Our Story  ====-->
-
-<!--=====================================
-=            Section comment            =
-======================================-->
-
-<section class="section cta-hire bg-gary">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<!-- Hire Title -->
-				<h2>We are hunting Genius Developers</h2>
-				<!-- Job Description -->
-				<p>Are you a developer who thrives on solving complex problems, pushing boundaries, and building game changing technology? We're on the lookout for creative thinkers, passionate coders, and innovative minds ready to make an impact.</p>
-				<!-- Action Button -->
-				<a href="career.html" class="mt-3 btn btn-main-md">Join the team</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!--====  End of Section comment  ====-->
-
-
-
-
-<!-- Scroll To Top Button -->
-<div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
-  <i class="fas fa-angle-up"></i>
-</div>
-
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-<!-- Script for AOS & Scroll-to-top -->
-<script>
-  // Initialize AOS (Animate On Scroll)
-  AOS.init({
-    duration: 1000,
-    once: true,    // Animate only once when scrolled into view
-  });
-
-  // Scroll to Top Button
-  const scrollBtn = document.querySelector(".scroll-top-to");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-      scrollBtn.classList.add("active");
-    } else {
-      scrollBtn.classList.remove("active");
-    }
-  });
-
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
-
-<!-- Scroll To Top Button Styles -->
-<style>
-  .scroll-top-to {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #f58a43;
-    color: white;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    line-height: 45px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 999;
-  }
-  .scroll-top-to.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  /* Optional: hover effect */
-  .scroll-top-to:hover {
-    background-color: #1e56b0;
-  }
-</style>
-
-
-<!-- footer ends  -->
-  <!-- JAVASCRIPTS -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-  <script src="plugins/syotimer/jquery.syotimer.min.js"></script>
   <script src="plugins/aos/aos.js"></script>
-  <!-- google map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=REMOVED"></script>
-  <script src="plugins/google-map/gmap.js"></script>
-  
-  <script src="js/script.js"></script>
-  <script>
-  const currentPath = window.location.pathname.split("/").pop();
-  document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
-      link.classList.add("active");
-    }
-  });
-</script>
+  <script src="js/cashly-modern.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,2634 @@
+.cashly-modern {
+  --cashly-bg: #f7fafe;
+  --cashly-surface: #ffffff;
+  --cashly-surface-soft: #f2f7fd;
+  --cashly-primary: #2459d3;
+  --cashly-primary-soft: #7fa5ff;
+  --cashly-primary-tint: rgba(36, 89, 211, 0.08);
+  --cashly-text: #13233a;
+  --cashly-muted: #66758a;
+  --cashly-border: rgba(19, 35, 58, 0.09);
+  --cashly-shadow: 0 24px 60px rgba(26, 52, 97, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, var(--cashly-bg) 100%);
+  color: var(--cashly-text);
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+}
+
+.cashly-modern h1,
+.cashly-modern h2,
+.cashly-modern h3,
+.cashly-modern h4,
+.cashly-modern h5,
+.cashly-modern h6 {
+  color: var(--cashly-text);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.cashly-modern p,
+.cashly-modern li,
+.cashly-modern label {
+  color: var(--cashly-muted);
+  font-family: "Manrope", sans-serif;
+}
+
+.cashly-modern a:hover,
+.cashly-modern a:focus {
+  text-decoration: none;
+}
+
+.cashly-modern .page-shell {
+  overflow: hidden;
+  position: relative;
+}
+
+.cashly-modern .main-nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(19, 35, 58, 0.06);
+  box-shadow: 0 10px 28px rgba(26, 52, 97, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1045;
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(16px);
+}
+
+.cashly-modern .main-nav .navbar-brand img {
+  max-height: 52px;
+}
+
+.cashly-modern .main-nav .navbar-nav .nav-item {
+  align-items: center;
+  display: flex;
+}
+
+.cashly-modern .main-nav .navbar-nav .nav-link {
+  color: rgba(19, 35, 58, 0.78);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  padding: 0.95rem 1rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .main-nav .navbar-nav .nav-link:hover,
+.cashly-modern .main-nav .navbar-nav .nav-link:focus {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern .main-nav .navbar-nav .nav-item.active .nav-link {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern .main-nav .navbar-nav .nav-item.active .nav-link:before {
+  display: none;
+}
+
+.cashly-modern .nav-cta {
+  margin-left: 18px;
+}
+
+.cashly-modern .navbar-toggler {
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+}
+
+.cashly-modern .navbar-toggler span {
+  color: var(--cashly-text);
+  font-size: 20px;
+}
+
+.cashly-modern .btn-main-md {
+  align-items: center;
+  background: linear-gradient(135deg, var(--cashly-primary), #3b73ea);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 18px 45px rgba(36, 89, 211, 0.18);
+  color: #fff;
+  display: inline-flex;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  margin-right: 0;
+  min-height: 56px;
+  padding: 0.95rem 1.75rem;
+}
+
+.cashly-modern .btn-main-md:hover,
+.cashly-modern .btn-main-md:focus {
+  background: linear-gradient(135deg, #1f4fbc, #346ae0);
+  box-shadow: 0 22px 48px rgba(36, 89, 211, 0.22);
+  color: #fff;
+}
+
+.cashly-modern .btn-secondary-modern {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.95rem 1.5rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, -webkit-transform 0.25s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+.cashly-modern .btn-secondary-modern:hover,
+.cashly-modern .btn-secondary-modern:focus {
+  background: #fff;
+  border-color: rgba(36, 89, 211, 0.2);
+  box-shadow: 0 14px 34px rgba(26, 52, 97, 0.08);
+  color: var(--cashly-primary);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.cashly-modern .section-kicker,
+.cashly-modern .section-kicker--dark {
+  background: var(--cashly-primary-tint);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-primary);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.72rem 1rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .section-title-modern h2,
+.cashly-modern .section-title-modern h1 {
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  line-height: 1.05;
+  margin: 1rem 0 1rem;
+}
+
+.cashly-modern .section-title-modern p {
+  font-size: 1.02rem;
+  line-height: 1.9;
+  margin-bottom: 0;
+}
+
+.cashly-modern .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 2.25rem 0 1.5rem;
+}
+
+.cashly-modern .hero-dark-section {
+  background:
+    radial-gradient(circle at 12% 14%, rgba(127, 165, 255, 0.2), transparent 28%),
+    radial-gradient(circle at 84% 10%, rgba(190, 216, 255, 0.48), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.cashly-modern .hero-dark-section:before {
+  background:
+    linear-gradient(180deg, rgba(36, 89, 211, 0.03), transparent 42%),
+    linear-gradient(90deg, rgba(36, 89, 211, 0.03) 1px, transparent 1px);
+  background-size: auto, 120px 120px;
+  content: "";
+  inset: 0;
+  opacity: 0.9;
+  position: absolute;
+}
+
+.cashly-modern .hero-orb {
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.9;
+  position: absolute;
+}
+
+.cashly-modern .hero-orb--one {
+  background: rgba(127, 165, 255, 0.18);
+  height: 260px;
+  left: -90px;
+  top: 120px;
+  width: 260px;
+}
+
+.cashly-modern .hero-orb--two {
+  background: rgba(183, 214, 255, 0.42);
+  bottom: 70px;
+  height: 240px;
+  right: -90px;
+  width: 240px;
+}
+
+.cashly-modern .content-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cashly-modern .content-chip-row span {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.8rem 1rem;
+}
+
+.cashly-modern .metric-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.cashly-modern .metric-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cashly-modern .metric-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern .metric-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(26, 52, 97, 0.06);
+  padding: 1.4rem 1.3rem;
+}
+
+.cashly-modern .metric-card span {
+  color: var(--cashly-primary);
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern .metric-card p {
+  color: var(--cashly-muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cashly-modern .visual-frame {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 32px;
+  box-shadow: 0 30px 70px rgba(26, 52, 97, 0.08);
+  overflow: hidden;
+  padding: 1.15rem;
+  position: relative;
+}
+
+.cashly-modern .visual-frame img {
+  border-radius: 24px;
+  display: block;
+  width: 100%;
+}
+
+.cashly-modern .floating-note {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(26, 52, 97, 0.08);
+  max-width: 220px;
+  padding: 1rem;
+  position: absolute;
+}
+
+.cashly-modern .floating-note span {
+  color: var(--cashly-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .floating-note strong {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.cashly-modern .floating-note p {
+  color: var(--cashly-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0.55rem 0 0;
+}
+
+.cashly-modern .home-hero {
+  padding: 108px 0 164px;
+}
+
+.cashly-modern .home-hero .section-title-modern h1,
+.cashly-modern .home-hero .section-title-modern p,
+.cashly-modern .secondary-hero .section-title-modern h1,
+.cashly-modern .secondary-hero .section-title-modern p {
+  color: var(--cashly-text);
+}
+
+.cashly-modern .home-hero .section-title-modern p {
+  max-width: 640px;
+}
+
+.cashly-modern .home-hero__visual {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  position: relative;
+}
+
+.cashly-modern .home-hero__visual .visual-frame {
+  width: 100%;
+}
+
+.cashly-modern .home-hero__visual .floating-note {
+  max-width: 260px;
+  position: static;
+  width: 100%;
+}
+
+.cashly-modern .home-hero__visual .floating-note--bottom {
+  justify-self: end;
+}
+
+.cashly-modern .partner-band {
+  margin-top: -62px;
+  position: relative;
+  z-index: 2;
+}
+
+.cashly-modern .partner-band__shell {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 28px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.25rem 1.4rem;
+}
+
+.cashly-modern .partner-band__eyebrow {
+  color: var(--cashly-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .logo-grid {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.cashly-modern .logo-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.cashly-modern .logo-grid__item {
+  align-items: center;
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.05);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  min-height: 88px;
+  padding: 1rem;
+}
+
+.cashly-modern .logo-grid__item img {
+  filter: grayscale(100%);
+  max-height: 38px;
+  max-width: 100%;
+  opacity: 0.9;
+}
+
+.cashly-modern .page-section {
+  padding: 104px 0;
+}
+
+.cashly-modern .page-section--tight {
+  padding-top: 74px;
+}
+
+.cashly-modern .pillar-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cashly-modern .pillar-card,
+.cashly-modern .testimonial-card,
+.cashly-modern .value-card,
+.cashly-modern .team-member-card,
+.cashly-modern .team-lead-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 28px;
+  box-shadow: var(--cashly-shadow);
+}
+
+.cashly-modern .pillar-card {
+  height: 100%;
+  padding: 2rem 1.8rem;
+  transition: box-shadow 0.25s ease, -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+.cashly-modern .pillar-card:hover {
+  box-shadow: 0 32px 72px rgba(26, 52, 97, 0.11);
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.cashly-modern .pillar-card__icon,
+.cashly-modern .contact-info-card__icon {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(36, 89, 211, 0.12), rgba(127, 165, 255, 0.12));
+  border-radius: 20px;
+  color: var(--cashly-primary);
+  display: inline-flex;
+  height: 64px;
+  justify-content: center;
+  margin-bottom: 1.35rem;
+  width: 64px;
+}
+
+.cashly-modern .pillar-card__icon i,
+.cashly-modern .contact-info-card__icon i {
+  font-size: 26px;
+}
+
+.cashly-modern .pillar-card h3 {
+  font-size: 1.4rem;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+}
+
+.cashly-modern .pillar-card p {
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern .pillar-card a {
+  color: var(--cashly-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.cashly-modern .pillar-card a:hover {
+  color: #1740a1;
+}
+
+.cashly-modern .showcase-row + .showcase-row {
+  margin-top: 88px;
+}
+
+.cashly-modern .showcase-image {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 34px;
+  box-shadow: var(--cashly-shadow);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.cashly-modern .showcase-image img {
+  border-radius: 24px;
+  display: block;
+  width: 100%;
+}
+
+.cashly-modern .showcase-copy h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  margin: 1rem 0 1rem;
+}
+
+.cashly-modern .showcase-copy p {
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.cashly-modern .benefit-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.cashly-modern .benefit-list li {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 18px;
+  display: flex;
+  gap: 12px;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern .benefit-list i {
+  color: var(--cashly-primary);
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.cashly-modern .benefit-list span {
+  color: var(--cashly-text);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.cashly-modern .quote-card {
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 24px;
+  margin-top: 1.5rem;
+  padding: 1.4rem;
+}
+
+.cashly-modern .quote-card p {
+  color: var(--cashly-text);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern .quote-card__meta {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.cashly-modern .quote-card__meta img,
+.cashly-modern .testimonial-card__person img {
+  border-radius: 50%;
+  height: 56px;
+  object-fit: cover;
+  width: 56px;
+}
+
+.cashly-modern .quote-card__meta strong,
+.cashly-modern .testimonial-card__person strong {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 0.98rem;
+}
+
+.cashly-modern .quote-card__meta span,
+.cashly-modern .testimonial-card__person span {
+  color: var(--cashly-muted);
+  display: block;
+  font-size: 0.9rem;
+}
+
+.cashly-modern .workspace-panel,
+.cashly-modern .story-intro__shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 40px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.5rem;
+}
+
+.cashly-modern .workspace-panel__shell,
+.cashly-modern .story-intro__content {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 30px;
+  height: 100%;
+  padding: 2.2rem;
+}
+
+.cashly-modern .workspace-panel__visual,
+.cashly-modern .story-intro__visual {
+  background: linear-gradient(180deg, #f7fbff 0%, #edf4ff 100%);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 30px;
+  height: 100%;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.cashly-modern .workspace-panel__visual img,
+.cashly-modern .story-intro__visual img {
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.08);
+  display: block;
+  width: 100%;
+}
+
+.cashly-modern .workspace-panel__visual p,
+.cashly-modern .story-intro__visual p {
+  color: var(--cashly-muted);
+  line-height: 1.85;
+  margin-top: 1.25rem;
+}
+
+.cashly-modern .capability-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.cashly-modern .capability-card {
+  background: #fff;
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 22px;
+  padding: 1.2rem;
+}
+
+.cashly-modern .capability-card i,
+.cashly-modern .value-card i {
+  color: var(--cashly-primary);
+  display: inline-block;
+  font-size: 22px;
+  margin-bottom: 0.85rem;
+}
+
+.cashly-modern .capability-card h3,
+.cashly-modern .value-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.cashly-modern .capability-card p,
+.cashly-modern .value-card p {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cashly-modern .testimonial-grid,
+.cashly-modern .value-grid,
+.cashly-modern .team-member-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cashly-modern .testimonial-card {
+  height: 100%;
+  padding: 2rem 1.8rem;
+}
+
+.cashly-modern .testimonial-card p {
+  color: var(--cashly-text);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.cashly-modern .testimonial-card__person {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.cashly-modern .cta-banner,
+.cashly-modern .journey-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f7ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 34px;
+  box-shadow: var(--cashly-shadow);
+  overflow: hidden;
+  padding: 3rem;
+  position: relative;
+}
+
+.cashly-modern .cta-banner h2,
+.cashly-modern .journey-panel h2 {
+  color: var(--cashly-text);
+}
+
+.cashly-modern .cta-banner p,
+.cashly-modern .journey-panel p {
+  color: var(--cashly-muted);
+}
+
+.cashly-modern .cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 1.75rem;
+}
+
+.cashly-modern .secondary-hero {
+  padding: 98px 0 148px;
+}
+
+.cashly-modern .secondary-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.cashly-modern .secondary-hero__meta div {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(26, 52, 97, 0.05);
+  padding: 1rem 1.1rem;
+}
+
+.cashly-modern .secondary-hero__meta span,
+.cashly-modern .journey-step span,
+.cashly-modern .team-lead-card__body span,
+.cashly-modern .team-member-card__body span {
+  color: var(--cashly-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .secondary-hero__meta strong {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 0.95rem;
+}
+
+.cashly-modern .story-intro {
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+}
+
+.cashly-modern .story-intro__content h2 {
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  line-height: 1.08;
+  margin: 1rem 0 1rem;
+}
+
+.cashly-modern .story-intro__content p {
+  line-height: 1.9;
+}
+
+.cashly-modern .value-card {
+  height: 100%;
+  padding: 2rem 1.8rem;
+}
+
+.cashly-modern .journey-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.cashly-modern .journey-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.cashly-modern .journey-step {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 24px;
+  padding: 1.3rem;
+}
+
+.cashly-modern .journey-step strong {
+  color: var(--cashly-text);
+  display: block;
+}
+
+.cashly-modern .journey-step p {
+  margin: 0.7rem 0 0;
+}
+
+.cashly-modern .team-lead-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern .team-lead-card {
+  border-radius: 32px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cashly-modern .team-lead-card__photo,
+.cashly-modern .team-member-card__photo {
+  background: linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
+  padding: 1.8rem 1.8rem 0;
+}
+
+.cashly-modern .team-lead-card__photo img,
+.cashly-modern .team-member-card__photo img {
+  border-radius: 24px;
+  display: block;
+  width: 100%;
+}
+
+.cashly-modern .team-lead-card__body,
+.cashly-modern .team-member-card__body {
+  padding: 1.8rem;
+}
+
+.cashly-modern .team-lead-card__body h2 {
+  font-size: 2rem;
+  margin-bottom: 0.45rem;
+}
+
+.cashly-modern .team-lead-card__body h3 {
+  color: var(--cashly-text);
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .team-lead-card__body p,
+.cashly-modern .team-member-card__body p {
+  line-height: 1.85;
+}
+
+.cashly-modern .team-member-card__photo img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.cashly-modern .team-member-card__body h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.cashly-modern .team-member-card__body span {
+  font-size: 0.84rem;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.9rem;
+}
+
+.cashly-modern .service-grid-modern {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.cashly-modern .service-card-modern {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 26px;
+  box-shadow: var(--cashly-shadow);
+  height: 100%;
+  padding: 1.8rem;
+}
+
+.cashly-modern .service-card-modern i {
+  color: var(--cashly-primary);
+  display: inline-block;
+  font-size: 24px;
+  margin-bottom: 0.95rem;
+}
+
+.cashly-modern .service-card-modern h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern .service-card-modern p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.cashly-modern .service-note {
+  margin-top: 1.4rem;
+}
+
+.cashly-modern .service-note p {
+  color: var(--cashly-text);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.cashly-modern.home-page .home-hero {
+  isolation: isolate;
+  padding-bottom: 128px;
+}
+
+.cashly-modern.home-page {
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.cashly-modern.home-page h1,
+.cashly-modern.home-page h2,
+.cashly-modern.home-page h3,
+.cashly-modern.home-page h4,
+.cashly-modern.home-page h5,
+.cashly-modern.home-page h6 {
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.cashly-modern.home-page p,
+.cashly-modern.home-page li,
+.cashly-modern.home-page label,
+.cashly-modern.home-page .btn-main-md,
+.cashly-modern.home-page .btn-secondary-modern,
+.cashly-modern.home-page .main-nav .navbar-nav .nav-link {
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.cashly-modern.home-page .home-hero .container.position-relative {
+  z-index: 1;
+}
+
+.cashly-modern.home-page .hero-dark-section:before {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(111, 181, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 84% 14%, rgba(164, 226, 255, 0.32), transparent 24%),
+    radial-gradient(circle at 66% 70%, rgba(36, 89, 211, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 249, 255, 0.98) 42%, rgba(236, 244, 255, 0.98) 100%);
+  background-position: 0% 0%, 100% 0%, 60% 100%, 0 0;
+  background-size: 140% 140%, 130% 130%, 140% 140%, 100% 100%;
+  opacity: 0.95;
+  -webkit-animation: heroGradientFlow 18s ease-in-out infinite alternate;
+          animation: heroGradientFlow 18s ease-in-out infinite alternate;
+}
+
+.cashly-modern.home-page .home-hero:after {
+  background:
+    radial-gradient(circle at 28% 30%, rgba(255, 255, 255, 0.48), transparent 34%),
+    linear-gradient(120deg, rgba(127, 165, 255, 0.18), rgba(151, 220, 255, 0.16) 42%, rgba(255, 255, 255, 0) 78%);
+  content: "";
+  filter: blur(42px);
+  inset: 10% -6% 8% 36%;
+  opacity: 0.82;
+  pointer-events: none;
+  position: absolute;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-animation: heroGradientGlow 14s ease-in-out infinite alternate;
+          animation: heroGradientGlow 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.cashly-modern.home-page .hero-orb {
+  display: none;
+}
+
+.cashly-modern.home-page .section-kicker,
+.cashly-modern.home-page .section-kicker--dark {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--cashly-primary);
+  display: block;
+  letter-spacing: 0.14em;
+  padding: 0;
+}
+
+.cashly-modern.home-page .section-title-modern p {
+  font-size: 1.04rem;
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+.cashly-modern.home-page .hero-actions {
+  margin: 2rem 0 0;
+}
+
+.cashly-modern.home-page .content-chip-row,
+.cashly-modern.home-page .floating-note,
+.cashly-modern.home-page .partner-band,
+.cashly-modern.home-page .home-section-actions {
+  display: none;
+}
+
+.cashly-modern.home-page .metric-grid {
+  gap: 14px;
+  margin-top: 2rem;
+}
+
+.cashly-modern.home-page .metric-card {
+  box-shadow: 0 14px 32px rgba(26, 52, 97, 0.05);
+  padding: 1.2rem 1.1rem;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple:before {
+  background: linear-gradient(135deg, rgba(127, 165, 255, 0.24), rgba(151, 220, 255, 0.18), rgba(36, 89, 211, 0.12));
+  border-radius: 36px;
+  content: "";
+  filter: blur(28px);
+  inset: 20px -18px -18px 28px;
+  opacity: 0.9;
+  pointer-events: none;
+  position: absolute;
+  -webkit-animation: heroGradientPulse 12s ease-in-out infinite alternate;
+          animation: heroGradientPulse 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple:after {
+  content: none;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple .visual-frame {
+  border-color: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 42px 90px rgba(36, 89, 211, 0.12);
+  margin-left: auto;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple .visual-frame:after {
+  content: none;
+}
+
+.cashly-modern.home-page .home-hero__visual--simple .visual-frame img {
+  -webkit-transform: none;
+          transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cashly-modern.home-page .hero-dark-section:before,
+  .cashly-modern.home-page .home-hero:after,
+  .cashly-modern.home-page .home-hero__visual--simple:before {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+
+.cashly-modern.home-page .showcase-row + .showcase-row {
+  margin-top: 0;
+}
+
+.cashly-modern.home-page .showcase-copy p + p.problem-label {
+  margin-top: 1.2rem;
+}
+
+.cashly-modern.home-page .journey-panel,
+.cashly-modern.home-page .faq-shell,
+.cashly-modern.home-page .callback-shell {
+  border-radius: 30px;
+}
+
+.cashly-modern.home-page .journey-panel,
+.cashly-modern.home-page .faq-shell,
+.cashly-modern.home-page .callback-shell,
+.cashly-modern.home-page .stat-highlight-card,
+.cashly-modern.home-page .advantage-card,
+.cashly-modern.home-page .showcase-image,
+.cashly-modern.home-page .workspace-panel__visual {
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.06);
+}
+
+.cashly-modern.home-page .journey-step,
+.cashly-modern.home-page .faq-item-modern,
+.cashly-modern.home-page .business-card {
+  box-shadow: none;
+}
+
+.cashly-modern.home-page .stat-highlight-grid {
+  margin-bottom: 1.4rem;
+}
+
+.cashly-modern.home-page .advantage-grid--simple {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cashly-modern.home-page .faq-shell .section-title-modern h2 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+}
+
+.cashly-modern.home-page .callback-form-shell h2,
+.cashly-modern.home-page .callback-info-shell h3 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+
+.cashly-modern.home-page .home-calculator-trigger {
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.35;
+  min-height: 56px;
+  padding: 0.92rem 1.45rem;
+  text-align: center;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell h2,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell h3 {
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .section-kicker {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+}
+
+.cashly-modern.home-page .site-footer {
+  margin-top: 72px;
+}
+
+.cashly-modern .problem-label {
+  color: var(--cashly-text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.85rem;
+}
+
+.cashly-modern .home-section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cashly-modern .stat-highlight-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 2rem;
+}
+
+.cashly-modern .stat-highlight-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 28px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.8rem;
+}
+
+.cashly-modern .stat-highlight-card strong {
+  color: var(--cashly-primary);
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern .stat-highlight-card p {
+  color: var(--cashly-text);
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cashly-modern .advantage-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.cashly-modern .advantage-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 24px;
+  box-shadow: var(--cashly-shadow);
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.cashly-modern .advantage-card i {
+  color: var(--cashly-primary);
+  display: inline-block;
+  font-size: 22px;
+  margin-bottom: 0.9rem;
+}
+
+.cashly-modern .advantage-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+
+.cashly-modern .advantage-card p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cashly-modern .partner-intro {
+  margin: 0 auto 2rem;
+  max-width: 700px;
+  text-align: center;
+}
+
+.cashly-modern .partner-intro p {
+  margin: 1rem 0 0;
+}
+
+.cashly-modern .callback-shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 40px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.5rem;
+}
+
+.cashly-modern .callback-form-shell,
+.cashly-modern .callback-info-shell {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 30px;
+  height: 100%;
+  padding: 2rem;
+}
+
+.cashly-modern .callback-form-shell h2,
+.cashly-modern .callback-info-shell h3 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  margin: 1rem 0 1rem;
+}
+
+.cashly-modern .callback-form-shell p,
+.cashly-modern .callback-info-shell p {
+  line-height: 1.85;
+}
+
+.cashly-modern .callback-form-shell label {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.cashly-modern .callback-form-shell .form-control {
+  background: #fff;
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 18px;
+  box-shadow: none;
+  color: var(--cashly-text);
+  min-height: 56px;
+  padding: 0.9rem 1rem;
+}
+
+.cashly-modern .callback-form-shell textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.cashly-modern .callback-form-shell .form-control::placeholder {
+  color: rgba(102, 117, 138, 0.9);
+}
+
+.cashly-modern .callback-form-shell .form-control:focus {
+  border-color: rgba(36, 89, 211, 0.36);
+  box-shadow: 0 0 0 4px rgba(36, 89, 211, 0.08);
+}
+
+.cashly-modern .callback-form-note {
+  font-size: 0.92rem;
+  margin: 0 0 1rem;
+}
+
+.cashly-modern .business-card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 1.5rem;
+}
+
+.cashly-modern .business-card {
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.cashly-modern .calculator-result-card {
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 26px;
+  margin-top: 1.75rem;
+  padding: 1.35rem;
+}
+
+.cashly-modern .calculator-result-card span,
+.cashly-modern .business-card span {
+  color: var(--cashly-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .calculator-result-card strong,
+.cashly-modern .business-card strong,
+.cashly-modern .business-card a {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.cashly-modern .calculator-result-card strong {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.cashly-modern .calculator-result-card p {
+  margin: 0;
+}
+
+.cashly-modern .calculator-note {
+  font-size: 0.95rem;
+  margin: 1.4rem 0 0;
+}
+
+.cashly-modern .calculator-note a {
+  color: var(--cashly-primary);
+  font-weight: 700;
+}
+
+.cashly-modern.home-page .callback-submit {
+  min-width: 140px;
+}
+
+.cashly-modern.home-page .callback-message {
+  border-radius: 18px;
+  font-size: 0.95rem;
+  margin: 1.25rem 0 0;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern.home-page .callback-message.is-success {
+  background: rgba(55, 148, 110, 0.12);
+  border: 1px solid rgba(55, 148, 110, 0.18);
+  color: #237252;
+}
+
+.cashly-modern.home-page .callback-message.is-error {
+  background: rgba(206, 74, 74, 0.1);
+  border: 1px solid rgba(206, 74, 74, 0.16);
+  color: #a53b3b;
+}
+
+.cashly-modern.home-page .callback-submit[disabled] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.cashly-modern .borrower-calculator-modal .modal-dialog {
+  margin: 1.5rem auto;
+  max-width: 1140px;
+}
+
+.cashly-modern .borrower-calculator-modal__content {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.cashly-modern .modal-backdrop {
+  background: rgba(235, 243, 255, 0.46);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+}
+
+.cashly-modern .modal-backdrop.show {
+  opacity: 1;
+}
+
+.cashly-modern .borrower-calculator-modal__body {
+  padding: 0;
+}
+
+.cashly-modern .borrower-calculator-modal__footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding: 0 0.15rem 0.15rem;
+}
+
+.cashly-modern .borrower-calculator-modal__close {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  height: auto;
+  justify-content: center;
+  margin: 0;
+  min-height: 46px;
+  opacity: 1;
+  padding: 0.8rem 1.2rem;
+  text-shadow: none;
+  width: auto;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  border-radius: 34px;
+  box-shadow: 0 42px 100px rgba(20, 44, 85, 0.18);
+  padding: 1.15rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
+  padding: 2.2rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell,
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell h2,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell h3,
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell label,
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control,
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-card strong,
+.cashly-modern.home-page .borrower-calculator-modal .business-card strong,
+.cashly-modern.home-page .borrower-calculator-modal .business-card a {
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell h2,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell h3 {
+  font-size: clamp(1.72rem, 2.4vw, 2.18rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.16;
+  margin: 0.65rem 0 0.85rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell p,
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell p {
+  color: #5b6b81;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .section-kicker {
+  color: #4d6fc4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell label {
+  color: #3f4f66;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.55rem;
+  text-transform: none;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control {
+  border-color: rgba(19, 35, 58, 0.09);
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 58px;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-note {
+  background: rgba(36, 89, 211, 0.05);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 16px;
+  color: #5b6b81;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0.9rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
+  background: linear-gradient(180deg, #fbfdff 0%, #f1f6ff 100%);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-card {
+  border-radius: 22px;
+  margin-top: 1.35rem;
+  padding: 1.45rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-card span,
+.cashly-modern.home-page .borrower-calculator-modal .business-card span {
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  margin-bottom: 0.55rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-card strong {
+  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin: 0.1rem 0 0.45rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .business-card-grid {
+  gap: 14px;
+  margin-top: 1.2rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .business-card {
+  border-radius: 18px;
+  padding: 1rem 1.05rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .business-card strong,
+.cashly-modern.home-page .borrower-calculator-modal .business-card a {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-note {
+  color: #5b6b81;
+  font-size: 0.9rem;
+  line-height: 1.72;
+  margin-top: 1.2rem;
+}
+
+.cashly-modern .borrower-calculator-modal__close:hover,
+.cashly-modern .borrower-calculator-modal__close:focus {
+  background: #fff;
+  color: var(--cashly-primary);
+  outline: none;
+}
+
+.cashly-modern .social-link-pill {
+  align-items: center;
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-weight: 800;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0.7rem 1rem;
+}
+
+.cashly-modern .social-link-pill:hover {
+  border-color: rgba(36, 89, 211, 0.18);
+  color: var(--cashly-primary);
+}
+
+.cashly-modern .site-footer,
+.cashly-modern.contact-page .site-footer {
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid rgba(19, 35, 58, 0.08);
+  margin-top: 92px;
+  padding: 72px 0 32px;
+}
+
+.cashly-modern .site-footer__brand img {
+  filter: none;
+  max-height: 56px;
+}
+
+.cashly-modern .site-footer__copy {
+  color: var(--cashly-muted);
+  margin: 1.5rem 0 1.75rem;
+  max-width: 460px;
+}
+
+.cashly-modern .site-footer h6 {
+  color: var(--cashly-text);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cashly-modern .site-footer__links li {
+  margin-bottom: 0.9rem;
+}
+
+.cashly-modern .site-footer__links a {
+  color: var(--cashly-muted);
+  font-weight: 600;
+}
+
+.cashly-modern .site-footer__links a:hover {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern .site-footer__socials {
+  display: flex;
+  gap: 12px;
+}
+
+.cashly-modern .site-footer__socials a {
+  align-items: center;
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 50%;
+  color: var(--cashly-primary);
+  display: inline-flex;
+  font-size: 17px;
+  height: 44px;
+  justify-content: center;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, -webkit-transform 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, -webkit-transform 0.25s ease;
+  width: 44px;
+}
+
+.cashly-modern .site-footer__socials a:hover {
+  background: var(--cashly-primary);
+  border-color: transparent;
+  color: #fff;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.cashly-modern .site-footer__bottom {
+  align-items: center;
+  border-top: 1px solid rgba(19, 35, 58, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.cashly-modern .site-footer__bottom p,
+.cashly-modern .site-footer__bottom a {
+  color: var(--cashly-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.cashly-modern .site-footer__bottom a {
+  font-weight: 700;
+}
+
+.cashly-modern .site-footer__bottom a:hover {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern .scroll-top-to,
+.cashly-modern.contact-page .scroll-top-to {
+  background: linear-gradient(135deg, var(--cashly-primary), #3b73ea);
+  border-radius: 50%;
+  bottom: 24px;
+  box-shadow: 0 18px 40px rgba(36, 89, 211, 0.18);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 52px;
+  line-height: 52px;
+  opacity: 0;
+  position: fixed;
+  right: 24px;
+  text-align: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+  visibility: hidden;
+  width: 52px;
+  z-index: 999;
+}
+
+.cashly-modern .scroll-top-to.active,
+.cashly-modern.contact-page .scroll-top-to.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cashly-modern .scroll-top-to:hover,
+.cashly-modern .scroll-top-to:focus,
+.cashly-modern.contact-page .scroll-top-to:hover,
+.cashly-modern.contact-page .scroll-top-to:focus {
+  background: #1948b9;
+  color: #fff;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+/* Contact Page Overrides */
+.cashly-modern.contact-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafe 100%);
+}
+
+.cashly-modern.contact-page .contact-hero {
+  background:
+    radial-gradient(circle at 14% 16%, rgba(127, 165, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(190, 216, 255, 0.46), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  overflow: hidden;
+  padding: 104px 0 150px;
+  position: relative;
+}
+
+.cashly-modern.contact-page .contact-hero:before {
+  background:
+    linear-gradient(180deg, rgba(36, 89, 211, 0.03), transparent 40%),
+    linear-gradient(90deg, rgba(36, 89, 211, 0.03) 1px, transparent 1px);
+  background-size: auto, 120px 120px;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.cashly-modern.contact-page .contact-hero__orb--one {
+  background: rgba(127, 165, 255, 0.18);
+}
+
+.cashly-modern.contact-page .contact-hero__orb--two {
+  background: rgba(183, 214, 255, 0.38);
+}
+
+.cashly-modern.contact-page .contact-eyebrow,
+.cashly-modern.contact-page .contact-section-heading__eyebrow,
+.cashly-modern.contact-page .contact-map-shell__eyebrow,
+.cashly-modern.contact-page .contact-showcase-card__badge {
+  background: var(--cashly-primary-tint);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-primary);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern.contact-page .contact-hero h1,
+.cashly-modern.contact-page .contact-map-shell h3,
+.cashly-modern.contact-page .contact-showcase-card h2 {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.contact-page .contact-hero__lead,
+.cashly-modern.contact-page .contact-map-shell p {
+  color: var(--cashly-muted);
+}
+
+.cashly-modern.contact-page .contact-secondary-btn {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 700;
+  min-height: 56px;
+  padding: 0.95rem 1.5rem;
+}
+
+.cashly-modern.contact-page .contact-secondary-btn:hover,
+.cashly-modern.contact-page .contact-secondary-btn:focus {
+  background: #fff;
+  border-color: rgba(36, 89, 211, 0.18);
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.contact-page .contact-trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2.35rem;
+}
+
+.cashly-modern.contact-page .contact-trust-pills span {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0.78rem 1rem;
+}
+
+.cashly-modern.contact-page .contact-hero__stats {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 720px;
+}
+
+.cashly-modern.contact-page .contact-stat {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.06);
+  padding: 1.4rem 1.3rem;
+}
+
+.cashly-modern.contact-page .contact-stat span {
+  color: var(--cashly-primary);
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern.contact-page .contact-stat p {
+  color: var(--cashly-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cashly-modern.contact-page .contact-showcase-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 32px;
+  box-shadow: var(--cashly-shadow);
+  padding: 2.1rem;
+  position: relative;
+}
+
+.cashly-modern.contact-page .contact-showcase-card:before {
+  background: linear-gradient(180deg, var(--cashly-primary), transparent);
+  border-radius: 999px;
+  content: "";
+  height: 90px;
+  left: 2.1rem;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+.cashly-modern.contact-page .contact-showcase-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.cashly-modern.contact-page .contact-showcase-list li {
+  align-items: flex-start;
+  color: var(--cashly-muted);
+  display: flex;
+  gap: 12px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern.contact-page .contact-showcase-list i {
+  color: var(--cashly-primary);
+  font-size: 16px;
+  margin-top: 7px;
+}
+
+.cashly-modern.contact-page .contact-showcase-card__meta {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern.contact-page .contact-showcase-card__meta div,
+.cashly-modern.contact-page .contact-mini-card {
+  background: var(--cashly-surface-soft);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.cashly-modern.contact-page .contact-showcase-card__meta span,
+.cashly-modern.contact-page .contact-mini-card span {
+  color: var(--cashly-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern.contact-page .contact-showcase-card__meta strong,
+.cashly-modern.contact-page .contact-mini-card a {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.cashly-modern.contact-page .contact-highlights {
+  margin-top: -56px;
+  padding-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cashly-modern.contact-page .contact-section-heading {
+  margin-bottom: 2.25rem;
+}
+
+.cashly-modern.contact-page .contact-section-heading h2 {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  margin: 1rem auto 0;
+  max-width: 760px;
+}
+
+.cashly-modern.contact-page .contact-info-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 28px;
+  box-shadow: var(--cashly-shadow);
+  height: 100%;
+  padding: 2rem 1.75rem;
+  transition: box-shadow 0.25s ease, -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+.cashly-modern.contact-page .contact-info-card:hover {
+  box-shadow: 0 32px 72px rgba(26, 52, 97, 0.11);
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.cashly-modern.contact-page .contact-info-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern.contact-page .contact-info-card p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern.contact-page .contact-info-card a,
+.cashly-modern.contact-page .contact-form-note a,
+.cashly-modern.contact-page .contact-mini-card a:hover {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.contact-page .contact-workspace {
+  padding-bottom: 110px;
+  padding-top: 2.2rem;
+}
+
+.cashly-modern.contact-page .contact-workspace__shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 40px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.5rem;
+}
+
+.cashly-modern.contact-page .contact-form-shell,
+.cashly-modern.contact-page .contact-map-shell {
+  border-radius: 30px;
+  height: 100%;
+  padding: 2.3rem;
+}
+
+.cashly-modern.contact-page .contact-form-shell {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+}
+
+.cashly-modern.contact-page .contact-form-shell h2 {
+  font-size: clamp(2rem, 3vw, 2.85rem);
+  line-height: 1.08;
+  margin: 1rem 0 1rem;
+}
+
+.cashly-modern.contact-page .contact-form-shell p {
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.cashly-modern.contact-page .contact-form-shell label {
+  color: var(--cashly-muted);
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern.contact-page .form-control {
+  background: #fff;
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 18px;
+  box-shadow: none;
+  color: var(--cashly-text);
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  min-height: 58px;
+  padding: 1rem 1.1rem;
+}
+
+.cashly-modern.contact-page textarea.form-control {
+  min-height: 168px;
+  resize: vertical;
+}
+
+.cashly-modern.contact-page .form-control::placeholder {
+  color: #8e9daf;
+}
+
+.cashly-modern.contact-page .form-control:focus {
+  border-color: rgba(36, 89, 211, 0.45);
+  box-shadow: 0 0 0 0.18rem rgba(36, 89, 211, 0.1);
+}
+
+.cashly-modern.contact-page .contact-form-note {
+  margin: 0 1.5rem 0 0;
+  max-width: 360px;
+}
+
+.cashly-modern.contact-page .contact-submit {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  min-width: 208px;
+}
+
+.cashly-modern.contact-page .contact-submit i {
+  font-size: 14px;
+}
+
+.cashly-modern.contact-page .contact-submit .ti-reload {
+  -webkit-animation: contactButtonSpin 0.8s linear infinite;
+          animation: contactButtonSpin 0.8s linear infinite;
+}
+
+@-webkit-keyframes heroGradientFlow {
+  0% {
+    background-position: 0% 0%, 100% 0%, 60% 100%, 0 0;
+  }
+  50% {
+    background-position: 16% 14%, 86% 10%, 46% 88%, 0 0;
+  }
+  100% {
+    background-position: 10% 30%, 92% 20%, 34% 72%, 0 0;
+  }
+}
+
+@keyframes heroGradientFlow {
+  0% {
+    background-position: 0% 0%, 100% 0%, 60% 100%, 0 0;
+  }
+  50% {
+    background-position: 16% 14%, 86% 10%, 46% 88%, 0 0;
+  }
+  100% {
+    background-position: 10% 30%, 92% 20%, 34% 72%, 0 0;
+  }
+}
+
+@-webkit-keyframes heroGradientGlow {
+  0% {
+    opacity: 0.58;
+    -webkit-transform: translate3d(-2%, -2%, 0) scale(0.98);
+            transform: translate3d(-2%, -2%, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.88;
+    -webkit-transform: translate3d(3%, 2%, 0) scale(1.06);
+            transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes heroGradientGlow {
+  0% {
+    opacity: 0.58;
+    -webkit-transform: translate3d(-2%, -2%, 0) scale(0.98);
+            transform: translate3d(-2%, -2%, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.88;
+    -webkit-transform: translate3d(3%, 2%, 0) scale(1.06);
+            transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+}
+
+@-webkit-keyframes heroGradientPulse {
+  0% {
+    opacity: 0.62;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.98);
+            transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.95;
+    -webkit-transform: translate3d(10px, -8px, 0) scale(1.04);
+            transform: translate3d(10px, -8px, 0) scale(1.04);
+  }
+}
+
+@keyframes heroGradientPulse {
+  0% {
+    opacity: 0.62;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.98);
+            transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.95;
+    -webkit-transform: translate3d(10px, -8px, 0) scale(1.04);
+            transform: translate3d(10px, -8px, 0) scale(1.04);
+  }
+}
+
+@-webkit-keyframes contactButtonSpin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes contactButtonSpin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.cashly-modern.contact-page .contact-submit[disabled] {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.cashly-modern.contact-page .form-message {
+  border-radius: 18px;
+  display: none;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern.contact-page .form-message.is-success {
+  background: rgba(25, 135, 84, 0.1);
+  color: #0f6b44;
+  display: block;
+}
+
+.cashly-modern.contact-page .form-message.is-error {
+  background: rgba(220, 53, 69, 0.08);
+  color: #9d2536;
+  display: block;
+}
+
+.cashly-modern.contact-page .contact-map-shell {
+  background: linear-gradient(180deg, #f7fbff 0%, #edf4ff 100%);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  overflow: hidden;
+}
+
+.cashly-modern.contact-page .contact-map-frame {
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.07);
+  margin: 1.8rem 0;
+  overflow: hidden;
+}
+
+.cashly-modern.contact-page .contact-map-frame iframe {
+  border: 0;
+  display: block;
+  height: 300px;
+  width: 100%;
+}
+
+.cashly-modern.contact-page .contact-map-shell__details {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern .faq-shell,
+.cashly-modern .career-role-card,
+.cashly-modern .legal-shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+  border: 1px solid var(--cashly-border);
+  border-radius: 40px;
+  box-shadow: var(--cashly-shadow);
+  padding: 1.5rem;
+}
+
+.cashly-modern .faq-shell__inner,
+.cashly-modern .career-role-card__inner,
+.cashly-modern .legal-shell__inner {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 30px;
+  padding: 2rem;
+}
+
+.cashly-modern .faq-group + .faq-group {
+  margin-top: 2rem;
+}
+
+.cashly-modern .faq-group__title {
+  color: var(--cashly-text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern .faq-list-modern {
+  display: grid;
+  gap: 16px;
+}
+
+.cashly-modern .faq-item-modern {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.05);
+  overflow: hidden;
+}
+
+.cashly-modern .faq-item-modern summary {
+  align-items: center;
+  color: var(--cashly-text);
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  gap: 16px;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1.25rem 1.35rem;
+}
+
+.cashly-modern .faq-item-modern summary::-webkit-details-marker {
+  display: none;
+}
+
+.cashly-modern .faq-item-modern summary i {
+  color: var(--cashly-primary);
+  flex-shrink: 0;
+  font-size: 15px;
+  transition: transform 0.25s ease;
+}
+
+.cashly-modern .faq-item-modern[open] summary i {
+  transform: rotate(180deg);
+}
+
+.cashly-modern .faq-item-modern p {
+  margin: 0;
+  padding: 0 1.35rem 1.35rem;
+}
+
+.cashly-modern .career-highlight-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--cashly-border);
+  border-radius: 32px;
+  box-shadow: var(--cashly-shadow);
+  height: 100%;
+  padding: 2rem;
+}
+
+.cashly-modern .career-highlight-card img {
+  border-radius: 24px;
+  display: block;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.cashly-modern .career-role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1rem 0 1.25rem;
+}
+
+.cashly-modern .career-role-meta span {
+  background: var(--cashly-primary-tint);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  color: var(--cashly-primary);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.72rem 0.95rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .career-role-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.cashly-modern .career-role-list li {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  border-radius: 18px;
+  display: flex;
+  gap: 12px;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern .career-role-list i {
+  color: var(--cashly-primary);
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.cashly-modern .career-role-list span {
+  color: var(--cashly-text);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.cashly-modern .career-gallery-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cashly-modern .career-gallery-grid img {
+  border-radius: 26px;
+  box-shadow: var(--cashly-shadow);
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.cashly-modern .legal-shell__intro {
+  margin-bottom: 1.5rem;
+  max-width: 760px;
+}
+
+.cashly-modern .legal-frame {
+  background: #fff;
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(26, 52, 97, 0.07);
+  overflow: hidden;
+}
+
+.cashly-modern .legal-frame iframe {
+  background: #fff;
+  border: 0;
+  display: block;
+  height: 1800px;
+  width: 100%;
+}
+
+.cashly-modern .legal-note {
+  margin: 1rem 0 0;
+}
+
+@media (max-width: 1199px) {
+  .cashly-modern .metric-grid--three,
+  .cashly-modern .stat-highlight-grid,
+  .cashly-modern .testimonial-grid,
+  .cashly-modern .value-grid,
+  .cashly-modern .team-member-grid,
+  .cashly-modern .career-gallery-grid,
+  .cashly-modern .logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cashly-modern.contact-page .contact-hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .cashly-modern .main-nav .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(19, 35, 58, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(26, 52, 97, 0.06);
+    margin-top: 14px;
+    padding: 1rem;
+  }
+
+  .cashly-modern .main-nav .navbar-nav .nav-item {
+    justify-content: flex-start;
+  }
+
+  .cashly-modern .main-nav .navbar-nav .nav-link {
+    padding: 0.8rem 0;
+  }
+
+  .cashly-modern .nav-cta {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .cashly-modern .nav-cta .btn-main-md {
+    width: 100%;
+  }
+
+  .cashly-modern .home-hero,
+  .cashly-modern .secondary-hero,
+  .cashly-modern.contact-page .contact-hero {
+    padding: 88px 0 136px;
+  }
+
+  .cashly-modern .metric-grid--three,
+  .cashly-modern .metric-grid--two,
+  .cashly-modern .stat-highlight-grid,
+  .cashly-modern .pillar-grid,
+  .cashly-modern .capability-grid,
+  .cashly-modern .journey-grid,
+  .cashly-modern .service-grid-modern,
+  .cashly-modern .advantage-grid,
+  .cashly-modern .team-lead-grid,
+  .cashly-modern .testimonial-grid,
+  .cashly-modern .value-grid,
+  .cashly-modern .team-member-grid,
+  .cashly-modern .career-gallery-grid,
+  .cashly-modern .logo-grid,
+  .cashly-modern.contact-page .contact-showcase-card__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cashly-modern .partner-band,
+  .cashly-modern .story-intro,
+  .cashly-modern.contact-page .contact-highlights {
+    margin-top: -44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cashly-modern .hero-actions {
+    flex-direction: column;
+  }
+
+  .cashly-modern .home-section-actions {
+    flex-direction: column;
+  }
+
+  .cashly-modern .hero-actions .btn-main-md,
+  .cashly-modern .hero-actions .btn-secondary-modern,
+  .cashly-modern.contact-page .contact-secondary-btn {
+    width: 100%;
+  }
+
+  .cashly-modern .home-section-actions .btn-main-md,
+  .cashly-modern .home-section-actions .btn-secondary-modern {
+    width: 100%;
+  }
+
+  .cashly-modern .logo-grid,
+  .cashly-modern .metric-grid--three,
+  .cashly-modern .metric-grid--two,
+  .cashly-modern .stat-highlight-grid,
+  .cashly-modern .pillar-grid,
+  .cashly-modern .capability-grid,
+  .cashly-modern .journey-grid,
+  .cashly-modern .service-grid-modern,
+  .cashly-modern .advantage-grid,
+  .cashly-modern .team-lead-grid,
+  .cashly-modern .testimonial-grid,
+  .cashly-modern .value-grid,
+  .cashly-modern .team-member-grid,
+  .cashly-modern .career-gallery-grid,
+  .cashly-modern.contact-page .contact-hero__stats,
+  .cashly-modern.contact-page .contact-showcase-card__meta,
+  .cashly-modern.contact-page .contact-map-shell__details {
+    grid-template-columns: 1fr;
+  }
+
+  .cashly-modern .workspace-panel,
+  .cashly-modern .story-intro__shell,
+  .cashly-modern .cta-banner,
+  .cashly-modern .journey-panel,
+  .cashly-modern .faq-shell,
+  .cashly-modern .career-role-card,
+  .cashly-modern .legal-shell,
+  .cashly-modern .callback-shell,
+  .cashly-modern.contact-page .contact-workspace__shell {
+    padding: 1rem;
+  }
+
+  .cashly-modern .workspace-panel__shell,
+  .cashly-modern .workspace-panel__visual,
+  .cashly-modern .story-intro__content,
+  .cashly-modern .story-intro__visual,
+  .cashly-modern .faq-shell__inner,
+  .cashly-modern .career-role-card__inner,
+  .cashly-modern .legal-shell__inner,
+  .cashly-modern .callback-form-shell,
+  .cashly-modern .callback-info-shell,
+  .cashly-modern.contact-page .contact-form-shell,
+  .cashly-modern.contact-page .contact-map-shell {
+    padding: 1.7rem;
+  }
+
+  .cashly-modern .home-hero__visual {
+    gap: 16px;
+  }
+
+  .cashly-modern .home-hero__visual .floating-note {
+    max-width: none;
+  }
+
+  .cashly-modern .home-hero__visual .floating-note--bottom {
+    justify-self: stretch;
+  }
+
+  .cashly-modern .site-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cashly-modern.contact-page .contact-form-note {
+    margin: 0 0 1rem;
+  }
+
+  .cashly-modern.contact-page .contact-submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .cashly-modern .page-section {
+    padding: 84px 0;
+  }
+
+  .cashly-modern .home-hero,
+  .cashly-modern .secondary-hero,
+  .cashly-modern.contact-page .contact-hero {
+    padding-top: 74px;
+  }
+
+  .cashly-modern .home-hero .section-title-modern h1,
+  .cashly-modern .secondary-hero .section-title-modern h1,
+  .cashly-modern.contact-page .contact-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .cashly-modern .partner-band__shell,
+  .cashly-modern .pillar-card,
+  .cashly-modern .testimonial-card,
+  .cashly-modern .value-card,
+  .cashly-modern .team-member-card__body,
+  .cashly-modern .team-lead-card__body,
+  .cashly-modern .journey-panel,
+  .cashly-modern .career-highlight-card,
+  .cashly-modern .stat-highlight-card,
+  .cashly-modern .advantage-card,
+  .cashly-modern.contact-page .contact-showcase-card,
+  .cashly-modern.contact-page .contact-info-card {
+    padding: 1.6rem;
+  }
+}
