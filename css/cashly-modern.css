@@ -11,7 +11,7 @@
   --cashly-shadow: 0 24px 60px rgba(26, 52, 97, 0.08);
   background: linear-gradient(180deg, #ffffff 0%, var(--cashly-bg) 100%);
   color: var(--cashly-text);
-  font-family: "Manrope", sans-serif;
+  font-family: "Instrument Sans", sans-serif;
   overflow-x: hidden;
 }
 
@@ -22,15 +22,16 @@
 .cashly-modern h5,
 .cashly-modern h6 {
   color: var(--cashly-text);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .cashly-modern p,
 .cashly-modern li,
 .cashly-modern label {
   color: var(--cashly-muted);
-  font-family: "Manrope", sans-serif;
+  font-family: "Instrument Sans", sans-serif;
 }
 
 .cashly-modern a:hover,
@@ -63,8 +64,14 @@
   display: flex;
 }
 
+.cashly-modern .main-nav .navbar-nav .service-nav {
+  flex-wrap: wrap;
+  position: relative;
+}
+
 .cashly-modern .main-nav .navbar-nav .nav-link {
   color: rgba(19, 35, 58, 0.78);
+  font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -86,8 +93,59 @@
   display: none;
 }
 
+.cashly-modern .main-nav .service-nav > .nav-link {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.cashly-modern .main-nav .service-nav > .nav-link span {
+  display: inline-flex;
+}
+
+.cashly-modern .main-nav .service-nav > .nav-link i {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.cashly-modern .main-nav .service-nav:hover > .nav-link i,
+.cashly-modern .main-nav .service-nav.is-open > .nav-link i {
+  transform: rotate(180deg);
+}
+
+.cashly-modern .main-nav .service-nav .dropdown-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 44px rgba(26, 52, 97, 0.14);
+  min-width: 230px;
+  overflow: hidden;
+  padding: 0.55rem;
+}
+
+.cashly-modern .main-nav .service-nav .dropdown-item {
+  border-radius: 14px;
+  color: var(--cashly-text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  padding: 0.75rem 0.9rem;
+  text-transform: none;
+}
+
+.cashly-modern .main-nav .service-nav .dropdown-item:hover,
+.cashly-modern .main-nav .service-nav .dropdown-item:focus {
+  background: rgba(36, 89, 211, 0.08);
+  color: var(--cashly-primary);
+}
+
 .cashly-modern .nav-cta {
   margin-left: 18px;
+}
+
+.cashly-modern .service-anchor {
+  scroll-margin-top: 120px;
 }
 
 .cashly-modern .navbar-toggler {
@@ -109,7 +167,7 @@
   box-shadow: 0 18px 45px rgba(36, 89, 211, 0.18);
   color: #fff;
   display: inline-flex;
-  font-family: "Manrope", sans-serif;
+  font-family: "Instrument Sans", sans-serif;
   font-size: 15px;
   font-weight: 800;
   justify-content: center;
@@ -133,6 +191,7 @@
   border-radius: 999px;
   color: var(--cashly-text);
   display: inline-flex;
+  font-family: "Instrument Sans", sans-serif;
   font-size: 15px;
   font-weight: 700;
   justify-content: center;
@@ -175,8 +234,8 @@
 }
 
 .cashly-modern .section-title-modern p {
-  font-size: 1.02rem;
-  line-height: 1.9;
+  font-size: 1.04rem;
+  line-height: 1.8;
   margin-bottom: 0;
 }
 
@@ -192,6 +251,10 @@
     radial-gradient(circle at 12% 14%, rgba(127, 165, 255, 0.2), transparent 28%),
     radial-gradient(circle at 84% 10%, rgba(190, 216, 255, 0.48), transparent 24%),
     linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  background-position: 0% 0%, 100% 0%, 0 0;
+  background-size: 140% 140%, 130% 130%, 100% 100%;
+  -webkit-animation: heroSurfaceDrift 18s ease-in-out infinite alternate;
+          animation: heroSurfaceDrift 18s ease-in-out infinite alternate;
   overflow: hidden;
   position: relative;
 }
@@ -205,9 +268,13 @@
   inset: 0;
   opacity: 0.9;
   position: absolute;
+  -webkit-animation: heroGridFloat 18s ease-in-out infinite alternate;
+          animation: heroGridFloat 18s ease-in-out infinite alternate;
 }
 
 .cashly-modern .hero-orb {
+  -webkit-animation: heroOrbFloatOne 14s ease-in-out infinite alternate;
+          animation: heroOrbFloatOne 14s ease-in-out infinite alternate;
   border-radius: 50%;
   filter: blur(10px);
   opacity: 0.9;
@@ -223,6 +290,10 @@
 }
 
 .cashly-modern .hero-orb--two {
+  -webkit-animation-duration: 17s;
+          animation-duration: 17s;
+  -webkit-animation-name: heroOrbFloatTwo;
+          animation-name: heroOrbFloatTwo;
   background: rgba(183, 214, 255, 0.42);
   bottom: 70px;
   height: 240px;
@@ -693,9 +764,102 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.cashly-modern .team-member-grid.team-member-grid--leadership {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 860px;
+}
+
+.cashly-modern .team-member-grid.team-member-grid--leadership .team-member-card__body {
+  text-align: center;
+}
+
+.cashly-modern .team-member-grid.team-member-grid--leadership .team-member-card__body span {
+  display: block;
+}
+
+.cashly-modern .team-member-grid.team-member-grid--single {
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.cashly-modern .team-member-grid.team-member-grid--single .team-member-card__body {
+  text-align: center;
+}
+
+.cashly-modern .team-member-grid.team-member-grid--single .team-member-card__body span {
+  display: block;
+}
+
 .cashly-modern .testimonial-card {
   height: 100%;
   padding: 2rem 1.8rem;
+}
+
+.cashly-modern .success-story-card {
+  border-radius: 40px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.cashly-modern .success-story-card__media {
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  margin: 1.35rem auto 0;
+  max-width: 220px;
+  overflow: hidden;
+  width: calc(100% - 2.7rem);
+}
+
+.cashly-modern .success-story-card__media img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  width: 100%;
+}
+
+.cashly-modern .success-story-card:hover .success-story-card__media img {
+  transform: scale(1.04);
+}
+
+.cashly-modern .success-story-card__body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.65rem;
+  text-align: center;
+}
+
+.cashly-modern .success-story-card__name {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.cashly-modern .success-story-card__quote {
+  color: var(--cashly-text);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.85;
+  margin: 0;
+  width: 100%;
+}
+
+.cashly-modern .success-story-card__role {
+  color: var(--cashly-text);
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: auto;
+  padding-top: 0.35rem;
+  width: 100%;
 }
 
 .cashly-modern .testimonial-card p {
@@ -735,6 +899,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  justify-content: center;
   margin-top: 1.75rem;
 }
 
@@ -742,11 +907,20 @@
   padding: 98px 0 148px;
 }
 
+.cashly-modern.team-page .secondary-hero {
+  padding: 84px 0 124px;
+}
+
 .cashly-modern .secondary-hero__meta {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 2rem;
+}
+
+.cashly-modern.team-page .secondary-hero__meta {
+  gap: 12px;
+  margin-top: 1.5rem;
 }
 
 .cashly-modern .secondary-hero__meta div {
@@ -774,6 +948,10 @@
   color: var(--cashly-text);
   display: block;
   font-size: 0.95rem;
+}
+
+.cashly-modern.team-page .secondary-hero__meta strong {
+  font-size: 0.9rem;
 }
 
 .cashly-modern .story-intro {
@@ -924,6 +1102,19 @@
   margin: 0;
 }
 
+.cashly-modern.broker-page .service-card-modern h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+}
+
+.cashly-modern.broker-page .service-card-modern p {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
 .cashly-modern .service-note {
   margin-top: 1.4rem;
 }
@@ -970,36 +1161,20 @@
 
 .cashly-modern.home-page .hero-dark-section:before {
   background:
-    radial-gradient(circle at 14% 18%, rgba(111, 181, 255, 0.34), transparent 28%),
-    radial-gradient(circle at 84% 14%, rgba(164, 226, 255, 0.32), transparent 24%),
-    radial-gradient(circle at 66% 70%, rgba(36, 89, 211, 0.16), transparent 28%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 249, 255, 0.98) 42%, rgba(236, 244, 255, 0.98) 100%);
-  background-position: 0% 0%, 100% 0%, 60% 100%, 0 0;
-  background-size: 140% 140%, 130% 130%, 140% 140%, 100% 100%;
-  opacity: 0.95;
-  -webkit-animation: heroGradientFlow 18s ease-in-out infinite alternate;
-          animation: heroGradientFlow 18s ease-in-out infinite alternate;
+    linear-gradient(180deg, rgba(36, 89, 211, 0.03), transparent 42%),
+    linear-gradient(90deg, rgba(36, 89, 211, 0.03) 1px, transparent 1px);
+  background-size: auto, 120px 120px;
+  opacity: 0.9;
+  -webkit-animation: heroGridFloat 18s ease-in-out infinite alternate;
+          animation: heroGridFloat 18s ease-in-out infinite alternate;
 }
 
 .cashly-modern.home-page .home-hero:after {
-  background:
-    radial-gradient(circle at 28% 30%, rgba(255, 255, 255, 0.48), transparent 34%),
-    linear-gradient(120deg, rgba(127, 165, 255, 0.18), rgba(151, 220, 255, 0.16) 42%, rgba(255, 255, 255, 0) 78%);
-  content: "";
-  filter: blur(42px);
-  inset: 10% -6% 8% 36%;
-  opacity: 0.82;
-  pointer-events: none;
-  position: absolute;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-animation: heroGradientGlow 14s ease-in-out infinite alternate;
-          animation: heroGradientGlow 14s ease-in-out infinite alternate;
-  z-index: 0;
+  content: none;
 }
 
 .cashly-modern.home-page .hero-orb {
-  display: none;
+  display: block;
 }
 
 .cashly-modern.home-page .section-kicker,
@@ -1020,8 +1195,16 @@
   max-width: 620px;
 }
 
+.cashly-modern.home-page .journey-panel__lead {
+  max-width: none;
+}
+
 .cashly-modern.home-page .hero-actions {
   margin: 2rem 0 0;
+}
+
+.cashly-modern.home-page .rate-cta-btn {
+  min-width: 168px;
 }
 
 .cashly-modern.home-page .content-chip-row,
@@ -1084,6 +1267,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cashly-modern .hero-dark-section,
+  .cashly-modern .hero-dark-section:before,
+  .cashly-modern .hero-orb,
   .cashly-modern.home-page .hero-dark-section:before,
   .cashly-modern.home-page .home-hero:after,
   .cashly-modern.home-page .home-hero__visual--simple:before {
@@ -1321,6 +1507,17 @@
   margin: 0 0 1rem;
 }
 
+.cashly-modern .callback-honeypot {
+  display: none !important;
+}
+
+.cashly-modern .callback-turnstile {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 74px;
+}
+
 .cashly-modern .business-card-grid {
   display: grid;
   gap: 16px;
@@ -1417,6 +1614,10 @@
   max-width: 1140px;
 }
 
+.cashly-modern .calculator-lead-modal .modal-dialog {
+  max-width: 680px;
+}
+
 .cashly-modern .borrower-calculator-modal__content {
   background: transparent;
   border: 0;
@@ -1504,6 +1705,25 @@
   line-height: 1.72;
 }
 
+.cashly-modern.home-page .borrower-calculator-modal .calculator-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-trust-strip span {
+  background: rgba(36, 89, 211, 0.07);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 999px;
+  color: #2459d3;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.6rem 0.9rem;
+}
+
 .cashly-modern.home-page .borrower-calculator-modal .section-kicker {
   color: #4d6fc4;
   font-size: 0.72rem;
@@ -1511,7 +1731,8 @@
   letter-spacing: 0.11em;
 }
 
-.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell label {
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell label,
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form label {
   color: #3f4f66;
   font-size: 0.82rem;
   font-weight: 700;
@@ -1520,13 +1741,35 @@
   text-transform: none;
 }
 
-.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control {
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control,
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form .form-control {
   border-color: rgba(19, 35, 58, 0.09);
   border-radius: 16px;
   font-size: 1rem;
   font-weight: 600;
   min-height: 58px;
   padding: 0.95rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-step-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal #calculatorNextButton {
+  min-width: 168px;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-step-note {
+  color: #5b6b81;
+  flex: 1 1 220px;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-note {
@@ -1542,6 +1785,10 @@
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
   background: linear-gradient(180deg, #fbfdff 0%, #f1f6ff 100%);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form {
+  margin-top: 1.2rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-result-card {
@@ -1581,11 +1828,172 @@
   line-height: 1.45;
 }
 
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 22px;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-card > strong {
+  color: #13233a;
+  display: block;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-card p {
+  margin-bottom: 0;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-points {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-points li {
+  align-items: flex-start;
+  color: #213046;
+  display: flex;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-points i {
+  color: #2459d3;
+  font-size: 0.88rem;
+  margin-top: 0.25rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 1.2rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions .btn {
+  width: 100%;
+}
+
 .cashly-modern.home-page .borrower-calculator-modal .calculator-note {
   color: #5b6b81;
   font-size: 0.9rem;
   line-height: 1.72;
   margin-top: 1.2rem;
+}
+
+.cashly-modern .calculator-result-modal .modal-dialog {
+  max-width: 900px;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-shell {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  padding: 2.45rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 30px;
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.55rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__top {
+  align-items: flex-start;
+  display: flex;
+  gap: 1.35rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__top img {
+  display: block;
+  flex: 0 0 156px;
+  height: auto;
+  max-width: 156px;
+  width: 100%;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__meta {
+  align-items: center;
+  background: rgba(36, 89, 211, 0.05);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 18px;
+  color: #50637b;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-email-notice {
+  background: rgba(36, 89, 211, 0.06);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 18px;
+  color: #2459d3;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.95rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions {
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions .btn {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.92rem;
+  justify-content: center;
+  min-height: 48px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (max-width: 991px) {
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-shell {
+    padding: 2rem;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__top {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions--split,
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-shell,
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand {
+    padding: 1.3rem;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__top img {
+    flex-basis: auto;
+    max-width: 132px;
+  }
 }
 
 .cashly-modern .borrower-calculator-modal__close:hover,
@@ -1701,6 +2109,11 @@
   padding-top: 1.5rem;
 }
 
+.cashly-modern .site-footer__bottom-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .cashly-modern .site-footer__bottom p,
 .cashly-modern .site-footer__bottom a {
   color: var(--cashly-muted);
@@ -1708,8 +2121,22 @@
   margin: 0;
 }
 
+.cashly-modern .site-footer__copyright {
+  font-size: 0.88rem;
+}
+
 .cashly-modern .site-footer__bottom a {
   font-weight: 700;
+}
+
+.cashly-modern .site-footer__cta {
+  flex-shrink: 0;
+}
+
+.cashly-modern .site-footer__bottom .site-footer__cta,
+.cashly-modern .site-footer__bottom .site-footer__cta:hover,
+.cashly-modern .site-footer__bottom .site-footer__cta:focus {
+  color: #fff;
 }
 
 .cashly-modern .site-footer__bottom a:hover {
@@ -1813,6 +2240,20 @@
 .cashly-modern.contact-page .contact-hero__lead,
 .cashly-modern.contact-page .contact-map-shell p {
   color: var(--cashly-muted);
+}
+
+.cashly-modern.contact-page .main-nav {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.cashly-modern.contact-page .main-nav .navbar-nav .nav-link {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.contact-page .main-nav .navbar-nav .nav-link:hover,
+.cashly-modern.contact-page .main-nav .navbar-nav .nav-link:focus,
+.cashly-modern.contact-page .main-nav .navbar-nav .nav-item.active .nav-link {
+  color: var(--cashly-primary);
 }
 
 .cashly-modern.contact-page .contact-secondary-btn {
@@ -2123,6 +2564,108 @@
   }
   100% {
     background-position: 10% 30%, 92% 20%, 34% 72%, 0 0;
+  }
+}
+
+@-webkit-keyframes heroSurfaceDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 0 0;
+  }
+  50% {
+    background-position: 10% 10%, 90% 8%, 0 0;
+  }
+  100% {
+    background-position: 6% 18%, 94% 16%, 0 0;
+  }
+}
+
+@keyframes heroSurfaceDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 0 0;
+  }
+  50% {
+    background-position: 10% 10%, 90% 8%, 0 0;
+  }
+  100% {
+    background-position: 6% 18%, 94% 16%, 0 0;
+  }
+}
+
+@-webkit-keyframes heroGridFloat {
+  0% {
+    opacity: 0.82;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0.96;
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes heroGridFloat {
+  0% {
+    opacity: 0.82;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0.96;
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+}
+
+@-webkit-keyframes heroOrbFloatOne {
+  0% {
+    opacity: 0.74;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.98);
+            transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.94;
+    -webkit-transform: translate3d(18px, -14px, 0) scale(1.06);
+            transform: translate3d(18px, -14px, 0) scale(1.06);
+  }
+}
+
+@keyframes heroOrbFloatOne {
+  0% {
+    opacity: 0.74;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.98);
+            transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  100% {
+    opacity: 0.94;
+    -webkit-transform: translate3d(18px, -14px, 0) scale(1.06);
+            transform: translate3d(18px, -14px, 0) scale(1.06);
+  }
+}
+
+@-webkit-keyframes heroOrbFloatTwo {
+  0% {
+    opacity: 0.68;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: translate3d(-16px, 12px, 0) scale(1.05);
+            transform: translate3d(-16px, 12px, 0) scale(1.05);
+  }
+}
+
+@keyframes heroOrbFloatTwo {
+  0% {
+    opacity: 0.68;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: translate3d(-16px, 12px, 0) scale(1.05);
+            transform: translate3d(-16px, 12px, 0) scale(1.05);
   }
 }
 
@@ -2467,6 +3010,19 @@
     padding: 0.8rem 0;
   }
 
+  .cashly-modern .main-nav .service-nav {
+    width: 100%;
+  }
+
+  .cashly-modern .main-nav .service-nav .dropdown-menu {
+    border-radius: 18px;
+    box-shadow: none;
+    margin-top: 0.25rem;
+    min-width: 100%;
+    position: static;
+    width: 100%;
+  }
+
   .cashly-modern .nav-cta {
     margin-left: 0;
     margin-top: 10px;
@@ -2523,6 +3079,15 @@
     width: 100%;
   }
 
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-step-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions--split {
+    grid-template-columns: 1fr;
+  }
+
   .cashly-modern .home-section-actions .btn-main-md,
   .cashly-modern .home-section-actions .btn-secondary-modern {
     width: 100%;
@@ -2546,6 +3111,11 @@
   .cashly-modern.contact-page .contact-showcase-card__meta,
   .cashly-modern.contact-page .contact-map-shell__details {
     grid-template-columns: 1fr;
+  }
+
+  .cashly-modern .team-member-grid.team-member-grid--leadership {
+    grid-template-columns: 1fr;
+    max-width: none;
   }
 
   .cashly-modern .workspace-panel,

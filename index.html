@@ -51,8 +51,20 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="broker.html">Broker</a>
+          <li class="nav-item dropdown service-nav">
+            <a
+              class="nav-link dropdown-toggle"
+              href="broker.html"
+              id="serviceMenuToggle"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Service <span><i class="ti-angle-down"></i></span></a>
+            <ul class="dropdown-menu" id="service-menu" aria-labelledby="serviceMenuToggle">
+              <li><a class="dropdown-item" href="broker.html#cashly-crm">Cashly CRM</a></li>
+              <li><a class="dropdown-item" href="broker.html#lender-matching">Lender Matching</a></li>
+              <li><a class="dropdown-item" href="broker.html#deal-sense">Deal Sense</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -62,7 +74,7 @@
           </li>
           <li class="nav-item nav-cta">
             <a
-              class="btn btn-main-md"
+              class="btn btn-main-md rate-cta-btn"
               href="#borrowerCalculatorModal"
               role="button"
               data-toggle="modal"
@@ -96,7 +108,7 @@
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="100">
               <a
                 href="#borrowerCalculatorModal"
-                class="btn btn-main-md"
+                class="btn btn-main-md rate-cta-btn"
                 role="button"
                 data-toggle="modal"
                 data-target="#borrowerCalculatorModal"
@@ -159,7 +171,7 @@
           <div class="section-title-modern text-center">
             <span class="section-kicker">The Cashly Method</span>
             <h2>Simple. Structured. Predictable.</h2>
-            <p>
+            <p class="journey-panel__lead mx-auto text-center">
               We explain your options in plain language, show you the real costs up front, and help you move forward with confidence.
             </p>
           </div>
@@ -195,7 +207,7 @@
         <div class="section-title-modern text-center mb-5" data-aos="fade-up">
           <span class="section-kicker">Why Cashly</span>
           <h2>Clear support when the decision matters most.</h2>
-          <p>
+          <p class="mx-auto text-center">
             The right private mortgage should buy you time, protect your property, and give you a clear path forward.
           </p>
         </div>
@@ -226,6 +238,51 @@
             <i class="ti-shield"></i>
             <h3>Professional process</h3>
             <p>Clear communication and a more trustworthy borrower experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section pt-0">
+      <div class="container">
+        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
+          <span class="section-kicker">Success Stories</span>
+          <h2>Your property holds potential.</h2>
+          <p class="mx-auto text-center">We help you unlock it - simply.</p>
+        </div>
+
+        <div class="testimonial-grid" data-aos="fade-up" data-aos-delay="100">
+          <article class="testimonial-card success-story-card">
+            <div class="success-story-card__media">
+              <img src="images/team/marketing-team-01.jpg" alt="Man in Office">
+            </div>
+            <div class="success-story-card__body">
+              <h3 class="success-story-card__name text-center">Jack</h3>
+              <p class="success-story-card__quote text-center">After weeks of delays with my bank, Cashly gave me clarity in days.</p>
+              <span class="success-story-card__role text-center">Toronto Homeowner</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card success-story-card">
+            <div class="success-story-card__media">
+              <img src="images/team/design-team-02.jpg" alt="Man in Green">
+            </div>
+            <div class="success-story-card__body">
+              <h3 class="success-story-card__name text-center">Jordan</h3>
+              <p class="success-story-card__quote text-center">As a self-employed business owner, I finally felt understood.</p>
+              <span class="success-story-card__role text-center">Vancouver Entrepreneur</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card success-story-card">
+            <div class="success-story-card__media">
+              <img src="images/team/marketing-team-03.jpg" alt="Man In White Shirt">
+            </div>
+            <div class="success-story-card__body">
+              <h3 class="success-story-card__name text-center">Syndney</h3>
+              <p class="success-story-card__quote text-center">Professional, transparent, and straightforward.</p>
+              <span class="success-story-card__role text-center">Calgary Property Owner</span>
+            </div>
           </article>
         </div>
       </div>
@@ -299,7 +356,7 @@
             </div>
 
             <div class="col-lg-5 mt-4 mt-lg-0">
-              <div class="cta-banner__actions justify-content-lg-end">
+              <div class="cta-banner__actions justify-content-center">
                 <a
                   href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT"
                   class="btn btn-main-md"
@@ -331,8 +388,8 @@
 
                 <form
                   id="homeCallbackForm"
-                  action="https://formspree.io/f/mqapaoqp"
                   method="POST"
+                  data-submit-mode="edge-function"
                   novalidate
                 >
                   <div class="row">
@@ -376,7 +433,7 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                      <label for="home-phone">Phone</label>
+                      <label for="home-phone">Phone*</label>
                       <input
                         type="tel"
                         id="home-phone"
@@ -384,6 +441,7 @@
                         class="form-control"
                         placeholder="Phone"
                         autocomplete="tel"
+                        required
                       >
                     </div>
 
@@ -397,6 +455,24 @@
                         placeholder="Message"
                         required
                       ></textarea>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="callback-honeypot" aria-hidden="true">
+                        <label for="home-company-name">Company name</label>
+                        <input
+                          type="text"
+                          id="home-company-name"
+                          name="company_name"
+                          class="form-control"
+                          tabindex="-1"
+                          autocomplete="off"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <div id="homeCallbackTurnstile" class="callback-turnstile"></div>
                     </div>
 
                     <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
@@ -480,24 +556,22 @@
           <ul class="site-footer__links">
             <li><a href="broker.html">Broker</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li>
-              <a
-                href="#borrowerCalculatorModal"
-                data-toggle="modal"
-                data-target="#borrowerCalculatorModal"
-              >Get Your Rate</a>
-            </li>
           </ul>
         </div>
       </div>
 
       <div class="site-footer__bottom">
-        <p>Clear private mortgage guidance for homeowners.</p>
+        <div class="site-footer__bottom-copy">
+          <p>Clear private mortgage guidance for homeowners.</p>
+          <p class="site-footer__copyright">Copyright &copy; 2026 Cashly. All rights reserved.</p>
+        </div>
         <a
           href="#borrowerCalculatorModal"
+          class="btn btn-main-md rate-cta-btn site-footer__cta"
+          role="button"
           data-toggle="modal"
           data-target="#borrowerCalculatorModal"
-        >Start here</a>
+        >Get Your Rate</a>
       </div>
     </div>
   </footer>
@@ -517,11 +591,14 @@
             <div class="row align-items-stretch">
               <div class="col-xl-7">
                 <div class="callback-form-shell">
-                  <span class="section-kicker">Check Your Mortgage Eligibility</span>
-                  <h2 id="borrowerCalculatorModalLabel">Estimate your monthly payment in a simple way.</h2>
-                  <p>
-                    Use this quick estimate to understand the size of the payment before speaking with someone.
-                  </p>
+                  <span class="section-kicker">Free Payment Estimate</span>
+                  <h2 id="borrowerCalculatorModalLabel">See what your payment could look like before you commit.</h2>
+
+                  <div class="calculator-trust-strip" aria-label="Calculator benefits">
+                    <span>No credit check</span>
+                    <span>30-second estimate</span>
+                    <span>No obligation</span>
+                  </div>
 
                   <form id="mortgageCalculatorForm" novalidate>
                     <div class="row">
@@ -592,8 +669,16 @@
 
                       <div class="col-12 mb-3">
                         <p class="callback-form-note">
-                          This is an estimate only. It does not include taxes, insurance, lender fees, or legal costs.
+                          A quick estimate to help you judge the payment before taking the next step.
                         </p>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="calculator-step-actions">
+                          <button type="button" class="btn btn-main-md" id="calculatorNextButton">
+                            Continue
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </form>
@@ -602,41 +687,19 @@
 
               <div class="col-xl-5 mt-4 mt-xl-0">
                 <div class="callback-info-shell">
-                  <span class="section-kicker">Your estimate</span>
-                  <h3>Check Your Mortgage Eligibility</h3>
-                  <p>
-                    A simple estimate to help you understand your possible payment before moving forward.
-                  </p>
+                  <div id="calculatorLeadLockedState">
+                    <span class="section-kicker">What You Unlock</span>
+                    <h3>Your payment plan is one step away.</h3>
 
-                  <div class="calculator-result-card" aria-live="polite">
-                    <span>Estimated monthly payment</span>
-                    <strong id="calculator-monthly">$0</strong>
-                    <p>Based on the property value, down payment, rate, and amortization entered.</p>
+                    <div class="calculator-lead-card">
+                      <strong>What you get after you unlock it</strong>
+                      <ul class="calculator-lead-points">
+                        <li><i class="ti-check"></i><span>Your estimated monthly payment</span></li>
+                        <li><i class="ti-check"></i><span>Loan amount, total interest, and loan-to-value</span></li>
+                        <li><i class="ti-check"></i><span>A clean next step if you want a real quote</span></li>
+                      </ul>
+                    </div>
                   </div>
-
-                  <div class="business-card-grid">
-                    <article class="business-card">
-                      <span>Estimated loan amount</span>
-                      <strong id="calculator-loan">$0</strong>
-                    </article>
-
-                    <article class="business-card">
-                      <span>Estimated total interest</span>
-                      <strong id="calculator-interest">$0</strong>
-                    </article>
-
-                    <article class="business-card">
-                      <span>Amortization period</span>
-                      <strong id="calculator-summary-years">25 years</strong>
-                    </article>
-                  </div>
-
-                  <p class="calculator-note">
-                    Need a real quote? Reach us at
-                    <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>
-                    or call
-                    <a href="tel:+12184133596">+1 218-413-3596</a>.
-                  </p>
                 </div>
               </div>
             </div>
@@ -655,6 +718,235 @@
     </div>
   </div>
 
+  <div
+    class="modal fade borrower-calculator-modal calculator-lead-modal"
+    id="calculatorLeadModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="calculatorLeadModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content borrower-calculator-modal__content">
+        <div class="modal-body borrower-calculator-modal__body">
+          <div class="callback-shell">
+            <div class="callback-form-shell">
+              <span class="section-kicker">Unlock Your Estimate</span>
+              <h2 id="calculatorLeadModalLabel">Enter your details to see your payment plan.</h2>
+
+              <form id="calculatorLeadForm" class="calculator-lead-form" novalidate>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="calculator-lead-first-name">First name</label>
+                    <input
+                      type="text"
+                      id="calculator-lead-first-name"
+                      name="first_name"
+                      class="form-control"
+                      placeholder="First name"
+                      autocomplete="given-name"
+                      required
+                    >
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="calculator-lead-last-name">Last name</label>
+                    <input
+                      type="text"
+                      id="calculator-lead-last-name"
+                      name="last_name"
+                      class="form-control"
+                      placeholder="Last name"
+                      autocomplete="family-name"
+                      required
+                    >
+                  </div>
+
+                  <div class="col-12 mb-3">
+                    <label for="calculator-lead-email">Email</label>
+                    <input
+                      type="email"
+                      id="calculator-lead-email"
+                      name="email"
+                      class="form-control"
+                      placeholder="Email"
+                      autocomplete="email"
+                      required
+                    >
+                  </div>
+
+                  <div class="col-12 mb-3">
+                    <label for="calculator-lead-phone">Phone</label>
+                    <input
+                      type="tel"
+                      id="calculator-lead-phone"
+                      name="phone"
+                      class="form-control"
+                      placeholder="Phone"
+                      autocomplete="tel"
+                      required
+                    >
+                  </div>
+
+                  <div class="col-12">
+                    <div class="callback-honeypot" aria-hidden="true">
+                      <label for="calculator-lead-company-name">Company name</label>
+                      <input
+                        type="text"
+                        id="calculator-lead-company-name"
+                        name="company_name"
+                        class="form-control"
+                        tabindex="-1"
+                        autocomplete="off"
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-12 mb-3">
+                    <div id="calculatorLeadTurnstile" class="callback-turnstile"></div>
+                  </div>
+
+                  <div class="col-12">
+                    <p class="callback-form-note">
+                      We use this only to follow up on your estimate request. No credit check and no obligation.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="calculator-lead-actions calculator-lead-actions--split">
+                  <button type="button" class="btn btn-secondary-modern" id="calculatorBackButton">
+                    Back
+                  </button>
+                  <button type="submit" class="btn btn-main-md" id="calculatorLeadSubmitButton">
+                    Unlock My Estimate
+                  </button>
+                </div>
+              </form>
+
+              <p id="calculatorLeadMessage" class="callback-message" aria-live="polite"></p>
+
+              <p class="calculator-note">
+                Prefer direct contact? Reach us at
+                <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>
+                or call
+                <a href="tel:+12184133596">+1 218-413-3596</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="borrower-calculator-modal__footer">
+            <button
+              type="button"
+              class="borrower-calculator-modal__close"
+              data-dismiss="modal"
+              aria-label="Close lead capture"
+            >Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade borrower-calculator-modal calculator-result-modal"
+    id="calculatorResultModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="calculatorResultModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content borrower-calculator-modal__content">
+        <div class="modal-body borrower-calculator-modal__body">
+          <div class="callback-shell">
+            <div class="callback-info-shell calculator-result-shell">
+              <div class="calculator-result-brand" id="calculatorResultCard">
+                <div class="calculator-result-brand__top">
+                  <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+                  <div>
+                    <span class="section-kicker">Your Estimate</span>
+                    <h3 id="calculatorResultModalLabel">Your mortgage payment plan is ready.</h3>
+                    <p>
+                      Use this as a starting point, then book a free review if you want help comparing realistic next steps.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="calculator-result-brand__meta">
+                  <span>Prepared by Cashly</span>
+                  <span id="calculator-result-date">Today</span>
+                </div>
+
+                <div class="calculator-lead-actions calculator-result-actions">
+                  <button type="button" class="btn btn-secondary-modern" id="calculatorDownloadPdfButton">
+                    Download PDF
+                  </button>
+                  <a
+                    href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT"
+                    class="btn btn-main-md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Book Free Review</a>
+                  <a
+                    href="#home-callback"
+                    class="btn btn-secondary-modern"
+                    data-dismiss="modal"
+                  >Request A Call Back</a>
+                </div>
+
+                <p id="calculatorResultEmailNotice" class="calculator-result-email-notice" aria-live="polite" hidden></p>
+
+                <div class="calculator-result-card" aria-live="polite">
+                  <span>Estimated monthly payment</span>
+                  <strong id="calculator-monthly">$0</strong>
+                  <p>Based on the property value, down payment, rate, and amortization entered.</p>
+                </div>
+
+                <div class="business-card-grid">
+                  <article class="business-card">
+                    <span>Estimated loan amount</span>
+                    <strong id="calculator-loan">$0</strong>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Estimated total interest</span>
+                    <strong id="calculator-interest">$0</strong>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Amortization period</span>
+                    <strong id="calculator-summary-years">25 years</strong>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Estimated loan-to-value</span>
+                    <strong id="calculator-ltv">0%</strong>
+                  </article>
+                </div>
+
+                <div class="calculator-lead-card">
+                  <strong>Want a real quote?</strong>
+                  <p>
+                    Book a free review and we will help you understand likely payments, fees, lender fit, and what a realistic private mortgage path could look like for your situation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="borrower-calculator-modal__footer">
+            <button
+              type="button"
+              class="borrower-calculator-modal__close"
+              data-dismiss="modal"
+              aria-label="Close estimate"
+            >Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">
     <i class="ti-angle-up"></i>
   </div>
@@ -662,6 +954,8 @@
   <script src="plugins/jquery/jquery.min.js"></script>
   <script src="plugins/bootstrap/bootstrap.min.js"></script>
   <script src="plugins/aos/aos.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <script src="js/cashly-config.js"></script>
   <script src="js/cashly-modern.js"></script>
 </body>
 </html>

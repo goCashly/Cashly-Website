@@ -51,8 +51,20 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="broker.html">Broker</a>
+          <li class="nav-item dropdown service-nav active">
+            <a
+              class="nav-link dropdown-toggle"
+              href="broker.html"
+              id="serviceMenuToggle"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Service <span><i class="ti-angle-down"></i></span></a>
+            <ul class="dropdown-menu" id="service-menu" aria-labelledby="serviceMenuToggle">
+              <li><a class="dropdown-item" href="broker.html#cashly-crm">Cashly CRM</a></li>
+              <li><a class="dropdown-item" href="broker.html#lender-matching">Lender Matching</a></li>
+              <li><a class="dropdown-item" href="broker.html#deal-sense">Deal Sense</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="team.html">Team</a>
@@ -229,27 +241,27 @@
         </div>
 
         <div class="service-grid-modern">
-          <article class="service-card-modern" data-aos="fade-up" data-aos-delay="50">
+          <article class="service-card-modern service-anchor" id="cashly-crm" data-aos="fade-up" data-aos-delay="50">
             <i class="ti-panel"></i>
-            <h3>Pipeline and file tracking</h3>
+            <h3>Cashly CRM</h3>
             <p>
-              Keep every file, owner, stage, and next step visible so nothing important gets lost.
+              Keep every file, owner, stage, note, and next step visible in one workspace built for brokers.
             </p>
           </article>
 
-          <article class="service-card-modern" data-aos="fade-up" data-aos-delay="100">
+          <article class="service-card-modern service-anchor" id="lender-matching" data-aos="fade-up" data-aos-delay="100">
             <i class="ti-target"></i>
-            <h3>Lender matching workflow</h3>
+            <h3>Lender Matching</h3>
             <p>
               Compare lender fit with borrower context in one place instead of relying on disconnected notes.
             </p>
           </article>
 
-          <article class="service-card-modern" data-aos="fade-up" data-aos-delay="150">
+          <article class="service-card-modern service-anchor" id="deal-sense" data-aos="fade-up" data-aos-delay="150">
             <i class="ti-timer"></i>
-            <h3>Reminders and next steps</h3>
+            <h3>Deal Sense</h3>
             <p>
-              Keep follow-ups moving with better reminders, ownership, and activity visibility across the team.
+              Spot the right next move faster with clearer follow-ups, ownership, and deal context across the team.
             </p>
           </article>
 
@@ -308,7 +320,6 @@
             <div class="col-lg-4">
               <div class="cta-banner__actions justify-content-lg-end">
                 <a href="contact.html#contact-form" class="btn btn-main-md">Book a Demo</a>
-                <a href="index.html" class="btn-secondary-modern">See Borrower Side</a>
               </div>
             </div>
           </div>
@@ -374,7 +385,6 @@
       </div>
 
       <div class="site-footer__bottom">
-        <p>Broker tools on one page. Borrower guidance on the homepage.</p>
         <a href="contact.html#contact-form">Start a conversation</a>
       </div>
     </div>

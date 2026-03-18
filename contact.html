@@ -54,8 +54,20 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="broker.html">Broker</a>
+          <li class="nav-item dropdown service-nav">
+            <a
+              class="nav-link dropdown-toggle"
+              href="broker.html"
+              id="serviceMenuToggle"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Service <span><i class="ti-angle-down"></i></span></a>
+            <ul class="dropdown-menu" id="service-menu" aria-labelledby="serviceMenuToggle">
+              <li><a class="dropdown-item" href="broker.html#cashly-crm">Cashly CRM</a></li>
+              <li><a class="dropdown-item" href="broker.html#lender-matching">Lender Matching</a></li>
+              <li><a class="dropdown-item" href="broker.html#deal-sense">Deal Sense</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="team.html">Team</a>
