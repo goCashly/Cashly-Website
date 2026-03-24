@@ -1231,6 +1231,42 @@ button:focus,
   overflow: hidden;
 }
 
+.gradient-banner.gradient-banner--toronto {
+  background: none;
+  isolation: isolate;
+}
+
+.gradient-banner.gradient-banner--toronto::before {
+  content: none;
+}
+
+.gradient-banner.gradient-banner--toronto .toronto-background-media {
+  filter: saturate(1.05) contrast(1.08) brightness(0.95);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.78;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.gradient-banner.gradient-banner--toronto .shapes-container {
+  z-index: 1;
+}
+
+.gradient-banner.gradient-banner--toronto > .container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-banner.gradient-banner--toronto .toronto-background-media {
+    display: none;
+  }
+}
+
 .gradient-banner::before {
   position: absolute;
   content: '';

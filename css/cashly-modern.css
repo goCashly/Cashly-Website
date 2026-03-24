@@ -1128,8 +1128,27 @@
 }
 
 .cashly-modern.home-page .home-hero {
+  --home-hero-inner-min-height: 36vh;
   isolation: isolate;
-  padding-bottom: 128px;
+  min-height: 88vh;
+  padding-top: 152px;
+  padding-bottom: 188px;
+}
+
+.cashly-modern.home-page .home-hero.home-hero--toronto {
+  background: none;
+}
+
+.cashly-modern.home-page .home-hero--toronto .toronto-background-media {
+  filter: saturate(1.08) contrast(1.08) brightness(0.94);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.8;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
 }
 
 .cashly-modern.home-page {
@@ -1156,17 +1175,25 @@
 }
 
 .cashly-modern.home-page .home-hero .container.position-relative {
-  z-index: 1;
+  display: flex;
+  min-height: var(--home-hero-inner-min-height);
+  z-index: 3;
+}
+
+.cashly-modern.home-page .home-hero .row.align-items-center.justify-content-center {
+  width: 100%;
+}
+
+.cashly-modern.home-page .home-hero .row.align-items-center.justify-content-center > [class*="col-"] {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: var(--home-hero-inner-min-height);
 }
 
 .cashly-modern.home-page .hero-dark-section:before {
-  background:
-    linear-gradient(180deg, rgba(36, 89, 211, 0.03), transparent 42%),
-    linear-gradient(90deg, rgba(36, 89, 211, 0.03) 1px, transparent 1px);
-  background-size: auto, 120px 120px;
-  opacity: 0.9;
-  -webkit-animation: heroGridFloat 18s ease-in-out infinite alternate;
-          animation: heroGridFloat 18s ease-in-out infinite alternate;
+  content: none;
 }
 
 .cashly-modern.home-page .home-hero:after {
@@ -1175,6 +1202,7 @@
 
 .cashly-modern.home-page .hero-orb {
   display: block;
+  z-index: 2;
 }
 
 .cashly-modern.home-page .section-kicker,
@@ -1183,10 +1211,41 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  color: var(--cashly-primary);
-  display: block;
+  color: rgba(183, 214, 255, 0.92);
+  display: inline-block;
   letter-spacing: 0.14em;
   padding: 0;
+}
+
+.cashly-modern.home-page .home-hero--toronto .section-kicker--dark {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.cashly-modern.home-page .home-hero--toronto .section-title-modern {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  margin: 0;
+  max-width: 72rem;
+  padding: 0;
+  text-align: left;
+}
+
+.cashly-modern.home-page .home-hero--toronto .section-title-modern h1 {
+  color: #fff;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
 }
 
 .cashly-modern.home-page .section-title-modern p {
@@ -1195,12 +1254,43 @@
   max-width: 620px;
 }
 
+.cashly-modern.home-page .home-hero--toronto .section-title-modern p {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 500;
+}
+
+.cashly-modern.home-page .home-hero--toronto .hero-copy-lead {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 68rem;
+}
+
+.cashly-modern.home-page .home-hero--toronto .hero-copy-note {
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-top: 0.7rem;
+  margin-left: 0;
+  margin-right: 0;
+  text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .cashly-modern.home-page .home-hero--toronto .section-title-modern h1 {
+    font-size: clamp(2rem, 2.45vw, 2.5rem);
+    white-space: nowrap;
+  }
+}
+
 .cashly-modern.home-page .journey-panel__lead {
   max-width: none;
 }
 
 .cashly-modern.home-page .hero-actions {
-  margin: 2rem 0 0;
+  justify-content: flex-start;
+  margin: auto 0 0;
+  padding-top: 3.25rem;
 }
 
 .cashly-modern.home-page .rate-cta-btn {
@@ -1267,6 +1357,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cashly-modern.home-page .home-hero--toronto .toronto-background-media {
+    display: none;
+  }
+
   .cashly-modern .hero-dark-section,
   .cashly-modern .hero-dark-section:before,
   .cashly-modern .hero-orb,
@@ -3062,6 +3156,13 @@
   .cashly-modern.contact-page .contact-highlights {
     margin-top: -44px;
   }
+
+  .cashly-modern.home-page .home-hero {
+    --home-hero-inner-min-height: 28vh;
+    min-height: 76vh;
+    padding-top: 122px;
+    padding-bottom: 152px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -3179,6 +3280,13 @@
   .cashly-modern .secondary-hero,
   .cashly-modern.contact-page .contact-hero {
     padding-top: 74px;
+  }
+
+  .cashly-modern.home-page .home-hero {
+    --home-hero-inner-min-height: 22vh;
+    min-height: 68vh;
+    padding-top: 96px;
+    padding-bottom: 128px;
   }
 
   .cashly-modern .home-hero .section-title-modern h1,
