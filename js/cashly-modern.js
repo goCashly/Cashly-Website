@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const calculatorResultModal = document.getElementById("calculatorResultModal");
   const calculatorResultDate = document.getElementById("calculator-result-date");
   const calculatorDownloadPdfButton = document.getElementById("calculatorDownloadPdfButton");
+  const calculatorRequestCallbackButton = document.getElementById("calculatorRequestCallbackButton");
   const calculatorResultEmailNotice = document.getElementById("calculatorResultEmailNotice");
   const defaultCalculatorLeadButtonText = calculatorLeadSubmitButton ? calculatorLeadSubmitButton.textContent.trim() : "Unlock My Estimate";
   let calculatorLeadTurnstileWidgetId = null;
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let calculatorOpenResultAfterLeadModal = false;
   let calculatorEstimateEmailSent = false;
   let calculatorEstimateEmailAddress = "";
+  let shouldOpenCallbackSectionAfterCalculatorResult = false;
 
   if (window.AOS) {
     window.AOS.init({
@@ -521,6 +523,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
+    const openHomepageCallbackSection = () => {
+      const callbackSection = document.getElementById("home-callback");
+
+      if (!callbackSection) {
+        return;
+      }
+
+      callbackSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      window.setTimeout(() => {
+        const firstField = callbackForm && callbackForm.querySelector("input, textarea, select");
+
+        if (!firstField) {
+          return;
+        }
+
+        firstField.focus();
+
+        if (typeof firstField.select === "function" && firstField.tagName === "INPUT") {
+          firstField.select();
+        }
+      }, 450);
+    };
+
     Object.values(calculatorInputs).forEach((input) => {
       input.addEventListener("input", updateCalculator);
       input.addEventListener("change", updateCalculator);
@@ -781,10 +810,34 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCalculatorResultDate();
         updateCalculatorResultEmailNotice();
       });
+
+      window.jQuery(calculatorResultModal).on("hidden.bs.modal", () => {
+        if (!shouldOpenCallbackSectionAfterCalculatorResult) {
+          return;
+        }
+
+        shouldOpenCallbackSectionAfterCalculatorResult = false;
+        openHomepageCallbackSection();
+      });
     }
 
     if (calculatorDownloadPdfButton) {
       calculatorDownloadPdfButton.addEventListener("click", downloadCalculatorResultPdf);
+    }
+
+    if (calculatorRequestCallbackButton) {
+      calculatorRequestCallbackButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        shouldOpenCallbackSectionAfterCalculatorResult = true;
+
+        if (window.jQuery && calculatorResultModal) {
+          window.jQuery(calculatorResultModal).modal("hide");
+          return;
+        }
+
+        shouldOpenCallbackSectionAfterCalculatorResult = false;
+        openHomepageCallbackSection();
+      });
     }
   }
 
@@ -815,6 +868,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const callbackSubmitMode = callbackForm ? callbackForm.dataset.submitMode || "edge-function" : "edge-function";
+  const turnstileApiSrc = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  let turnstileApiPromise = null;
+  let callbackTurnstileRenderPromise = null;
 
   const getCallbackFormConfig = () => {
     const config = window.CASHLY_CONFIG && window.CASHLY_CONFIG.callbackForm;
@@ -830,26 +886,57 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const waitForTurnstileApi = (timeoutMs = 10000) => {
-    return new Promise((resolve, reject) => {
-      if (window.turnstile && typeof window.turnstile.render === "function") {
-        resolve(window.turnstile);
-        return;
-      }
+    if (window.turnstile && typeof window.turnstile.render === "function") {
+      return Promise.resolve(window.turnstile);
+    }
 
+    if (turnstileApiPromise) {
+      return turnstileApiPromise;
+    }
+
+    turnstileApiPromise = new Promise((resolve, reject) => {
+      const existingScript = document.querySelector(`script[src="${turnstileApiSrc}"]`);
+      const script = existingScript || document.createElement("script");
       const startedAt = Date.now();
+
+      const cleanup = () => {
+        window.clearInterval(intervalId);
+        script.removeEventListener("error", handleScriptError);
+      };
+
+      const rejectWithError = (error) => {
+        cleanup();
+        turnstileApiPromise = null;
+        reject(error);
+      };
+
+      const handleScriptError = () => {
+        rejectWithError(new Error("Turnstile failed to load."));
+      };
+
       const intervalId = window.setInterval(() => {
         if (window.turnstile && typeof window.turnstile.render === "function") {
-          window.clearInterval(intervalId);
+          cleanup();
           resolve(window.turnstile);
           return;
         }
 
         if (Date.now() - startedAt >= timeoutMs) {
-          window.clearInterval(intervalId);
-          reject(new Error("Turnstile failed to load."));
+          rejectWithError(new Error("Turnstile failed to load."));
         }
       }, 100);
+
+      script.addEventListener("error", handleScriptError);
+
+      if (!existingScript) {
+        script.src = turnstileApiSrc;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      }
     });
+
+    return turnstileApiPromise;
   };
 
   const resetCallbackTurnstile = () => {
@@ -858,6 +945,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.turnstile && callbackTurnstileWidgetId !== null) {
       window.turnstile.reset(callbackTurnstileWidgetId);
     }
+  };
+
+  const warmCallbackTurnstile = () => {
+    if (!callbackForm || !callbackTurnstileContainer || callbackTurnstileWidgetId !== null || callbackTurnstileRenderPromise) {
+      return;
+    }
+
+    renderCallbackTurnstile();
+  };
+
+  const waitForCallbackTurnstile = async () => {
+    if (callbackTurnstileWidgetId !== null) {
+      return;
+    }
+
+    await renderCallbackTurnstile();
   };
 
   const renderCallbackTurnstile = async () => {
@@ -871,39 +974,56 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    try {
-      const turnstile = await waitForTurnstileApi();
-
-      callbackTurnstileWidgetId = turnstile.render(callbackTurnstileContainer, {
-        sitekey: callbackConfig.turnstileSiteKey,
-        theme: "light",
-        callback(token) {
-          callbackTurnstileToken = token;
-          callbackTurnstileReady = true;
-        },
-        "expired-callback"() {
-          callbackTurnstileToken = "";
-        },
-        "timeout-callback"() {
-          callbackTurnstileToken = "";
-        },
-        "error-callback"(errorCode) {
-          callbackTurnstileToken = "";
-          callbackTurnstileReady = false;
-          console.error("Turnstile error:", errorCode);
-          setCallbackMessage(
-            "error",
-            `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
-          );
-          return true;
-        }
-      });
-
-      callbackTurnstileReady = true;
-    } catch (error) {
-      callbackTurnstileReady = false;
-      setCallbackMessage("error", "The security check could not load. Refresh the page and try again.");
+    if (callbackTurnstileRenderPromise) {
+      await callbackTurnstileRenderPromise;
+      return;
     }
+
+    callbackTurnstileReady = false;
+
+    callbackTurnstileRenderPromise = (async () => {
+      try {
+        const turnstile = await waitForTurnstileApi();
+
+        if (callbackTurnstileWidgetId !== null) {
+          return;
+        }
+
+        callbackTurnstileWidgetId = turnstile.render(callbackTurnstileContainer, {
+          sitekey: callbackConfig.turnstileSiteKey,
+          theme: "light",
+          callback(token) {
+            callbackTurnstileToken = token;
+            callbackTurnstileReady = true;
+          },
+          "expired-callback"() {
+            callbackTurnstileToken = "";
+          },
+          "timeout-callback"() {
+            callbackTurnstileToken = "";
+          },
+          "error-callback"(errorCode) {
+            callbackTurnstileToken = "";
+            callbackTurnstileReady = false;
+            console.error("Turnstile error:", errorCode);
+            setCallbackMessage(
+              "error",
+              `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
+            );
+            return true;
+          }
+        });
+
+        callbackTurnstileReady = true;
+      } catch (error) {
+        callbackTurnstileReady = false;
+        setCallbackMessage("error", "The security check could not load. Refresh the page and try again.");
+      } finally {
+        callbackTurnstileRenderPromise = null;
+      }
+    })();
+
+    await callbackTurnstileRenderPromise;
   };
 
   const submitCallbackToEdgeFunction = async (payload) => {
@@ -941,7 +1061,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (callbackForm && callbackMessage && callbackSubmitButton) {
-    renderCallbackTurnstile();
+    const callbackInteractionFields = callbackForm.querySelectorAll("input:not([type=\"hidden\"]), textarea, select");
+
+    callbackInteractionFields.forEach((field) => {
+      field.addEventListener("focus", warmCallbackTurnstile, { once: true });
+      field.addEventListener("input", warmCallbackTurnstile, { once: true });
+    });
+
+    callbackSubmitButton.addEventListener("click", warmCallbackTurnstile, { passive: true });
 
     callbackForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -975,6 +1102,12 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         return;
       }
+
+      if (callbackTurnstileWidgetId === null) {
+        await waitForCallbackTurnstile();
+      }
+
+      payload.turnstile_token = callbackTurnstileToken;
 
       if (!callbackTurnstileReady) {
         setCallbackMessage("error", "The security check is still loading. Please wait a moment and try again.");

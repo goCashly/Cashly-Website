@@ -214,15 +214,16 @@
 
 .cashly-modern .section-kicker,
 .cashly-modern .section-kicker--dark {
-  background: var(--cashly-primary-tint);
-  border: 1px solid rgba(36, 89, 211, 0.08);
-  border-radius: 999px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: var(--cashly-primary);
-  display: inline-flex;
-  font-size: 12px;
+  display: inline-block;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  padding: 0.72rem 1rem;
+  letter-spacing: 0.14em;
+  padding: 0;
   text-transform: uppercase;
 }
 
@@ -950,6 +951,22 @@
 
 .cashly-modern .secondary-hero {
   padding: 98px 0 148px;
+}
+
+.cashly-modern .hero-dark-section .section-kicker,
+.cashly-modern .hero-dark-section .section-kicker--dark,
+.cashly-modern.contact-page .contact-eyebrow {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--cashly-primary);
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  padding: 0;
+  text-transform: uppercase;
 }
 
 .cashly-modern.team-page .secondary-hero {
@@ -1727,6 +1744,10 @@
   min-height: 74px;
 }
 
+.cashly-modern .callback-turnstile:empty {
+  min-height: 0;
+}
+
 .cashly-modern .business-card-grid {
   display: grid;
   gap: 16px;
@@ -2394,6 +2415,29 @@
 /* Contact Page Overrides */
 .cashly-modern.contact-page {
   background: linear-gradient(180deg, #ffffff 0%, #f7fafe 100%);
+  font-family: "Instrument Sans", sans-serif;
+}
+
+.cashly-modern.contact-page h1,
+.cashly-modern.contact-page h2,
+.cashly-modern.contact-page h3,
+.cashly-modern.contact-page h4,
+.cashly-modern.contact-page h5,
+.cashly-modern.contact-page h6,
+.cashly-modern.contact-page .contact-stat span {
+  font-family: "Outfit", sans-serif;
+}
+
+.cashly-modern.contact-page p,
+.cashly-modern.contact-page li,
+.cashly-modern.contact-page label,
+.cashly-modern.contact-page .form-control,
+.cashly-modern.contact-page .contact-secondary-btn,
+.cashly-modern.contact-page .contact-submit,
+.cashly-modern.contact-page .contact-showcase-card__meta span,
+.cashly-modern.contact-page .contact-mini-card span,
+.cashly-modern.contact-page .site-footer h6 {
+  font-family: "Instrument Sans", sans-serif;
 }
 
 .cashly-modern.contact-page .contact-hero {
@@ -2428,15 +2472,16 @@
 .cashly-modern.contact-page .contact-section-heading__eyebrow,
 .cashly-modern.contact-page .contact-map-shell__eyebrow,
 .cashly-modern.contact-page .contact-showcase-card__badge {
-  background: var(--cashly-primary-tint);
-  border: 1px solid rgba(36, 89, 211, 0.08);
-  border-radius: 999px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: var(--cashly-primary);
-  display: inline-flex;
-  font-size: 12px;
+  display: inline-block;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  padding: 0.75rem 1rem;
+  letter-spacing: 0.14em;
+  padding: 0;
   text-transform: uppercase;
 }
 
