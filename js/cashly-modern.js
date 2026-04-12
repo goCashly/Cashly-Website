@@ -24,9 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const calculatorRequestCallbackButton = document.getElementById("calculatorRequestCallbackButton");
   const calculatorResultEmailNotice = document.getElementById("calculatorResultEmailNotice");
   const defaultCalculatorLeadButtonText = calculatorLeadSubmitButton ? calculatorLeadSubmitButton.textContent.trim() : "Unlock My Estimate";
+  const calculatorModalHash = "#borrowerCalculatorModal";
   let calculatorLeadTurnstileWidgetId = null;
   let calculatorLeadTurnstileToken = "";
   let calculatorLeadTurnstileReady = false;
+  let calculatorLeadTurnstileRenderPromise = null;
   let calculatorTransitioningToLeadModal = false;
   let calculatorReopenAfterLeadModal = false;
   let calculatorOpenResultAfterLeadModal = false;
@@ -523,6 +525,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
+    const openCalculatorModalFromHash = () => {
+      if (!window.jQuery || !calculatorModal || window.location.hash !== calculatorModalHash) {
+        return;
+      }
+
+      window.setTimeout(() => {
+        window.jQuery(calculatorModal).modal("show");
+      }, 0);
+    };
+
+    const clearCalculatorModalHash = () => {
+      if (window.location.hash !== calculatorModalHash || !window.history.replaceState) {
+        return;
+      }
+
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    };
+
     const openHomepageCallbackSection = () => {
       const callbackSection = document.getElementById("home-callback");
 
@@ -627,6 +647,27 @@ document.addEventListener("DOMContentLoaded", () => {
       resetCalculatorLeadCapture();
     };
 
+    const warmCalculatorLeadTurnstile = () => {
+      if (
+        !calculatorLeadForm ||
+        !calculatorLeadTurnstileContainer ||
+        calculatorLeadTurnstileWidgetId !== null ||
+        calculatorLeadTurnstileRenderPromise
+      ) {
+        return;
+      }
+
+      renderCalculatorLeadTurnstile();
+    };
+
+    const waitForCalculatorLeadTurnstile = async () => {
+      if (calculatorLeadTurnstileWidgetId !== null) {
+        return;
+      }
+
+      await renderCalculatorLeadTurnstile();
+    };
+
     const renderCalculatorLeadTurnstile = async () => {
       if (!calculatorLeadTurnstileContainer) {
         return;
@@ -638,40 +679,58 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      try {
-        const turnstile = await waitForTurnstileApi();
-
-        calculatorLeadTurnstileWidgetId = turnstile.render(calculatorLeadTurnstileContainer, {
-          sitekey: callbackConfig.turnstileSiteKey,
-          theme: "light",
-          callback(token) {
-            calculatorLeadTurnstileToken = token;
-            calculatorLeadTurnstileReady = true;
-          },
-          "expired-callback"() {
-            calculatorLeadTurnstileToken = "";
-          },
-          "timeout-callback"() {
-            calculatorLeadTurnstileToken = "";
-          },
-          "error-callback"(errorCode) {
-            calculatorLeadTurnstileToken = "";
-            calculatorLeadTurnstileReady = false;
-            console.error("Calculator Turnstile error:", errorCode);
-            setStatusMessage(
-              calculatorLeadMessage,
-              "error",
-              `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
-            );
-            return true;
-          }
-        });
-
-        calculatorLeadTurnstileReady = true;
-      } catch (error) {
-        calculatorLeadTurnstileReady = false;
-        setStatusMessage(calculatorLeadMessage, "error", "The security check could not load. Refresh the page and try again.");
+      if (calculatorLeadTurnstileRenderPromise) {
+        await calculatorLeadTurnstileRenderPromise;
+        return;
       }
+
+      calculatorLeadTurnstileReady = false;
+
+      calculatorLeadTurnstileRenderPromise = (async () => {
+        try {
+          const turnstile = await waitForTurnstileApi();
+
+          if (calculatorLeadTurnstileWidgetId !== null) {
+            return;
+          }
+
+          calculatorLeadTurnstileWidgetId = turnstile.render(calculatorLeadTurnstileContainer, {
+            sitekey: callbackConfig.turnstileSiteKey,
+            theme: "light",
+            appearance: "always",
+            callback(token) {
+              calculatorLeadTurnstileToken = token;
+              calculatorLeadTurnstileReady = true;
+            },
+            "expired-callback"() {
+              calculatorLeadTurnstileToken = "";
+            },
+            "timeout-callback"() {
+              calculatorLeadTurnstileToken = "";
+            },
+            "error-callback"(errorCode) {
+              calculatorLeadTurnstileToken = "";
+              calculatorLeadTurnstileReady = false;
+              console.error("Calculator Turnstile error:", errorCode);
+              setStatusMessage(
+                calculatorLeadMessage,
+                "error",
+                `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
+              );
+              return true;
+            }
+          });
+
+          calculatorLeadTurnstileReady = true;
+        } catch (error) {
+          calculatorLeadTurnstileReady = false;
+          setStatusMessage(calculatorLeadMessage, "error", "The security check could not load. Refresh the page and try again.");
+        } finally {
+          calculatorLeadTurnstileRenderPromise = null;
+        }
+      })();
+
+      await calculatorLeadTurnstileRenderPromise;
     };
 
     if (calculatorNextButton && calculatorForm) {
@@ -691,6 +750,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (calculatorLeadForm && calculatorLeadMessage && calculatorLeadSubmitButton) {
+      const calculatorLeadInteractionFields = calculatorLeadForm.querySelectorAll("input:not([type=\"hidden\"]), textarea, select");
+
+      calculatorLeadInteractionFields.forEach((field) => {
+        field.addEventListener("focus", warmCalculatorLeadTurnstile, { once: true });
+        field.addEventListener("input", warmCalculatorLeadTurnstile, { once: true });
+      });
+
+      calculatorLeadSubmitButton.addEventListener("click", warmCalculatorLeadTurnstile, { passive: true });
+
       calculatorLeadForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -720,6 +788,12 @@ document.addEventListener("DOMContentLoaded", () => {
           );
           return;
         }
+
+        if (calculatorLeadTurnstileWidgetId === null) {
+          await waitForCalculatorLeadTurnstile();
+        }
+
+        payload.turnstile_token = calculatorLeadTurnstileToken;
 
         if (!calculatorLeadTurnstileReady) {
           setStatusMessage(calculatorLeadMessage, "error", "The security check is still loading. Please wait a moment and try again.");
@@ -761,12 +835,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (window.jQuery && calculatorModal && calculatorInputs.property) {
+      openCalculatorModalFromHash();
+
       window.jQuery(calculatorModal).on("shown.bs.modal", () => {
         calculatorInputs.property.focus();
         calculatorInputs.property.select();
       });
 
       window.jQuery(calculatorModal).on("hidden.bs.modal", () => {
+        clearCalculatorModalHash();
+
         if (calculatorTransitioningToLeadModal && calculatorLeadModal) {
           calculatorTransitioningToLeadModal = false;
           window.jQuery(calculatorLeadModal).modal("show");
@@ -779,10 +857,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.jQuery && calculatorLeadModal) {
       window.jQuery(calculatorLeadModal).on("shown.bs.modal", () => {
-        if (!calculatorLeadTurnstileWidgetId) {
-          renderCalculatorLeadTurnstile();
-        }
-
         if (calculatorLeadFirstName) {
           calculatorLeadFirstName.focus();
         }
@@ -992,6 +1066,7 @@ document.addEventListener("DOMContentLoaded", () => {
         callbackTurnstileWidgetId = turnstile.render(callbackTurnstileContainer, {
           sitekey: callbackConfig.turnstileSiteKey,
           theme: "light",
+          appearance: "always",
           callback(token) {
             callbackTurnstileToken = token;
             callbackTurnstileReady = true;
