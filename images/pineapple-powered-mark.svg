@@ -1,0 +1,24 @@
+<svg width="260" height="70" viewBox="0 0 260 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#1479AA" stroke-width="4.8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M21 17L11 24V36" />
+    <path d="M21 17L31 24V31" />
+
+    <path d="M49 17L39 24V31" />
+    <path d="M49 17L59 24V36" />
+
+    <path d="M35 8L27 14" />
+    <path d="M35 8L43 14" />
+
+    <path d="M21 34L11 41V53H23" />
+    <path d="M21 34L31 41V48" />
+
+    <path d="M49 34L39 41V48" />
+    <path d="M49 34L59 41V53H47" />
+
+    <path d="M35 25L28 30" />
+    <path d="M35 25L42 30" />
+
+    <path d="M35 46L26 52V64H44V52L35 46Z" />
+  </g>
+  <text x="82" y="42" fill="#13233A" font-family="Arial, sans-serif" font-size="18" font-weight="700">Pineapple Financial</text>
+</svg>
