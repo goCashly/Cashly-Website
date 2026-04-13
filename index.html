@@ -64,7 +64,11 @@
               <li><a class="dropdown-item" href="broker.html#cashly-crm">Cashly CRM</a></li>
               <li><a class="dropdown-item" href="broker.html#lender-matching">Lender Matching</a></li>
               <li><a class="dropdown-item" href="broker.html#deal-sense">Deal Sense</a></li>
+              <li><a class="dropdown-item" href="product.html">Mortgage Products</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">Team</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -392,7 +396,6 @@
           <div class="row align-items-stretch">
             <div class="col-xl-7">
               <div class="callback-form-shell">
-                <span class="section-kicker">Business Info</span>
                 <h2>Request A Call Back</h2>
 
                 <form
@@ -503,7 +506,6 @@
 
             <div class="col-xl-5 mt-4 mt-xl-0">
               <div class="callback-info-shell">
-                <span class="section-kicker">Business Info</span>
                 <h3>Location</h3>
                 <p>
                   2896 S Sheridan Way,<br>
@@ -955,6 +957,75 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="lead-chat" id="leadChatWidget">
+    <section
+      class="lead-chat__panel"
+      id="leadChatPanel"
+      aria-label="Cashly lead assistant"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="lead-chat__header">
+        <div class="lead-chat__brand">
+          <span class="lead-chat__brand-mark">C</span>
+          <div>
+            <span class="lead-chat__eyebrow">Cashly Assistant</span>
+            <h2>Contact Us</h2>
+            <p>We&rsquo;ll respond as soon as we can.</p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="lead-chat__close"
+          id="leadChatClose"
+          aria-label="Close chat"
+        >
+          <i class="ti-close"></i>
+        </button>
+      </div>
+
+      <div class="lead-chat__messages" id="leadChatMessages" aria-live="polite"></div>
+
+      <div class="lead-chat__handoff" id="leadChatHandoff" hidden>
+        <p class="lead-chat__handoff-copy" id="leadChatHandoffCopy">
+          One quick security check and I will send this to Cashly.
+        </p>
+        <div id="leadChatTurnstile" class="lead-chat__turnstile"></div>
+      </div>
+
+      <form class="lead-chat__composer" id="leadChatForm">
+        <label class="sr-only" for="leadChatInput">Type your question</label>
+        <input
+          type="text"
+          id="leadChatInput"
+          class="lead-chat__input"
+          placeholder="Type your question here"
+          autocomplete="off"
+        >
+        <button type="submit" class="lead-chat__send" aria-label="Send chat message">
+          <i class="ti-arrow-right"></i>
+        </button>
+      </form>
+    </section>
+
+    <button
+      type="button"
+      class="lead-chat__launcher"
+      id="leadChatLauncher"
+      aria-controls="leadChatPanel"
+      aria-expanded="false"
+    >
+      <span class="lead-chat__launcher-icon">
+        <i class="ti-comments-smiley"></i>
+      </span>
+      <span class="lead-chat__launcher-copy">
+        <strong>Chat with Cashly</strong>
+        <small>Get answers fast</small>
+      </span>
+    </button>
   </div>
 
   <div class="scroll-top-to" aria-label="Scroll to top" role="button" tabindex="0">

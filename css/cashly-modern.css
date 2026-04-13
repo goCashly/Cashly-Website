@@ -2373,6 +2373,432 @@
   color: var(--cashly-primary);
 }
 
+.cashly-modern:is(.home-page, .product-page)::before {
+  background: rgba(8, 18, 38, 0.14);
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 0.28s ease, -webkit-backdrop-filter 0.28s ease;
+  transition: opacity 0.28s ease, backdrop-filter 0.28s ease;
+  transition: opacity 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease;
+  z-index: 998;
+}
+
+.cashly-modern:is(.home-page, .product-page).chat-open::before {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  opacity: 1;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat {
+  bottom: 88px;
+  position: fixed;
+  right: 24px;
+  z-index: 1001;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__prompt {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 22px 48px rgba(18, 43, 86, 0.12);
+  display: flex;
+  gap: 12px;
+  margin: 0 0 14px auto;
+  max-width: 240px;
+  padding: 0.95rem 1rem;
+  transform: translateY(0);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__prompt p {
+  color: #36527f;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__prompt-close,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__close,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__send {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__prompt-close {
+  color: rgba(19, 35, 58, 0.48);
+  flex: 0 0 auto;
+  font-size: 14px;
+  height: 28px;
+  width: 28px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 251, 255, 0.99) 100%);
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  border-radius: 26px;
+  box-shadow: 0 28px 72px rgba(18, 43, 86, 0.16);
+  margin-bottom: 14px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: min(380px, calc(100vw - 32px));
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__panel[hidden] {
+  display: none !important;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__panel.is-closing {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.985);
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__header {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(19, 35, 58, 0.08);
+  color: var(--cashly-text);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.95rem 1rem 0.9rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__brand {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__brand-mark {
+  align-items: center;
+  background: linear-gradient(135deg, #2459d3 0%, #6f9bff 100%);
+  border-radius: 16px;
+  color: #fff;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__eyebrow {
+  color: #4f6f9f;
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.12rem;
+  text-transform: none;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__header h2 {
+  color: var(--cashly-text);
+  font-size: 1rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__header p {
+  color: #7284a1;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin: 0.18rem 0 0;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__close {
+  background: rgba(36, 89, 211, 0.06);
+  border-radius: 999px;
+  color: #6780a6;
+  font-size: 14px;
+  height: 36px;
+  width: 36px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 1rem 1rem 0.95rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__message {
+  animation: leadChatMessageIn 0.32s ease both;
+  display: flex;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__message--bot {
+  justify-content: flex-start;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__message--user {
+  justify-content: flex-end;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__bubble {
+  border-radius: 18px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  max-width: 86%;
+  padding: 0.82rem 0.95rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__message--bot .lead-chat__bubble {
+  background: #f4f8fd;
+  border: 1px solid rgba(36, 89, 211, 0.08);
+  color: #27405f;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__message--user .lead-chat__bubble {
+  background: linear-gradient(135deg, #2459d3, #4f82f2);
+  box-shadow: 0 16px 28px rgba(36, 89, 211, 0.16);
+  color: #fff;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-intro {
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 0.8rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-frame {
+  border: 0;
+  display: block;
+  height: 160px;
+  width: 100%;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-meta {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-meta strong {
+  color: var(--cashly-text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__map-link {
+  color: var(--cashly-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__action {
+  background: #fff;
+  border: 1px solid rgba(36, 89, 211, 0.12);
+  border-radius: 999px;
+  color: var(--cashly-primary);
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 0.7rem 0.95rem;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__handoff {
+  background: rgba(242, 247, 255, 0.9);
+  border-top: 1px solid rgba(19, 35, 58, 0.08);
+  padding: 0.9rem 1rem 0.25rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__handoff-copy {
+  color: var(--cashly-text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0 0 0.7rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__turnstile {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 74px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__turnstile:empty {
+  min-height: 0;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__composer {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid rgba(19, 35, 58, 0.08);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 52px;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__input {
+  background: #fff;
+  border: 1px solid rgba(19, 35, 58, 0.1);
+  border-radius: 16px;
+  color: var(--cashly-text);
+  min-height: 50px;
+  padding: 0.85rem 0.95rem;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__input:focus {
+  border-color: rgba(36, 89, 211, 0.36);
+  box-shadow: 0 0 0 4px rgba(36, 89, 211, 0.08);
+  outline: none;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__send {
+  background: linear-gradient(135deg, #2459d3, #4f82f2);
+  border-radius: 16px;
+  box-shadow: 0 16px 30px rgba(36, 89, 211, 0.18);
+  color: #fff;
+  font-size: 18px;
+  height: 50px;
+  width: 52px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(36, 89, 211, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 22px 48px rgba(18, 43, 86, 0.14);
+  color: var(--cashly-text);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 12px;
+  min-height: 64px;
+  min-width: 0;
+  padding: 0.8rem 1rem 0.8rem 0.85rem;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-icon {
+  align-items: center;
+  animation: leadChatPulse 2.4s ease-in-out infinite;
+  background: linear-gradient(135deg, #2459d3, #4f82f2);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 18px;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy strong,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy small {
+  color: var(--cashly-text);
+  line-height: 1.2;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy small {
+  font-size: 0.75rem;
+  color: #6f84a7;
+  opacity: 1;
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher:focus,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__action:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__action:focus,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__close:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__close:focus,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__send:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__send:focus {
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__launcher:focus {
+  border-color: rgba(36, 89, 211, 0.22);
+  box-shadow: 0 26px 56px rgba(18, 43, 86, 0.16);
+}
+
+.cashly-modern:is(.home-page, .product-page) .lead-chat__action:hover,
+.cashly-modern:is(.home-page, .product-page) .lead-chat__action:focus {
+  border-color: rgba(36, 89, 211, 0.24);
+  box-shadow: 0 12px 24px rgba(36, 89, 211, 0.08);
+}
+
+@keyframes leadChatMessageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leadChatPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(36, 89, 211, 0.14);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(36, 89, 211, 0);
+    transform: scale(1.04);
+  }
+}
+
 .cashly-modern .scroll-top-to,
 .cashly-modern.contact-page .scroll-top-to {
   background: linear-gradient(135deg, var(--cashly-primary), #3b73ea);
@@ -2583,17 +3009,6 @@
   box-shadow: var(--cashly-shadow);
   padding: 2.1rem;
   position: relative;
-}
-
-.cashly-modern.contact-page .contact-showcase-card:before {
-  background: linear-gradient(180deg, var(--cashly-primary), transparent);
-  border-radius: 999px;
-  content: "";
-  height: 90px;
-  left: 2.1rem;
-  position: absolute;
-  top: 0;
-  width: 2px;
 }
 
 .cashly-modern.contact-page .contact-showcase-list {
@@ -3352,6 +3767,65 @@
 }
 
 @media (max-width: 767px) {
+  .cashly-modern.home-page .advantage-grid--simple {
+    gap: 14px;
+  }
+
+  .cashly-modern.home-page .advantage-card {
+    border-radius: 20px;
+    padding: 1.25rem;
+  }
+
+  .cashly-modern.home-page .advantage-card i {
+    font-size: 20px;
+    margin-bottom: 0.7rem;
+  }
+
+  .cashly-modern.home-page .advantage-card h3 {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: 0.45rem;
+  }
+
+  .cashly-modern.home-page .advantage-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat {
+    bottom: 80px;
+    left: auto;
+    right: 16px;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__panel {
+    width: 100%;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__prompt {
+    max-width: 100%;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__launcher {
+    justify-content: center;
+    min-height: 56px;
+    padding: 0;
+    width: 56px;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__bubble {
+    max-width: 92%;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy {
+    display: none;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-icon {
+    height: 56px;
+    width: 56px;
+  }
+
   .cashly-modern .hero-actions {
     flex-direction: column;
   }
@@ -3458,6 +3932,26 @@
 }
 
 @media (max-width: 575px) {
+  .cashly-modern.home-page .advantage-card {
+    padding: 1.1rem;
+  }
+
+  .cashly-modern.home-page .advantage-card h3 {
+    font-size: 0.98rem;
+  }
+
+  .cashly-modern.home-page .advantage-card p {
+    font-size: 0.88rem;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__messages {
+    max-height: 320px;
+  }
+
+  .cashly-modern:is(.home-page, .product-page) .lead-chat__launcher-copy small {
+    display: none;
+  }
+
   .cashly-modern .page-section {
     padding: 84px 0;
   }

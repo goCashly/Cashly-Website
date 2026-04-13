@@ -2666,13 +2666,6 @@ footer a:hover {
   color: var(--contact-dark);
 }
 
-.contact-page .nav-cta .btn-main-md {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  padding: 0.85rem 1.35rem;
-  text-transform: uppercase;
-}
-
 .contact-page .contact-hero {
   background:
     radial-gradient(circle at 16% 18%, rgba(30, 86, 176, 0.42), transparent 26%),
@@ -2870,17 +2863,6 @@ footer a:hover {
   position: relative;
   -webkit-backdrop-filter: blur(16px);
           backdrop-filter: blur(16px);
-}
-
-.contact-page .contact-showcase-card:before {
-  background: linear-gradient(180deg, var(--contact-accent), transparent);
-  border-radius: 999px;
-  content: "";
-  height: 90px;
-  left: 2.1rem;
-  position: absolute;
-  top: 0;
-  width: 2px;
 }
 
 .contact-page .contact-showcase-card__badge {

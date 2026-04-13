@@ -1204,9 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resetCallbackTurnstile();
         setCallbackMessage(
           "success",
-          responsePayload && responsePayload.request_id
-            ? `Message sent successfully. Request ID: ${responsePayload.request_id}`
-            : "Message sent successfully. We’ll be in touch soon."
+          "Thanks for reaching out to us. One of our agents will get back to you very soon."
         );
       } catch (error) {
         resetCallbackTurnstile();
@@ -1214,6 +1212,1038 @@ document.addEventListener("DOMContentLoaded", () => {
       } finally {
         callbackSubmitButton.disabled = false;
         callbackSubmitButton.textContent = defaultCallbackButtonText;
+      }
+    });
+  }
+
+  const leadChatWidget = document.getElementById("leadChatWidget");
+  const leadChatLauncher = document.getElementById("leadChatLauncher");
+  const leadChatPanel = document.getElementById("leadChatPanel");
+  const leadChatClose = document.getElementById("leadChatClose");
+  const leadChatMessages = document.getElementById("leadChatMessages");
+  const leadChatHandoff = document.getElementById("leadChatHandoff");
+  const leadChatHandoffCopy = document.getElementById("leadChatHandoffCopy");
+  const leadChatTurnstileContainer = document.getElementById("leadChatTurnstile");
+  const leadChatForm = document.getElementById("leadChatForm");
+  const leadChatInput = document.getElementById("leadChatInput");
+  let leadChatInitialized = false;
+  let leadChatMode = "idle";
+  let leadChatTurnstileWidgetId = null;
+  let leadChatTurnstileToken = "";
+  let leadChatTurnstileReady = false;
+  let leadChatTurnstileRenderPromise = null;
+  let leadChatSubmitting = false;
+  let leadChatCloseTimerId = 0;
+  const leadChatBookingUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PwLnMIboXJYLmTsCPplmIsfxdOpZLqBosbVhaP4f5xH1Wp7McyVyYGjV9aMC20yGazrkx0koT";
+  const leadChatLead = {
+    helpRequest: "",
+    creditScore: "",
+    amountNeeded: "",
+    creditAndAmount: "",
+    productType: "",
+    propertyLocation: "",
+    propertyLocationConfirmed: false,
+    postalCode: "",
+    timeline: "",
+    rawName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: ""
+  };
+
+  if (
+    leadChatWidget &&
+    leadChatLauncher &&
+    leadChatPanel &&
+    leadChatClose &&
+    leadChatMessages &&
+    leadChatHandoff &&
+    leadChatHandoffCopy &&
+    leadChatTurnstileContainer &&
+    leadChatForm &&
+    leadChatInput
+  ) {
+    const scrollLeadChatToBottom = () => {
+      window.requestAnimationFrame(() => {
+        leadChatMessages.scrollTop = leadChatMessages.scrollHeight;
+      });
+    };
+
+    const setLeadChatPlaceholder = (value) => {
+      leadChatInput.placeholder = value;
+    };
+
+    const setLeadChatHandoffCopy = (text) => {
+      if (!leadChatHandoffCopy) {
+        return;
+      }
+
+      leadChatHandoffCopy.textContent = text;
+    };
+
+    const hideLeadChatHandoff = () => {
+      leadChatHandoff.hidden = true;
+      setLeadChatHandoffCopy("One quick security check and I will send this to Cashly.");
+    };
+
+    const showLeadChatHandoff = (text) => {
+      if (text) {
+        setLeadChatHandoffCopy(text);
+      }
+
+      leadChatHandoff.hidden = false;
+      scrollLeadChatToBottom();
+    };
+
+    const resetLeadChatTurnstile = () => {
+      leadChatTurnstileToken = "";
+
+      if (window.turnstile && leadChatTurnstileWidgetId !== null) {
+        window.turnstile.reset(leadChatTurnstileWidgetId);
+      }
+    };
+
+    const splitLeadChatName = (value) => {
+      const trimmedValue = value.trim().replace(/\s+/g, " ");
+      const nameParts = trimmedValue.split(" ").filter(Boolean);
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "Lead";
+
+      return {
+        rawName: trimmedValue,
+        firstName,
+        lastName
+      };
+    };
+
+    const getLeadChatFirstName = () => {
+      return leadChatLead.firstName || "there";
+    };
+
+    const extractLeadChatEmail = (value) => {
+      const match = value.match(/[^\s@]+@[^\s@]+\.[^\s@]+/);
+      return match ? match[0].toLowerCase() : "";
+    };
+
+    const normalizeLeadChatPhone = (value) => {
+      const trimmedValue = value.trim();
+
+      if (!trimmedValue) {
+        return "";
+      }
+
+      const match = trimmedValue.match(/(\+?[\d\s().-]{7,})/);
+      const candidate = match ? match[1].trim() : trimmedValue;
+      const hasLeadingPlus = candidate.startsWith("+");
+      const digitsOnly = candidate.replace(/\D/g, "");
+
+      if (digitsOnly.length < 10) {
+        return "";
+      }
+
+      return hasLeadingPlus ? `+${digitsOnly}` : digitsOnly;
+    };
+
+    const extractLeadChatCreditScore = (value) => {
+      const explicitMatch = value.match(
+        /credit(?:\s+score)?(?:\s+is|\s*[:=-])?\s*(?:less than|under|below|around|about|approx(?:imately)?|near)?\s*(\d{3})/i
+      );
+
+      if (explicitMatch) {
+        return explicitMatch[1];
+      }
+
+      const scoreMatch = value.match(/\bscore(?:\s+is|\s*[:=-])?\s*(\d{3})\b/i);
+      return scoreMatch ? scoreMatch[1] : "";
+    };
+
+    const extractLeadChatAmountNeeded = (value) => {
+      const amountContextMatch = value.match(
+        /(?:need|borrow|looking for|amount|require|required)\s+(\$?\s?\d[\d,]*(?:\.\d+)?\s*(?:k|m)?)/i
+      );
+
+      if (amountContextMatch) {
+        const contextualAmount = amountContextMatch[1].replace(/\s+/g, " ").trim();
+        return /\d/.test(contextualAmount) ? contextualAmount : "";
+      }
+
+      const currencyMatch = value.match(/(\$\s?\d[\d,]*(?:\.\d+)?\s*(?:k|m)?)/i);
+
+      if (currencyMatch) {
+        const currencyAmount = currencyMatch[1].replace(/\s+/g, " ").trim();
+        return /\d/.test(currencyAmount) ? currencyAmount : "";
+      }
+
+      if (!/[km]\b/i.test(value)) {
+        return "";
+      }
+
+      const amountMatch = value.match(/(\d[\d,]*(?:\.\d+)?\s*(?:k|m))/i);
+
+      if (!amountMatch) {
+        return "";
+      }
+
+      const amount = amountMatch[1].replace(/\s+/g, " ").trim();
+      return /\d/.test(amount) ? amount : "";
+    };
+
+    const extractStandaloneLeadChatScore = (value) => {
+      const trimmedValue = value.trim();
+      const scoreMatch = trimmedValue.match(/^(\d{3})$/);
+
+      if (!scoreMatch) {
+        return "";
+      }
+
+      const score = Number.parseInt(scoreMatch[1], 10);
+      return score >= 300 && score <= 900 ? scoreMatch[1] : "";
+    };
+
+    const extractContextualLeadChatScore = (value) => {
+      const contextualPatterns = [
+        /\b(?:i have|i'm at|im at|mine is|it is|it's|its|around|about|roughly|approx(?:imately)?)\s+(\d{3})\b/i,
+        /\b(\d{3})\b(?=.*\bcredit\b)/i
+      ];
+
+      for (const pattern of contextualPatterns) {
+        const match = value.match(pattern);
+
+        if (!match) {
+          continue;
+        }
+
+        const score = Number.parseInt(match[1], 10);
+
+        if (score >= 300 && score <= 900) {
+          return match[1];
+        }
+      }
+
+      return "";
+    };
+
+    const detectLeadChatProductType = (value) => {
+      const normalizedValue = value.toLowerCase();
+
+      if (normalizedValue.includes("line of credit") || normalizedValue.includes("heloc") || /\bloc\b/.test(normalizedValue)) {
+        return "line of credit";
+      }
+
+      if (normalizedValue.includes("construction")) {
+        return "construction";
+      }
+
+      if (normalizedValue.includes("refinance") || normalizedValue.includes("refinancing") || normalizedValue.includes("refi")) {
+        return "refinance";
+      }
+
+      if (normalizedValue.includes("private mortgage") || normalizedValue.includes("mortgage")) {
+        return "private mortgage";
+      }
+
+      return "";
+    };
+
+    const getLeadChatProductTypePrompt = () => {
+      return "Are you looking for refinance, construction, line of credit, or private mortgage?";
+    };
+
+    const detectLeadChatTimeline = (value) => {
+      const normalizedValue = value.toLowerCase();
+
+      if (
+        normalizedValue.includes("urgent") ||
+        normalizedValue.includes("asap") ||
+        normalizedValue.includes("immediately") ||
+        normalizedValue.includes("right away") ||
+        normalizedValue.includes("today") ||
+        normalizedValue.includes("tomorrow")
+      ) {
+        return value.trim();
+      }
+
+      const timelineMatch = value.match(/\b(?:within\s+)?\d+\s*(?:day|days|week|weeks|month|months)\b/i);
+      return timelineMatch ? timelineMatch[0].trim() : "";
+    };
+
+    const extractLeadChatPostalCode = (value) => {
+      const postalMatch = value.match(/\b([A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d)\b/);
+
+      if (!postalMatch) {
+        return "";
+      }
+
+      return postalMatch[1].toUpperCase().replace(/\s+/g, "").replace(
+        /^([A-Z]\d[A-Z])(\d[A-Z]\d)$/,
+        "$1 $2"
+      );
+    };
+
+    const isValidLeadChatPropertyLocation = (value) => {
+      const trimmedValue = value.trim().replace(/\s+/g, " ");
+      const letterCount = (trimmedValue.match(/[A-Za-z]/g) || []).length;
+
+      if (trimmedValue.length < 3 || letterCount < 3) {
+        return false;
+      }
+
+      return /[A-Za-z]/.test(trimmedValue);
+    };
+
+    const requiresLeadChatPropertyDetails = () => {
+      return leadChatLead.productType === "construction" || leadChatLead.productType === "refinance";
+    };
+
+    const syncLeadChatCreditAndAmount = () => {
+      const parts = [];
+
+      if (leadChatLead.creditScore) {
+        parts.push(`credit score: ${leadChatLead.creditScore}`);
+      }
+
+      if (leadChatLead.amountNeeded) {
+        parts.push(`amount needed: ${leadChatLead.amountNeeded}`);
+      }
+
+      leadChatLead.creditAndAmount = parts.join(", ");
+    };
+
+    const absorbLeadChatDetails = (value) => {
+      if (!leadChatLead.creditScore) {
+        leadChatLead.creditScore = extractLeadChatCreditScore(value);
+      }
+
+      if (!leadChatLead.amountNeeded) {
+        leadChatLead.amountNeeded = extractLeadChatAmountNeeded(value);
+      }
+
+      if (!leadChatLead.productType) {
+        leadChatLead.productType = detectLeadChatProductType(value);
+      }
+
+      if (!leadChatLead.timeline) {
+        leadChatLead.timeline = detectLeadChatTimeline(value);
+      }
+
+      if (!leadChatLead.postalCode) {
+        leadChatLead.postalCode = extractLeadChatPostalCode(value);
+      }
+
+      syncLeadChatCreditAndAmount();
+    };
+
+    const getNextLeadChatPrompt = () => {
+      if (!leadChatLead.creditScore && !leadChatLead.amountNeeded) {
+        return {
+          mode: "awaiting-credit-amount",
+          message: "Can I know your credit score?"
+        };
+      }
+
+      if (!leadChatLead.creditScore) {
+        return {
+          mode: "awaiting-credit-amount",
+          message: "Thanks. Can I know your credit score?"
+        };
+      }
+
+      if (!leadChatLead.amountNeeded) {
+        return {
+          mode: "awaiting-credit-amount",
+          message: "Thanks. How much money do you need?"
+        };
+      }
+
+      if (!leadChatLead.productType) {
+        return {
+          mode: "awaiting-product-type",
+          message: getLeadChatProductTypePrompt()
+        };
+      }
+
+      if (requiresLeadChatPropertyDetails() && !leadChatLead.propertyLocation) {
+        return {
+          mode: "awaiting-property-location",
+          message: "Where is your property located?"
+        };
+      }
+
+      if (requiresLeadChatPropertyDetails() && leadChatLead.propertyLocation && !leadChatLead.propertyLocationConfirmed) {
+        return {
+          mode: "awaiting-property-confirmation",
+          message: "Is this the property?"
+        };
+      }
+
+      if (requiresLeadChatPropertyDetails() && !leadChatLead.postalCode) {
+        return {
+          mode: "awaiting-postal-code",
+          message: "What is the postal code for the property?"
+        };
+      }
+
+      if (!leadChatLead.timeline) {
+        return {
+          mode: "awaiting-timeline",
+          message: "How soon do you need the money?"
+        };
+      }
+
+      return {
+        mode: "awaiting-name",
+        message: "Please enter your full name."
+      };
+    };
+
+    const resetLeadChatLead = () => {
+      leadChatMode = "idle";
+      leadChatLead.helpRequest = "";
+      leadChatLead.creditScore = "";
+      leadChatLead.amountNeeded = "";
+      leadChatLead.creditAndAmount = "";
+      leadChatLead.productType = "";
+      leadChatLead.propertyLocation = "";
+      leadChatLead.propertyLocationConfirmed = false;
+      leadChatLead.postalCode = "";
+      leadChatLead.timeline = "";
+      leadChatLead.rawName = "";
+      leadChatLead.firstName = "";
+      leadChatLead.lastName = "";
+      leadChatLead.email = "";
+      leadChatLead.phone = "";
+      leadChatSubmitting = false;
+      resetLeadChatTurnstile();
+      hideLeadChatHandoff();
+      setLeadChatPlaceholder("Message Cashly");
+    };
+
+    const appendLeadChatMessage = (role, text, actions = []) => {
+      const message = document.createElement("div");
+      message.className = `lead-chat__message lead-chat__message--${role}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = "lead-chat__bubble";
+      bubble.textContent = text;
+      message.appendChild(bubble);
+
+      if (actions.length > 0) {
+        const actionsRow = document.createElement("div");
+        actionsRow.className = "lead-chat__actions";
+
+        actions.forEach((item) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "lead-chat__action";
+          button.dataset.chatAction = item.action;
+          button.dataset.chatLabel = item.label;
+          button.textContent = item.label;
+          actionsRow.appendChild(button);
+        });
+
+        bubble.appendChild(actionsRow);
+      }
+
+      leadChatMessages.appendChild(message);
+      scrollLeadChatToBottom();
+    };
+
+    const getLeadChatMapEmbedUrl = (location) => {
+      const query = encodeURIComponent(location.trim());
+      return `https://maps.google.com/maps?q=${query}&z=15&output=embed`;
+    };
+
+    const getLeadChatMapLinkUrl = (location) => {
+      const query = encodeURIComponent(location.trim());
+      return `https://www.google.com/maps/search/?api=1&query=${query}`;
+    };
+
+    const appendLeadChatPropertyConfirmation = (location) => {
+      const message = document.createElement("div");
+      message.className = "lead-chat__message lead-chat__message--bot";
+
+      const bubble = document.createElement("div");
+      bubble.className = "lead-chat__bubble";
+
+      const intro = document.createElement("p");
+      intro.className = "lead-chat__map-intro";
+      intro.textContent = "I found this property. Is this the right one?";
+      bubble.appendChild(intro);
+
+      const mapCard = document.createElement("div");
+      mapCard.className = "lead-chat__map-card";
+
+      const mapFrame = document.createElement("iframe");
+      mapFrame.className = "lead-chat__map-frame";
+      mapFrame.src = getLeadChatMapEmbedUrl(location);
+      mapFrame.title = `Property map preview for ${location}`;
+      mapFrame.loading = "lazy";
+      mapFrame.referrerPolicy = "no-referrer-when-downgrade";
+      mapCard.appendChild(mapFrame);
+
+      const mapMeta = document.createElement("div");
+      mapMeta.className = "lead-chat__map-meta";
+
+      const mapAddress = document.createElement("strong");
+      mapAddress.textContent = location;
+      mapMeta.appendChild(mapAddress);
+
+      const mapLink = document.createElement("a");
+      mapLink.className = "lead-chat__map-link";
+      mapLink.href = getLeadChatMapLinkUrl(location);
+      mapLink.target = "_blank";
+      mapLink.rel = "noopener noreferrer";
+      mapLink.textContent = "Open in Google Maps";
+      mapMeta.appendChild(mapLink);
+
+      mapCard.appendChild(mapMeta);
+      bubble.appendChild(mapCard);
+
+      const actionsRow = document.createElement("div");
+      actionsRow.className = "lead-chat__actions";
+
+      [
+        { label: "Yes", action: "confirm-property-location" },
+        { label: "No", action: "reject-property-location" }
+      ].forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "lead-chat__action";
+        button.dataset.chatAction = item.action;
+        button.dataset.chatLabel = item.label;
+        button.textContent = item.label;
+        actionsRow.appendChild(button);
+      });
+
+      bubble.appendChild(actionsRow);
+      message.appendChild(bubble);
+      leadChatMessages.appendChild(message);
+      scrollLeadChatToBottom();
+    };
+
+    const promptLeadChatPropertyConfirmation = () => {
+      leadChatMode = "awaiting-property-confirmation";
+      appendLeadChatPropertyConfirmation(leadChatLead.propertyLocation);
+      setLeadChatPlaceholder("Type yes or no");
+    };
+
+    const handleLeadChatPropertyConfirmation = () => {
+      leadChatLead.propertyLocationConfirmed = true;
+      const nextStep = getNextLeadChatPrompt();
+      leadChatMode = nextStep.mode;
+      appendLeadChatMessage("bot", nextStep.message);
+      setLeadChatPlaceholder("");
+    };
+
+    const handleLeadChatPropertyRejection = () => {
+      leadChatLead.propertyLocation = "";
+      leadChatLead.propertyLocationConfirmed = false;
+      leadChatMode = "awaiting-property-location";
+      appendLeadChatMessage("bot", "Please enter the full property address so I can check it again.");
+      setLeadChatPlaceholder("Enter the property address");
+    };
+
+    const isAffirmativeLeadChatAnswer = (value) => /^(yes|yep|yeah|correct|right|that'?s right|this one)$/i.test(value.trim());
+    const isNegativeLeadChatAnswer = (value) => /^(no|nope|wrong|not this|not correct|different)$/i.test(value.trim());
+    const normalizeLeadChatAmountNeeded = (value) => {
+      const trimmedValue = value.trim();
+
+      if (!trimmedValue) {
+        return "";
+      }
+
+      const match = trimmedValue.match(/\$?\s*(\d[\d,]*(?:\.\d+)?)\s*([km])?/i);
+
+      if (!match) {
+        return trimmedValue;
+      }
+
+      const numericValue = Number.parseFloat(match[1].replace(/,/g, ""));
+
+      if (!Number.isFinite(numericValue)) {
+        return trimmedValue;
+      }
+
+      const suffix = (match[2] || "").toLowerCase();
+      let expandedValue = numericValue;
+
+      if (suffix === "k") {
+        expandedValue *= 1000;
+      } else if (suffix === "m") {
+        expandedValue *= 1000000;
+      }
+
+      return expandedValue.toLocaleString("en-CA", {
+        maximumFractionDigits: 0
+      });
+    };
+
+    const normalizeLeadChatTimeline = (value) => {
+      const trimmedValue = value.trim().replace(/\s+/g, " ");
+
+      if (!trimmedValue) {
+        return "";
+      }
+
+      if (/(urgent|asap|immediately|right away|today|tomorrow)/i.test(trimmedValue)) {
+        return "ASAP";
+      }
+
+      const match = trimmedValue.match(/(?:within\s+)?(\d+)\s*(day|days|week|weeks|month|months)\b/i);
+
+      if (!match) {
+        return trimmedValue;
+      }
+
+      const quantity = match[1];
+      const normalizedUnit = match[2].toLowerCase().replace(/s$/, "");
+      const pluralizedUnit = quantity === "1" ? normalizedUnit : `${normalizedUnit}s`;
+
+      return `${quantity} ${pluralizedUnit}`;
+    };
+
+    const getLeadChatPropertyAddress = () => {
+      return [leadChatLead.propertyLocation, leadChatLead.postalCode].filter(Boolean).join(", ");
+    };
+
+    const cleanLeadChatPayload = (payload) => {
+      return Object.fromEntries(
+        Object.entries(payload).filter(([, value]) => {
+          if (typeof value === "string") {
+            return value.trim() !== "";
+          }
+
+          return value !== null && value !== undefined;
+        })
+      );
+    };
+
+    const renderLeadChatTurnstile = async () => {
+      const callbackConfig = getCallbackFormConfig();
+
+      if (!callbackConfig || leadChatTurnstileWidgetId !== null) {
+        return;
+      }
+
+      if (leadChatTurnstileRenderPromise) {
+        await leadChatTurnstileRenderPromise;
+        return;
+      }
+
+      leadChatTurnstileReady = false;
+      leadChatTurnstileRenderPromise = (async () => {
+        try {
+          const turnstile = await waitForTurnstileApi();
+
+          if (leadChatTurnstileWidgetId !== null) {
+            return;
+          }
+
+          leadChatTurnstileWidgetId = turnstile.render(leadChatTurnstileContainer, {
+            sitekey: callbackConfig.turnstileSiteKey,
+            theme: "light",
+            appearance: "always",
+            callback(token) {
+              leadChatTurnstileToken = token;
+              leadChatTurnstileReady = true;
+
+              if (leadChatMode === "awaiting-security" && !leadChatSubmitting) {
+                submitLeadChatLead();
+              }
+            },
+            "expired-callback"() {
+              leadChatTurnstileToken = "";
+            },
+            "timeout-callback"() {
+              leadChatTurnstileToken = "";
+            },
+            "error-callback"(errorCode) {
+              leadChatTurnstileToken = "";
+              leadChatTurnstileReady = false;
+              console.error("Lead chat Turnstile error:", errorCode);
+              setLeadChatHandoffCopy("The security check could not load. Refresh the page and try again.");
+              return true;
+            }
+          });
+
+          leadChatTurnstileReady = true;
+        } catch (error) {
+          leadChatTurnstileReady = false;
+          setLeadChatHandoffCopy("The security check could not load. Refresh the page and try again.");
+        } finally {
+          leadChatTurnstileRenderPromise = null;
+        }
+      })();
+
+      await leadChatTurnstileRenderPromise;
+    };
+
+    const submitLeadChatLead = async () => {
+      if (leadChatSubmitting || leadChatMode !== "awaiting-security") {
+        return;
+      }
+
+      if (
+        !leadChatLead.helpRequest ||
+        !leadChatLead.creditAndAmount ||
+        !leadChatLead.productType ||
+        !leadChatLead.timeline ||
+        !leadChatLead.firstName ||
+        !leadChatLead.lastName ||
+        !leadChatLead.email ||
+        !leadChatLead.phone
+      ) {
+        return;
+      }
+
+      if (!leadChatTurnstileReady) {
+        setLeadChatHandoffCopy("The security check is still loading. Please wait a moment.");
+        return;
+      }
+
+      if (!leadChatTurnstileToken) {
+        setLeadChatHandoffCopy("Please complete the security check and I will send this to Cashly.");
+        return;
+      }
+
+      leadChatSubmitting = true;
+      setLeadChatHandoffCopy("Sending your message to Cashly now.");
+
+      try {
+        const leadChatPayload = cleanLeadChatPayload({
+          fullname: leadChatLead.rawName || `${leadChatLead.firstName} ${leadChatLead.lastName}`.trim(),
+          address: "",
+          phone: leadChatLead.phone,
+          email: leadChatLead.email,
+          credit_score: leadChatLead.creditScore,
+          amount_needed: normalizeLeadChatAmountNeeded(leadChatLead.amountNeeded),
+          purchase_type: leadChatLead.productType,
+          property_address: getLeadChatPropertyAddress(),
+          timeline: normalizeLeadChatTimeline(leadChatLead.timeline),
+          message: leadChatLead.helpRequest
+        });
+
+        await submitCallbackToEdgeFunction({
+          first_name: leadChatLead.firstName,
+          last_name: leadChatLead.lastName,
+          email: leadChatLead.email,
+          phone: leadChatLead.phone,
+          message: JSON.stringify(leadChatPayload, null, 2),
+          company_name: "",
+          source_page: `${window.location.pathname}#lead-chat`,
+          turnstile_token: leadChatTurnstileToken
+        });
+
+        appendLeadChatMessage(
+          "bot",
+          `Thanks ${getLeadChatFirstName()}. One of our agents will get back to you very soon.`
+        );
+        resetLeadChatLead();
+        leadChatMode = "submitted";
+        appendLeadChatMessage(
+          "bot",
+          "Do you want to book appointment now? I think you are in urgent.",
+          [
+            { label: "Book Appointment", action: "book-appointment" }
+          ]
+        );
+      } catch (error) {
+        resetLeadChatTurnstile();
+        leadChatSubmitting = false;
+        setLeadChatHandoffCopy("Please complete the security check again so I can resend this.");
+        appendLeadChatMessage(
+          "bot",
+          error.message || "Something went wrong while sending your message. Please try again."
+        );
+      }
+    };
+
+    const seedLeadChat = () => {
+      if (leadChatInitialized) {
+        return;
+      }
+
+      appendLeadChatMessage("bot", "Hi, tell me how I can help you today.");
+      leadChatInitialized = true;
+      setLeadChatPlaceholder("Message Cashly");
+    };
+
+    const openLeadChat = () => {
+      seedLeadChat();
+      window.clearTimeout(leadChatCloseTimerId);
+      leadChatPanel.hidden = false;
+      leadChatPanel.setAttribute("aria-hidden", "false");
+      leadChatPanel.classList.remove("is-closing");
+      leadChatLauncher.setAttribute("aria-expanded", "true");
+      document.body.classList.add("chat-open");
+
+      window.requestAnimationFrame(() => {
+        leadChatPanel.classList.add("is-open");
+      });
+
+      window.setTimeout(() => {
+        leadChatInput.focus();
+      }, 80);
+    };
+
+    const closeLeadChat = () => {
+      leadChatPanel.classList.remove("is-open");
+      leadChatPanel.classList.add("is-closing");
+      leadChatLauncher.setAttribute("aria-expanded", "false");
+      leadChatPanel.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("chat-open");
+      leadChatCloseTimerId = window.setTimeout(() => {
+        leadChatPanel.hidden = true;
+        leadChatPanel.classList.remove("is-closing");
+      }, 280);
+    };
+
+    const finishLeadChatContactCapture = async () => {
+      leadChatMode = "awaiting-security";
+      showLeadChatHandoff("One quick security check and I will send this to Cashly.");
+      appendLeadChatMessage(
+        "bot",
+        `Perfect ${getLeadChatFirstName()}. Complete the security check below and I will send this through.`
+      );
+      setLeadChatPlaceholder("Security check required");
+      await renderLeadChatTurnstile();
+
+      if (leadChatTurnstileToken) {
+        submitLeadChatLead();
+      }
+    };
+
+    leadChatLauncher.addEventListener("click", () => {
+      if (leadChatPanel.hidden) {
+        openLeadChat();
+      } else {
+        closeLeadChat();
+      }
+    });
+
+    leadChatClose.addEventListener("click", closeLeadChat);
+
+    leadChatMessages.addEventListener("click", (event) => {
+      const actionButton = event.target.closest("[data-chat-action]");
+
+      if (!actionButton) {
+        return;
+      }
+
+      const action = actionButton.dataset.chatAction || "";
+
+      if (action === "book-appointment") {
+        window.open(leadChatBookingUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      if (action === "confirm-property-location") {
+        handleLeadChatPropertyConfirmation();
+        return;
+      }
+
+      if (action === "reject-property-location") {
+        handleLeadChatPropertyRejection();
+      }
+    });
+
+    leadChatForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const answer = leadChatInput.value.trim();
+
+      if (!answer) {
+        leadChatInput.focus();
+        return;
+      }
+
+      appendLeadChatMessage("user", answer);
+      leadChatInput.value = "";
+
+      if (leadChatMode === "submitted") {
+        appendLeadChatMessage(
+          "bot",
+          "Do you want to book appointment now? I think you are in urgent.",
+          [
+            { label: "Book Appointment", action: "book-appointment" }
+          ]
+        );
+        setLeadChatPlaceholder("Message Cashly");
+        return;
+      }
+
+      if (leadChatMode === "idle") {
+        leadChatLead.helpRequest = answer;
+        absorbLeadChatDetails(answer);
+        const nextStep = getNextLeadChatPrompt();
+        leadChatMode = nextStep.mode;
+        appendLeadChatMessage("bot", nextStep.message);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-credit-amount") {
+        if (!leadChatLead.creditScore) {
+          const standaloneScore = extractStandaloneLeadChatScore(answer) || extractContextualLeadChatScore(answer);
+
+          if (standaloneScore) {
+            leadChatLead.creditScore = standaloneScore;
+            syncLeadChatCreditAndAmount();
+          }
+        }
+
+        absorbLeadChatDetails(answer);
+
+        if (!leadChatLead.creditScore && !leadChatLead.amountNeeded) {
+          appendLeadChatMessage("bot", "Please share your credit score.");
+          return;
+        }
+
+        if (!leadChatLead.creditScore) {
+          appendLeadChatMessage("bot", "Thanks. I still need your credit score.");
+          return;
+        }
+
+        if (!leadChatLead.amountNeeded) {
+          appendLeadChatMessage("bot", "Thanks. I still need to know how much money you need.");
+          return;
+        }
+
+        const nextStep = getNextLeadChatPrompt();
+        leadChatMode = nextStep.mode;
+        appendLeadChatMessage("bot", nextStep.message);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-product-type") {
+        const detectedProductType = detectLeadChatProductType(answer);
+
+        if (!detectedProductType) {
+          appendLeadChatMessage(
+            "bot",
+            `${getLeadChatProductTypePrompt()} Please choose one of those options.`
+          );
+          return;
+        }
+
+        leadChatLead.productType = detectedProductType;
+        absorbLeadChatDetails(answer);
+        const nextStep = getNextLeadChatPrompt();
+        leadChatMode = nextStep.mode;
+        appendLeadChatMessage("bot", nextStep.message);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-property-location") {
+        if (!isValidLeadChatPropertyLocation(answer)) {
+          appendLeadChatMessage("bot", "Please enter a valid property location, like a city or full address.");
+          return;
+        }
+
+        leadChatLead.propertyLocation = answer.trim().replace(/\s+/g, " ");
+        leadChatLead.propertyLocationConfirmed = false;
+        absorbLeadChatDetails(answer);
+        promptLeadChatPropertyConfirmation();
+        return;
+      }
+
+      if (leadChatMode === "awaiting-property-confirmation") {
+        if (isAffirmativeLeadChatAnswer(answer)) {
+          handleLeadChatPropertyConfirmation();
+          return;
+        }
+
+        if (isNegativeLeadChatAnswer(answer)) {
+          handleLeadChatPropertyRejection();
+          return;
+        }
+
+        appendLeadChatMessage("bot", "Please answer yes or no so I can confirm the property.");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-postal-code") {
+        const extractedPostalCode = extractLeadChatPostalCode(answer);
+
+        if (!extractedPostalCode) {
+          appendLeadChatMessage("bot", "Please enter a valid postal code for the property.");
+          return;
+        }
+
+        leadChatLead.postalCode = extractedPostalCode;
+        const nextStep = getNextLeadChatPrompt();
+        leadChatMode = nextStep.mode;
+        appendLeadChatMessage("bot", nextStep.message);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-timeline") {
+        leadChatLead.timeline = detectLeadChatTimeline(answer) || answer.trim();
+        const nextStep = getNextLeadChatPrompt();
+        leadChatMode = nextStep.mode;
+        appendLeadChatMessage("bot", nextStep.message);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-name") {
+        const parsedName = splitLeadChatName(answer);
+
+        if (!parsedName.firstName) {
+          appendLeadChatMessage("bot", "Please enter your name so I can pass this to Cashly.");
+          return;
+        }
+
+        leadChatLead.rawName = parsedName.rawName;
+        leadChatLead.firstName = parsedName.firstName;
+        leadChatLead.lastName = parsedName.lastName;
+        leadChatMode = "awaiting-email";
+        appendLeadChatMessage("bot", `Alright ${parsedName.firstName}, please enter your email address.`);
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-email") {
+        const extractedEmail = extractLeadChatEmail(answer);
+
+        if (!extractedEmail) {
+          appendLeadChatMessage("bot", "Please enter a valid email address.");
+          return;
+        }
+
+        leadChatLead.email = extractedEmail;
+        leadChatMode = "awaiting-phone";
+        appendLeadChatMessage("bot", "Great, now please enter your phone number.");
+        setLeadChatPlaceholder("");
+        return;
+      }
+
+      if (leadChatMode === "awaiting-phone") {
+        const extractedPhone = normalizeLeadChatPhone(answer);
+
+        if (!extractedPhone) {
+          appendLeadChatMessage("bot", "Please enter a valid phone number.");
+          return;
+        }
+
+        leadChatLead.phone = extractedPhone;
+        await finishLeadChatContactCapture();
+        return;
+      }
+
+      if (leadChatMode === "awaiting-security") {
+        appendLeadChatMessage("bot", "Complete the security check below and I will send this to Cashly.");
+        return;
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !leadChatPanel.hidden) {
+        closeLeadChat();
       }
     });
   }

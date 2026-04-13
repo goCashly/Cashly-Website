@@ -13,7 +13,7 @@ const MAX_LENGTHS = {
   notes: 5000
 };
 
-const successMessage = "Message sent successfully. We’ll be in touch soon.";
+const successMessage = "Thanks for reaching out to us. One of our agents will get back to you very soon.";
 const rateLimitUnavailableMessage = "We can’t accept callback requests right now. Please try again shortly.";
 const ATTEMPT_RATE_LIMIT_WINDOW_SECONDS = 10 * 60;
 const ATTEMPT_RATE_LIMIT_MAX_REQUESTS = 10;
@@ -21,7 +21,9 @@ const SUBMISSION_RATE_LIMIT_WINDOW_SECONDS = 15 * 60;
 const SUBMISSION_RATE_LIMIT_MAX_REQUESTS = 5;
 const DAILY_SUBMISSION_RATE_LIMIT_WINDOW_SECONDS = 24 * 60 * 60;
 const DAILY_SUBMISSION_RATE_LIMIT_MAX_REQUESTS = 12;
+const TEMP_IDENTITY_BLOCK_SECONDS = 60 * 60;
 const RATE_LIMIT_ERROR_RETRY_AFTER_SECONDS = 60;
+const blockedIdentityMessage = "Too many requests were sent from this network. Please try again later.";
 const STORAGE_SAFE_CHARACTER_MAP: Record<string, string> = {
   "&": "&amp;",
   "<": "&lt;",
@@ -504,6 +506,103 @@ const enforceRateLimit = async (
   return null;
 };
 
+const getIdentityBlockStatus = async (
+  supabaseAdmin: ReturnType<typeof createClient>,
+  identityHash: string
+) => {
+  const { data, error } = await supabaseAdmin
+    .from("callback_request_rate_limits")
+    .select("request_count, window_started_at, last_seen_at")
+    .eq("ip_hash", buildRateLimitKey("blocked", identityHash))
+    .maybeSingle();
+
+  if (error) {
+    console.error("Callback identity block lookup failed:", {
+      identityHash,
+      error
+    });
+
+    return null;
+  }
+
+  if (!data?.window_started_at) {
+    return null;
+  }
+
+  const windowStartedAt = typeof data.window_started_at === "string"
+    ? data.window_started_at
+    : "";
+  const blockedUntilMs = Date.parse(windowStartedAt) + (TEMP_IDENTITY_BLOCK_SECONDS * 1000);
+
+  if (!Number.isFinite(blockedUntilMs)) {
+    return null;
+  }
+
+  const retryAfterSeconds = Math.max(
+    0,
+    Math.ceil((blockedUntilMs - Date.now()) / 1000)
+  );
+
+  return {
+    blocked: retryAfterSeconds > 0,
+    blockedUntil: new Date(blockedUntilMs).toISOString(),
+    retryAfterSeconds,
+    blockReason: "rate_limit",
+    blockCount: typeof data.request_count === "number"
+      ? data.request_count
+      : 0,
+    firstBlockedAt: windowStartedAt || null,
+    lastBlockedAt: typeof data.last_seen_at === "string"
+      ? data.last_seen_at
+      : null
+  };
+};
+
+const applyIdentityBlock = async (
+  supabaseAdmin: ReturnType<typeof createClient>,
+  identityHash: string,
+  _blockReason: string,
+  blockSeconds = TEMP_IDENTITY_BLOCK_SECONDS
+) => {
+  const existingBlock = await getIdentityBlockStatus(supabaseAdmin, identityHash);
+  const nowMs = Date.now();
+  const baseMs = existingBlock?.blockedUntil
+    ? Math.max(Date.parse(existingBlock.blockedUntil), nowMs)
+    : nowMs;
+  const blockedUntil = new Date(baseMs + (blockSeconds * 1000)).toISOString();
+  const nowIso = new Date(nowMs).toISOString();
+  const { error } = await supabaseAdmin
+    .from("callback_request_rate_limits")
+    .upsert(
+      {
+        ip_hash: buildRateLimitKey("blocked", identityHash),
+        request_count: (existingBlock?.blockCount || 0) + 1,
+        window_started_at: new Date(baseMs).toISOString(),
+        last_seen_at: nowIso
+      },
+      {
+        onConflict: "ip_hash"
+      }
+    );
+
+  if (error) {
+    console.error("Callback identity block upsert failed:", {
+      identityHash,
+      error
+    });
+
+    return null;
+  }
+
+  return {
+    blockedUntil,
+    retryAfterSeconds: Math.max(
+      1,
+      Math.ceil((Date.parse(blockedUntil) - nowMs) / 1000)
+    )
+  };
+};
+
 const verifyTurnstileToken = async (
   token: string,
   ipAddress: string,
@@ -617,6 +716,21 @@ Deno.serve(async (request) => {
       referer
     });
     const rateLimitIdentityHash = await sha256Hex(rateLimitIdentitySource);
+    const existingIdentityBlock = await getIdentityBlockStatus(
+      supabaseAdmin,
+      rateLimitIdentityHash
+    );
+
+    if (existingIdentityBlock?.blocked) {
+      return jsonResponse(
+        { success: false, message: blockedIdentityMessage },
+        429,
+        {
+          "Retry-After": String(existingIdentityBlock.retryAfterSeconds)
+        }
+      );
+    }
+
     const attemptRateLimitResponse = await enforceRateLimit(
       supabaseAdmin,
       buildRateLimitKey("attempt", rateLimitIdentityHash),
@@ -626,6 +740,24 @@ Deno.serve(async (request) => {
     );
 
     if (attemptRateLimitResponse) {
+      if (attemptRateLimitResponse.status === 429) {
+        const appliedBlock = await applyIdentityBlock(
+          supabaseAdmin,
+          rateLimitIdentityHash,
+          "attempt_rate_limit"
+        );
+
+        if (appliedBlock) {
+          return jsonResponse(
+            { success: false, message: blockedIdentityMessage },
+            429,
+            {
+              "Retry-After": String(appliedBlock.retryAfterSeconds)
+            }
+          );
+        }
+      }
+
       return attemptRateLimitResponse;
     }
 
@@ -671,6 +803,24 @@ Deno.serve(async (request) => {
     );
 
     if (submissionRateLimitResponse) {
+      if (submissionRateLimitResponse.status === 429) {
+        const appliedBlock = await applyIdentityBlock(
+          supabaseAdmin,
+          rateLimitIdentityHash,
+          "submission_rate_limit"
+        );
+
+        if (appliedBlock) {
+          return jsonResponse(
+            { success: false, message: blockedIdentityMessage },
+            429,
+            {
+              "Retry-After": String(appliedBlock.retryAfterSeconds)
+            }
+          );
+        }
+      }
+
       return submissionRateLimitResponse;
     }
 
@@ -683,6 +833,24 @@ Deno.serve(async (request) => {
     );
 
     if (dailySubmissionRateLimitResponse) {
+      if (dailySubmissionRateLimitResponse.status === 429) {
+        const appliedBlock = await applyIdentityBlock(
+          supabaseAdmin,
+          rateLimitIdentityHash,
+          "daily_submission_rate_limit"
+        );
+
+        if (appliedBlock) {
+          return jsonResponse(
+            { success: false, message: blockedIdentityMessage },
+            429,
+            {
+              "Retry-After": String(appliedBlock.retryAfterSeconds)
+            }
+          );
+        }
+      }
+
       return dailySubmissionRateLimitResponse;
     }
 
