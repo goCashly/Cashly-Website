@@ -1130,6 +1130,234 @@
   margin-bottom: 0.9rem;
 }
 
+.cashly-modern.about-page {
+  background: #fffdf8;
+}
+
+.cashly-modern.about-page .page-shell {
+  background:
+    radial-gradient(circle at top left, rgba(226, 174, 110, 0.14), transparent 30%),
+    linear-gradient(180deg, #fffdf8 0%, #fff8ef 46%, #ffffff 100%);
+}
+
+.cashly-modern.about-page .section-kicker {
+  color: #b8662d;
+}
+
+.cashly-modern.about-page .section-title-modern {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.cashly-modern .about-reference-shell {
+  padding-top: 1.5rem;
+}
+
+.cashly-modern .about-reference-story {
+  padding-bottom: 3.5rem;
+  padding-top: 4.75rem;
+}
+
+.cashly-modern .about-reference-story__grid {
+  align-items: center;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+}
+
+.cashly-modern .about-reference-story__heading h1 {
+  color: #142033;
+  font-size: clamp(2.5rem, 4.7vw, 4.6rem);
+  line-height: 0.96;
+  margin: 0.8rem 0 0;
+}
+
+.cashly-modern .about-reference-story__media img {
+  border-radius: 32px;
+  box-shadow: 0 24px 70px rgba(29, 37, 53, 0.14);
+  display: block;
+  min-height: 420px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.cashly-modern .about-reference-story__panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(24, 34, 49, 0.08);
+  border-radius: 30px;
+  box-shadow: 0 22px 60px rgba(27, 35, 51, 0.08);
+  padding: 2.2rem;
+}
+
+.cashly-modern .about-reference-story__panel h2 {
+  color: #182231;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+}
+
+.cashly-modern .about-reference-story__panel p,
+.cashly-modern .about-reference-impact-card p,
+.cashly-modern .about-reference-highlight-card p,
+.cashly-modern .about-reference-life__content p {
+  color: rgba(24, 34, 49, 0.78);
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.cashly-modern .about-reference-impact {
+  padding-bottom: 3.5rem;
+}
+
+.cashly-modern .about-reference-impact__grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern .about-reference-impact-card {
+  background: linear-gradient(180deg, rgba(255, 246, 232, 0.94) 0%, rgba(255, 255, 255, 0.98) 100%);
+  border: 1px solid rgba(184, 102, 45, 0.12);
+  border-radius: 28px;
+  padding: 2rem;
+}
+
+.cashly-modern .about-reference-impact-card h3,
+.cashly-modern .about-reference-highlight-card h3 {
+  color: #1b2433;
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.cashly-modern .about-reference-team {
+  padding-bottom: 3.5rem;
+}
+
+.cashly-modern .about-reference-team__grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern .about-reference-team__card {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.cashly-modern .about-reference-team__card .team-member-card__photo {
+  background: linear-gradient(180deg, #f9efe2 0%, #fff9f2 100%);
+}
+
+.cashly-modern .about-reference-highlights {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.cashly-modern .about-reference-highlight-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(24, 34, 49, 0.08);
+  border-radius: 24px;
+  min-height: 100%;
+  padding: 1.6rem;
+}
+
+.cashly-modern .about-reference-highlight-card p {
+  margin-bottom: 0;
+}
+
+.cashly-modern .about-reference-life {
+  padding-bottom: 5.5rem;
+}
+
+.cashly-modern .about-reference-life__grid {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+}
+
+.cashly-modern .about-reference-life__content {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(24, 34, 49, 0.08);
+  border-radius: 30px;
+  box-shadow: 0 22px 58px rgba(30, 38, 55, 0.07);
+  padding: 2.4rem;
+}
+
+.cashly-modern .about-reference-life__content h2 {
+  color: #182231;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  margin: 0.7rem 0 1rem;
+}
+
+.cashly-modern .about-reference-life__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.cashly-modern .about-reference-life__media img {
+  border-radius: 32px;
+  box-shadow: 0 24px 70px rgba(29, 37, 53, 0.14);
+  display: block;
+  min-height: 420px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .cashly-modern .about-reference-story__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cashly-modern .about-reference-story__heading {
+    max-width: 42rem;
+  }
+
+  .cashly-modern .about-reference-impact__grid,
+  .cashly-modern .about-reference-life__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cashly-modern .about-reference-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .cashly-modern .about-reference-shell {
+    padding-top: 0.5rem;
+  }
+
+  .cashly-modern .about-reference-story {
+    padding-top: 3.25rem;
+  }
+
+  .cashly-modern .about-reference-story__panel,
+  .cashly-modern .about-reference-impact-card,
+  .cashly-modern .about-reference-life__content {
+    padding: 1.5rem;
+  }
+
+  .cashly-modern .about-reference-story__media img,
+  .cashly-modern .about-reference-life__media img {
+    min-height: 280px;
+  }
+
+  .cashly-modern .about-reference-team__grid,
+  .cashly-modern .about-reference-highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .cashly-modern .service-grid-modern {
   display: grid;
   gap: 24px;
