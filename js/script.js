@@ -32,9 +32,16 @@
     // navbarDropdown
     if ($(window).width() < 992) {
       $('.main-nav .dropdown-toggle').on('click', function (event) {
+        var $toggle = $(this);
+        var isServiceToggle = $toggle.closest('.service-nav').length > 0;
+        var clickedIcon = $(event.target).closest('span, i').length > 0;
+
+        if (isServiceToggle && !clickedIcon) {
+          return;
+        }
+
         event.preventDefault();
 
-        var $toggle = $(this);
         var $parent = $toggle.parent('.dropdown');
         var $menu = $toggle.siblings('.dropdown-menu');
         var isOpen = $parent.hasClass('is-open');

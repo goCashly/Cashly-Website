@@ -144,6 +144,48 @@
   margin-left: 18px;
 }
 
+.cashly-modern .nav-powered {
+  margin-left: 18px;
+}
+
+.cashly-modern .nav-powered__link {
+  align-items: center;
+  background: rgba(245, 247, 250, 0.9);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 999px;
+  color: rgba(19, 35, 58, 0.76);
+  display: inline-flex;
+  gap: 10px;
+  padding: 0.5rem 0.85rem 0.5rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cashly-modern .nav-powered__link:hover,
+.cashly-modern .nav-powered__link:focus {
+  border-color: rgba(36, 89, 211, 0.18);
+  box-shadow: 0 10px 24px rgba(26, 52, 97, 0.08);
+  color: rgba(19, 35, 58, 0.9);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.cashly-modern .nav-powered__label {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cashly-modern .nav-powered__link img {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
 .cashly-modern .service-anchor {
   scroll-margin-top: 120px;
 }
@@ -577,6 +619,106 @@
   color: #1740a1;
 }
 
+.cashly-modern .product-pillar-grid {
+  align-items: stretch;
+  grid-template-columns: 1fr;
+}
+
+.cashly-modern .product-pillar-card {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  overflow: hidden;
+  padding: 0.95rem;
+  scroll-margin-top: 110px;
+}
+
+.cashly-modern .product-pillar-card__media {
+  flex: 0 0 min(34%, 320px);
+}
+
+.cashly-modern .product-pillar-card__media img {
+  border-radius: 22px;
+  display: block;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.cashly-modern .product-pillar-card__body {
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+  padding: 0.65rem 0.55rem 0.65rem 0;
+}
+
+.cashly-modern .product-pillar-card__eyebrow {
+  color: var(--cashly-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cashly-modern .product-pillar-card__list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cashly-modern .product-pillar-card__list li {
+  color: var(--cashly-text-muted);
+  line-height: 1.75;
+  padding-left: 1.35rem;
+  position: relative;
+}
+
+.cashly-modern .product-pillar-card__list li::before {
+  color: var(--cashly-primary);
+  content: "";
+  height: 7px;
+  width: 7px;
+  background: currentColor;
+  border-radius: 999px;
+  left: 0.1rem;
+  position: absolute;
+  top: 0.75rem;
+}
+
+.cashly-modern .product-pillar-card__actions,
+.cashly-modern .product-section-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cashly-modern .product-pillar-card__actions {
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.cashly-modern .product-pillar-card__actions .btn,
+.cashly-modern .product-pillar-card__actions .btn-secondary-modern,
+.cashly-modern .product-section-actions .btn,
+.cashly-modern .product-section-actions .btn-secondary-modern {
+  min-width: 160px;
+  text-align: center;
+}
+
+.cashly-modern .product-showcase-row {
+  scroll-margin-top: 110px;
+}
+
+.cashly-modern .product-detail-note {
+  color: var(--cashly-text-muted);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
 .cashly-modern .showcase-row + .showcase-row {
   margin-top: 88px;
 }
@@ -993,6 +1135,54 @@
   padding: 1rem 1.1rem;
 }
 
+.cashly-modern .secondary-hero__meta a,
+.cashly-modern .secondary-hero__meta-link {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(26, 52, 97, 0.05);
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  padding: 1rem 1.1rem;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.cashly-modern .secondary-hero__meta a::after,
+.cashly-modern .secondary-hero__meta-link::after {
+  color: rgba(36, 89, 211, 0.52);
+  content: "\2192";
+  font-size: 1.05rem;
+  opacity: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  transform: translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cashly-modern .secondary-hero__meta a:hover,
+.cashly-modern .secondary-hero__meta a:focus,
+.cashly-modern .secondary-hero__meta-link:hover,
+.cashly-modern .secondary-hero__meta-link:focus {
+  background: linear-gradient(180deg, #edf4ff 0%, #ffffff 100%);
+  border-color: rgba(36, 89, 211, 0.34);
+  box-shadow: 0 22px 40px rgba(26, 52, 97, 0.12), inset 0 0 0 1px rgba(36, 89, 211, 0.12);
+  color: inherit;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.cashly-modern .secondary-hero__meta a:hover::after,
+.cashly-modern .secondary-hero__meta a:focus::after,
+.cashly-modern .secondary-hero__meta-link:hover::after,
+.cashly-modern .secondary-hero__meta-link:focus::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .cashly-modern .secondary-hero__meta span,
 .cashly-modern .journey-step span,
 .cashly-modern .team-lead-card__body span,
@@ -1010,6 +1200,22 @@
   color: var(--cashly-text);
   display: block;
   font-size: 0.95rem;
+}
+
+.cashly-modern.product-page .secondary-hero__meta {
+  display: grid;
+  gap: 14px;
+  margin-top: 0;
+}
+
+.cashly-modern.product-page .secondary-hero__meta div,
+.cashly-modern.product-page .secondary-hero__meta a {
+  padding: 1.15rem 1.2rem;
+}
+
+.cashly-modern.product-page .secondary-hero__meta strong {
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .cashly-modern.team-page .secondary-hero__meta strong {
@@ -1131,17 +1337,17 @@
 }
 
 .cashly-modern.about-page {
-  background: #fffdf8;
+  background: #f7faff;
 }
 
 .cashly-modern.about-page .page-shell {
   background:
-    radial-gradient(circle at top left, rgba(226, 174, 110, 0.14), transparent 30%),
-    linear-gradient(180deg, #fffdf8 0%, #fff8ef 46%, #ffffff 100%);
+    radial-gradient(circle at top left, rgba(127, 165, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #f7faff 0%, #f2f7ff 46%, #ffffff 100%);
 }
 
 .cashly-modern.about-page .section-kicker {
-  color: #b8662d;
+  color: var(--cashly-primary);
 }
 
 .cashly-modern.about-page .section-title-modern {
@@ -1160,18 +1366,30 @@
   padding-top: 4.75rem;
 }
 
-.cashly-modern .about-reference-story__grid {
+.cashly-modern .about-reference-story__layout {
   align-items: center;
   display: grid;
-  gap: 2.5rem;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
 }
 
-.cashly-modern .about-reference-story__heading h1 {
+.cashly-modern .about-reference-story__content {
+  max-width: 42rem;
+}
+
+.cashly-modern .about-reference-story__content h2 {
   color: #142033;
-  font-size: clamp(2.5rem, 4.7vw, 4.6rem);
-  line-height: 0.96;
-  margin: 0.8rem 0 0;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.cashly-modern .about-reference-story__content p {
+  color: rgba(24, 34, 49, 0.78);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
 }
 
 .cashly-modern .about-reference-story__media img {
@@ -1184,22 +1402,39 @@
   width: 100%;
 }
 
-.cashly-modern .about-reference-story__panel {
-  background: rgba(255, 255, 255, 0.92);
+.cashly-modern .about-reference-story__points {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.cashly-modern .about-reference-story__point {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 248, 255, 0.92) 100%);
   border: 1px solid rgba(24, 34, 49, 0.08);
-  border-radius: 30px;
-  box-shadow: 0 22px 60px rgba(27, 35, 51, 0.08);
-  padding: 2.2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 44px rgba(27, 35, 51, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 100%;
+  padding: 1.15rem 1.1rem;
 }
 
-.cashly-modern .about-reference-story__panel h2 {
+.cashly-modern .about-reference-story__point strong {
   color: #182231;
-  font-size: clamp(1.8rem, 3vw, 2.45rem);
-  line-height: 1.08;
-  margin-bottom: 1.2rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.cashly-modern .about-reference-story__panel p,
+.cashly-modern .about-reference-story__point span {
+  color: rgba(24, 34, 49, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.cashly-modern .about-reference-story__content p,
 .cashly-modern .about-reference-impact-card p,
 .cashly-modern .about-reference-highlight-card p,
 .cashly-modern .about-reference-life__content p {
@@ -1220,8 +1455,8 @@
 }
 
 .cashly-modern .about-reference-impact-card {
-  background: linear-gradient(180deg, rgba(255, 246, 232, 0.94) 0%, rgba(255, 255, 255, 0.98) 100%);
-  border: 1px solid rgba(184, 102, 45, 0.12);
+  background: linear-gradient(180deg, rgba(242, 247, 255, 0.96) 0%, rgba(255, 255, 255, 0.98) 100%);
+  border: 1px solid rgba(36, 89, 211, 0.1);
   border-radius: 28px;
   padding: 2rem;
 }
@@ -1231,6 +1466,74 @@
   color: #1b2433;
   font-size: 1.35rem;
   margin-bottom: 0.8rem;
+}
+
+.cashly-modern .about-reference-leadership {
+  padding-bottom: 3.5rem;
+}
+
+.cashly-modern .about-reference-leadership__shell {
+  background:
+    radial-gradient(circle at top left, rgba(143, 189, 255, 0.2), transparent 38%),
+    linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 34px;
+  box-shadow: 0 24px 64px rgba(31, 38, 52, 0.08);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  padding: 2.2rem;
+}
+
+.cashly-modern .about-reference-leadership__intro {
+  align-self: start;
+  max-width: 28rem;
+}
+
+.cashly-modern .about-reference-leadership__intro h2 {
+  color: #142033;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.04;
+  margin: 0.8rem 0 1rem;
+}
+
+.cashly-modern .about-reference-leadership__intro p {
+  color: rgba(24, 34, 49, 0.78);
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+}
+
+.cashly-modern .about-reference-leadership__notes {
+  display: grid;
+  gap: 0.95rem;
+  margin-top: 1.5rem;
+}
+
+.cashly-modern .about-reference-leadership__notes div {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 34, 49, 0.08);
+  border-radius: 22px;
+  padding: 1rem 1.05rem;
+}
+
+.cashly-modern .about-reference-leadership__notes strong {
+  color: #182231;
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
+}
+
+.cashly-modern .about-reference-leadership__notes span {
+  color: rgba(24, 34, 49, 0.7);
+  display: block;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.cashly-modern .about-reference-leadership__grid {
+  margin: 0;
+  max-width: none;
 }
 
 .cashly-modern .about-reference-team {
@@ -1249,7 +1552,7 @@
 }
 
 .cashly-modern .about-reference-team__card .team-member-card__photo {
-  background: linear-gradient(180deg, #f9efe2 0%, #fff9f2 100%);
+  background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
 }
 
 .cashly-modern .about-reference-highlights {
@@ -1313,20 +1616,73 @@
   width: 100%;
 }
 
+.cashly-modern .about-reference-careers {
+  padding-bottom: 3.5rem;
+}
+
+.cashly-modern .about-reference-careers__banner {
+  background:
+    radial-gradient(circle at top right, rgba(143, 189, 255, 0.26), transparent 34%),
+    linear-gradient(135deg, #142033 0%, #1d3150 100%);
+  border-radius: 34px;
+  box-shadow: 0 28px 70px rgba(17, 28, 47, 0.2);
+  color: #f6f9ff;
+  overflow: hidden;
+  padding: 3rem;
+  position: relative;
+}
+
+.cashly-modern .about-reference-careers__banner:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 70%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.cashly-modern .about-reference-careers__banner > .row {
+  position: relative;
+  z-index: 1;
+}
+
+.cashly-modern .about-reference-careers__banner h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+  line-height: 1.03;
+  margin: 0.8rem 0 1rem;
+}
+
+.cashly-modern .about-reference-careers__banner .section-kicker,
+.cashly-modern .about-reference-careers__banner .section-kicker--dark {
+  color: #ffffff;
+}
+
+.cashly-modern .about-reference-careers__banner p {
+  color: rgba(235, 241, 252, 0.86);
+  margin-bottom: 0;
+  max-width: 42rem;
+}
+
 @media (max-width: 1199px) {
-  .cashly-modern .about-reference-story__grid {
+  .cashly-modern .about-reference-story__layout {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .cashly-modern .about-reference-story__heading {
+  .cashly-modern .about-reference-story__content {
     max-width: 42rem;
   }
 
+  .cashly-modern .about-reference-story__points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cashly-modern .about-reference-leadership__shell,
   .cashly-modern .about-reference-impact__grid,
   .cashly-modern .about-reference-life__grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .cashly-modern .about-reference-leadership__grid,
   .cashly-modern .about-reference-highlights {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1341,10 +1697,15 @@
     padding-top: 3.25rem;
   }
 
-  .cashly-modern .about-reference-story__panel,
+  .cashly-modern .about-reference-leadership__shell,
   .cashly-modern .about-reference-impact-card,
   .cashly-modern .about-reference-life__content {
     padding: 1.5rem;
+  }
+
+  .cashly-modern .about-reference-story__points {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 1.5rem;
   }
 
   .cashly-modern .about-reference-story__media img,
@@ -1352,6 +1713,11 @@
     min-height: 280px;
   }
 
+  .cashly-modern .about-reference-careers__banner {
+    padding: 2rem 1.5rem;
+  }
+
+  .cashly-modern .about-reference-leadership__grid,
   .cashly-modern .about-reference-team__grid,
   .cashly-modern .about-reference-highlights {
     grid-template-columns: minmax(0, 1fr);
@@ -1740,6 +2106,11 @@
   margin-top: 1.2rem;
 }
 
+.cashly-modern.home-page .problem-learn-more {
+  display: inline-flex;
+  margin-top: 1.5rem;
+}
+
 .cashly-modern.home-page .journey-panel,
 .cashly-modern.home-page .faq-shell,
 .cashly-modern.home-page .callback-shell {
@@ -2124,15 +2495,21 @@
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-shell {
-  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-  border-radius: 34px;
-  box-shadow: 0 42px 100px rgba(20, 44, 85, 0.18);
-  padding: 1.15rem;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 52%, #edf4ff 100%);
+  border-radius: 38px;
+  box-shadow: 0 42px 100px rgba(20, 44, 85, 0.16);
+  overflow: hidden;
+  padding: 1.2rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-shell,
 .cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
-  padding: 2.2rem;
+  padding: 2.45rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-shell {
+  display: grid;
+  gap: 1.35rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-shell,
@@ -2166,20 +2543,20 @@
 .cashly-modern.home-page .borrower-calculator-modal .calculator-trust-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 1.2rem 0 1.6rem;
+  gap: 12px;
+  margin: 1.25rem 0 1.75rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-trust-strip span {
-  background: rgba(36, 89, 211, 0.07);
-  border: 1px solid rgba(36, 89, 211, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(36, 89, 211, 0.14);
   border-radius: 999px;
   color: #2459d3;
   display: inline-flex;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  padding: 0.6rem 0.9rem;
+  padding: 0.65rem 0.95rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .section-kicker {
@@ -2187,6 +2564,47 @@
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.11em;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__meta {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__meta strong,
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__meta span {
+  color: #213046;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__track {
+  background: rgba(36, 89, 211, 0.08);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__track span {
+  background: linear-gradient(90deg, #2459d3 0%, #6f95f0 100%);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  transition: width 0.24s ease;
+  width: 40%;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-step {
+  display: grid;
+  gap: 1.2rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-shell label,
@@ -2201,12 +2619,259 @@
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control,
 .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form .form-control {
+  background: rgba(255, 255, 255, 0.94);
   border-color: rgba(19, 35, 58, 0.09);
-  border-radius: 16px;
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   font-weight: 600;
-  min-height: 58px;
-  padding: 0.95rem 1rem;
+  min-height: 60px;
+  padding: 1rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .callback-form-shell .form-control:focus,
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form .form-control:focus {
+  background: #ffffff;
+  border-color: rgba(36, 89, 211, 0.34);
+  box-shadow: 0 0 0 4px rgba(36, 89, 211, 0.1);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-property-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-property-grid--binary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-group {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(19, 35, 58, 0.07);
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-group__top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-group__label {
+  color: #213046;
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-group__options {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice {
+  position: relative;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice input {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__label {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 22px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  justify-content: space-between;
+  margin-bottom: 0;
+  min-height: 120px;
+  padding: 1rem 1.05rem;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice--binary .questionnaire-choice__label {
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border-radius: 18px;
+  gap: 0;
+  justify-content: center;
+  min-height: 82px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice--binary .questionnaire-choice__label strong {
+  font-size: 1.02rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice--property .questionnaire-choice__label {
+  gap: 0.9rem;
+  min-height: 0;
+  padding: 0.7rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__media {
+  align-items: center;
+  background: linear-gradient(180deg, #f7f9fe 0%, #eef4ff 100%);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.85rem;
+  position: relative;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__media::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(36, 89, 211, 0.05) 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__media img {
+  display: block;
+  height: 76px;
+  object-fit: contain;
+  width: auto;
+  max-width: 100%;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__label strong {
+  color: #13233a;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice__label > span:not(.questionnaire-choice__media) {
+  color: #5b6b81;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice input:checked + .questionnaire-choice__label {
+  background: linear-gradient(180deg, #edf4ff 0%, #ffffff 100%);
+  border-color: rgba(36, 89, 211, 0.45);
+  box-shadow: 0 18px 32px rgba(36, 89, 211, 0.14), inset 0 0 0 1px rgba(36, 89, 211, 0.18);
+  transform: translateY(-2px);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice--binary input:checked + .questionnaire-choice__label {
+  background: linear-gradient(180deg, #e4efff 0%, #f8fbff 100%);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice--binary input:checked + .questionnaire-choice__label strong {
+  color: #2459d3;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice input:focus + .questionnaire-choice__label,
+.cashly-modern.home-page .borrower-calculator-modal .questionnaire-choice input:focus-visible + .questionnaire-choice__label {
+  border-color: rgba(36, 89, 211, 0.32);
+  box-shadow: 0 0 0 4px rgba(36, 89, 211, 0.12);
+}
+
+@media (min-width: 640px) {
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field {
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(19, 35, 58, 0.08);
+  border-radius: 24px;
+  display: flex;
+  overflow: hidden;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field__prefix {
+  align-items: center;
+  background: rgba(36, 89, 211, 0.06);
+  color: #2459d3;
+  display: inline-flex;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  justify-content: center;
+  min-width: 72px;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field__body {
+  flex: 1 1 auto;
+  padding: 0.95rem 1rem 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field__body label {
+  display: block;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field .form-control {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 52px;
+  padding: 0;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-money-field .form-control:focus {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-slider-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal #calculator-amount-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(90deg, rgba(36, 89, 211, 0.16) 0%, rgba(36, 89, 211, 0.06) 100%);
+  border-radius: 999px;
+  height: 10px;
+  outline: none;
+  width: 100%;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal #calculator-amount-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #2459d3;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(36, 89, 211, 0.2);
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal #calculator-amount-range::-moz-range-thumb {
+  background: #2459d3;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(36, 89, 211, 0.2);
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-step-actions {
@@ -2217,10 +2882,18 @@
   justify-content: flex-end;
 }
 
+.cashly-modern.home-page .borrower-calculator-modal .calculator-step-actions--split {
+  justify-content: space-between;
+}
+
 .cashly-modern.home-page .borrower-calculator-modal #calculatorNextButton {
   min-width: 168px;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal #calculatorValueNextButton {
+  min-width: 168px;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-step-note {
@@ -2231,18 +2904,23 @@
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-form-note {
-  background: rgba(36, 89, 211, 0.05);
-  border: 1px solid rgba(36, 89, 211, 0.08);
-  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(36, 89, 211, 0.05) 0%, rgba(255, 255, 255, 0.86) 100%);
+  border: 1px solid rgba(36, 89, 211, 0.1);
+  border-radius: 18px;
   color: #5b6b81;
   font-size: 0.88rem;
   line-height: 1.65;
   margin: 0;
-  padding: 0.9rem 1rem;
+  padding: 0.95rem 1rem;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
-  background: linear-gradient(180deg, #fbfdff 0%, #f1f6ff 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, #eef4ff 100%);
+  border-left: 1px solid rgba(36, 89, 211, 0.08);
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-sidebar {
+  display: grid;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-form {
@@ -2250,6 +2928,8 @@
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-result-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  border: 1px solid rgba(36, 89, 211, 0.08);
   border-radius: 22px;
   margin-top: 1.35rem;
   padding: 1.45rem;
@@ -2263,9 +2943,10 @@
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-result-card strong {
-  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin: 0.1rem 0 0.45rem;
 }
 
@@ -2313,6 +2994,11 @@
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
+}
+
+.cashly-modern.home-page .borrower-calculator-modal .calculator-lead-points--summary strong {
+  color: #13233a;
+  font-weight: 700;
 }
 
 .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-points li {
@@ -2398,22 +3084,10 @@
   padding: 0.9rem 1rem;
 }
 
-.cashly-modern.home-page .borrower-calculator-modal .calculator-result-email-notice {
-  background: rgba(36, 89, 211, 0.06);
-  border: 1px solid rgba(36, 89, 211, 0.1);
-  border-radius: 18px;
-  color: #2459d3;
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 700;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0.95rem 1rem;
-}
-
 .cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 0;
 }
 
@@ -2423,8 +3097,10 @@
   font-size: 0.92rem;
   justify-content: center;
   min-height: 48px;
+  min-width: 220px;
   padding-left: 1rem;
   padding-right: 1rem;
+  width: auto;
 }
 
 @media (max-width: 991px) {
@@ -2438,9 +3114,26 @@
 }
 
 @media (max-width: 767px) {
+  .cashly-modern.home-page .borrower-calculator-modal .questionnaire-binary-group__options,
   .cashly-modern.home-page .borrower-calculator-modal .calculator-lead-actions--split,
   .cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions {
     grid-template-columns: 1fr;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-quiz-progress__meta,
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-step-actions--split {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-money-field {
+    flex-direction: column;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-money-field__prefix {
+    justify-content: flex-start;
+    min-width: 100%;
+    padding: 0.85rem 1rem 0;
   }
 
   .cashly-modern.home-page .borrower-calculator-modal .calculator-result-shell,
@@ -2451,6 +3144,16 @@
   .cashly-modern.home-page .borrower-calculator-modal .calculator-result-brand__top img {
     flex-basis: auto;
     max-width: 132px;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .callback-form-shell,
+  .cashly-modern.home-page .borrower-calculator-modal .callback-info-shell {
+    padding: 1.45rem;
+  }
+
+  .cashly-modern.home-page .borrower-calculator-modal .calculator-result-actions .btn {
+    min-width: 100%;
+    width: 100%;
   }
 }
 
@@ -3995,6 +4698,17 @@
     width: 100%;
   }
 
+  .cashly-modern .nav-powered {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .cashly-modern .nav-powered__link {
+    justify-content: center;
+    width: 100%;
+  }
+
   .cashly-modern .nav-cta .btn-main-md {
     width: 100%;
   }
@@ -4122,6 +4836,33 @@
 
   .cashly-modern .home-section-actions .btn-main-md,
   .cashly-modern .home-section-actions .btn-secondary-modern {
+    width: 100%;
+  }
+
+  .cashly-modern .product-pillar-card__media img {
+    height: 190px;
+    min-height: 190px;
+  }
+
+  .cashly-modern .product-pillar-card {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+
+  .cashly-modern .product-pillar-card__media {
+    flex: 0 0 auto;
+    padding: 0.9rem 0.9rem 0;
+  }
+
+  .cashly-modern .product-pillar-card__body {
+    padding: 1.35rem 1.6rem 1.6rem;
+  }
+
+  .cashly-modern .product-pillar-card__actions .btn,
+  .cashly-modern .product-pillar-card__actions .btn-secondary-modern,
+  .cashly-modern .product-section-actions .btn,
+  .cashly-modern .product-section-actions .btn-secondary-modern {
     width: 100%;
   }
 

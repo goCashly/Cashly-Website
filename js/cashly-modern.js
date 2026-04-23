@@ -1,12 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const callbackForm = document.getElementById("homeCallbackForm");
-  const callbackMessage = document.getElementById("homeCallbackMessage");
-  const callbackSubmitButton = document.getElementById("homeCallbackSubmitButton");
-  const callbackTurnstileContainer = document.getElementById("homeCallbackTurnstile");
-  const defaultCallbackButtonText = callbackSubmitButton ? callbackSubmitButton.textContent.trim() : "Submit";
-  let callbackTurnstileWidgetId = null;
-  let callbackTurnstileToken = "";
-  let callbackTurnstileReady = false;
+  const callbackFormConfigs = [
+    {
+      form: document.getElementById("homeCallbackForm"),
+      messageElement: document.getElementById("homeCallbackMessage"),
+      submitButton: document.getElementById("homeCallbackSubmitButton"),
+      turnstileContainer: document.getElementById("homeCallbackTurnstile")
+    },
+    {
+      form: document.getElementById("productCallbackForm"),
+      messageElement: document.getElementById("productCallbackMessage"),
+      submitButton: document.getElementById("productCallbackSubmitButton"),
+      turnstileContainer: document.getElementById("productCallbackTurnstile")
+    }
+  ];
   const calculatorModal = document.getElementById("borrowerCalculatorModal");
   const calculatorForm = document.getElementById("mortgageCalculatorForm");
   const calculatorNextButton = document.getElementById("calculatorNextButton");
@@ -20,10 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const calculatorLeadTurnstileContainer = document.getElementById("calculatorLeadTurnstile");
   const calculatorResultModal = document.getElementById("calculatorResultModal");
   const calculatorResultDate = document.getElementById("calculator-result-date");
-  const calculatorDownloadPdfButton = document.getElementById("calculatorDownloadPdfButton");
-  const calculatorRequestCallbackButton = document.getElementById("calculatorRequestCallbackButton");
-  const calculatorResultEmailNotice = document.getElementById("calculatorResultEmailNotice");
-  const defaultCalculatorLeadButtonText = calculatorLeadSubmitButton ? calculatorLeadSubmitButton.textContent.trim() : "Unlock My Estimate";
+  const defaultCalculatorLeadButtonText = calculatorLeadSubmitButton ? calculatorLeadSubmitButton.textContent.trim() : "Get Your Rates";
   const calculatorModalHash = "#borrowerCalculatorModal";
   let calculatorLeadTurnstileWidgetId = null;
   let calculatorLeadTurnstileToken = "";
@@ -32,9 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let calculatorTransitioningToLeadModal = false;
   let calculatorReopenAfterLeadModal = false;
   let calculatorOpenResultAfterLeadModal = false;
-  let calculatorEstimateEmailSent = false;
-  let calculatorEstimateEmailAddress = "";
-  let shouldOpenCallbackSectionAfterCalculatorResult = false;
 
   if (window.AOS) {
     window.AOS.init({
@@ -79,6 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
+        const isServiceToggle = dropdown.classList.contains("service-nav");
+        const clickedIcon = Boolean(event.target.closest("span, i"));
+
+        if (isServiceToggle && !clickedIcon) {
+          return;
+        }
+
         event.preventDefault();
 
         const willOpen = !dropdown.classList.contains("is-open");
@@ -116,11 +123,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const calculatorValueNextButton = document.getElementById("calculatorValueNextButton");
+  const calculatorAmountRange = document.getElementById("calculator-amount-range");
+  const calculatorOwnPropertyOptions = Array.from(document.querySelectorAll("input[name=\"own_property\"]"));
+  const calculatorPropertyTypeOptions = Array.from(document.querySelectorAll("input[name=\"property_type\"]"));
+  const calculatorStepPanels = calculatorForm ? Array.from(calculatorForm.querySelectorAll(".calculator-quiz-step")) : [];
+  const calculatorStepBackButtons = calculatorForm ? Array.from(calculatorForm.querySelectorAll(".calculator-step-back")) : [];
   const calculatorInputs = {
-    property: document.getElementById("calculator-property"),
-    downPayment: document.getElementById("calculator-down-payment"),
-    rate: document.getElementById("calculator-rate"),
-    years: document.getElementById("calculator-years")
+    propertyValue: document.getElementById("calculator-property"),
+    amountNeeded: document.getElementById("calculator-down-payment"),
+    province: document.getElementById("calculator-lead-province")
+  };
+  const calculatorUi = {
+    stepCounter: document.getElementById("calculatorStepCounter"),
+    stepLabel: document.getElementById("calculatorStepLabel"),
+    progressBar: document.getElementById("calculatorProgressBar"),
+    sidebarStep: document.getElementById("calculatorSidebarStep"),
+    sidebarTitle: document.getElementById("calculatorSidebarTitle"),
+    sidebarCopy: document.getElementById("calculatorSidebarCopy"),
+    propertyValueTitle: document.getElementById("calculatorPropertyValueTitle"),
+    propertyValueDescription: document.getElementById("calculatorPropertyValueDescription"),
+    propertyValueLabel: document.getElementById("calculatorPropertyValueLabel"),
+    amountTitle: document.getElementById("calculatorAmountTitle"),
+    amountDescription: document.getElementById("calculatorAmountDescription"),
+    amountLabel: document.getElementById("calculatorAmountLabel"),
+    previewOwnProperty: document.getElementById("calculator-preview-own-property"),
+    previewPropertyType: document.getElementById("calculator-preview-property-type"),
+    previewPropertyValueLabel: document.getElementById("calculatorPreviewPropertyValueLabel"),
+    previewAmountLabel: document.getElementById("calculatorPreviewAmountLabel"),
+    previewPropertyValue: document.getElementById("calculator-preview-property-value"),
+    previewAmountNeeded: document.getElementById("calculator-preview-amount-needed"),
+    resultCaption: document.getElementById("calculator-result-caption")
   };
   const calculatorOutputs = {
     monthly: document.getElementById("calculator-monthly"),
@@ -131,16 +164,43 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (
-    calculatorInputs.property &&
-    calculatorInputs.downPayment &&
-    calculatorInputs.rate &&
-    calculatorInputs.years &&
+    calculatorForm &&
+    calculatorLeadForm &&
+    calculatorValueNextButton &&
+    calculatorAmountRange &&
+    calculatorInputs.propertyValue &&
+    calculatorInputs.amountNeeded &&
+    calculatorInputs.province &&
+    calculatorOwnPropertyOptions.length > 0 &&
+    calculatorPropertyTypeOptions.length > 0 &&
+    calculatorStepPanels.length > 0 &&
+    calculatorUi.stepCounter &&
+    calculatorUi.stepLabel &&
+    calculatorUi.progressBar &&
+    calculatorUi.sidebarStep &&
+    calculatorUi.sidebarTitle &&
+    calculatorUi.sidebarCopy &&
+    calculatorUi.propertyValueTitle &&
+    calculatorUi.propertyValueDescription &&
+    calculatorUi.propertyValueLabel &&
+    calculatorUi.amountTitle &&
+    calculatorUi.amountDescription &&
+    calculatorUi.amountLabel &&
+    calculatorUi.previewOwnProperty &&
+    calculatorUi.previewPropertyType &&
+    calculatorUi.previewPropertyValueLabel &&
+    calculatorUi.previewAmountLabel &&
+    calculatorUi.previewPropertyValue &&
+    calculatorUi.previewAmountNeeded &&
+    calculatorUi.resultCaption &&
     calculatorOutputs.monthly &&
     calculatorOutputs.loan &&
     calculatorOutputs.interest &&
     calculatorOutputs.years &&
     calculatorOutputs.ltv
   ) {
+    const DEFAULT_INTEREST_RATE = 8.99;
+    const DEFAULT_AMORTIZATION_YEARS = 25;
     const currencyFormatter = new Intl.NumberFormat("en-CA", {
       style: "currency",
       currency: "CAD",
@@ -155,21 +215,137 @@ document.addEventListener("DOMContentLoaded", () => {
       day: "numeric",
       year: "numeric"
     });
+    const quizStepConfig = {
+      "own-property": {
+        counter: "1 / 5",
+        label: "Own Property",
+        progress: 20,
+        sidebarStep: "Step 1 of 5",
+        sidebarTitle: "Tell us whether you own the property.",
+        sidebarCopy: "A quick yes or no helps us understand whether this is an existing property or a purchase you are planning for."
+      },
+      "property-type": {
+        counter: "2 / 5",
+        label: "Property Type",
+        progress: 40,
+        sidebarStep: "Step 2 of 5",
+        sidebarTitle: "Choose the property type.",
+        sidebarCopy: "Select the option that best matches the property so we can guide you to the right private mortgage conversation."
+      },
+      "property-value": {
+        counter: "3 / 5",
+        label: "Property Value",
+        progress: 60,
+        sidebarStep: "Step 3 of 5",
+        sidebarTitle: "Tell us the home value.",
+        sidebarCopy: "If you have not found a property yet, use the approximate amount you are targeting."
+      },
+      "amount-needed": {
+        counter: "4 / 5",
+        label: "Amount Needed",
+        progress: 80,
+        sidebarStep: "Step 4 of 5",
+        sidebarTitle: "Choose how much you need.",
+        sidebarCopy: "Use the slider or enter a number directly to estimate how much you want to borrow."
+      }
+    };
+    let calculatorSubmittedQuestionnaire = null;
+    let calculatorCurrentStep = "own-property";
 
-    const getInputValue = (input) => {
-      const parsed = Number.parseFloat(input.value);
-      return Number.isFinite(parsed) ? parsed : 0;
+    const getNumberInputValue = (input) => {
+      const parsedValue = Number.parseFloat(input.value);
+      return Number.isFinite(parsedValue) ? Math.max(parsedValue, 0) : 0;
     };
 
-    const calculateMortgageEstimate = () => {
-      const propertyValue = Math.max(getInputValue(calculatorInputs.property), 0);
-      const downPayment = Math.max(getInputValue(calculatorInputs.downPayment), 0);
-      const annualRate = Math.max(getInputValue(calculatorInputs.rate), 0);
-      const years = Math.max(getInputValue(calculatorInputs.years), 1);
-      const loanAmount = Math.max(propertyValue - downPayment, 0);
-      const totalMonths = Math.max(Math.round(years * 12), 1);
-      const monthlyRate = annualRate / 100 / 12;
+    const getSelectedOwnPropertyOption = () => {
+      return calculatorOwnPropertyOptions.find((option) => option.checked) || null;
+    };
 
+    const getSelectedPropertyTypeOption = () => {
+      return calculatorPropertyTypeOptions.find((option) => option.checked) || null;
+    };
+
+    const formatCurrencyValue = (value) => {
+      return value > 0 ? currencyFormatter.format(value) : "Not provided";
+    };
+
+    const getOwnPropertyMode = () => {
+      const ownProperty = getSelectedOwnPropertyOption();
+      return ownProperty && ownProperty.value === "No" ? "purchase" : "owned";
+    };
+
+    const getFlowCopy = () => {
+      if (getOwnPropertyMode() === "purchase") {
+        return {
+          propertyValueTitle: "What is the expected purchase price?",
+          propertyValueDescription: "If you have not found a property yet, simply enter the approximate amount you’re looking for.",
+          propertyValueLabel: "Expected Purchase Price",
+          amountTitle: "How much down payment do you have?",
+          amountDescription: "Move the slider or enter the approximate down payment amount you have available.",
+          amountLabel: "Down Payment",
+          previewPropertyValueLabel: "Expected purchase price",
+          previewAmountLabel: "Down payment",
+          resultCaption: "Based on the expected purchase price and down payment entered, using a sample 8.99% rate over 25 years.",
+          propertyValueStepTitle: "Tell us the expected purchase price.",
+          propertyValueStepCopy: "If you have not found a property yet, use the approximate purchase price you are targeting.",
+          amountStepTitle: "Tell us the down payment.",
+          amountStepCopy: "Use the slider or enter the down payment amount you have available for the purchase."
+        };
+      }
+
+      return {
+        propertyValueTitle: "How much is the property worth?",
+        propertyValueDescription: "Enter the approximate value of the property.",
+        propertyValueLabel: "Property Value",
+        amountTitle: "How much money do you need?",
+        amountDescription: "Move the slider or enter the approximate amount you want to borrow.",
+        amountLabel: "Amount Needed",
+        previewPropertyValueLabel: "Property value",
+        previewAmountLabel: "Amount needed",
+        resultCaption: "Based on the property value and amount entered, using a sample 8.99% rate over 25 years.",
+        propertyValueStepTitle: "Tell us the property value.",
+        propertyValueStepCopy: "Enter the approximate value of the property you already own.",
+        amountStepTitle: "Choose how much you need.",
+        amountStepCopy: "Use the slider or enter a number directly to estimate how much you want to borrow."
+      };
+    };
+
+    const applyFlowCopy = () => {
+      const flowCopy = getFlowCopy();
+
+      calculatorUi.propertyValueTitle.textContent = flowCopy.propertyValueTitle;
+      calculatorUi.propertyValueDescription.textContent = flowCopy.propertyValueDescription;
+      calculatorUi.propertyValueLabel.textContent = flowCopy.propertyValueLabel;
+      calculatorUi.amountTitle.textContent = flowCopy.amountTitle;
+      calculatorUi.amountDescription.textContent = flowCopy.amountDescription;
+      calculatorUi.amountLabel.textContent = flowCopy.amountLabel;
+      calculatorUi.previewPropertyValueLabel.textContent = flowCopy.previewPropertyValueLabel;
+      calculatorUi.previewAmountLabel.textContent = flowCopy.previewAmountLabel;
+      calculatorUi.resultCaption.textContent = flowCopy.resultCaption;
+    };
+
+    const buildCalculatorQuestionnairePayload = () => {
+      const ownProperty = getSelectedOwnPropertyOption();
+      const propertyType = getSelectedPropertyTypeOption();
+
+      return {
+        own_property: ownProperty ? ownProperty.value : "",
+        own_property_label: ownProperty ? ownProperty.dataset.label || ownProperty.value : "",
+        property_type: propertyType ? propertyType.value : "",
+        property_type_label: propertyType ? propertyType.dataset.label || propertyType.value : "",
+        property_value: getNumberInputValue(calculatorInputs.propertyValue),
+        amount_needed: getNumberInputValue(calculatorInputs.amountNeeded),
+        province: calculatorInputs.province.value.trim()
+      };
+    };
+
+    const calculateMortgageEstimate = (questionnaire) => {
+      const propertyValue = Math.max(questionnaire.property_value || 0, 0);
+      const loanAmount = questionnaire.own_property === "No"
+        ? Math.max(propertyValue - Math.max(questionnaire.amount_needed || 0, 0), 0)
+        : Math.max(questionnaire.amount_needed || 0, 0);
+      const totalMonths = DEFAULT_AMORTIZATION_YEARS * 12;
+      const monthlyRate = DEFAULT_INTEREST_RATE / 100 / 12;
       let monthlyPayment = 0;
 
       if (loanAmount > 0) {
@@ -181,29 +357,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      const totalInterest = Math.max(monthlyPayment * totalMonths - loanAmount, 0);
-      const loanToValue = propertyValue > 0 ? (loanAmount / propertyValue) * 100 : 0;
-
       return {
-        propertyValue,
-        downPayment,
-        annualRate,
-        years,
-        loanAmount,
         monthlyPayment,
-        totalInterest,
-        loanToValue
+        loanAmount,
+        totalInterest: Math.max(monthlyPayment * totalMonths - loanAmount, 0),
+        years: DEFAULT_AMORTIZATION_YEARS,
+        loanToValue: propertyValue > 0 ? (loanAmount / propertyValue) * 100 : 0
       };
-    };
-
-    const updateCalculator = () => {
-      const estimate = calculateMortgageEstimate();
-
-      calculatorOutputs.monthly.textContent = currencyFormatter.format(estimate.monthlyPayment);
-      calculatorOutputs.loan.textContent = currencyFormatter.format(estimate.loanAmount);
-      calculatorOutputs.interest.textContent = currencyFormatter.format(estimate.totalInterest);
-      calculatorOutputs.years.textContent = `${Math.round(estimate.years)} years`;
-      calculatorOutputs.ltv.textContent = `${percentageFormatter.format(estimate.loanToValue)}%`;
     };
 
     const updateCalculatorResultDate = () => {
@@ -214,311 +374,137 @@ document.addEventListener("DOMContentLoaded", () => {
       calculatorResultDate.textContent = dateFormatter.format(new Date());
     };
 
-    const buildCalculatorEstimatePayload = () => {
-      const estimate = calculateMortgageEstimate();
+    const updateCalculatorPreview = () => {
+      const questionnaire = calculatorSubmittedQuestionnaire || buildCalculatorQuestionnairePayload();
+      applyFlowCopy();
 
-      return {
-        property_value: estimate.propertyValue,
-        down_payment: estimate.downPayment,
-        interest_rate: estimate.annualRate,
-        amortization_years: Math.round(estimate.years),
-        loan_amount: estimate.loanAmount,
-        monthly_payment: estimate.monthlyPayment,
-        total_interest: estimate.totalInterest,
-        loan_to_value: estimate.loanToValue
-      };
+      calculatorUi.previewOwnProperty.textContent = questionnaire.own_property_label || "Not provided";
+      calculatorUi.previewPropertyType.textContent = questionnaire.property_type_label || "Not provided";
+      calculatorUi.previewPropertyValue.textContent = formatCurrencyValue(questionnaire.property_value);
+      calculatorUi.previewAmountNeeded.textContent = formatCurrencyValue(questionnaire.amount_needed);
+    };
+
+    const updateCalculatorOutputs = () => {
+      const questionnaire = calculatorSubmittedQuestionnaire || buildCalculatorQuestionnairePayload();
+      const estimate = calculateMortgageEstimate(questionnaire);
+
+      calculatorOutputs.monthly.textContent = currencyFormatter.format(estimate.monthlyPayment);
+      calculatorOutputs.loan.textContent = currencyFormatter.format(estimate.loanAmount);
+      calculatorOutputs.interest.textContent = currencyFormatter.format(estimate.totalInterest);
+      calculatorOutputs.years.textContent = `${estimate.years} years`;
+      calculatorOutputs.ltv.textContent = `${percentageFormatter.format(estimate.loanToValue)}%`;
     };
 
     const buildCalculatorLeadMessage = () => {
-      const estimate = buildCalculatorEstimatePayload();
+      const questionnaire = buildCalculatorQuestionnairePayload();
+      const estimate = calculateMortgageEstimate(questionnaire);
+      const flowCopy = getFlowCopy();
 
       return [
-        "Calculator lead request",
-        `Property value: ${currencyFormatter.format(estimate.property_value)}`,
-        `Down payment: ${currencyFormatter.format(estimate.down_payment)}`,
-        `Interest rate: ${percentageFormatter.format(estimate.interest_rate)}%`,
-        `Amortization: ${Math.round(estimate.amortization_years)} years`,
-        `Estimated monthly payment: ${currencyFormatter.format(estimate.monthly_payment)}`,
-        `Estimated loan amount: ${currencyFormatter.format(estimate.loan_amount)}`,
-        `Estimated total interest: ${currencyFormatter.format(estimate.total_interest)}`,
-        `Estimated loan-to-value: ${percentageFormatter.format(estimate.loan_to_value)}%`
+        "Private mortgage rates request",
+        `Own property: ${questionnaire.own_property_label || "Not provided"}`,
+        `Property type: ${questionnaire.property_type_label || "Not provided"}`,
+        `${flowCopy.previewPropertyValueLabel}: ${formatCurrencyValue(questionnaire.property_value)}`,
+        `${flowCopy.previewAmountLabel}: ${formatCurrencyValue(questionnaire.amount_needed)}`,
+        `Province: ${questionnaire.province || "Not provided"}`,
+        `Estimated monthly payment: ${currencyFormatter.format(estimate.monthlyPayment)}`,
+        `Estimated loan amount: ${currencyFormatter.format(estimate.loanAmount)}`,
+        `Estimated total interest: ${currencyFormatter.format(estimate.totalInterest)}`,
+        `Estimated loan-to-value: ${percentageFormatter.format(estimate.loanToValue)}%`
       ].join("\n");
     };
 
-    const updateCalculatorResultEmailNotice = () => {
-      if (!calculatorResultEmailNotice) {
+    const setStatusMessage = (element, type, text) => {
+      if (!element) {
         return;
       }
 
-      if (!calculatorEstimateEmailSent || !calculatorEstimateEmailAddress) {
-        calculatorResultEmailNotice.hidden = true;
-        calculatorResultEmailNotice.textContent = "";
+      element.className = "callback-message";
+
+      if (type === "success") {
+        element.classList.add("is-success");
+      }
+
+      if (type === "error") {
+        element.classList.add("is-error");
+      }
+
+      element.textContent = text;
+    };
+
+    const updateAmountRangeBounds = () => {
+      const propertyValue = Math.max(getNumberInputValue(calculatorInputs.propertyValue), 0);
+      const amountNeeded = Math.max(getNumberInputValue(calculatorInputs.amountNeeded), 0);
+      const computedMax = Math.max(propertyValue, amountNeeded, 500000);
+
+      calculatorAmountRange.max = String(Math.ceil(computedMax / 5000) * 5000);
+
+      if (amountNeeded > 0) {
+        calculatorAmountRange.value = String(Math.min(amountNeeded, Number.parseFloat(calculatorAmountRange.max)));
         return;
       }
 
-      calculatorResultEmailNotice.hidden = false;
-      calculatorResultEmailNotice.textContent = `A copy of this estimate has been emailed to ${calculatorEstimateEmailAddress}.`;
+      calculatorAmountRange.value = "0";
     };
 
-    const escapeHtml = (value) => {
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+    const syncAmountNeededFromRange = () => {
+      calculatorInputs.amountNeeded.value = calculatorAmountRange.value;
+      updateCalculatorPreview();
     };
 
-    const buildCalculatorResultPdfMarkup = () => {
-      const estimate = buildCalculatorEstimatePayload();
-      const logoUrl = new URL("images/cashly-logo-nav.png", window.location.href).href;
+    const syncAmountRangeFromInput = () => {
+      updateAmountRangeBounds();
 
-      return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cashly Payment Plan</title>
-  <style>
-    body {
-      background: #f3f8ff;
-      color: #13233a;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 28px;
-    }
-
-    .sheet {
-      background: #ffffff;
-      border: 1px solid rgba(19, 35, 58, 0.08);
-      border-radius: 28px;
-      box-shadow: 0 20px 50px rgba(20, 44, 85, 0.12);
-      margin: 0 auto;
-      max-width: 860px;
-      overflow: hidden;
-    }
-
-    .hero {
-      background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
-      padding: 30px;
-    }
-
-    .hero-top {
-      align-items: flex-start;
-      display: flex;
-      gap: 20px;
-    }
-
-    .hero-top img {
-      display: block;
-      max-width: 150px;
-      width: 100%;
-    }
-
-    .kicker {
-      color: #4d6fc4;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: 34px;
-      line-height: 1.08;
-      margin: 12px 0 10px;
-    }
-
-    .hero p,
-    .footer p {
-      color: #5b6b81;
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .meta {
-      background: #eef5ff;
-      border-radius: 18px;
-      color: #50637b;
-      display: flex;
-      font-size: 13px;
-      font-weight: 700;
-      justify-content: space-between;
-      margin-top: 20px;
-      padding: 14px 18px;
-    }
-
-    .body {
-      padding: 0 30px 30px;
-    }
-
-    .highlight {
-      background: linear-gradient(180deg, #1f4fb9 0%, #163a87 100%);
-      border-radius: 24px;
-      color: #ffffff;
-      margin-top: -8px;
-      padding: 28px;
-    }
-
-    .eyebrow {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .highlight strong {
-      display: block;
-      font-size: 42px;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .highlight p {
-      color: rgba(255, 255, 255, 0.84);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-top: 22px;
-    }
-
-    .card {
-      background: #f8fbff;
-      border: 1px solid rgba(36, 89, 211, 0.08);
-      border-radius: 20px;
-      padding: 18px;
-    }
-
-    .card strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1.25;
-    }
-
-    .footer {
-      border-top: 1px solid rgba(19, 35, 58, 0.08);
-      margin-top: 24px;
-      padding-top: 18px;
-    }
-
-    .footer a {
-      color: #2459d3;
-      text-decoration: none;
-    }
-
-    @media print {
-      body {
-        background: #ffffff;
-        padding: 0;
-      }
-
-      .sheet {
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-        max-width: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="sheet">
-    <div class="hero">
-      <div class="hero-top">
-        <img src="${escapeHtml(logoUrl)}" alt="Cashly logo">
-        <div>
-          <span class="kicker">Your Estimate</span>
-          <h1>Your mortgage payment plan is ready.</h1>
-          <p>Use this as a starting point, then book a free review if you want help comparing realistic next steps.</p>
-        </div>
-      </div>
-      <div class="meta">
-        <span>Prepared by Cashly</span>
-        <span>${escapeHtml(dateFormatter.format(new Date()))}</span>
-      </div>
-    </div>
-
-    <div class="body">
-      <div class="highlight">
-        <span class="eyebrow">Estimated monthly payment</span>
-        <strong>${escapeHtml(currencyFormatter.format(estimate.monthly_payment))}</strong>
-        <p>Based on the property value, down payment, rate, and amortization entered.</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <span class="eyebrow">Estimated loan amount</span>
-          <strong>${escapeHtml(currencyFormatter.format(estimate.loan_amount))}</strong>
-        </div>
-        <div class="card">
-          <span class="eyebrow">Estimated total interest</span>
-          <strong>${escapeHtml(currencyFormatter.format(estimate.total_interest))}</strong>
-        </div>
-        <div class="card">
-          <span class="eyebrow">Amortization period</span>
-          <strong>${escapeHtml(`${Math.round(estimate.amortization_years)} years`)}</strong>
-        </div>
-        <div class="card">
-          <span class="eyebrow">Estimated loan-to-value</span>
-          <strong>${escapeHtml(`${percentageFormatter.format(estimate.loan_to_value)}%`)}</strong>
-        </div>
-      </div>
-
-      <div class="footer">
-        <p>This estimate is for planning purposes only and does not include taxes, insurance, lender fees, or legal costs.</p>
-        <p>Contact Cashly at <a href="mailto:operations@gocashly.io">operations@gocashly.io</a> or <a href="tel:+12184133596">+1 218-413-3596</a>.</p>
-      </div>
-    </div>
-  </div>
-</body>
-</html>`;
-    };
-
-    const downloadCalculatorResultPdf = () => {
-      const printWindow = window.open("", "_blank");
-
-      if (!printWindow) {
-        window.alert("Please allow pop-ups so you can download your payment plan as a PDF.");
+      const amountNeeded = getNumberInputValue(calculatorInputs.amountNeeded);
+      if (amountNeeded <= 0) {
         return;
       }
 
-      let hasPrinted = false;
-      const startPrint = () => {
-        if (hasPrinted) {
-          return;
-        }
+      calculatorAmountRange.value = String(Math.min(amountNeeded, Number.parseFloat(calculatorAmountRange.max)));
+      updateCalculatorPreview();
+    };
 
-        hasPrinted = true;
-        printWindow.focus();
-        printWindow.print();
-      };
+    const showCalculatorQuizStep = (stepName) => {
+      calculatorCurrentStep = stepName;
 
-      printWindow.document.open();
-      printWindow.document.write(buildCalculatorResultPdfMarkup());
-      printWindow.document.close();
-      printWindow.document.title = "Cashly Payment Plan";
-      printWindow.onload = () => {
-        window.setTimeout(startPrint, 250);
-      };
-      printWindow.onafterprint = () => {
-        printWindow.close();
-      };
-      window.setTimeout(startPrint, 1200);
+      calculatorStepPanels.forEach((panel) => {
+        const isActive = panel.dataset.step === stepName;
+        panel.hidden = !isActive;
+        panel.classList.toggle("is-active", isActive);
+      });
+
+      const config = quizStepConfig[stepName];
+      const flowCopy = getFlowCopy();
+      if (config) {
+        calculatorUi.stepCounter.textContent = config.counter;
+        calculatorUi.stepLabel.textContent = config.label;
+        calculatorUi.progressBar.style.width = `${config.progress}%`;
+        calculatorUi.sidebarStep.textContent = config.sidebarStep;
+        calculatorUi.sidebarTitle.textContent = stepName === "property-value"
+          ? flowCopy.propertyValueStepTitle
+          : stepName === "amount-needed"
+            ? flowCopy.amountStepTitle
+            : config.sidebarTitle;
+        calculatorUi.sidebarCopy.textContent = stepName === "property-value"
+          ? flowCopy.propertyValueStepCopy
+          : stepName === "amount-needed"
+            ? flowCopy.amountStepCopy
+            : config.sidebarCopy;
+      }
+
+      if (stepName === "property-value") {
+        calculatorInputs.propertyValue.focus();
+        calculatorInputs.propertyValue.select();
+      } else if (stepName === "amount-needed") {
+        calculatorInputs.amountNeeded.focus();
+        calculatorInputs.amountNeeded.select();
+      }
     };
 
     const openCalculatorResultModal = () => {
-      updateCalculator();
+      updateCalculatorOutputs();
+      updateCalculatorPreview();
       updateCalculatorResultDate();
-      updateCalculatorResultEmailNotice();
 
       if (window.jQuery && calculatorResultModal) {
         window.jQuery(calculatorResultModal).modal("show");
@@ -541,59 +527,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
-    };
-
-    const openHomepageCallbackSection = () => {
-      const callbackSection = document.getElementById("home-callback");
-
-      if (!callbackSection) {
-        return;
-      }
-
-      callbackSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-      window.setTimeout(() => {
-        const firstField = callbackForm && callbackForm.querySelector("input, textarea, select");
-
-        if (!firstField) {
-          return;
-        }
-
-        firstField.focus();
-
-        if (typeof firstField.select === "function" && firstField.tagName === "INPUT") {
-          firstField.select();
-        }
-      }, 450);
-    };
-
-    Object.values(calculatorInputs).forEach((input) => {
-      input.addEventListener("input", updateCalculator);
-      input.addEventListener("change", updateCalculator);
-    });
-
-    updateCalculator();
-    updateCalculatorResultDate();
-
-    const setStatusMessage = (element, type, text) => {
-      if (!element) {
-        return;
-      }
-
-      element.className = "callback-message";
-
-      if (type === "success") {
-        element.classList.add("is-success");
-      }
-
-      if (type === "error") {
-        element.classList.add("is-error");
-      }
-
-      element.textContent = text;
     };
 
     const openCalculatorLeadStep = () => {
@@ -627,11 +560,20 @@ document.addEventListener("DOMContentLoaded", () => {
       calculatorLeadTurnstileReady = false;
     };
 
-    const resetCalculatorLeadCapture = () => {
-      if (calculatorLeadForm) {
-        calculatorLeadForm.reset();
-      }
+    const resetCalculatorQuestionnaire = () => {
+      calculatorForm.reset();
+      calculatorCurrentStep = "own-property";
+      updateAmountRangeBounds();
+      syncAmountRangeFromInput();
+      applyFlowCopy();
+      updateCalculatorPreview();
+      updateCalculatorOutputs();
+      updateCalculatorResultDate();
+      showCalculatorQuizStep("own-property");
+    };
 
+    const resetCalculatorLeadCapture = () => {
+      calculatorLeadForm.reset();
       setStatusMessage(calculatorLeadMessage, "", "");
       resetCalculatorLeadTurnstile();
     };
@@ -641,10 +583,12 @@ document.addEventListener("DOMContentLoaded", () => {
         calculatorLeadLockedState.hidden = false;
       }
 
+      calculatorSubmittedQuestionnaire = null;
       calculatorTransitioningToLeadModal = false;
       calculatorReopenAfterLeadModal = false;
       calculatorOpenResultAfterLeadModal = false;
       resetCalculatorLeadCapture();
+      resetCalculatorQuestionnaire();
     };
 
     const warmCalculatorLeadTurnstile = () => {
@@ -733,9 +677,62 @@ document.addEventListener("DOMContentLoaded", () => {
       await calculatorLeadTurnstileRenderPromise;
     };
 
-    if (calculatorNextButton && calculatorForm) {
+    calculatorOwnPropertyOptions.forEach((option) => {
+      option.addEventListener("change", () => {
+        applyFlowCopy();
+        updateCalculatorPreview();
+        showCalculatorQuizStep("property-type");
+      });
+    });
+
+    calculatorPropertyTypeOptions.forEach((option) => {
+      option.addEventListener("change", () => {
+        updateCalculatorPreview();
+        showCalculatorQuizStep("property-value");
+      });
+    });
+
+    calculatorStepBackButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetStep = button.dataset.targetStep;
+        if (!targetStep) {
+          return;
+        }
+
+        showCalculatorQuizStep(targetStep);
+      });
+    });
+
+    calculatorInputs.propertyValue.addEventListener("input", () => {
+      updateAmountRangeBounds();
+      updateCalculatorPreview();
+    });
+    calculatorInputs.propertyValue.addEventListener("change", () => {
+      updateAmountRangeBounds();
+      updateCalculatorPreview();
+    });
+    calculatorInputs.amountNeeded.addEventListener("input", syncAmountRangeFromInput);
+    calculatorInputs.amountNeeded.addEventListener("change", syncAmountRangeFromInput);
+    calculatorAmountRange.addEventListener("input", syncAmountNeededFromRange);
+
+    updateAmountRangeBounds();
+    applyFlowCopy();
+    updateCalculatorPreview();
+    updateCalculatorOutputs();
+    updateCalculatorResultDate();
+    showCalculatorQuizStep("own-property");
+
+    calculatorValueNextButton.addEventListener("click", () => {
+      if (!calculatorInputs.propertyValue.reportValidity()) {
+        return;
+      }
+
+      showCalculatorQuizStep("amount-needed");
+    });
+
+    if (calculatorNextButton) {
       calculatorNextButton.addEventListener("click", () => {
-        if (!calculatorForm.reportValidity()) {
+        if (!calculatorInputs.amountNeeded.reportValidity()) {
           return;
         }
 
@@ -763,19 +760,38 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         const formData = new FormData(calculatorLeadForm);
+        const questionnaire = buildCalculatorQuestionnairePayload();
+        const estimate = calculateMortgageEstimate(questionnaire);
+        const downPayment = questionnaire.own_property === "No"
+          ? Math.max(questionnaire.amount_needed, 0)
+          : Math.max(questionnaire.property_value - questionnaire.amount_needed, 0);
         const payload = {
           first_name: getTrimmedFormValue(formData, "first_name"),
           last_name: getTrimmedFormValue(formData, "last_name"),
           email: getTrimmedFormValue(formData, "email"),
           phone: getTrimmedFormValue(formData, "phone"),
+          province: getTrimmedFormValue(formData, "province"),
           message: buildCalculatorLeadMessage(),
-          estimate: buildCalculatorEstimatePayload(),
+          questionnaire: {
+            ...questionnaire,
+            province: getTrimmedFormValue(formData, "province")
+          },
+          estimate: {
+            property_value: questionnaire.property_value,
+            down_payment: downPayment,
+            interest_rate: DEFAULT_INTEREST_RATE,
+            amortization_years: DEFAULT_AMORTIZATION_YEARS,
+            loan_amount: estimate.loanAmount,
+            monthly_payment: estimate.monthlyPayment,
+            total_interest: estimate.totalInterest,
+            loan_to_value: estimate.loanToValue
+          },
           company_name: getTrimmedFormValue(formData, "company_name"),
-          source_page: `${window.location.pathname}#calculator-estimate`,
+          source_page: `${window.location.pathname}#get-your-rates`,
           turnstile_token: calculatorLeadTurnstileToken
         };
 
-        if (!payload.first_name || !payload.last_name || !payload.email || !payload.phone) {
+        if (!payload.first_name || !payload.last_name || !payload.email || !payload.phone || !payload.province) {
           setStatusMessage(calculatorLeadMessage, "error", "Please fill in the required fields before submitting.");
           return;
         }
@@ -784,7 +800,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setStatusMessage(
             calculatorLeadMessage,
             "error",
-            "Calculator form is not configured yet. Add the Edge Function endpoint and Turnstile site key in js/cashly-config.js."
+            "Rates form is not configured yet. Add the Edge Function endpoint and Turnstile site key in js/cashly-config.js."
           );
           return;
         }
@@ -806,17 +822,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         calculatorLeadSubmitButton.disabled = true;
-        calculatorLeadSubmitButton.textContent = "Unlocking";
-        calculatorEstimateEmailSent = false;
-        calculatorEstimateEmailAddress = "";
-        updateCalculatorResultEmailNotice();
+        calculatorLeadSubmitButton.textContent = "Submitting";
         setStatusMessage(calculatorLeadMessage, "", "");
 
         try {
-          const responsePayload = await submitCallbackToEdgeFunction(payload);
-          calculatorEstimateEmailSent = responsePayload && responsePayload.estimate_email_sent === true;
-          calculatorEstimateEmailAddress = calculatorEstimateEmailSent ? payload.email : "";
-          updateCalculatorResultEmailNotice();
+          calculatorSubmittedQuestionnaire = payload.questionnaire;
+          await submitCallbackToEdgeFunction(payload);
           resetCalculatorLeadCapture();
 
           if (window.jQuery && calculatorLeadModal) {
@@ -834,12 +845,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    if (window.jQuery && calculatorModal && calculatorInputs.property) {
+    if (window.jQuery && calculatorModal && calculatorInputs.propertyValue) {
       openCalculatorModalFromHash();
 
       window.jQuery(calculatorModal).on("shown.bs.modal", () => {
-        calculatorInputs.property.focus();
-        calculatorInputs.property.select();
+        showCalculatorQuizStep(calculatorCurrentStep);
       });
 
       window.jQuery(calculatorModal).on("hidden.bs.modal", () => {
@@ -874,43 +884,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (calculatorReopenAfterLeadModal && calculatorModal) {
           calculatorReopenAfterLeadModal = false;
           window.jQuery(calculatorModal).modal("show");
+          return;
         }
+
+        resetCalculatorLeadFlow();
       });
     }
 
     if (window.jQuery && calculatorResultModal) {
       window.jQuery(calculatorResultModal).on("shown.bs.modal", () => {
-        updateCalculator();
+        updateCalculatorPreview();
+        updateCalculatorOutputs();
         updateCalculatorResultDate();
-        updateCalculatorResultEmailNotice();
       });
 
       window.jQuery(calculatorResultModal).on("hidden.bs.modal", () => {
-        if (!shouldOpenCallbackSectionAfterCalculatorResult) {
-          return;
-        }
-
-        shouldOpenCallbackSectionAfterCalculatorResult = false;
-        openHomepageCallbackSection();
-      });
-    }
-
-    if (calculatorDownloadPdfButton) {
-      calculatorDownloadPdfButton.addEventListener("click", downloadCalculatorResultPdf);
-    }
-
-    if (calculatorRequestCallbackButton) {
-      calculatorRequestCallbackButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        shouldOpenCallbackSectionAfterCalculatorResult = true;
-
-        if (window.jQuery && calculatorResultModal) {
-          window.jQuery(calculatorResultModal).modal("hide");
-          return;
-        }
-
-        shouldOpenCallbackSectionAfterCalculatorResult = false;
-        openHomepageCallbackSection();
+        resetCalculatorLeadFlow();
       });
     }
   }
@@ -933,18 +922,12 @@ document.addEventListener("DOMContentLoaded", () => {
     element.textContent = text;
   };
 
-  const setCallbackMessage = (type, text) => {
-    setStatusMessage(callbackMessage, type, text);
-  };
-
   const getTrimmedFormValue = (formData, fieldName) => {
     return (formData.get(fieldName) || "").toString().trim();
   };
 
-  const callbackSubmitMode = callbackForm ? callbackForm.dataset.submitMode || "edge-function" : "edge-function";
   const turnstileApiSrc = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
   let turnstileApiPromise = null;
-  let callbackTurnstileRenderPromise = null;
 
   const getCallbackFormConfig = () => {
     const config = window.CASHLY_CONFIG && window.CASHLY_CONFIG.callbackForm;
@@ -1013,94 +996,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return turnstileApiPromise;
   };
 
-  const resetCallbackTurnstile = () => {
-    callbackTurnstileToken = "";
-
-    if (window.turnstile && callbackTurnstileWidgetId !== null) {
-      window.turnstile.reset(callbackTurnstileWidgetId);
-    }
-  };
-
-  const warmCallbackTurnstile = () => {
-    if (!callbackForm || !callbackTurnstileContainer || callbackTurnstileWidgetId !== null || callbackTurnstileRenderPromise) {
-      return;
-    }
-
-    renderCallbackTurnstile();
-  };
-
-  const waitForCallbackTurnstile = async () => {
-    if (callbackTurnstileWidgetId !== null) {
-      return;
-    }
-
-    await renderCallbackTurnstile();
-  };
-
-  const renderCallbackTurnstile = async () => {
-    if (!callbackForm || !callbackTurnstileContainer) {
-      return;
-    }
-
-    const callbackConfig = getCallbackFormConfig();
-
-    if (!callbackConfig || callbackTurnstileWidgetId !== null) {
-      return;
-    }
-
-    if (callbackTurnstileRenderPromise) {
-      await callbackTurnstileRenderPromise;
-      return;
-    }
-
-    callbackTurnstileReady = false;
-
-    callbackTurnstileRenderPromise = (async () => {
-      try {
-        const turnstile = await waitForTurnstileApi();
-
-        if (callbackTurnstileWidgetId !== null) {
-          return;
-        }
-
-        callbackTurnstileWidgetId = turnstile.render(callbackTurnstileContainer, {
-          sitekey: callbackConfig.turnstileSiteKey,
-          theme: "light",
-          appearance: "always",
-          callback(token) {
-            callbackTurnstileToken = token;
-            callbackTurnstileReady = true;
-          },
-          "expired-callback"() {
-            callbackTurnstileToken = "";
-          },
-          "timeout-callback"() {
-            callbackTurnstileToken = "";
-          },
-          "error-callback"(errorCode) {
-            callbackTurnstileToken = "";
-            callbackTurnstileReady = false;
-            console.error("Turnstile error:", errorCode);
-            setCallbackMessage(
-              "error",
-              `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
-            );
-            return true;
-          }
-        });
-
-        callbackTurnstileReady = true;
-      } catch (error) {
-        callbackTurnstileReady = false;
-        setCallbackMessage("error", "The security check could not load. Refresh the page and try again.");
-      } finally {
-        callbackTurnstileRenderPromise = null;
-      }
-    })();
-
-    await callbackTurnstileRenderPromise;
-  };
-
   const submitCallbackToEdgeFunction = async (payload) => {
     const callbackConfig = getCallbackFormConfig();
 
@@ -1135,20 +1030,123 @@ document.addEventListener("DOMContentLoaded", () => {
     return responsePayload;
   };
 
-  if (callbackForm && callbackMessage && callbackSubmitButton) {
-    const callbackInteractionFields = callbackForm.querySelectorAll("input:not([type=\"hidden\"]), textarea, select");
+  const initializeCallbackForm = ({ form, messageElement, submitButton, turnstileContainer }) => {
+    if (!form || !messageElement || !submitButton) {
+      return;
+    }
 
-    callbackInteractionFields.forEach((field) => {
-      field.addEventListener("focus", warmCallbackTurnstile, { once: true });
-      field.addEventListener("input", warmCallbackTurnstile, { once: true });
+    const defaultButtonText = submitButton.textContent.trim() || "Submit";
+    const submitMode = form.dataset.submitMode || "edge-function";
+    let turnstileWidgetId = null;
+    let turnstileToken = "";
+    let turnstileReady = false;
+    let turnstileRenderPromise = null;
+
+    const setMessage = (type, text) => {
+      setStatusMessage(messageElement, type, text);
+    };
+
+    const resetTurnstile = () => {
+      turnstileToken = "";
+
+      if (window.turnstile && turnstileWidgetId !== null) {
+        window.turnstile.reset(turnstileWidgetId);
+      }
+    };
+
+    const renderTurnstile = async () => {
+      if (!turnstileContainer) {
+        return;
+      }
+
+      const callbackConfig = getCallbackFormConfig();
+
+      if (!callbackConfig || turnstileWidgetId !== null) {
+        return;
+      }
+
+      if (turnstileRenderPromise) {
+        await turnstileRenderPromise;
+        return;
+      }
+
+      turnstileReady = false;
+
+      turnstileRenderPromise = (async () => {
+        try {
+          const turnstile = await waitForTurnstileApi();
+
+          if (turnstileWidgetId !== null) {
+            return;
+          }
+
+          turnstileWidgetId = turnstile.render(turnstileContainer, {
+            sitekey: callbackConfig.turnstileSiteKey,
+            theme: "light",
+            appearance: "always",
+            callback(token) {
+              turnstileToken = token;
+              turnstileReady = true;
+            },
+            "expired-callback"() {
+              turnstileToken = "";
+            },
+            "timeout-callback"() {
+              turnstileToken = "";
+            },
+            "error-callback"(errorCode) {
+              turnstileToken = "";
+              turnstileReady = false;
+              console.error("Turnstile error:", errorCode);
+              setMessage(
+                "error",
+                `The security check could not load. Refresh the page and try again.${errorCode ? ` Error code: ${errorCode}.` : ""}`
+              );
+              return true;
+            }
+          });
+
+          turnstileReady = true;
+        } catch (error) {
+          turnstileReady = false;
+          setMessage("error", "The security check could not load. Refresh the page and try again.");
+        } finally {
+          turnstileRenderPromise = null;
+        }
+      })();
+
+      await turnstileRenderPromise;
+    };
+
+    const warmTurnstile = () => {
+      if (!turnstileContainer || turnstileWidgetId !== null || turnstileRenderPromise) {
+        return;
+      }
+
+      renderTurnstile();
+    };
+
+    const waitForTurnstile = async () => {
+      if (turnstileWidgetId !== null || !turnstileContainer) {
+        return;
+      }
+
+      await renderTurnstile();
+    };
+
+    const interactionFields = form.querySelectorAll("input:not([type=\"hidden\"]), textarea, select");
+
+    interactionFields.forEach((field) => {
+      field.addEventListener("focus", warmTurnstile, { once: true });
+      field.addEventListener("input", warmTurnstile, { once: true });
     });
 
-    callbackSubmitButton.addEventListener("click", warmCallbackTurnstile, { passive: true });
+    submitButton.addEventListener("click", warmTurnstile, { passive: true });
 
-    callbackForm.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const formData = new FormData(callbackForm);
+      const formData = new FormData(form);
       const payload = {
         first_name: getTrimmedFormValue(formData, "first_name"),
         last_name: getTrimmedFormValue(formData, "last_name"),
@@ -1157,64 +1155,66 @@ document.addEventListener("DOMContentLoaded", () => {
         message: getTrimmedFormValue(formData, "message"),
         company_name: getTrimmedFormValue(formData, "company_name"),
         source_page: window.location.pathname,
-        turnstile_token: callbackTurnstileToken
+        turnstile_token: turnstileToken
       };
 
       if (!payload.first_name || !payload.last_name || !payload.email || !payload.phone || !payload.message) {
-        setCallbackMessage("error", "Please fill in the required fields before submitting.");
+        setMessage("error", "Please fill in the required fields before submitting.");
         return;
       }
 
-      if (callbackSubmitMode !== "edge-function") {
-        setCallbackMessage("error", "This callback form is not configured with a supported submit mode.");
+      if (submitMode !== "edge-function") {
+        setMessage("error", "This callback form is not configured with a supported submit mode.");
         return;
       }
 
       if (!getCallbackFormConfig()) {
-        setCallbackMessage(
+        setMessage(
           "error",
           "Callback form is not configured yet. Add the Edge Function endpoint and Turnstile site key in js/cashly-config.js."
         );
         return;
       }
 
-      if (callbackTurnstileWidgetId === null) {
-        await waitForCallbackTurnstile();
+      if (turnstileWidgetId === null && turnstileContainer) {
+        await waitForTurnstile();
       }
 
-      payload.turnstile_token = callbackTurnstileToken;
+      payload.turnstile_token = turnstileToken;
 
-      if (!callbackTurnstileReady) {
-        setCallbackMessage("error", "The security check is still loading. Please wait a moment and try again.");
+      if (turnstileContainer && !turnstileReady) {
+        setMessage("error", "The security check is still loading. Please wait a moment and try again.");
         return;
       }
 
-      if (!payload.turnstile_token) {
-        setCallbackMessage("error", "Please complete the security check before submitting.");
+      if (turnstileContainer && !payload.turnstile_token) {
+        setMessage("error", "Please complete the security check before submitting.");
         return;
       }
 
-      callbackSubmitButton.disabled = true;
-      callbackSubmitButton.textContent = "Sending";
-      setCallbackMessage("", "");
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending";
+      setMessage("", "");
 
       try {
-        const responsePayload = await submitCallbackToEdgeFunction(payload);
-        callbackForm.reset();
-        resetCallbackTurnstile();
-        setCallbackMessage(
+        await submitCallbackToEdgeFunction(payload);
+        form.reset();
+        resetTurnstile();
+        setMessage(
           "success",
           "Thanks for reaching out to us. One of our agents will get back to you very soon."
         );
       } catch (error) {
-        resetCallbackTurnstile();
-        setCallbackMessage("error", error.message || "Network error. Please try again in a moment.");
+        resetTurnstile();
+        setMessage("error", error.message || "Network error. Please try again in a moment.");
       } finally {
-        callbackSubmitButton.disabled = false;
-        callbackSubmitButton.textContent = defaultCallbackButtonText;
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
       }
     });
-  }
+  };
+
+  callbackFormConfigs.forEach(initializeCallbackForm);
 
   const leadChatWidget = document.getElementById("leadChatWidget");
   const leadChatLauncher = document.getElementById("leadChatLauncher");

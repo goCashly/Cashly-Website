@@ -61,14 +61,10 @@
               aria-expanded="false"
             >Service <span><i class="ti-angle-down"></i></span></a>
             <ul class="dropdown-menu" id="service-menu" aria-labelledby="serviceMenuToggle">
-              <li><a class="dropdown-item" href="broker.html#cashly-crm">Cashly CRM</a></li>
-              <li><a class="dropdown-item" href="broker.html#lender-matching">Lender Matching</a></li>
-              <li><a class="dropdown-item" href="broker.html#deal-sense">Deal Sense</a></li>
-              <li><a class="dropdown-item" href="product.html">Mortgage Products</a></li>
+              <li><a class="dropdown-item" href="product.html#heloc">HELOC</a></li>
+              <li><a class="dropdown-item" href="product.html#refinance">Refinance</a></li>
+              <li><a class="dropdown-item" href="product.html#purchase">Purchase</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="team.html">Team</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -77,7 +73,19 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
           <li class="nav-item nav-cta">
-            <a class="btn btn-main-md rate-cta-btn" href="index.html#borrowerCalculatorModal">Get Your Rate</a>
+            <a class="btn btn-main-md rate-cta-btn" href="index.html#borrowerCalculatorModal">Get Your Rates</a>
+          </li>
+          <li class="nav-item nav-powered">
+            <a
+              class="nav-powered__link"
+              href="https://gopineapple.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Powered by Pineapple"
+            >
+              <span class="nav-powered__label">Powered by</span>
+              <img src="images/pineapple-powered-mark.svg" alt="Pineapple">
+            </a>
           </li>
         </ul>
       </div>
@@ -87,8 +95,8 @@
   <main class="page-shell">
     <section class="hero-dark-section secondary-hero">
       <div class="container position-relative">
-        <div class="row">
-          <div class="col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
             <div class="section-title-modern" data-aos="fade-up">
               <span class="section-kicker section-kicker--dark">Mortgage Products</span>
               <h1>Flexible mortgage options for purchase, refinance, and home equity access.</h1>
@@ -98,65 +106,24 @@
                 less confusion and more clarity up front.
               </p>
             </div>
+          </div>
 
+          <div class="col-lg-5 mt-4 mt-lg-0">
             <div class="secondary-hero__meta" data-aos="fade-up" data-aos-delay="100">
-              <div>
-                <span>Purchase</span>
-                <strong>Move faster when bank rules do not fit</strong>
-              </div>
-              <div>
-                <span>Refinance</span>
-                <strong>Reset the file and access equity</strong>
-              </div>
-              <div>
+              <a href="#heloc" class="secondary-hero__meta-link">
                 <span>HELOC</span>
-                <strong>Keep flexible room against your property</strong>
-              </div>
+                <strong>Keep flexible access to equity for projects that happen in stages.</strong>
+              </a>
+              <a href="#refinance" class="secondary-hero__meta-link">
+                <span>Refinance</span>
+                <strong>Use existing equity to reset the file and solve a real cash need.</strong>
+              </a>
+              <a href="#purchase" class="secondary-hero__meta-link">
+                <span>Purchase</span>
+                <strong>Move a purchase forward when the file needs more flexibility.</strong>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section page-section--tight">
-      <div class="container">
-        <div class="section-title-modern text-center mb-5" data-aos="fade-up">
-          <span class="section-kicker">Products</span>
-          <h2>Three common ways borrowers use property-backed financing.</h2>
-          <p>
-            Each option solves a different kind of problem. The best fit usually depends on how much
-            flexibility you need, how quickly funds are required, and whether you need a lump sum or
-            ongoing access to equity.
-          </p>
-        </div>
-
-        <div class="pillar-grid">
-          <article class="pillar-card" id="purchase" data-aos="fade-up" data-aos-delay="50">
-            <h3>Purchase</h3>
-            <p>
-              A purchase mortgage can help when timing is tight, income is non-traditional, credit has
-              challenges, or the property does not fit a standard bank approval box. The goal is to keep
-              the deal moving while making the costs, terms, and exit plan clear from the start.
-            </p>
-          </article>
-
-          <article class="pillar-card" id="refinance" data-aos="fade-up" data-aos-delay="100">
-            <h3>Refinance</h3>
-            <p>
-              Refinancing is often used to consolidate debt, unlock home equity, cover tax arrears,
-              fund renovations, or bridge a short-term financial gap. It can be a practical option when
-              a borrower needs a reset now and a cleaner long-term plan later.
-            </p>
-          </article>
-
-          <article class="pillar-card" id="heloc" data-aos="fade-up" data-aos-delay="150">
-            <h3>HELOC</h3>
-            <p>
-              A HELOC is designed for homeowners who want flexible access to equity instead of a single
-              lump sum. It can work well for staged renovations, business cash flow, or recurring large
-              expenses when you only want to borrow what you need as you need it.
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -200,35 +167,161 @@
 
     <section class="page-section pt-0">
       <div class="container">
-        <div class="row align-items-center showcase-row">
+        <div class="row align-items-center showcase-row product-showcase-row" id="purchase">
           <div class="col-lg-6">
             <div class="showcase-copy" data-aos="fade-right">
-              <span class="section-kicker">What borrowers care about</span>
-              <h2>Clear answers build trust faster than generic mortgage language.</h2>
+              <span class="section-kicker">Purchase Mortgage</span>
+              <h2>When a purchase needs speed, structure, and a lender that can look at the full file.</h2>
               <p>
-                People usually want to know whether they qualify, how quickly the file can move, what the
-                payments may look like, and what tradeoffs come with each structure. Good product content
-                should make those points easier to understand before a callback ever happens.
+                Purchase financing is often about timing as much as rate. If you are self-employed, buying
+                a non-standard property, working with a bruised credit file, or trying to close on a short
+                deadline, the right conversation starts with what needs to happen for the deal to close cleanly.
               </p>
+              <p class="product-detail-note">
+                We usually review the price range, down payment, occupancy, property type, and how realistic
+                the exit plan is after closing so you know what a private mortgage path could actually look like.
+              </p>
+
+              <div class="content-chip-row">
+                <span>Quick closings</span>
+                <span>Non-traditional income</span>
+                <span>Unique properties</span>
+                <span>Clear closing plan</span>
+              </div>
 
               <ul class="benefit-list">
                 <li>
                   <i class="ti-check"></i>
-                  <span>Show real use cases like debt consolidation, urgent purchase closings, renovations, or equity access.</span>
+                  <span>Start with the target purchase price, down payment, and timeline so the deal is structured early.</span>
                 </li>
                 <li>
                   <i class="ti-check"></i>
-                  <span>Explain the tradeoff between lower cost, faster speed, and more flexible qualification.</span>
+                  <span>Review the likely lender fit for owner-occupied, rental, cottage, and multi-unit scenarios.</span>
                 </li>
                 <li>
                   <i class="ti-check"></i>
-                  <span>Make it clear when the product is a short-term bridge versus part of a longer refinancing strategy.</span>
+                  <span>See likely payments, fees, and required documents before you move forward.</span>
                 </li>
                 <li>
                   <i class="ti-check"></i>
-                  <span>Guide visitors into the next step with a clear estimate, callback, or booked consultation.</span>
+                  <span>Understand what the transition plan could be once the immediate purchase closes.</span>
                 </li>
               </ul>
+
+              <div class="product-section-actions">
+                <a href="#product-callback" class="btn btn-main-md">Get Your Rates</a>
+                <a href="contact.html#contact-form" class="btn-secondary-modern">Speak to Cashly</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="showcase-image" data-aos="fade-left">
+              <img src="images/home-new-home-key.jpg" alt="Home purchase keys and mortgage planning">
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center showcase-row product-showcase-row" id="refinance">
+          <div class="col-lg-6 order-lg-2">
+            <div class="showcase-copy" data-aos="fade-left">
+              <span class="section-kicker">Refinance</span>
+              <h2>Use existing equity to simplify the file and fund the next step.</h2>
+              <p>
+                Refinance tends to make sense when one larger move can solve the real problem: consolidating
+                debt, catching up on taxes, paying for renovations, or creating short-term breathing room while
+                you work toward a cleaner long-term solution.
+              </p>
+              <p class="product-detail-note">
+                We look closely at current mortgage balance, property value, existing payment pressure, and
+                what the funds are actually meant to solve so the refinance is tied to a realistic next move.
+              </p>
+
+              <div class="content-chip-row">
+                <span>Debt consolidation</span>
+                <span>Renovations</span>
+                <span>Tax arrears</span>
+                <span>Cash-flow reset</span>
+              </div>
+
+              <ul class="benefit-list">
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Compare whether a refinance solves the whole issue or only delays it.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Review likely penalties, appraisal costs, legal fees, and lender expectations up front.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Use the property’s existing equity more intentionally instead of stacking higher-cost debt.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Build around what happens after funding, not just the first approval.</span>
+                </li>
+              </ul>
+
+              <div class="product-section-actions">
+                <a href="#product-callback" class="btn btn-main-md">Get Your Rates</a>
+                <a href="contact.html#contact-form" class="btn-secondary-modern">Speak to Cashly</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-lg-1 mt-4 mt-lg-0">
+            <div class="showcase-image" data-aos="fade-right">
+              <img src="images/home-mortgage-documents.jpg" alt="Mortgage refinance documents and planning">
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center showcase-row product-showcase-row" id="heloc">
+          <div class="col-lg-6">
+            <div class="showcase-copy" data-aos="fade-right">
+              <span class="section-kicker">HELOC</span>
+              <h2>Flexible equity access for projects and expenses that happen in stages.</h2>
+              <p>
+                A HELOC is usually a better fit when you do not need every dollar at once. It can work well
+                for renovations, business cash flow, recurring large expenses, or homeowners who want room to
+                draw, repay, and reuse funds over time.
+              </p>
+              <p class="product-detail-note">
+                Flexibility matters here. We review how often funds will be needed, whether the borrowing need
+                is ongoing, and whether a revolving structure is actually better than a one-time refinance.
+              </p>
+
+              <div class="content-chip-row">
+                <span>Staged renovations</span>
+                <span>Business cash flow</span>
+                <span>Big purchases</span>
+                <span>Flexible access</span>
+              </div>
+
+              <ul class="benefit-list">
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Borrow only what you need instead of taking one large lump sum immediately.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Understand how repayment flexibility and access limits affect the right structure.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Useful when the goal is ongoing access to equity rather than a single reset event.</span>
+                </li>
+                <li>
+                  <i class="ti-check"></i>
+                  <span>Best evaluated alongside your current mortgage balance, equity position, and future plans.</span>
+                </li>
+              </ul>
+
+              <div class="product-section-actions">
+                <a href="#product-callback" class="btn btn-main-md">Get Your Rates</a>
+                <a href="contact.html#contact-form" class="btn-secondary-modern">Speak to Cashly</a>
+              </div>
             </div>
           </div>
 
@@ -236,33 +329,193 @@
             <div class="workspace-panel" data-aos="fade-left">
               <div class="workspace-panel__shell">
                 <span class="section-kicker">What we review</span>
-                <h3>The right option depends on more than just the rate.</h3>
+                <h3>HELOC decisions work best when access and timing are clear.</h3>
                 <p>
-                  Before recommending a structure, we usually look at the property, current mortgage position,
-                  amount needed, urgency, and what the borrower wants the next 6 to 24 months to look like.
+                  Before recommending a HELOC structure, we usually look at the property, current mortgage
+                  position, expected draw pattern, and what the borrower wants the next 6 to 24 months to look like.
                 </p>
 
                 <div class="capability-grid">
                   <div class="capability-card">
-                    <i class="ti-write"></i>
-                    <h3>Property</h3>
-                    <p>Location, value, and available equity shape what may be realistic.</p>
+                    <i class="ti-reload"></i>
+                    <h3>Revolving Access</h3>
+                    <p>HELOCs are most useful when the money may be drawn in stages instead of once.</p>
                   </div>
                   <div class="capability-card">
-                    <i class="ti-agenda"></i>
-                    <h3>Amount Needed</h3>
-                    <p>Whether funds are needed as a lump sum or in stages changes the structure.</p>
+                    <i class="ti-wallet"></i>
+                    <h3>Monthly Carry</h3>
+                    <p>We compare the flexibility you need against the carrying cost you can realistically manage.</p>
                   </div>
                   <div class="capability-card">
-                    <i class="ti-time"></i>
-                    <h3>Timeline</h3>
-                    <p>Urgent closings and longer planning files usually call for different options.</p>
+                    <i class="ti-layout-grid2"></i>
+                    <h3>Current Mortgage</h3>
+                    <p>Your first mortgage position affects whether a HELOC is cleanly available or not.</p>
                   </div>
                   <div class="capability-card">
-                    <i class="ti-comments"></i>
-                    <h3>Exit Plan</h3>
-                    <p>A strong recommendation always considers how the borrower expects to transition next.</p>
+                    <i class="ti-direction-alt"></i>
+                    <h3>Next Step</h3>
+                    <p>The right structure should still make sense after the immediate project or cash need is over.</p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section pt-0" id="product-callback">
+      <div class="container">
+        <div class="callback-shell" data-aos="fade-up">
+          <div class="row align-items-stretch">
+            <div class="col-xl-7">
+              <div class="callback-form-shell">
+                <span class="section-kicker">Request A Callback</span>
+                <h2>Need help comparing purchase, refinance, or HELOC options?</h2>
+                <p>
+                  Tell us what you are trying to do with the property and we will help you understand the
+                  most realistic next step for your timeline, equity, and borrowing goal.
+                </p>
+
+                <form
+                  id="productCallbackForm"
+                  method="POST"
+                  data-submit-mode="edge-function"
+                  novalidate
+                >
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="product-first-name">First name</label>
+                      <input
+                        type="text"
+                        id="product-first-name"
+                        name="first_name"
+                        class="form-control"
+                        placeholder="First name"
+                        autocomplete="given-name"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="product-last-name">Last name</label>
+                      <input
+                        type="text"
+                        id="product-last-name"
+                        name="last_name"
+                        class="form-control"
+                        placeholder="Last name"
+                        autocomplete="family-name"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="product-email">Email*</label>
+                      <input
+                        type="email"
+                        id="product-email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Email"
+                        autocomplete="email"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="product-phone">Phone*</label>
+                      <input
+                        type="tel"
+                        id="product-phone"
+                        name="phone"
+                        class="form-control"
+                        placeholder="Phone"
+                        autocomplete="tel"
+                        required
+                      >
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <label for="product-message">What are you looking for?*</label>
+                      <textarea
+                        id="product-message"
+                        name="message"
+                        class="form-control"
+                        rows="5"
+                        placeholder="Example: I am buying a property, comparing a refinance, or want a HELOC for renovations."
+                        required
+                      ></textarea>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="callback-honeypot" aria-hidden="true">
+                        <label for="product-company-name">Company name</label>
+                        <input
+                          type="text"
+                          id="product-company-name"
+                          name="company_name"
+                          class="form-control"
+                          tabindex="-1"
+                          autocomplete="off"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <div id="productCallbackTurnstile" class="callback-turnstile"></div>
+                    </div>
+
+                    <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                      <p class="callback-form-note">
+                        Prefer to email us directly? Reach out anytime at
+                        <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>.
+                      </p>
+
+                      <button type="submit" class="btn btn-main-md callback-submit" id="productCallbackSubmitButton">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+
+                <p id="productCallbackMessage" class="callback-message" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="col-xl-5 mt-4 mt-xl-0">
+              <div class="callback-info-shell">
+                <span class="section-kicker">What We Review</span>
+                <h3>Come in with a product question. Leave with a clearer next step.</h3>
+                <p>
+                  We usually compare the property, timeline, equity position, and what the money needs to
+                  do so you can see whether purchase financing, refinance, or a HELOC is the better path.
+                </p>
+
+                <div class="business-card-grid">
+                  <article class="business-card">
+                    <span>Purchase</span>
+                    <strong>Best when</strong>
+                    <p>You need flexibility around income, property type, or closing timeline.</p>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Refinance</span>
+                    <strong>Best when</strong>
+                    <p>You want a single structured solution for debt, arrears, or equity access.</p>
+                  </article>
+
+                  <article class="business-card">
+                    <span>HELOC</span>
+                    <strong>Best when</strong>
+                    <p>You want ongoing access to equity for staged or recurring borrowing needs.</p>
+                  </article>
+
+                  <article class="business-card">
+                    <span>Reach Out</span>
+                    <strong>Cashly</strong>
+                    <a href="mailto:operations@gocashly.io">operations@gocashly.io</a>
+                  </article>
                 </div>
               </div>
             </div>
@@ -276,16 +529,16 @@
         <div class="cta-banner" data-aos="fade-up">
           <div class="row align-items-center">
             <div class="col-lg-8">
-              <h2>Need help comparing purchase, refinance, or HELOC options?</h2>
+              <h2>Want a faster answer?</h2>
               <p>
-                Start with a rate estimate or reach out for a review based on your property, timeline, and funding goal.
+                Start with a callback request or talk to Cashly directly if you already know the scenario you want to review.
               </p>
             </div>
 
             <div class="col-lg-4">
               <div class="cta-banner__actions justify-content-lg-end">
-                <a href="index.html#borrowerCalculatorModal" class="btn btn-main-md">Get Your Rate</a>
-                <a href="index.html#home-callback" class="btn-secondary-modern">Contact Cashly</a>
+                <a href="#product-callback" class="btn btn-main-md">Get Your Rates</a>
+                <a href="contact.html#contact-form" class="btn-secondary-modern">Contact Cashly</a>
               </div>
             </div>
           </div>
@@ -302,8 +555,7 @@
             <img src="images/cashly-logo-nav.png" alt="Cashly logo">
           </a>
           <p class="site-footer__copy">
-            Cashly helps borrowers and mortgage teams move through private mortgage decisions
-            with more clarity, structure, and confidence.
+            Cashly helps homeowners understand private mortgage options with clear guidance and simple next steps.
           </p>
           <div class="site-footer__socials">
             <a href="mailto:operations@gocashly.io" aria-label="Email Cashly">
@@ -324,9 +576,7 @@
           <h6>Explore</h6>
           <ul class="site-footer__links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="broker.html">Broker</a></li>
             <li><a href="product.html">Products</a></li>
-            <li><a href="team.html">Team</a></li>
             <li><a href="about.html">About</a></li>
           </ul>
         </div>
@@ -361,7 +611,6 @@
       </div>
 
       <div class="site-footer__bottom">
-        <p>Built by operators who wanted a better mortgage workflow.</p>
         <a href="contact.html">Start a conversation</a>
       </div>
     </div>
