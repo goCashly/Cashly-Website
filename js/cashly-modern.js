@@ -217,34 +217,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const quizStepConfig = {
       "own-property": {
-        counter: "1 / 5",
+        counter: "One / Five",
         label: "Own Property",
         progress: 20,
-        sidebarStep: "Step 1 of 5",
+        sidebarStep: "Step One of Five",
         sidebarTitle: "Tell us whether you own the property.",
         sidebarCopy: "A quick yes or no helps us understand whether this is an existing property or a purchase you are planning for."
       },
       "property-type": {
-        counter: "2 / 5",
+        counter: "Two / Five",
         label: "Property Type",
         progress: 40,
-        sidebarStep: "Step 2 of 5",
+        sidebarStep: "Step Two of Five",
         sidebarTitle: "Choose the property type.",
         sidebarCopy: "Select the option that best matches the property so we can guide you to the right private mortgage conversation."
       },
       "property-value": {
-        counter: "3 / 5",
+        counter: "Three / Five",
         label: "Property Value",
         progress: 60,
-        sidebarStep: "Step 3 of 5",
+        sidebarStep: "Step Three of Five",
         sidebarTitle: "Tell us the home value.",
         sidebarCopy: "If you have not found a property yet, use the approximate amount you are targeting."
       },
       "amount-needed": {
-        counter: "4 / 5",
+        counter: "Four / Five",
         label: "Amount Needed",
         progress: 80,
-        sidebarStep: "Step 4 of 5",
+        sidebarStep: "Step Four of Five",
         sidebarTitle: "Choose how much you need.",
         sidebarCopy: "Use the slider or enter a number directly to estimate how much you want to borrow."
       }
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
           amountLabel: "Down Payment",
           previewPropertyValueLabel: "Expected purchase price",
           previewAmountLabel: "Down payment",
-          resultCaption: "Based on the expected purchase price and down payment entered, using a sample 8.99% rate over 25 years.",
+          resultCaption: "Based on the expected purchase price and down payment entered, using a sample rate over a standard amortization period.",
           propertyValueStepTitle: "Tell us the expected purchase price.",
           propertyValueStepCopy: "If you have not found a property yet, use the approximate purchase price you are targeting.",
           amountStepTitle: "Tell us the down payment.",
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         amountLabel: "Amount Needed",
         previewPropertyValueLabel: "Property value",
         previewAmountLabel: "Amount needed",
-        resultCaption: "Based on the property value and amount entered, using a sample 8.99% rate over 25 years.",
+        resultCaption: "Based on the property value and amount entered, using a sample rate over a standard amortization period.",
         propertyValueStepTitle: "Tell us the property value.",
         propertyValueStepCopy: "Enter the approximate value of the property you already own.",
         amountStepTitle: "Choose how much you need.",
@@ -388,11 +388,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const questionnaire = calculatorSubmittedQuestionnaire || buildCalculatorQuestionnairePayload();
       const estimate = calculateMortgageEstimate(questionnaire);
 
-      calculatorOutputs.monthly.textContent = currencyFormatter.format(estimate.monthlyPayment);
-      calculatorOutputs.loan.textContent = currencyFormatter.format(estimate.loanAmount);
-      calculatorOutputs.interest.textContent = currencyFormatter.format(estimate.totalInterest);
-      calculatorOutputs.years.textContent = `${estimate.years} years`;
-      calculatorOutputs.ltv.textContent = `${percentageFormatter.format(estimate.loanToValue)}%`;
+      calculatorOutputs.monthly.textContent = "Available after review";
+      calculatorOutputs.loan.textContent = "Shared during review";
+      calculatorOutputs.interest.textContent = "Shared during review";
+      calculatorOutputs.years.textContent = "Standard amortization";
+      calculatorOutputs.ltv.textContent = "Calculated after review";
     };
 
     const buildCalculatorLeadMessage = () => {
