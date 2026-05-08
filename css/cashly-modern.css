@@ -4814,15 +4814,11 @@
   }
 
   .cashly-modern .nav-powered__link--mobile {
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 40px;
-    padding: 0.4rem 0.68rem 0.4rem 0.78rem;
+    padding: 0.45rem;
   }
 
-  .cashly-modern .nav-powered__label {
-    font-size: 0.62rem;
-    letter-spacing: 0.07em;
+  .cashly-modern .nav-powered__link--mobile .nav-powered__label {
+    display: none;
   }
 
   .cashly-modern .nav-powered__link--mobile img {
