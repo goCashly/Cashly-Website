@@ -56,7 +56,9 @@
 }
 
 .cashly-modern .main-nav .navbar-brand img {
+  display: block;
   max-height: 52px;
+  width: auto;
 }
 
 .cashly-modern .main-nav .navbar-nav .nav-item {
@@ -207,8 +209,13 @@
 }
 
 .cashly-modern .navbar-toggler {
+  align-items: center;
   border: 1px solid rgba(19, 35, 58, 0.1);
   border-radius: 999px;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
   padding: 0.55rem 0.9rem;
 }
 
@@ -4777,6 +4784,59 @@
     min-height: 76vh;
     padding-top: 122px;
     padding-bottom: 152px;
+  }
+}
+
+@media (max-width: 575px) {
+  .cashly-modern .main-nav .container {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cashly-modern .main-nav .navbar-brand {
+    align-items: center;
+    display: inline-flex;
+    line-height: 0;
+    margin-bottom: 0;
+    margin-right: 10px;
+    padding: 0;
+  }
+
+  .cashly-modern .main-nav .navbar-brand img {
+    max-height: 36px;
+  }
+
+  .cashly-modern .nav-mobile-actions {
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .cashly-modern .nav-powered__link--mobile {
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 40px;
+    padding: 0.4rem 0.68rem 0.4rem 0.78rem;
+  }
+
+  .cashly-modern .nav-powered__label {
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+  }
+
+  .cashly-modern .nav-powered__link--mobile img {
+    height: 18px;
+  }
+
+  .cashly-modern .navbar-toggler {
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0;
+  }
+
+  .cashly-modern .navbar-toggler span {
+    font-size: 18px;
   }
 }
 
