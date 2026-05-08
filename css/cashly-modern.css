@@ -186,6 +186,22 @@
   width: auto;
 }
 
+.cashly-modern .nav-mobile-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.cashly-modern .nav-powered__link--mobile {
+  gap: 8px;
+  padding: 0.45rem 0.75rem 0.45rem 0.9rem;
+}
+
+.cashly-modern .nav-powered__link--mobile img {
+  height: 22px;
+}
+
 .cashly-modern .service-anchor {
   scroll-margin-top: 120px;
 }
@@ -4704,9 +4720,22 @@
     width: 100%;
   }
 
+  .cashly-modern .main-nav .navbar-nav .nav-powered {
+    display: none;
+  }
+
   .cashly-modern .nav-powered__link {
     justify-content: center;
     width: 100%;
+  }
+
+  .cashly-modern .nav-mobile-actions .nav-powered__link {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .cashly-modern .nav-mobile-actions {
+    gap: 8px;
   }
 
   .cashly-modern .nav-cta .btn-main-md {
