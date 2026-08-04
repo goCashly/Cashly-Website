@@ -183,8 +183,8 @@
   box-shadow: 0 14px 34px rgba(26, 52, 97, 0.08);
   display: flex;
   gap: 14px;
-  min-height: 74px;
-  padding: 10px 16px;
+  min-height: 92px;
+  padding: 12px 18px;
 }
 
 .cashly-modern.events-page .event-host-strip span {
@@ -198,15 +198,23 @@
 
 .cashly-modern.events-page .event-host-strip img {
   display: block;
-  max-height: 52px;
-  max-width: 150px;
+  max-height: 72px;
+  max-width: 172px;
   object-fit: contain;
   width: auto;
 }
 
 .cashly-modern.events-page .event-host-strip article:first-child img {
   border-radius: 6px;
-  max-height: 58px;
+  max-height: 78px;
+}
+
+.cashly-modern.events-page .event-host-strip .event-host-strip__cashly-logo {
+  background: #ffffff;
+  border-radius: 6px;
+  max-height: 78px;
+  max-width: 230px;
+  padding: 8px 10px;
 }
 
 .cashly-modern.events-page .events-hero__meta {
