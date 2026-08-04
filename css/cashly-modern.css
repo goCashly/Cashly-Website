@@ -167,6 +167,48 @@
   max-width: 660px;
 }
 
+.cashly-modern.events-page .event-host-strip {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.cashly-modern.events-page .event-host-strip article {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(19, 35, 58, 0.09);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(26, 52, 97, 0.08);
+  display: flex;
+  gap: 14px;
+  min-height: 74px;
+  padding: 10px 16px;
+}
+
+.cashly-modern.events-page .event-host-strip span {
+  color: var(--cashly-muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cashly-modern.events-page .event-host-strip img {
+  display: block;
+  max-height: 52px;
+  max-width: 150px;
+  object-fit: contain;
+  width: auto;
+}
+
+.cashly-modern.events-page .event-host-strip article:first-child img {
+  border-radius: 6px;
+  max-height: 58px;
+}
+
 .cashly-modern.events-page .events-hero__meta {
   display: grid;
   gap: 14px;
@@ -625,6 +667,14 @@
   .cashly-modern.events-page .event-form-panel,
   .cashly-modern.events-page .event-upcoming-card {
     padding: 24px;
+  }
+
+  .cashly-modern.events-page .event-host-strip {
+    flex-direction: column;
+  }
+
+  .cashly-modern.events-page .event-host-strip article {
+    justify-content: space-between;
   }
 
   .cashly-modern.events-page .event-upcoming-card {
