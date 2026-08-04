@@ -15,6 +15,659 @@
   overflow-x: hidden;
 }
 
+.cashly-modern.events-page {
+  --event-navy: #051a3d;
+  --event-navy-soft: #092757;
+  --event-accent: #2459d3;
+  --event-white: #f8fbff;
+  background: #ffffff;
+  color: var(--event-white);
+}
+
+.cashly-modern.events-page h1,
+.cashly-modern.events-page h2,
+.cashly-modern.events-page h3,
+.cashly-modern.events-page h4,
+.cashly-modern.events-page h5,
+.cashly-modern.events-page h6 {
+  color: var(--event-white);
+  letter-spacing: 0;
+}
+
+.cashly-modern.events-page p,
+.cashly-modern.events-page li,
+.cashly-modern.events-page label {
+  color: rgba(248, 251, 255, 0.76);
+}
+
+.cashly-modern.events-page .main-nav {
+  background: rgba(3, 20, 50, 0.92);
+  border-bottom: 1px solid rgba(36, 89, 211, 0.22);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link,
+.cashly-modern.events-page .nav-powered__label {
+  color: rgba(248, 251, 255, 0.78);
+}
+
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link:hover,
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link:focus,
+.cashly-modern.events-page .main-nav .navbar-nav .nav-item.active .nav-link {
+  color: var(--event-accent);
+}
+
+.cashly-modern.events-page .nav-powered__link {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(36, 89, 211, 0.22);
+}
+
+.cashly-modern.events-page .navbar-toggler {
+  border-color: rgba(36, 89, 211, 0.25);
+}
+
+.cashly-modern.events-page .navbar-toggler span {
+  color: var(--event-white);
+}
+
+.cashly-modern.events-page .service-nav .dropdown-menu {
+  background: rgba(4, 22, 54, 0.98);
+  border-color: rgba(36, 89, 211, 0.22);
+}
+
+.cashly-modern.events-page .service-nav .dropdown-item {
+  color: var(--event-white);
+}
+
+.cashly-modern.events-page .service-nav .dropdown-item:hover,
+.cashly-modern.events-page .service-nav .dropdown-item:focus {
+  background: rgba(36, 89, 211, 0.12);
+  color: var(--event-accent);
+}
+
+.cashly-modern.events-page .btn-main-md,
+.cashly-modern.events-page .event-primary-btn {
+  background: linear-gradient(135deg, var(--event-accent), #3b73ea);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 18px 42px rgba(36, 89, 211, 0.26);
+  color: #071a38;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.95rem 1.55rem;
+}
+
+.cashly-modern.events-page .btn-main-md:hover,
+.cashly-modern.events-page .btn-main-md:focus,
+.cashly-modern.events-page .event-primary-btn:hover,
+.cashly-modern.events-page .event-primary-btn:focus {
+  background: linear-gradient(135deg, #1f4fbc, #6f95f0);
+  color: #071a38;
+  transform: translateY(-1px);
+}
+
+.cashly-modern.events-page .events-shell {
+  background: radial-gradient(circle at 12% 18%, rgba(44, 111, 255, 0.18), transparent 30%), radial-gradient(circle at 88% 16%, rgba(36, 89, 211, 0.14), transparent 26%), #ffffff;
+  overflow: hidden;
+}
+
+.cashly-modern.events-page .events-hero {
+  border-bottom: 1px solid rgba(36, 89, 211, 0.2);
+  padding: 112px 0 78px;
+  position: relative;
+}
+
+.cashly-modern.events-page .events-hero:before {
+  background-image: linear-gradient(rgba(36, 89, 211, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(36, 89, 211, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: "";
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  position: absolute;
+}
+
+.cashly-modern.events-page .event-eyebrow {
+  color: var(--event-accent);
+  display: inline-flex;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .events-hero h1 {
+  font-size: clamp(2.8rem, 5.8vw, 5.1rem);
+  font-weight: 900;
+  line-height: 0.98;
+  margin-bottom: 20px;
+  max-width: 660px;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .events-hero__tagline {
+  color: var(--event-white);
+  font-family: "Outfit", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .events-hero__lead {
+  color: rgba(248, 251, 255, 0.82);
+  font-size: 1.14rem;
+  line-height: 1.75;
+  max-width: 660px;
+}
+
+.cashly-modern.events-page .events-hero__meta {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 34px 0 30px;
+}
+
+.cashly-modern.events-page .events-hero__meta article {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(36, 89, 211, 0.22);
+  border-radius: 8px;
+  min-height: 146px;
+  padding: 20px;
+}
+
+.cashly-modern.events-page .events-hero__meta i {
+  color: var(--event-accent);
+  display: block;
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.cashly-modern.events-page .events-hero__meta span,
+.cashly-modern.events-page .events-hero__meta strong {
+  display: block;
+}
+
+.cashly-modern.events-page .events-hero__meta span {
+  color: var(--event-white);
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .events-hero__meta strong {
+  color: rgba(248, 251, 255, 0.68);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-top: 7px;
+}
+
+.cashly-modern.events-page .events-hero__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.cashly-modern.events-page .event-secondary-btn {
+  align-items: center;
+  border: 1px solid rgba(248, 251, 255, 0.25);
+  border-radius: 999px;
+  color: var(--event-white);
+  display: inline-flex;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.95rem 1.4rem;
+}
+
+.cashly-modern.events-page .event-secondary-btn:hover,
+.cashly-modern.events-page .event-secondary-btn:focus {
+  border-color: var(--event-accent);
+  color: var(--event-accent);
+}
+
+.cashly-modern.events-page .event-poster-frame {
+  background: linear-gradient(145deg, rgba(36, 89, 211, 0.26), rgba(36, 89, 211, 0.16));
+  border: 1px solid rgba(36, 89, 211, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+  padding: 10px;
+}
+
+.cashly-modern.events-page .event-poster-frame img {
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+}
+
+.cashly-modern.events-page .event-band,
+.cashly-modern.events-page .event-register-section {
+  padding: 88px 0;
+}
+
+.cashly-modern.events-page .event-band--split,
+.cashly-modern.events-page .event-register-section {
+  background: transparent;
+}
+
+.cashly-modern.events-page .event-band--upcoming {
+  background: #ffffff;
+  padding-top: 72px;
+}
+
+.cashly-modern.events-page .event-section-heading {
+  margin: 0 auto 42px;
+  max-width: 760px;
+}
+
+.cashly-modern.events-page .event-section-heading h2,
+.cashly-modern.events-page .event-qr-panel h2,
+.cashly-modern.events-page .event-form-panel h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.cashly-modern.events-page .event-expect-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.cashly-modern.events-page .event-feature-card {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(36, 89, 211, 0.22);
+  min-height: 260px;
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.cashly-modern.events-page .event-feature-card i {
+  color: var(--event-white);
+  display: block;
+  font-size: 44px;
+  margin-bottom: 22px;
+}
+
+.cashly-modern.events-page .event-feature-card h3 {
+  color: var(--event-white);
+  font-size: 1.12rem;
+  line-height: 1.18;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .event-feature-card p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.cashly-modern.events-page .event-info-panel,
+.cashly-modern.events-page .event-qr-panel,
+.cashly-modern.events-page .event-form-panel,
+.cashly-modern.events-page .event-upcoming-card {
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(36, 89, 211, 0.24);
+  border-radius: 8px;
+  height: 100%;
+  padding: 34px;
+}
+
+.cashly-modern.events-page .event-audience-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 18px 0 24px;
+}
+
+.cashly-modern.events-page .event-audience-grid article {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 132px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.cashly-modern.events-page .event-audience-grid i {
+  color: rgba(248, 251, 255, 0.82);
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.cashly-modern.events-page .event-audience-grid strong {
+  color: var(--event-white);
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.cashly-modern.events-page .event-info-panel > p {
+  color: var(--event-white);
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.cashly-modern.events-page .event-included-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 18px 0 24px;
+  padding: 0;
+}
+
+.cashly-modern.events-page .event-included-list li {
+  align-items: center;
+  color: var(--event-white);
+  display: flex;
+  font-weight: 800;
+  gap: 10px;
+}
+
+.cashly-modern.events-page .event-included-list i {
+  align-items: center;
+  background: var(--event-accent);
+  border-radius: 50%;
+  color: #071a38;
+  display: inline-flex;
+  flex: 0 0 24px;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.cashly-modern.events-page .event-certificate {
+  align-items: center;
+  border: 1px solid rgba(36, 89, 211, 0.34);
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+}
+
+.cashly-modern.events-page .event-certificate i {
+  color: var(--event-accent);
+  font-size: 34px;
+}
+
+.cashly-modern.events-page .event-certificate span {
+  color: var(--event-white);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .event-register-shell {
+  background: linear-gradient(145deg, rgba(36, 89, 211, 0.12), rgba(36, 89, 211, 0.12));
+  border: 1px solid rgba(36, 89, 211, 0.26);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.cashly-modern.events-page .event-qr-panel,
+.cashly-modern.events-page .event-form-panel {
+  background: rgba(3, 20, 50, 0.78);
+}
+
+.cashly-modern.events-page .event-qr-code {
+  background: var(--event-white);
+  border: 6px solid var(--event-accent);
+  display: inline-flex;
+  margin: 16px 0 20px;
+  padding: 12px;
+}
+
+.cashly-modern.events-page .event-qr-code img {
+  display: block;
+  height: 240px;
+  width: 240px;
+}
+
+.cashly-modern.events-page .event-form-panel label {
+  color: var(--event-white);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .event-form-panel .form-control {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(36, 89, 211, 0.18);
+  border-radius: 8px;
+  color: #071a38;
+  font-weight: 700;
+  min-height: 54px;
+}
+
+.cashly-modern.events-page .event-form-panel textarea.form-control {
+  min-height: 118px;
+}
+
+.cashly-modern.events-page .event-form-panel .form-control:focus {
+  border-color: var(--event-accent);
+  box-shadow: 0 0 0 0.2rem rgba(36, 89, 211, 0.16);
+}
+
+.cashly-modern.events-page .event-form-note {
+  font-size: 0.9rem;
+  margin: 0 18px 0 0;
+}
+
+.cashly-modern.events-page .event-form-note a,
+.cashly-modern.events-page .site-footer__links a:hover,
+.cashly-modern.events-page .site-footer__bottom a:not(.btn) {
+  color: var(--event-accent);
+}
+
+.cashly-modern.events-page .form-message {
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 18px 0 0;
+}
+
+.cashly-modern.events-page .form-message.is-success,
+.cashly-modern.events-page .form-message.is-error {
+  padding: 14px 16px;
+}
+
+.cashly-modern.events-page .form-message.is-success {
+  background: rgba(46, 204, 113, 0.14);
+  color: #a9f4c4;
+}
+
+.cashly-modern.events-page .form-message.is-error {
+  background: rgba(255, 95, 95, 0.14);
+  color: #ffcdcd;
+}
+
+.cashly-modern.events-page .event-upcoming-card {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.cashly-modern.events-page .event-upcoming-card span,
+.cashly-modern.events-page .event-upcoming-card strong {
+  display: block;
+}
+
+.cashly-modern.events-page .event-upcoming-card span {
+  color: var(--event-accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cashly-modern.events-page .event-upcoming-card strong {
+  color: var(--event-white);
+  font-family: "Outfit", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.cashly-modern.events-page .event-upcoming-card p {
+  margin: 0;
+  max-width: 520px;
+}
+
+.cashly-modern.events-page .event-subscribe-form {
+  align-items: flex-start;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  margin: 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.cashly-modern.events-page .event-subscribe-form .form-control {
+  background: #ffffff;
+  border: 1px solid rgba(19, 35, 58, 0.12);
+  border-radius: 999px;
+  color: var(--cashly-text);
+  font-weight: 700;
+  min-height: 56px;
+  padding: 0.95rem 1.25rem;
+}
+
+.cashly-modern.events-page .event-subscribe-form .form-control:focus {
+  border-color: rgba(36, 89, 211, 0.34);
+  box-shadow: 0 0 0 0.2rem rgba(36, 89, 211, 0.1);
+}
+
+.cashly-modern.events-page .event-subscribe-form .form-message {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.cashly-modern.events-page .site-footer {
+  background: #ffffff;
+  border-top: 1px solid rgba(36, 89, 211, 0.2);
+}
+
+.cashly-modern.events-page .site-footer h6,
+.cashly-modern.events-page .site-footer__bottom p,
+.cashly-modern.events-page .site-footer__license-line {
+  color: var(--event-white);
+}
+
+.cashly-modern.events-page .site-footer__copy,
+.cashly-modern.events-page .site-footer__links a,
+.cashly-modern.events-page .site-footer__bottom p {
+  color: rgba(248, 251, 255, 0.72);
+}
+
+.cashly-modern.events-page .scroll-top-to {
+  background: var(--event-accent);
+  color: #071a38;
+}
+
+@media (max-width: 1199px) {
+  .cashly-modern.events-page .event-expect-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cashly-modern.events-page .events-hero__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .cashly-modern.events-page .events-hero {
+    padding: 84px 0 64px;
+  }
+
+  .cashly-modern.events-page .events-hero h1 {
+    font-size: clamp(2.55rem, 10vw, 4rem);
+  }
+
+  .cashly-modern.events-page .event-audience-grid,
+  .cashly-modern.events-page .event-included-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .cashly-modern.events-page .event-band,
+  .cashly-modern.events-page .event-register-section {
+    padding: 64px 0;
+  }
+
+  .cashly-modern.events-page .events-hero__meta,
+  .cashly-modern.events-page .event-expect-grid,
+  .cashly-modern.events-page .event-audience-grid,
+  .cashly-modern.events-page .event-included-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cashly-modern.events-page .events-hero__meta article,
+  .cashly-modern.events-page .event-feature-card,
+  .cashly-modern.events-page .event-audience-grid article {
+    min-height: auto;
+  }
+
+  .cashly-modern.events-page .event-info-panel,
+  .cashly-modern.events-page .event-qr-panel,
+  .cashly-modern.events-page .event-form-panel,
+  .cashly-modern.events-page .event-upcoming-card {
+    padding: 24px;
+  }
+
+  .cashly-modern.events-page .event-upcoming-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cashly-modern.events-page .event-subscribe-form {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .cashly-modern.events-page .events-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .cashly-modern.events-page .events-hero__tagline {
+    font-size: 1rem;
+  }
+
+  .cashly-modern.events-page .events-hero__actions,
+  .cashly-modern.events-page .event-form-panel .d-flex {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  .cashly-modern.events-page .event-primary-btn,
+  .cashly-modern.events-page .event-secondary-btn {
+    width: 100%;
+  }
+
+  .cashly-modern.events-page .event-form-note {
+    margin: 0 0 16px;
+  }
+
+  .cashly-modern.events-page .event-qr-code img {
+    height: 210px;
+    width: 210px;
+  }
+}
+
 .cashly-modern h1,
 .cashly-modern h2,
 .cashly-modern h3,
@@ -5086,4 +5739,240 @@
   .cashly-modern.contact-page .contact-info-card {
     padding: 1.6rem;
   }
+}
+
+.cashly-modern.events-page {
+  --event-white: #ffffff;
+  --event-accent: var(--cashly-primary);
+  background: linear-gradient(180deg, #ffffff 0%, var(--cashly-bg) 100%);
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page h1,
+.cashly-modern.events-page h2,
+.cashly-modern.events-page h3,
+.cashly-modern.events-page h4,
+.cashly-modern.events-page h5,
+.cashly-modern.events-page h6 {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page p,
+.cashly-modern.events-page li,
+.cashly-modern.events-page label {
+  color: var(--cashly-muted);
+}
+
+.cashly-modern.events-page .main-nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(19, 35, 58, 0.06);
+  box-shadow: 0 10px 28px rgba(26, 52, 97, 0.05);
+}
+
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link,
+.cashly-modern.events-page .nav-powered__label {
+  color: rgba(19, 35, 58, 0.78);
+}
+
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link:hover,
+.cashly-modern.events-page .main-nav .navbar-nav .nav-link:focus,
+.cashly-modern.events-page .main-nav .navbar-nav .nav-item.active .nav-link {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .nav-powered__link {
+  background: rgba(245, 247, 250, 0.9);
+  border-color: rgba(19, 35, 58, 0.08);
+}
+
+.cashly-modern.events-page .navbar-toggler {
+  border-color: rgba(19, 35, 58, 0.1);
+}
+
+.cashly-modern.events-page .navbar-toggler span {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page .events-shell {
+  background: linear-gradient(180deg, #ffffff 0%, var(--cashly-bg) 100%);
+}
+
+.cashly-modern.events-page .events-hero {
+  background: #ffffff;
+  border-bottom: 1px solid var(--cashly-border);
+}
+
+.cashly-modern.events-page .events-hero:before {
+  background-image: linear-gradient(rgba(36, 89, 211, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(36, 89, 211, 0.045) 1px, transparent 1px);
+}
+
+.cashly-modern.events-page .events-hero__tagline,
+.cashly-modern.events-page .events-hero__lead,
+.cashly-modern.events-page .events-hero__meta span,
+.cashly-modern.events-page .event-info-panel > p,
+.cashly-modern.events-page .event-feature-card h3,
+.cashly-modern.events-page .event-audience-grid strong,
+.cashly-modern.events-page .event-included-list li,
+.cashly-modern.events-page .event-certificate span,
+.cashly-modern.events-page .event-upcoming-card strong {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page .events-hero__lead,
+.cashly-modern.events-page .events-hero__meta strong,
+.cashly-modern.events-page .event-feature-card p {
+  color: var(--cashly-muted);
+}
+
+.cashly-modern.events-page .events-hero__meta article,
+.cashly-modern.events-page .event-feature-card,
+.cashly-modern.events-page .event-info-panel,
+.cashly-modern.events-page .event-qr-panel,
+.cashly-modern.events-page .event-form-panel,
+.cashly-modern.events-page .event-upcoming-card {
+  background: #ffffff;
+  border-color: rgba(19, 35, 58, 0.09);
+  box-shadow: var(--cashly-shadow);
+}
+
+.cashly-modern.events-page .event-band,
+.cashly-modern.events-page .event-band--split,
+.cashly-modern.events-page .event-band--upcoming,
+.cashly-modern.events-page .event-register-section {
+  background: transparent;
+}
+
+.cashly-modern.events-page .event-feature-card i,
+.cashly-modern.events-page .event-audience-grid i {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .event-secondary-btn {
+  border-color: rgba(19, 35, 58, 0.12);
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page .event-secondary-btn:hover,
+.cashly-modern.events-page .event-secondary-btn:focus {
+  border-color: rgba(36, 89, 211, 0.34);
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .event-audience-grid article {
+  background: var(--cashly-surface-soft);
+  border-color: rgba(19, 35, 58, 0.08);
+}
+
+.cashly-modern.events-page .event-register-shell {
+  background: #ffffff;
+  border-color: rgba(19, 35, 58, 0.09);
+  box-shadow: var(--cashly-shadow);
+}
+
+.cashly-modern.events-page .event-form-panel .form-control {
+  background: #ffffff;
+  border-color: rgba(19, 35, 58, 0.12);
+}
+
+.cashly-modern.events-page .event-form-panel label {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page .event-form-note a,
+.cashly-modern.events-page .site-footer__links a:hover,
+.cashly-modern.events-page .site-footer__bottom a {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .form-message.is-success {
+  background: rgba(46, 204, 113, 0.1);
+  color: #176a39;
+}
+
+.cashly-modern.events-page .form-message.is-error {
+  background: rgba(218, 65, 65, 0.1);
+  color: #9a2020;
+}
+
+.cashly-modern.events-page .event-primary-btn,
+.cashly-modern.events-page .btn-main-md {
+  background: linear-gradient(135deg, var(--cashly-primary), #3b73ea);
+  box-shadow: 0 18px 45px rgba(36, 89, 211, 0.18);
+  color: #ffffff;
+}
+
+.cashly-modern.events-page .event-primary-btn,
+.cashly-modern.events-page .event-primary-btn i,
+.cashly-modern.events-page .btn-main-md,
+.cashly-modern.events-page .btn-main-md i {
+  color: #ffffff;
+}
+
+.cashly-modern.events-page .event-primary-btn:hover,
+.cashly-modern.events-page .event-primary-btn:focus,
+.cashly-modern.events-page .btn-main-md:hover,
+.cashly-modern.events-page .btn-main-md:focus {
+  background: linear-gradient(135deg, #1f4fbc, #346ae0);
+  box-shadow: 0 22px 48px rgba(36, 89, 211, 0.22);
+  color: #ffffff;
+}
+
+.cashly-modern.events-page .event-eyebrow,
+.cashly-modern.events-page .events-hero__meta i,
+.cashly-modern.events-page .event-certificate i,
+.cashly-modern.events-page .event-upcoming-card span {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .event-included-list i {
+  background: var(--cashly-primary);
+  color: #ffffff;
+}
+
+.cashly-modern.events-page .event-qr-code {
+  border-color: rgba(36, 89, 211, 0.22);
+}
+
+.cashly-modern.events-page .event-form-panel .form-control:focus {
+  border-color: rgba(36, 89, 211, 0.34);
+  box-shadow: 0 0 0 0.2rem rgba(36, 89, 211, 0.1);
+}
+
+.cashly-modern.events-page .event-poster-frame {
+  background: linear-gradient(145deg, rgba(36, 89, 211, 0.12), rgba(127, 165, 255, 0.16));
+  border-color: rgba(36, 89, 211, 0.16);
+  box-shadow: var(--cashly-shadow);
+}
+
+.cashly-modern.events-page .site-footer {
+  background: #ffffff;
+  border-top: 1px solid rgba(19, 35, 58, 0.08);
+}
+
+.cashly-modern.events-page .site-footer h6,
+.cashly-modern.events-page .site-footer__license-line {
+  color: var(--cashly-text);
+}
+
+.cashly-modern.events-page .site-footer__copy,
+.cashly-modern.events-page .site-footer__links a,
+.cashly-modern.events-page .site-footer__bottom p {
+  color: var(--cashly-muted);
+}
+
+.cashly-modern.events-page .site-footer__bottom a:not(.btn),
+.cashly-modern.events-page .site-footer__links a:hover {
+  color: var(--cashly-primary);
+}
+
+.cashly-modern.events-page .site-footer__bottom .site-footer__cta,
+.cashly-modern.events-page .site-footer__bottom .site-footer__cta:hover,
+.cashly-modern.events-page .site-footer__bottom .site-footer__cta:focus,
+.cashly-modern.events-page .site-footer__bottom .site-footer__cta:active {
+  color: #ffffff !important;
+}
+
+.cashly-modern.events-page .scroll-top-to {
+  background: var(--cashly-primary);
+  color: #ffffff;
 }
