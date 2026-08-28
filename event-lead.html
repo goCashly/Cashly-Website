@@ -267,7 +267,7 @@
     </p>
   </div>
 
-  <script src="js/cashly-config.js"></script>
+  <script src="js/cashly-config.js?v=20260828a"></script>
   <script>
     (function () {
       var form = document.getElementById("eventLeadForm");
@@ -278,7 +278,15 @@
       var subheading = document.getElementById("eventLeadSub");
       var turnstileContainer = document.getElementById("eventLeadTurnstile");
 
-      var config = window.CASHLY_CONFIG && window.CASHLY_CONFIG.eventLeadForm;
+      // Fallback in case js/cashly-config.js is missing or served stale from a
+      // cache (this page must keep working through a busy event day). The
+      // endpoint URL and Turnstile site key are public values, not secrets.
+      var FALLBACK_CONFIG = {
+        endpoint: "https://pklhknmvgdeytwhjnwxf.supabase.co/functions/v1/submit-event-lead",
+        turnstileSiteKey: "0x4AAAAAAC8juGqteiCCKx2g"
+      };
+
+      var config = (window.CASHLY_CONFIG && window.CASHLY_CONFIG.eventLeadForm) || FALLBACK_CONFIG;
 
       var turnstileWidgetId = null;
       var turnstileToken = "";
