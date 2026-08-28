@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sales Growth Academy | Cashly</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Sign up at the Cashly Sales Growth Academy booth.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="author" content="Cashly">
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/cashly-logo-nav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --cashly-bg: #f7fafe;
+      --cashly-surface: #ffffff;
+      --cashly-primary: #2459d3;
+      --cashly-primary-soft: #7fa5ff;
+      --cashly-text: #13233a;
+      --cashly-muted: #66758a;
+      --cashly-border: rgba(19, 35, 58, 0.12);
+      --cashly-shadow: 0 24px 60px rgba(26, 52, 97, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #ffffff 0%, var(--cashly-bg) 100%);
+      color: var(--cashly-text);
+      font-family: "Instrument Sans", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .event-lead-shell {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .event-lead-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .event-lead-logo img {
+      height: 34px;
+      width: auto;
+    }
+
+    .event-lead-card {
+      background: var(--cashly-surface);
+      border: 1px solid var(--cashly-border);
+      border-radius: 24px;
+      box-shadow: var(--cashly-shadow);
+      padding: 28px 24px 24px;
+    }
+
+    .event-lead-card__eyebrow {
+      color: var(--cashly-primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .event-lead-card h1 {
+      font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+      font-size: 26px;
+      line-height: 1.2;
+      margin: 8px 0 6px;
+    }
+
+    .event-lead-card p.event-lead-sub {
+      color: var(--cashly-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 22px;
+    }
+
+    .event-lead-field {
+      margin-bottom: 16px;
+    }
+
+    .event-lead-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .event-lead-field input {
+      width: 100%;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--cashly-text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--cashly-border);
+      background: #fbfdff;
+    }
+
+    .event-lead-field input:focus {
+      outline: none;
+      border-color: var(--cashly-primary);
+      box-shadow: 0 0 0 3px rgba(36, 89, 211, 0.14);
+    }
+
+    .event-lead-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .event-lead-turnstile {
+      margin-bottom: 16px;
+      min-height: 1px;
+    }
+
+    .event-lead-submit {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--cashly-primary), #3b73ea);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .event-lead-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .event-lead-submit:not(:disabled):active {
+      transform: scale(0.98);
+    }
+
+    .event-lead-message {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    .event-lead-message[data-state="error"] {
+      color: #c23434;
+    }
+
+    .event-lead-message[data-state="success"] {
+      color: #1c7a4d;
+      font-weight: 600;
+    }
+
+    .event-lead-success-icon {
+      display: none;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(28, 122, 77, 0.12);
+      color: #1c7a4d;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .event-lead-card.is-success .event-lead-form {
+      display: none;
+    }
+
+    .event-lead-card.is-success .event-lead-success-icon {
+      display: flex;
+    }
+
+    .event-lead-footer {
+      text-align: center;
+      color: var(--cashly-muted);
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .event-lead-footer a {
+      color: var(--cashly-primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="event-lead-shell">
+    <div class="event-lead-logo">
+      <img src="images/cashly-logo-nav.png" alt="Cashly logo">
+    </div>
+
+    <div class="event-lead-card" id="eventLeadCard">
+      <div class="event-lead-success-icon" aria-hidden="true">&#10003;</div>
+
+      <span class="event-lead-card__eyebrow">Sales Growth Academy</span>
+      <h1 id="eventLeadHeading">Let&rsquo;s connect</h1>
+      <p class="event-lead-sub" id="eventLeadSub">
+        Drop your details and we&rsquo;ll follow up after the event.
+      </p>
+
+      <form id="eventLeadForm" class="event-lead-form" novalidate>
+        <div class="event-lead-field">
+          <label for="eventLeadName">Name</label>
+          <input type="text" id="eventLeadName" name="name" autocomplete="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="event-lead-field">
+          <label for="eventLeadPhone">Phone</label>
+          <input type="tel" id="eventLeadPhone" name="phone" autocomplete="tel" placeholder="(555) 123-4567" required>
+        </div>
+
+        <div class="event-lead-field">
+          <label for="eventLeadEmail">Email</label>
+          <input type="email" id="eventLeadEmail" name="email" autocomplete="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="event-lead-field">
+          <label for="eventLeadCompany">Company</label>
+          <input type="text" id="eventLeadCompany" name="company" autocomplete="organization" placeholder="Your company" required>
+        </div>
+
+        <div class="event-lead-field">
+          <label for="eventLeadPosition">Your position</label>
+          <input type="text" id="eventLeadPosition" name="position" autocomplete="organization-title" placeholder="e.g. Mortgage Broker" required>
+        </div>
+
+        <!-- Honeypot field: hidden from real visitors, left blank by humans. -->
+        <div class="event-lead-honeypot" aria-hidden="true">
+          <label for="eventLeadWebsite">Website</label>
+          <input type="text" id="eventLeadWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="event-lead-turnstile" id="eventLeadTurnstile"></div>
+
+        <button type="submit" class="event-lead-submit" id="eventLeadSubmit">Submit</button>
+      </form>
+
+      <p id="eventLeadMessage" class="event-lead-message" aria-live="polite"></p>
+    </div>
+
+    <p class="event-lead-footer">
+      Cashly &middot; <a href="index.html">gocashly.io</a>
+    </p>
+  </div>
+
+  <script src="js/cashly-config.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("eventLeadForm");
+      var card = document.getElementById("eventLeadCard");
+      var submitButton = document.getElementById("eventLeadSubmit");
+      var messageElement = document.getElementById("eventLeadMessage");
+      var heading = document.getElementById("eventLeadHeading");
+      var subheading = document.getElementById("eventLeadSub");
+      var turnstileContainer = document.getElementById("eventLeadTurnstile");
+
+      var config = window.CASHLY_CONFIG && window.CASHLY_CONFIG.eventLeadForm;
+
+      var turnstileWidgetId = null;
+      var turnstileToken = "";
+      var turnstileApiPromise = null;
+      var turnstileApiSrc = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+      var setMessage = function (text, state) {
+        messageElement.textContent = text || "";
+        if (state) {
+          messageElement.setAttribute("data-state", state);
+        } else {
+          messageElement.removeAttribute("data-state");
+        }
+      };
+
+      var waitForTurnstileApi = function (timeoutMs) {
+        if (window.turnstile && typeof window.turnstile.render === "function") {
+          return Promise.resolve(window.turnstile);
+        }
+
+        if (turnstileApiPromise) {
+          return turnstileApiPromise;
+        }
+
+        turnstileApiPromise = new Promise(function (resolve, reject) {
+          var settled = false;
+          var timer = setTimeout(function () {
+            if (!settled) {
+              settled = true;
+              turnstileApiPromise = null;
+              reject(new Error("Turnstile failed to load."));
+            }
+          }, timeoutMs || 10000);
+
+          var existingScript = document.querySelector('script[src="' + turnstileApiSrc + '"]');
+
+          var onReady = function () {
+            if (settled) {
+              return;
+            }
+            if (window.turnstile && typeof window.turnstile.render === "function") {
+              settled = true;
+              clearTimeout(timer);
+              resolve(window.turnstile);
+            } else {
+              settled = true;
+              clearTimeout(timer);
+              turnstileApiPromise = null;
+              reject(new Error("Turnstile failed to load."));
+            }
+          };
+
+          if (existingScript) {
+            existingScript.addEventListener("load", onReady, { once: true });
+            existingScript.addEventListener("error", onReady, { once: true });
+            return;
+          }
+
+          var script = document.createElement("script");
+          script.src = turnstileApiSrc;
+          script.async = true;
+          script.defer = true;
+          script.addEventListener("load", onReady, { once: true });
+          script.addEventListener("error", onReady, { once: true });
+          document.head.appendChild(script);
+        });
+
+        return turnstileApiPromise;
+      };
+
+      var resetTurnstile = function () {
+        turnstileToken = "";
+        if (window.turnstile && turnstileWidgetId !== null) {
+          window.turnstile.reset(turnstileWidgetId);
+        }
+      };
+
+      var renderTurnstile = function () {
+        if (!turnstileContainer || !config || !config.turnstileSiteKey || turnstileWidgetId !== null) {
+          return Promise.resolve();
+        }
+
+        return waitForTurnstileApi().then(function (turnstile) {
+          if (turnstileWidgetId !== null) {
+            return;
+          }
+
+          turnstileWidgetId = turnstile.render(turnstileContainer, {
+            sitekey: config.turnstileSiteKey,
+            callback: function (token) {
+              turnstileToken = token;
+            },
+            "expired-callback": function () {
+              turnstileToken = "";
+            },
+            "error-callback": function () {
+              turnstileToken = "";
+            }
+          });
+        }).catch(function (error) {
+          console.error("Turnstile failed to load:", error);
+        });
+      };
+
+      renderTurnstile();
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!config || !config.endpoint) {
+          setMessage("This form is not configured yet. Add the endpoint in js/cashly-config.js.", "error");
+          return;
+        }
+
+        var payload = {
+          name: document.getElementById("eventLeadName").value.trim(),
+          phone: document.getElementById("eventLeadPhone").value.trim(),
+          email: document.getElementById("eventLeadEmail").value.trim(),
+          company: document.getElementById("eventLeadCompany").value.trim(),
+          position: document.getElementById("eventLeadPosition").value.trim(),
+          website: document.getElementById("eventLeadWebsite").value,
+          event_name: "Sales Growth Academy",
+          source_page: window.location.pathname + window.location.hash,
+          turnstile_token: turnstileToken
+        };
+
+        if (!payload.name || !payload.phone || !payload.email || !payload.company || !payload.position) {
+          setMessage("Please fill in all fields before submitting.", "error");
+          return;
+        }
+
+        if (!payload.turnstile_token) {
+          setMessage("Please wait a moment for the security check to finish, then try again.", "error");
+          renderTurnstile();
+          return;
+        }
+
+        submitButton.disabled = true;
+        setMessage("Submitting...", null);
+
+        fetch(config.endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              return { ok: response.ok, data: data };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok || !result.data || result.data.success !== true) {
+              var errorMessage = (result.data && result.data.message) || "Something went wrong. Please try again.";
+              setMessage(errorMessage, "error");
+              resetTurnstile();
+              submitButton.disabled = false;
+              return;
+            }
+
+            heading.textContent = "You're all set!";
+            subheading.textContent = "Thanks for stopping by — we'll be in touch after the event.";
+            card.classList.add("is-success");
+            setMessage("", null);
+          })
+          .catch(function () {
+            setMessage("Network error. Please check your connection and try again.", "error");
+            resetTurnstile();
+            submitButton.disabled = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

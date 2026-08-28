@@ -1,2 +1,5 @@
 [functions.submit-callback-request]
 verify_jwt = false
+
+[functions.submit-event-lead]
+verify_jwt = false
