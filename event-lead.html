@@ -53,13 +53,26 @@
 
     .event-lead-logo {
       display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 14px;
       margin-bottom: 20px;
     }
 
     .event-lead-logo img {
       height: 34px;
       width: auto;
+    }
+
+    .event-lead-logo__rdc {
+      height: 44px;
+      border-radius: 6px;
+    }
+
+    .event-lead-logo__divider {
+      color: var(--cashly-border);
+      font-size: 18px;
+      font-weight: 300;
     }
 
     .event-lead-card {
@@ -210,6 +223,8 @@
 <body>
   <div class="event-lead-shell">
     <div class="event-lead-logo">
+      <img src="images/royal-den-capital-logo-cropped.png" alt="Royal Den Capital" class="event-lead-logo__rdc">
+      <span class="event-lead-logo__divider" aria-hidden="true">&times;</span>
       <img src="images/cashly-logo-nav.png" alt="Cashly logo">
     </div>
 
