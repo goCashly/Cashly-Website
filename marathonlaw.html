@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Marathon Law P.C. | Let's Connect</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Get in touch with Marathon Law P.C.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="author" content="Marathon Law P.C.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Outfit:wght@600;700;800&amp;display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --ml-bg: #0a0a0a;
+      --ml-surface: #141414;
+      --ml-silver: #f4f4f4;
+      --ml-silver-soft: #b9b9b9;
+      --ml-muted: #8a8a8a;
+      --ml-border: rgba(244, 244, 244, 0.14);
+      --ml-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, var(--ml-bg) 60%);
+      color: var(--ml-silver);
+      font-family: "Instrument Sans", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .ml-lead-shell {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .ml-lead-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .ml-lead-logo svg {
+      height: 46px;
+      width: auto;
+    }
+
+    .ml-lead-wordmark {
+      font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+      font-weight: 700;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--ml-silver);
+      font-size: 20px;
+    }
+
+    .ml-lead-wordmark small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ml-silver-soft);
+    }
+
+    .ml-lead-card {
+      background: var(--ml-surface);
+      border: 1px solid var(--ml-border);
+      border-radius: 24px;
+      box-shadow: var(--ml-shadow);
+      padding: 28px 24px 24px;
+    }
+
+    .ml-lead-card__eyebrow {
+      color: var(--ml-silver-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .ml-lead-card h1 {
+      font-family: "Outfit", "Instrument Sans", Arial, sans-serif;
+      font-size: 26px;
+      line-height: 1.2;
+      margin: 8px 0 6px;
+      color: #ffffff;
+    }
+
+    .ml-lead-card p.ml-lead-sub {
+      color: var(--ml-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 22px;
+    }
+
+    .ml-lead-field {
+      margin-bottom: 16px;
+    }
+
+    .ml-lead-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ml-silver-soft);
+    }
+
+    .ml-lead-field input {
+      width: 100%;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--ml-silver);
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--ml-border);
+      background: #1c1c1c;
+    }
+
+    .ml-lead-field input::placeholder {
+      color: #6b6b6b;
+    }
+
+    .ml-lead-field input:focus {
+      outline: none;
+      border-color: var(--ml-silver-soft);
+      box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
+    }
+
+    .ml-lead-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .ml-lead-submit {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f4f4f4, #b9b9b9);
+      color: #0a0a0a;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .ml-lead-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .ml-lead-submit:not(:disabled):active {
+      transform: scale(0.98);
+    }
+
+    .ml-lead-message {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    .ml-lead-message[data-state="error"] {
+      color: #e07070;
+    }
+
+    .ml-lead-message[data-state="success"] {
+      color: #7fe0a8;
+      font-weight: 600;
+    }
+
+    .ml-lead-success-icon {
+      display: none;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(127, 224, 168, 0.12);
+      color: #7fe0a8;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .ml-lead-card.is-success .ml-lead-form {
+      display: none;
+    }
+
+    .ml-lead-card.is-success .ml-lead-success-icon {
+      display: flex;
+    }
+
+    .ml-lead-footer {
+      text-align: center;
+      color: var(--ml-muted);
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .ml-lead-footer a {
+      color: var(--ml-silver-soft);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ml-lead-shell">
+    <div class="ml-lead-logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="mlSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#cfcfcf"/>
+            <stop offset="100%" stop-color="#8f8f8f"/>
+          </linearGradient>
+        </defs>
+        <path d="M20 15 L20 75 L34 75 L34 40 L50 58 L66 40 L66 75 L80 75 L80 15 L64 15 L50 32 L36 15 Z" fill="url(#mlSilver)"/>
+        <path d="M20 75 L34 75 L34 62 Z" fill="#5a5a5a"/>
+      </svg>
+      <span class="ml-lead-wordmark">Marathon<br>Law<small>Barrister &amp; Solicitor</small></span>
+    </div>
+
+    <div class="ml-lead-card" id="mlLeadCard">
+      <div class="ml-lead-success-icon" aria-hidden="true">&#10003;</div>
+
+      <span class="ml-lead-card__eyebrow">Marathon Law P.C.</span>
+      <h1 id="mlLeadHeading">Let&rsquo;s connect</h1>
+      <p class="ml-lead-sub" id="mlLeadSub">
+        Leave your details and we&rsquo;ll be in touch.
+      </p>
+
+      <form id="mlLeadForm" class="ml-lead-form" novalidate>
+        <div class="ml-lead-field">
+          <label for="mlLeadName">Name</label>
+          <input type="text" id="mlLeadName" name="name" autocomplete="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="ml-lead-field">
+          <label for="mlLeadCompany">Company/Brokerage</label>
+          <input type="text" id="mlLeadCompany" name="company" autocomplete="organization" placeholder="Your company or brokerage" required>
+        </div>
+
+        <div class="ml-lead-field">
+          <label for="mlLeadPosition">Job Title</label>
+          <input type="text" id="mlLeadPosition" name="position" autocomplete="organization-title" placeholder="e.g. Mortgage Broker" required>
+        </div>
+
+        <div class="ml-lead-field">
+          <label for="mlLeadEmail">Email</label>
+          <input type="email" id="mlLeadEmail" name="email" autocomplete="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="ml-lead-field">
+          <label for="mlLeadPhone">Phone number</label>
+          <input type="tel" id="mlLeadPhone" name="phone" autocomplete="tel" placeholder="(555) 123-4567" required>
+        </div>
+
+        <!-- Honeypot field: hidden from real visitors, left blank by humans. FormSubmit ignores this field name by default; we still gate on it client-side. -->
+        <div class="ml-lead-honeypot" aria-hidden="true">
+          <label for="mlLeadWebsite">Website</label>
+          <input type="text" id="mlLeadWebsite" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="ml-lead-submit" id="mlLeadSubmit">Submit</button>
+      </form>
+
+      <p id="mlLeadMessage" class="ml-lead-message" aria-live="polite"></p>
+    </div>
+
+    <p class="ml-lead-footer">
+      Marathon Law P.C. &middot; <a href="https://www.marathonlaw.ca" target="_blank" rel="noopener">marathonlaw.ca</a>
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById("mlLeadForm");
+      var card = document.getElementById("mlLeadCard");
+      var submitButton = document.getElementById("mlLeadSubmit");
+      var messageElement = document.getElementById("mlLeadMessage");
+      var heading = document.getElementById("mlLeadHeading");
+      var subheading = document.getElementById("mlLeadSub");
+
+      // FormSubmit.co delivers straight to this inbox — no backend of ours
+      // required. The first-ever submission triggers a one-time
+      // confirmation email to this address that must be clicked before
+      // subsequent submissions start arriving normally.
+      var RECIPIENT_EMAIL = "info@marathonlaw.ca";
+      var ENDPOINT = "https://formsubmit.co/ajax/" + RECIPIENT_EMAIL;
+
+      var setMessage = function (text, state) {
+        messageElement.textContent = text || "";
+        if (state) {
+          messageElement.setAttribute("data-state", state);
+        } else {
+          messageElement.removeAttribute("data-state");
+        }
+      };
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var payload = {
+          name: document.getElementById("mlLeadName").value.trim(),
+          company: document.getElementById("mlLeadCompany").value.trim(),
+          position: document.getElementById("mlLeadPosition").value.trim(),
+          email: document.getElementById("mlLeadEmail").value.trim(),
+          phone: document.getElementById("mlLeadPhone").value.trim(),
+          _honey: document.getElementById("mlLeadWebsite").value,
+          _subject: "New Marathon Law lead form submission",
+          _template: "table",
+          _captcha: "false",
+          source_page: window.location.pathname + window.location.hash
+        };
+
+        if (!payload.name || !payload.company || !payload.position || !payload.email || !payload.phone) {
+          setMessage("Please fill in all fields before submitting.", "error");
+          return;
+        }
+
+        if (payload._honey) {
+          // Honeypot tripped — silently pretend success without submitting.
+          heading.textContent = "You're all set!";
+          subheading.textContent = "Thanks for reaching out — we'll be in touch soon.";
+          card.classList.add("is-success");
+          setMessage("", null);
+          return;
+        }
+
+        submitButton.disabled = true;
+        setMessage("Submitting...", null);
+
+        fetch(ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              return { ok: response.ok, data: data };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok) {
+              var errorMessage = (result.data && result.data.message) || "Something went wrong. Please try again.";
+              setMessage(errorMessage, "error");
+              submitButton.disabled = false;
+              return;
+            }
+
+            heading.textContent = "You're all set!";
+            subheading.textContent = "Thanks for reaching out — we'll be in touch soon.";
+            card.classList.add("is-success");
+            setMessage("", null);
+          })
+          .catch(function () {
+            setMessage("Network error. Please check your connection and try again.", "error");
+            submitButton.disabled = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
