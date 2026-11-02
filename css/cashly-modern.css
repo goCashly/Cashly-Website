@@ -1084,6 +1084,40 @@
   gap: 12px;
 }
 
+.cashly-modern .compare-table-modern {
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(19, 35, 58, 0.06);
+  box-shadow: var(--cashly-shadow);
+  margin-bottom: 0;
+}
+
+.cashly-modern .compare-table-modern th,
+.cashly-modern .compare-table-modern td {
+  border-color: rgba(19, 35, 58, 0.06);
+  padding: 0.95rem 1.1rem;
+  vertical-align: middle;
+}
+
+.cashly-modern .compare-table-modern thead th {
+  background: var(--cashly-primary);
+  color: #fff;
+  font-weight: 700;
+  border-color: var(--cashly-primary);
+}
+
+.cashly-modern .compare-table-modern tbody th {
+  color: var(--cashly-text);
+  font-weight: 700;
+  background: var(--cashly-surface-soft);
+  white-space: nowrap;
+}
+
+.cashly-modern .compare-table-modern tbody td {
+  color: var(--cashly-muted);
+}
+
 .cashly-modern .content-chip-row span {
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(36, 89, 211, 0.08);

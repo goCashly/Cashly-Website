@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /sign-in.html
+Disallow: /sign-up.html
+Disallow: /comming-soon.html
+
+Sitemap: https://gocashly.io/sitemap.xml
