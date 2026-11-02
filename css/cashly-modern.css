@@ -1130,6 +1130,15 @@
   padding: 0.8rem 1rem;
 }
 
+.cashly-modern .content-chip-row a {
+  text-decoration: none;
+}
+
+.cashly-modern .content-chip-row a:hover span {
+  border-color: var(--cashly-primary);
+  color: var(--cashly-primary);
+}
+
 .cashly-modern .metric-grid {
   display: grid;
   gap: 18px;
@@ -2737,6 +2746,60 @@
     0 10px 22px rgba(0, 0, 0, 0.24),
     0 18px 42px rgba(2, 8, 22, 0.28);
   text-transform: none;
+}
+
+.cashly-modern .hero-eyebrow {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  gap: 8px;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.4rem;
+  padding: 0.5rem 1.05rem;
+  text-transform: uppercase;
+}
+
+.cashly-modern .hero-eyebrow i {
+  color: #7fa5ff;
+  font-size: 0.95rem;
+}
+
+.cashly-modern .hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 2.2rem;
+}
+
+.cashly-modern .hero-trust-item {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.cashly-modern .hero-trust-item i {
+  color: #7fa5ff;
+  font-size: 1.4rem;
+}
+
+.cashly-modern .hero-trust-item strong {
+  color: #fff;
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.cashly-modern .hero-trust-item span {
+  color: rgba(255, 255, 255, 0.78);
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.3;
 }
 
 .cashly-modern.home-page .section-title-modern h2,
