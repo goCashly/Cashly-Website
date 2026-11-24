@@ -81,9 +81,9 @@
   "email": "operations@gocashly.io",
   "employee": {
     "@type": "Person",
-    "name": "Pavit Paul",
+    "name": "Ehsan Sardar",
     "jobTitle": "Mortgage Broker",
-    "identifier": "FSRA Licence M20000568 · Brokerage Licence ON 12830"
+    "identifier": "FSRA Licence M21001444 · Brokerage Licence ON 12830"
   },
   "sameAs": [
     "https://www.linkedin.com/company/gocashly/"
@@ -511,7 +511,7 @@
       </div>
 
       <div class="site-footer__powered">
-        <p class="site-footer__license-line"><strong>Pavit Paul</strong><br>Mortgage Broker<br>M20000568<br>ON 12830</p>
+        <p class="site-footer__license-line"><strong>Ehsan Sardar</strong><br>Mortgage Broker<br>M21001444<br>ON 12830</p>
         <div class="site-footer__powered-row">
           <span class="site-footer__powered-label">Powered by</span>
           <a class="site-footer__powered-brand" href="https://gopineapple.com/" target="_blank" rel="noopener noreferrer" aria-label="Powered by Pineapple">
@@ -572,7 +572,7 @@
     const eventSubmitButton = document.getElementById("eventSubmitButton");
     const eventSubscribeForm = document.getElementById("eventSubscribeForm");
     const eventSubscribeMessage = document.getElementById("eventSubscribeMessage");
-    const eventRegistrationEndpoint = "https://formsubmit.co/ajax/pavit.paul@gocashly.io";
+    const eventRegistrationEndpoint = "https://formsubmit.co/ajax/operations@gocashly.io";
 
     const isValidEmail = (value) => {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -649,7 +649,7 @@
         eventMessage.textContent = "Registration sent. We will follow up with event details soon.";
       } catch (error) {
         eventMessage.className = "form-message is-error";
-        eventMessage.textContent = "Something went wrong. Please try again or email pavit.paul@gocashly.io directly.";
+        eventMessage.textContent = "Something went wrong. Please try again or email operations@gocashly.io directly.";
       } finally {
         eventSubmitButton.disabled = false;
       eventSubmitButton.innerHTML = 'Send RSVP <i class="ti-arrow-right"></i>';
@@ -692,7 +692,7 @@
         eventSubscribeMessage.textContent = "Subscription request sent.";
       } catch (error) {
         eventSubscribeMessage.className = "form-message is-error";
-        eventSubscribeMessage.textContent = "Something went wrong. Please try again or email pavit.paul@gocashly.io directly.";
+        eventSubscribeMessage.textContent = "Something went wrong. Please try again or email operations@gocashly.io directly.";
       }
     });
   </script>
